@@ -1,0 +1,336 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Willowbrook Book",
+  "type": "object",
+  "required": [
+    "circle",
+    "circleIcon",
+    "bookId",
+    "title",
+    "cover",
+    "toc",
+    "chapters",
+    "quiz"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "circle": {
+      "type": "string"
+    },
+    "circleIcon": {
+      "type": "string"
+    },
+    "bookId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "cover": {
+      "type": "object",
+      "required": [
+        "image",
+        "alt"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "image": {
+          "type": "string"
+        },
+        "alt": {
+          "type": "string"
+        }
+      }
+    },
+    "toc": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "title",
+              "chapter"
+            ]
+          },
+          "label": {
+            "type": "string"
+          },
+          "anchor": {
+            "type": "string",
+            "description": "Required if type=chapter"
+          }
+        }
+      }
+    },
+    "chapters": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "pages"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "pages": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "number",
+                "layout",
+                "text"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "number": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "layout": {
+                  "type": "string",
+                  "enum": [
+                    "art-left",
+                    "art-right",
+                    "art-full"
+                  ]
+                },
+                "text": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "media": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "src"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "image",
+                          "audio"
+                        ]
+                      },
+                      "src": {
+                        "type": "string"
+                      },
+                      "alt": {
+                        "type": "string"
+                      },
+                      "placement": {
+                        "type": "string",
+                        "enum": [
+                          "art-left",
+                          "art-right",
+                          "art-full"
+                        ]
+                      },
+                      "animation": {
+                        "type": "object",
+                        "required": [
+                          "kind",
+                          "trigger"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "kind": {
+                            "type": "string",
+                            "enum": [
+                              "pulse",
+                              "float",
+                              "spin"
+                            ]
+                          },
+                          "trigger": {
+                            "type": "string",
+                            "enum": [
+                              "tap",
+                              "auto"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "interactivity": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "kind",
+                      "x",
+                      "y",
+                      "onTap"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "enum": [
+                          "hotspot"
+                        ]
+                      },
+                      "x": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 100
+                      },
+                      "y": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 100
+                      },
+                      "onTap": {
+                        "type": "object",
+                        "required": [
+                          "action",
+                          "targetMediaIndex"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "action": {
+                            "type": "string",
+                            "enum": [
+                              "toggleAnimation"
+                            ]
+                          },
+                          "targetMediaIndex": {
+                            "type": "integer",
+                            "minimum": 0
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "quiz": {
+      "type": "object",
+      "required": [
+        "instructions",
+        "questions"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "instructions": {
+          "type": "string"
+        },
+        "questions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "type",
+              "prompt",
+              "choices",
+              "answerIndex",
+              "reactions"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "const": "mcq"
+              },
+              "prompt": {
+                "type": "string"
+              },
+              "choices": {
+                "type": "array",
+                "minItems": 2,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "answerIndex": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "reactions": {
+                "type": "object",
+                "required": [
+                  "correct",
+                  "incorrect"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "correct": {
+                    "type": "object",
+                    "required": [
+                      "character",
+                      "line"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "character": {
+                        "type": "string"
+                      },
+                      "line": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "incorrect": {
+                    "type": "object",
+                    "required": [
+                      "character",
+                      "line"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "character": {
+                        "type": "string"
+                      },
+                      "line": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

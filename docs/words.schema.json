@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Willowbrook Circle Vocabulary",
+  "type": "object",
+  "required": [
+    "circle",
+    "words"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "circle": {
+      "type": "string",
+      "description": "Circle name this list applies to."
+    },
+    "words": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "word",
+          "audio"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "word": {
+            "type": "string",
+            "description": "Term (case-insensitive match)."
+          },
+          "audio": {
+            "type": "string",
+            "description": "Relative path to pronunciation audio."
+          },
+          "definition": {
+            "type": "string",
+            "description": "Reader-friendly definition."
+          }
+        }
+      }
+    }
+  }
+}

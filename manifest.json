@@ -1,0 +1,19 @@
+{
+  "circles": [
+    "Acorn",
+    "Leaf",
+    "Branch",
+    "Oak",
+    "Elder"
+  ],
+  "books": [
+    {
+      "circle": "Leaf",
+      "bookId": "leaf-001",
+      "title": "Lorem Leaf Adventures",
+      "subtitle": "A totally fake book for testing",
+      "path": "./books/leaf-001/book.json",
+      "circleIcon": "images/ui/circles/circle-leaf.png"
+    }
+  ]
+}

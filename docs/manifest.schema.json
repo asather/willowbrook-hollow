@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Willowbrook Manifest",
+  "type": "object",
+  "required": [
+    "circles",
+    "books"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "circles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "Ordered list of Circle names shown in the library menu."
+    },
+    "books": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "required": [
+          "circle",
+          "bookId",
+          "title",
+          "path",
+          "circleIcon"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "circle": {
+            "type": "string",
+            "description": "Must match a value in `circles`."
+          },
+          "bookId": {
+            "type": "string",
+            "description": "Unique identifier for the book."
+          },
+          "title": {
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string",
+            "description": "Relative URL to the book.json file."
+          },
+          "circleIcon": {
+            "type": "string",
+            "description": "Path to emblem used in UI."
+          }
+        }
+      }
+    }
+  }
+}

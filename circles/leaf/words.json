@@ -1,0 +1,25 @@
+{
+  "circle": "Leaf",
+  "words": [
+    {
+      "word": "complicated",
+      "audio": "./audio/leaf/complicated.mp3"
+    },
+    {
+      "word": "observes",
+      "audio": "./audio/leaf/observes.mp3"
+    },
+    {
+      "word": "accurate",
+      "audio": "./audio/leaf/accurate.mp3"
+    },
+    {
+      "word": "ceremony",
+      "audio": "./audio/leaf/ceremony.mp3"
+    },
+    {
+      "word": "lanterns",
+      "audio": "./audio/leaf/lanterns.mp3"
+    }
+  ]
+}
