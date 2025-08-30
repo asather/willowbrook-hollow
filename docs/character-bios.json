@@ -1,0 +1,82 @@
+{
+  "moss": {
+    "name": "Moss",
+    "levels": {
+      "acorn": "Moss is a hedgehog. He is shy but brave. When he is scared, he rolls into a ball.",
+      "leaf": "Moss watches closely and notices small clues. He is quiet in groups, yet he steps forward when a friend needs help. His calm thinking keeps plans from rushing.",
+      "branch": "Observant and steady, Moss often spots what others miss—tracks on the path, a twig moved, a new smell on the breeze. Crowds make him nervous, so he takes a breath and chooses one small step to start. With that gentle push, the team follows.",
+      "oak": "Moss has learned to turn quiet into strength. He listens for details, weighs choices, and offers careful advice that keeps the Hollow from tripping over quick ideas. His patience steadies bold friends like Tansy, and younger animals trust his measured, kind voice.",
+      "elder": "Moss’s courage looks small at first glance: a careful question, a steady paw, a patient wait. Yet those small choices add up to real leadership. He studies the ground, remembers patterns, and speaks when his words can help the most. Friends relax when Moss is near, because he notices danger early and kindness even earlier. His habit of rolling into a ball has become a running joke, but it also shows a lesson he shares with others: it is fine to pause, gather yourself, and then move forward with purpose."
+    }
+  },
+  "tansy": {
+    "name": "Tansy",
+    "levels": {
+      "acorn": "Tansy is a squirrel. She has big ideas and talks fast. Her plans can be wild and funny.",
+      "leaf": "Tansy loves planning ten steps at once. She races ahead, then laughs when the path twists. Even when she gets distracted, her bright energy brings friends together.",
+      "branch": "Tansy’s huge ideas sometimes wobble, but she listens better now and adjusts on the run. She divides big problems into quick actions—climb there, fetch this, signal Wren—and her cheer turns worry into motion.",
+      "oak": "With practice, Tansy channels spark into strategy. She gathers opinions, chooses a clear path, and keeps the team moving with short, confident calls. Her plans leave room for surprises, and she accepts fixes without fuss.",
+      "elder": "Tansy still loves a daring plan, but she now shapes that spark into leadership. She invites others to add pieces, weighs tradeoffs, and turns excitement into organized action. Mistakes no longer rattle her; they become data she uses to improve the next step. Friends count on Tansy to make the work feel fun while aiming everyone toward a shared goal."
+    }
+  },
+  "brindle": {
+    "name": "Brindle",
+    "levels": {
+      "acorn": "Brindle is a gentle old dog. He wears a green bandana and tells calm stories.",
+      "leaf": "Brindle listens first and speaks softly. He guides Moss and Tansy with patient advice and a steady smile.",
+      "branch": "Experience has taught Brindle when to act and when to wait. In tricky moments he lowers his voice, asks a simple question, and the right answer often appears.",
+      "oak": "Brindle mentors through examples more than speeches. He names what is going well, suggests one change at a time, and reminds the team that kindness is also a tool.",
+      "elder": "Known across the Hollow for quiet wisdom, Brindle’s worn green bandana signals comfort and safety. He notices tired paws, shares tasks fairly, and keeps arguments gentle. When he tells a story, each image carries a lesson without scolding. Under Brindle’s care, worried ideas un-knot themselves, and courage feels possible for everyone."
+    }
+  },
+  "wren": {
+    "name": "Wren",
+    "levels": {
+      "acorn": "Wren is a small songbird who loves news. She sometimes repeats funny things she hears.",
+      "leaf": "Wren chirps quick updates from around the Hollow—sometimes too quick. She is learning to check details before she sings them out.",
+      "branch": "Curious and lively, Wren can cross the Hollow in a handful of wingbeats, collecting facts like seeds. She asks follow-up questions now and corrects herself when she gets a line wrong.",
+      "oak": "Wren balances excitement with accuracy. She names what she knows, what she heard, and what still needs checking. Thanks to Wren, the team acts fast without guessing.",
+      "elder": "A skilled reporter and storyteller, Wren keeps history alive with bright voice and careful memory. She weaves many viewpoints into a clear picture, credits helpers by name, and resists the urge to exaggerate. When Wren sings the story of a rescue, the Hollow not only cheers—it understands how to do better next time."
+    }
+  },
+  "echo": {
+    "name": "Echo",
+    "levels": {
+      "acorn": "Echo is a fox with a forest-green satchel. He is clever and likes jokes.",
+      "leaf": "Echo teases and smirks, then secretly helps at just the right time. He pretends to leave, but he never really does.",
+      "branch": "Confident and quick, Echo tests ideas the way he tests paths—light on his paws, ready to pivot. When danger rises, he drops the joke and acts with precise, helpful speed.",
+      "oak": "Echo mentors through wit and timing. He turns tricks into lessons, shows how to read a trail, and asks sharp questions that reveal the true problem hiding under the noisy one.",
+      "elder": "Echo’s swagger hides a steady heart. He scouts ahead, memorizes escape routes, and carries what others forget in his green satchel. He respects Tansy’s bold plans and Moss’s careful notes, stitching them together when seconds matter. Friends may remember the smirk, but what keeps them safe is Echo’s practiced craft: calm, foresight, and a rescue that seems effortless when it arrives."
+    }
+  },
+  "puddle": {
+    "name": "Puddle",
+    "levels": {
+      "acorn": "Puddle is a duck. He gets distracted, but sometimes helps by accident.",
+      "leaf": "Puddle wanders mid-thought and bumps into answers no one expected. His gentle questions make others think in new ways.",
+      "branch": "Following his curiosity, Puddle notices side paths: a loose board, a hidden ripple, a scent on the water. Those detours uncover clues the team needs.",
+      "oak": "Puddle’s meandering view reveals patterns others miss. He connects small details into fresh ideas, and his kindness keeps the group from hurrying past important things.",
+      "elder": "Puddle proves that clarity can come from curiosity. He is not loud and not fast, but he is open, and that openness leads to insight. He listens for the quiet clue, asks the extra question, and reminds the Hollow to look twice at what seems ordinary. Many solutions begin with Puddle saying, “Wait—what’s that?”"
+    }
+  },
+  "pip-pebble": {
+    "name": "Pip & Pebble",
+    "levels": {
+      "acorn": "Pip and Pebble are mouse twins. They argue, then work together fast.",
+      "leaf": "They bicker over tiny details, but their quick paws and quicker ideas fix small, tricky problems.",
+      "branch": "The twins now treat debate like a tool. Pip sketches fast; Pebble checks angles. When the moment comes, their hands move as one.",
+      "oak": "They plan builds like puzzles, assigning jobs by strength and trading when it helps. Their precise talk can sound sharp, but it keeps work safe and clean.",
+      "elder": "Inventive and exact, the twins guide complex tasks from scrap to sturdy. They test, measure, and adjust without ego. Arguments still pop up, but now they end with a shared grin and a better design. In tight spaces and tight timelines, Pip & Pebble are the Hollow’s favorite kind of reliable."
+    }
+  },
+  "zoe": {
+    "name": "Zoe",
+    "levels": {
+      "acorn": "Zoe is a human helper. Animals notice her boots, buckets, and kind hands.",
+      "leaf": "Zoe’s steady work keeps everyone safe and fed. The animals watch her with wonder, even if they can’t understand her words.",
+      "branch": "Though animals don’t speak her language, Zoe’s habits teach: prepare first, move gently, finish what you start. Her quiet routines shape their days.",
+      "oak": "Zoe’s example shows practical care. She checks fences, sorts feed, and kneels to comfort the worried. To the Hollow, she is a patient rhythm that makes rescue possible.",
+      "elder": "Zoe does not know the Hollow’s conversations, but the Hollow knows Zoe. Her mismatched, practical clothing, her careful hands, and her calm pace set a standard for service. She respects every creature, from the smallest mouse to the grumpiest goose. Without speeches, Zoe models stewardship: prepare, protect, repair, and help again tomorrow."
+    }
+  }
+}

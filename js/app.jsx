@@ -2,6 +2,21 @@ const {useState, useEffect, useMemo, useRef} = React;
 
 const cls = (...parts) => parts.filter(Boolean).join(" ");
 
+
+// put near the other top-level consts in app.jsx
+const CHARACTER_IMAGE = {
+  moss: "./images/characters/master/moss_master.png",
+  tansy: "./images/characters/master/tansy_master.png",
+  brindle: "./images/characters/master/brindle_master.png",
+  wren: "./images/characters/master/wren_master.png",
+  echo: "./images/characters/master/echo_master.png",
+  puddle: "./images/characters/master/puddle_master.png",
+  "pip-pebble": "./images/characters/master/pip_pebble_master.png",
+  zoe: "./images/characters/master/zoe_master.png",
+};
+
+
+
 function useSwipe(onLeft, onRight) {
   const touchStartX = useRef(null);
   const touchEndX = useRef(null);
@@ -50,8 +65,10 @@ function renderInlineWithVocab(text, vocabMap, onSpeak) {
 function App(){
   const [view, setView] = useState({kind:"home"});
   const [manifest, setManifest] = useState(null);
+  const [bios, setBios] = useState(null);
 
   useEffect(() => { fetch("./manifest.json").then(r=>r.json()).then(setManifest); }, []);
+  useEffect(() => { fetch("./docs/character-bios.json").then(r=>r.json()).then(setBios); }, []);
 
   const openBook = (bookMeta) => {
     fetch(bookMeta.path).then(r=>r.json()).then(book => {
@@ -59,23 +76,36 @@ function App(){
     });
   };
 
-  if(!manifest){
+  const openBio = (characterId) => {
+    setView({ kind: "bio", characterId });
+  };
+
+  if(!manifest || !bios){
     return <div className="min-h-screen flex items-center justify-center text-stone-500">Loading…</div>;
   }
 
   return (
     <div className="min-h-screen bg-emerald-50 text-stone-900">
       {view.kind === "home" && (
-        <HomeScreen manifest={manifest} onOpenBook={openBook} />
+        
+        <HomeScreen manifest={manifest} onOpenBook={openBook} onOpenBio={openBio} />
       )}
       {view.kind === "book" && (
         <BookViewer book={view.book} onExit={() => setView({ kind:"home" })} />
+      )}
+      {view.kind === "bio" && (
+        <CharacterBioView
+          characterId={view.characterId}
+          bio={bios[view.characterId]}
+          onExit={() => setView({ kind:"home" })}
+        />
       )}
     </div>
   );
 }
 
-function HomeScreen({ manifest, onOpenBook }) {
+
+function HomeScreen({ manifest, onOpenBook, onOpenBio }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const booksByCircle = useMemo(() => {
     const map = new Map();
@@ -132,15 +162,16 @@ function HomeScreen({ manifest, onOpenBook }) {
       <div className="flex flex-col items-center justify-center min-h-screen px-6 text-center">
         <div className="relative w-full max-w-4xl aspect-[16/9] rounded-3xl shadow-xl bg-gradient-to-br from-emerald-200 via-emerald-100 to-amber-100 overflow-hidden">
           <div className="absolute inset-0 grid grid-cols-3 p-6 gap-4 select-none">
-            <SplashCard name="Moss" />
-            <SplashCard name="Tansy" />
-            <SplashCard name="Brindle" />
-            <SplashCard name="Wren" />
-            <SplashCard name="Echo" />
-            <SplashCard name="Puddle" />
-            <SplashCard name="Pip & Pebble" />
-            <SplashCard name="Zoe" />
+            <SplashCard id="moss"        name="Moss" onClick={onOpenBio} />
+            <SplashCard id="tansy"       name="Tansy" onClick={onOpenBio}/>
+            <SplashCard id="brindle"     name="Brindle" onClick={onOpenBio}/>
+            <SplashCard id="wren"        name="Wren" onClick={onOpenBio}/>
+            <SplashCard id="echo"        name="Echo" onClick={onOpenBio}/>
+            <SplashCard id="puddle"      name="Puddle" onClick={onOpenBio}/>
+            <SplashCard id="pip-pebble"  name="Pip & Pebble" onClick={onOpenBio}/>
+            <SplashCard id="zoe"         name="Zoe" onClick={onOpenBio}/>
             <div className="rounded-2xl bg-white/60 border border-emerald-200 flex items-center justify-center text-sm">More friends…</div>
+
           </div>
         </div>
         <h1 className="mt-8 text-3xl font-extrabold tracking-tight">Willowbrook Hollow</h1>
@@ -152,16 +183,75 @@ function HomeScreen({ manifest, onOpenBook }) {
   );
 }
 
-function SplashCard({ name }){
+function CharacterBioView({ characterId, bio, onExit }){
+  const [tab, setTab] = useState("acorn");
+  const levels = ["acorn","leaf","branch","oak","elder"];
+  const src = CHARACTER_IMAGE[characterId];
+  const name = bio?.name ?? characterId;
+
   return (
-    <div className="rounded-2xl bg-white/70 border border-emerald-200 p-3 flex flex-col items-center justify-center">
-      <div className="w-20 h-20 rounded-full bg-emerald-100 border overflow-hidden flex items-center justify-center">
-        <span className="text-xs text-emerald-700">{name}</span>
-      </div>
-      <div className="mt-2 text-xs text-stone-600">{name}</div>
+    <div className="min-h-screen grid grid-rows-[auto,1fr]">
+      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur border-b px-4 py-2 flex items-center gap-2">
+        <button className="rounded-xl px-3 py-1 bg-emerald-100 hover:bg-emerald-200" onClick={onExit}>← Back</button>
+        <div className="flex-1 text-center font-semibold">{name} · Biography</div>
+      </header>
+
+      <main className="px-4 py-6">
+        <div className="mx-auto max-w-3xl rounded-3xl border bg-white shadow overflow-hidden">
+          <div className="p-6 grid gap-6 md:grid-cols-[160px,1fr] items-start">
+            <div className="w-40 h-40 rounded-2xl bg-emerald-50 border overflow-hidden mx-auto md:mx-0 flex items-center justify-center">
+              {src ? <img src={src} alt={name} className="w-full h-full object-contain" /> : <span className="text-xs text-emerald-700">{name}</span>}
+            </div>
+
+            <div>
+              <div className="flex gap-2 flex-wrap">
+                {levels.map(l => (
+                  <button key={l}
+                    className={cls(
+                      "px-3 py-1 rounded-xl border text-sm",
+                      tab===l ? "bg-emerald-600 text-white border-emerald-700" : "bg-white hover:bg-emerald-50"
+                    )}
+                    onClick={() => setTab(l)}
+                  >
+                    {l[0].toUpperCase()+l.slice(1)}
+                  </button>
+                ))}
+              </div>
+
+              <div className="mt-4 text-stone-800 leading-relaxed">
+                {bio?.levels?.[tab] ?? "No biography available for this level yet."}
+              </div>
+            </div>
+          </div>
+
+          <div className="px-6 pb-6 text-xs text-stone-500">
+            Based on the official Character Bible and asset rules (e.g., Echo’s forest-green satchel; Brindle’s bandana). 
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
+
+function SplashCard({ id, name, onClick }){
+  const src = CHARACTER_IMAGE[id];
+  return (
+    <button
+      onClick={() => onClick?.(id)}
+      className="rounded-2xl bg-white/70 border border-emerald-200 p-3 flex flex-col items-center justify-center hover:shadow focus:outline-none focus:ring-2 focus:ring-emerald-400"
+    >
+      <div className="w-20 h-20 rounded-full bg-emerald-100 border overflow-hidden flex items-center justify-center">
+        {src ? (
+          <img src={src} alt={name} className="w-full h-full object-contain" loading="lazy" />
+        ) : (
+          <span className="text-xs text-emerald-700">{name}</span>
+        )}
+      </div>
+      <div className="mt-2 text-xs text-stone-600">{name}</div>
+    </button>
+  );
+}
+
 
 function BookViewer({ book, onExit }){
   const [pageIndex, setPageIndex] = useState(0);
