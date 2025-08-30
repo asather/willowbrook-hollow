@@ -69,6 +69,17 @@
       "elder": "Inventive and exact, the twins guide complex tasks from scrap to sturdy. They test, measure, and adjust without ego. Arguments still pop up, but now they end with a shared grin and a better design. In tight spaces and tight timelines, Pip & Pebble are the Hollow’s favorite kind of reliable."
     }
   },
+  "leo": {
+    "name": "Leo",
+    "levels": {
+      "acorn": "Leo is a lion. He has gold fur and a fluffy mane. He is kind and likes to eat grass. Leo carries a shiny ball that glows blue when wishes are coming true.",
+      "leaf": "Leo is a playful lion with golden fur and a big fluffy mane. Even though he looks fierce, he is gentle and only eats grass. He cheers up friends with his silly jokes, and he carries a glowing wish ball that tells when wishes are close to coming true.",
+      "branch": "Leo is a surprising lion: instead of chasing animals, he munches on grass and makes friends laugh with the same old jokes they still love. His mane is full and golden, and his brown eyes sparkle with kindness. Leo knows when to lower his voice to comfort a sad friend and when to shout with joy for a game. His glowing wish ball often shines just when the Hollow needs hope most.",
+      "oak": "Leo balances play and comfort with natural warmth. His golden mane makes him look powerful, but his gentle heart is what friends notice. He uses humor to lighten heavy moments and listens carefully when others are sad. The glowing wish ball he carries has become a symbol in the Hollow: when it glows blue, everyone feels braver, as though their hopes have a real chance to bloom.",
+      "elder": "Leo has grown into both a playful companion and a gentle guide. His bright mane and kind eyes make him easy to spot, but his true gift is knowing what others need. When a friend is downhearted, his quiet voice offers comfort; when the Hollow is ready for joy, his laughter rings out with familiar jokes. The wish ball he carries, glowing blue in moments of faith, reminds the Hollow that wishes can shape choices and choices can shape futures. Leo’s vegetarian ways, once seen as silly, now show his belief that strength is not about taking but about giving. Among the Great Oak’s gatherings, Leo is welcomed as both a playful spark and a steady light for those who dream."
+    }
+  },
+
   "zoe": {
     "name": "Zoe",
     "levels": {

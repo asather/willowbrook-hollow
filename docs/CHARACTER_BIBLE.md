@@ -91,6 +91,24 @@ No unapproved changes to colors, proportions, or permanent accessories.
 - **Master Assets:**  
   - PNG: `images/characters/master/pip_pebble_master.png`  
 
+## Leo – Playful Wish Lion
+
+- **Species:** Lion  
+- **Fur:** Golden (not neon); mane darker gold, large and fluffy  
+- **Build:** Big but soft; mane makes him look even larger  
+- **Eyes:** Sparkly brown, playful  
+- **Accessories:** **Magic wish ball (permanent)** — glows blue when wishes are about to come true  
+- **Personality:** Friendly and cheerful; loves to tease gently; comforts others when they are sad  
+- **Speech:** Adjusts voice to mood — quiet and soothing when friends are sad, playful and funny when they want to play  
+- **Example Behaviors:**  
+  - Eats grass instead of meat (vegetarian)  
+  - Repeats the same silly jokes that never stop being funny  
+  - Holds up the wish ball and wonders aloud if it will glow  
+- **Master Assets:**  
+  - PNG: `images/characters/master/leo_master.png`  
+  - SVG: `images/characters/master/leo_master.svg`
+
+
 ## Zoe – Human Helper at the Sanctuary
 - **Species:** Human (minor recurring)  
 - **Hair:** Light brown; shoulder‑length; slightly unkempt  

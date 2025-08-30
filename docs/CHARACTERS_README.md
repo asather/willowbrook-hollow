@@ -63,6 +63,18 @@ Reference for consistent character portrayal: personalities, quirks, relationshi
   - PNG: `images/characters/master/pip_pebble_master.png`  
   - SVG: `images/characters/master/pip_pebble_master.svg`
 
+**Leo – Playful Wish Lion**  
+- **Personality:** Cheerful and comforting; playful jokester; vegetarian lion who surprises everyone.  
+- **Quirks:** Carries a glowing wish ball; repeats favorite jokes.  
+- **Dynamics:** 
+  - Old buddies with Brindle, sharing kindness and friendship.  
+  - Play-teases Moss and Tansy in a friendly way.  
+  - Welcomed by all Hollow friends, especially in adventurous moments.  
+- **Master Assets:**  
+  - PNG: `images/characters/master/leo_master.png`  
+  - SVG: `images/characters/master/leo_master.svg`
+
+
 **Zoe – Human Helper (minor recurring)**  
 - **Personality:** Caring; “giant helper” from animals’ view; accidentally stylish, slightly mismatched outfits; always pants under dresses; hair slightly unkempt.  
 - **Quirks:** Not understood by animals; appears mostly in background.  
