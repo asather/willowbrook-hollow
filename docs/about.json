@@ -1,0 +1,31 @@
+{
+  "id": "about",
+  "displayName": "About Willowbrook Hollow",
+  "ui": {
+    "defaultLevel": "mom-dad",
+    "levelOrder": [
+      "mom-dad",
+      "acorn",
+      "leaf",
+      "branch",
+      "oak",
+      "elder"
+    ],
+    "palette": {
+      "mom-dad": "about-adult",
+      "acorn": "circle-acorn",
+      "leaf": "circle-leaf",
+      "branch": "circle-branch",
+      "oak": "circle-oak",
+      "elder": "circle-elder"
+    }
+  },
+  "levels": {
+    "mom-dad": "Willowbrook Hollow is a hidden community of animals living in the woods, meadows, and streams behind the Willowbrook Animal Sanctuary. The animals speak to one another across species, but humans cannot understand them. The only human the Hollow knows is Zoe, the young helper at the sanctuary. From the animals’ perspective, she is a mysterious “giant” whose steady routines—boots, buckets, mismatched clothes, and kind hands—set the rhythm of their days.\n\nThe purpose of Willowbrook Hollow is to foster a love of reading that grows naturally with the child. The series uses an achievement system called Circles. Each Circle is both an in‑story tradition (animals earn standing as helpers, rescuers, mentors, and elders) and a real‑world reading milestone (books increase difficulty gradually, without sudden jumps). Circle Ceremonies and badges celebrate both the animals’ and the reader’s progress.\n\nTone & Ingredients: stories blend humor, heart, and adventure. Running gags (Moss rolling away at the wrong time, Tansy’s over‑complicated plans, Wren’s dramatic “news,” Puddle’s accidental solutions) make the books fun; gentle lessons on empathy, teamwork, and courage make them kind; quick adventures—from small mishaps to community rescues—keep them engaging.\n\nHow Circles work (reading + story):\n• Acorn (Newcomers): Short sentences (≈5–8 words), sight words, high illustration ratio; single plot thread. Ceremony: green leaf charm.\n• Leaf (Helpers): Slightly longer sentences, richer vocabulary, main plot + small gag subplot; teamwork and cause/effect. Ceremony: carved twig token.\n• Branch (Junior Rescuers): Feeling words, short paragraphs, connected main plot and subplot; 20–30 minute reading stamina. Ceremony: carved acorn pendant (usually with comical speeches).\n• Oak (Mentors): Richer description and mild figurative language; parallel threads and planning/mentoring moments. Ceremony: Oaklight gathering with carved pendants.\n• Elder (Rare/Respected): Deeper themes, multi‑book arcs, ~12k–20k words; short middle‑grade feel. Ceremony: dawn storytelling with a carved staff or cane.\n\nCircle symbols (acorn, leaf, branch, oak, elder) appear playfully in illustrations and UI; they are never treated like counting objects inside the narrative. Finishing the final book in a Circle triggers a warm, funny ceremony page that welcomes the reader forward.\n\nTechnical notes (for caregivers/teachers): Each book is a static web page with a built‑in quiz. Vocabulary for each Circle can be highlighted and tapped to play audio (and optionally show definitions). Reader progress and Circle advancement are remembered in localStorage so children feel momentum across sessions. Accessibility options include a dyslexia‑friendly font, high‑contrast mode, and reduced‑motion support.\n",
+    "acorn": "Willowbrook Hollow is a secret place behind the animal sanctuary.\nThe animals talk to each other, but people do not know.\n\nWhen a new animal comes, Hollow friends help it feel safe.\nThey share food, tell stories, and play together.\n\nCircles are steps.\n• Acorn is the first step.\n• Each new step adds a little more story.\n\nWhen you finish Acorn books, the Hollow celebrates with a leaf charm.\n",
+    "leaf": "Willowbrook Hollow is a hidden town of animals behind the sanctuary.\nThey chatter, laugh, and help each other—while humans never notice.\n\nNew friends are welcomed kindly. The Hollow helps them heal, learn, and belong.\n\nCircles show how everyone grows:\n• Acorn: newcomers learning the basics.\n• Leaf: helpers who join the work and discover funny side adventures.\n\nAt the end of Leaf, the Hollow celebrates. You receive a carved twig token and step forward.\n",
+    "branch": "Willowbrook Hollow is busy with adventure. Friends secretly help one another behind the sanctuary fences.\n\nCircles are steps of growing up:\n• Acorn: the first welcome.\n• Leaf: helpers at work.\n• Branch: junior rescuers who face a big challenge and a smaller one at the same time.\n\nBranch books add feeling words and short paragraphs to build strength for longer reading.\nThe Branch ceremony brings everyone together with a carved acorn pendant and cheerful speeches.\n",
+    "oak": "Willowbrook Hollow is a place of learning. Animals plan kindly and help with care.\n\nThe path through the Circles:\n• Acorn: first steps.\n• Leaf: helping hands.\n• Branch: junior rescuers.\n• Oak: mentors who guide others and balance plans with laughter.\n\nOak books use richer description and gentle figurative language. They often tell two threads at once.\nAt Oak’s end, the Oaklight Ceremony glows with fireflies and carved pendants.\n",
+    "elder": "The Elder Circle is rare. In the Hollow, it is the rank of storytellers and tradition‑keepers.\n\nFor readers, Elder books bring:\n• longer word counts,\n• multi‑book arcs,\n• deeper emotional themes.\n\nElder ceremonies happen at dawn. Carved staffs are given, stories are shared, and gentle laughter carries into the new day.\nBy Elder, both reader and Hollow are strong—every step of reading has been a step of belonging.\n"
+  }
+}
