@@ -5,7 +5,7 @@
 **Reader achievement:** Circles are reading milestones; finishing a Circle’s books unlocks the next.
 
 Goal: deliver **skill‑appropriate** books that spark interest and **incentivize continued reading** through badges and ceremonies.
-
+**Bio copy:** Character bios should reflect this progression. Author bios for each Circle in `/docs/character-bios.json`.
 ---
 
 ## How Circles Work in the Books

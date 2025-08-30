@@ -89,3 +89,4 @@ Reference for consistent character portrayal: personalities, quirks, relationshi
 - Permanent accessories (Brindle’s bandana, Echo’s satchel) must never be omitted or altered.  
 - Dialogue style should match each character’s speech notes from the Bible (e.g., Wren’s quick, singsong repetition; Moss’s polite pauses).  
 - Keep humor light‑hearted; avoid making any character the butt of mean‑spirited jokes.  
+**Biography text:** Author and update level-appropriate bios in `/docs/character-bios.json` (Acorn→Elder). The app reads from this file for the Biography view
