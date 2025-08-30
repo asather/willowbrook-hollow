@@ -12,6 +12,8 @@ const CHARACTER_IMAGE = {
   echo: "./images/characters/master/echo_master.png",
   puddle: "./images/characters/master/puddle_master.png",
   "pip-pebble": "./images/characters/master/pip_pebble_master.png",
+  "parrot-family" : "./images/characters/master/parrot_family_master.png",
+  leo:"./images/characters/master/leo_master.png",
   zoe: "./images/characters/master/zoe_master.png",
 };
 
@@ -160,6 +162,8 @@ function HomeScreen({ manifest, onOpenBook, onOpenBio }) {
       </div>
 
       <div className="flex flex-col items-center justify-center min-h-screen px-6 text-center">
+        <h1 className="mt-8 text-3xl font-extrabold tracking-tight">Willowbrook Hollow</h1>
+        <p className="mt-2 max-w-2xl text-stone-600">From Zoe’s buckets to the Hollow’s secrets—every friend finds a place.”</p>
         <div className="relative w-full max-w-4xl aspect-[16/9] rounded-3xl shadow-xl bg-gradient-to-br from-emerald-200 via-emerald-100 to-amber-100 overflow-hidden">
           <div className="absolute inset-0 grid grid-cols-3 p-6 gap-4 select-none">
             <SplashCard id="moss"        name="Moss" onClick={onOpenBio} />
@@ -169,13 +173,13 @@ function HomeScreen({ manifest, onOpenBook, onOpenBio }) {
             <SplashCard id="echo"        name="Echo" onClick={onOpenBio}/>
             <SplashCard id="puddle"      name="Puddle" onClick={onOpenBio}/>
             <SplashCard id="pip-pebble"  name="Pip & Pebble" onClick={onOpenBio}/>
+            <SplashCard id="leo"         name="Leo" onClick={onOpenBio}/>
+            <SplashCard id="parrot-family"         name="Junebird Family" onClick={onOpenBio}/>
             <SplashCard id="zoe"         name="Zoe" onClick={onOpenBio}/>
             <div className="rounded-2xl bg-white/60 border border-emerald-200 flex items-center justify-center text-sm">More friends…</div>
 
           </div>
         </div>
-        <h1 className="mt-8 text-3xl font-extrabold tracking-tight">Willowbrook Hollow</h1>
-        <p className="mt-2 max-w-2xl text-stone-600">Open the menu to pick a book, or try the demo.</p>
         <button className="mt-6 px-5 py-3 rounded-2xl bg-emerald-600 text-white font-semibold shadow hover:bg-emerald-700"
           onClick={() => onOpenBook(manifest.books[0])}>Try the Demo Book</button>
       </div>

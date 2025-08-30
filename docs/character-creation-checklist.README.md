@@ -64,6 +64,9 @@
 - [ ] Add a new entry keyed by `{id}` with:  
   - `name`: display name  
   - `levels`: `acorn`, `leaf`, `branch`, `oak`, `elder` *(required)*
+
+**Grouped characters:** Use a single `{id}` (e.g., `parrot-family`) and a single bio entry; do **not** add extra JSON fields like `members` or `grouped` here.
+
 - [ ] **Escalate complexity and length** by level:  
   - *Acorn:* very short, simple sentences.  
   - *Leaf/Branch:* more detail, cause/effect, some descriptive words.  

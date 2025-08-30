@@ -75,6 +75,15 @@ Reference for consistent character portrayal: personalities, quirks, relationshi
   - SVG: `images/characters/master/leo_master.svg`
 
 
+**Parrot Family — News-Bringing Parrots (June, Johnafur, Juneafur)**  
+- **Personality:** Kind, adventurous, loud, and chatty; June is gently overprotective of Juneafur.  
+- **Quirks:** Speak in rhyme; repeat each other’s sentences; Juneafur’s cute mispronunciations; baby carries a bubble-blower.  
+- **Dynamics:** Share travel news with Wren and Echo; friendly with all. Live in a gold tree with a shrinking door.  
+- **Master Assets:**  
+  - PNG: `images/characters/master/parrot-family_master.png`  
+  - SVG: `images/characters/master/parrot-family_master.svg`
+
+
 **Zoe – Human Helper (minor recurring)**  
 - **Personality:** Caring; “giant helper” from animals’ view; accidentally stylish, slightly mismatched outfits; always pants under dresses; hair slightly unkempt.  
 - **Quirks:** Not understood by animals; appears mostly in background.  
@@ -102,3 +111,7 @@ Reference for consistent character portrayal: personalities, quirks, relationshi
 - Dialogue style should match each character’s speech notes from the Bible (e.g., Wren’s quick, singsong repetition; Moss’s polite pauses).  
 - Keep humor light‑hearted; avoid making any character the butt of mean‑spirited jokes.  
 **Biography text:** Author and update level-appropriate bios in `/docs/character-bios.json` (Acorn→Elder). The app reads from this file for the Biography view
+
+
+
+

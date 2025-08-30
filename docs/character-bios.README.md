@@ -62,6 +62,8 @@ The app loads this file once and shows the selected level in the Biography view.
   - **Elder**: most complete; may be multi-paragraph.
 - Keep humor gentle and encouraging; avoid contradictions with master art/assets.
 
+**Grouped Characters:** Families/duos still use a single `{id}` and a single `name` + `levels` block. Keep extra metadata (e.g., member names, accessories) in the Character Bible / Characters README, not in this JSON.
+
 ---
 
 ## Validation

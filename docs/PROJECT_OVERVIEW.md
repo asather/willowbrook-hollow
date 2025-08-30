@@ -66,6 +66,15 @@ Each Circle matches an in-story role with a subtle increase in reading challenge
 - **Pip & Pebble** – Argumentative Mouse Twins  
   Bicker constantly; resourceful when they cooperate.
 
+- **Leo** – Playful, kind-hearted Vegitarian Lion  
+  Leo is a lion. He has gold fur and a fluffy mane. He is kind and likes to eat grass. Leo carries a shiny ball that glows blue when wishes are coming true.
+
+
+- **Parrot Family** — News-bringers who live in a secret gold tree with a shrinking door. 
+  Kind and adventurous; they speak in rhymes and repeat each other’s sentences. 
+  June (mom) is gently overprotective of baby Juneafur, who carries a bubble-blower and sometimes says funny mixed-up words. Johnafur (dad) travels steadily and helps gather stories from beyond the Hollow.
+
+
 - **Zoe** – Human Helper (minor recurring)  
   Caring, slightly mismatched but stylish outfits; **always wears pants under dresses**; observed more than interacted with.
 

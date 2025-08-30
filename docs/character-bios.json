@@ -80,6 +80,19 @@
     }
   },
 
+  "parrot-family": {
+    "name": "Parrot Family",
+    "levels": {
+      "acorn": "June, Johnafur, and baby Juneafur live in a shiny gold tree with a secret door. Juneafur loves her bubble-blower and fills the Hollow with soft, silly bubbles.",
+      "leaf": "The parrots talk loudly, rhyme for fun, and sometimes repeat each other’s sentences. June and Johnafur wear fanny packs for tiny tools, and Juneafur carries her bubble-blower. Their door looks tiny until they open it.",
+      "branch": "The family brings news from beyond the Hollow. June is careful with Juneafur because the baby’s wing was hurt at birth—June had a wing injury as a chick too. Even so, they stay kind, adventurous, and very chatty.",
+      "oak": "Hidden high in a golden tree, the parrots gather stories and secrets to share. Their door shrinks small for safety and grows when they return. They speak in playful rhyme, repeat each other’s lines, and cheer up friends with bubbles and bright voices.",
+      "elder": "The Parrot Family has long kept Willowbrook connected to the larger world. June’s caring caution, Johnafur’s steady journeys, and Juneafur’s bubbling mispronunciations make their news feel warm, not worrying. When their tiny door opens at dusk and the three step out in rhyme, the Hollow leans closer—ready to listen, ready to learn."
+    }
+  },
+
+
+
   "zoe": {
     "name": "Zoe",
     "levels": {

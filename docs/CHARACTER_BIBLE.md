@@ -109,6 +109,43 @@ No unapproved changes to colors, proportions, or permanent accessories.
   - SVG: `images/characters/master/leo_master.svg`
 
 
+## Parrot Family — News-Bringing Parrots (June, Johnafur, Juneafur)
+
+- **Species:** Parrots (same species for all three)
+- **Feathers:** 
+  - **June (Mom):** Red + Pink
+  - **Johnafur (Dad):** Red + Green
+  - **Juneafur (Baby):** Red + Blue; fluffy chick look (still resembles parents)
+- **Eyes:** 
+  - **June:** Big “please-face” eyes (seeking, caring)
+  - **Johnafur:** Dark green with a brown center dot
+  - **Juneafur:** Brown with a soft green dot (not too light)
+- **Build/Silhouette:** Light, lively; grouped poses show closeness. Baby perches close to a parent or her bubble-blower.
+- **Accessories:** **Parents wear fanny packs (permanent)**; **Juneafur carries a bubble-blower machine (permanent)** with a little stick that pops out to make bubbles.
+- **Home:** Secret **gold tree** with a **magical shrinking door** (tiny when closed; opens large enough only for the family).
+- **Personality:** Kind, adventurous, loud and chatty; June is overprotective of Juneafur due to matching family wing-injury history.
+- **Speech:** Often **rhyme** and **repeat** each other’s sentences; Juneafur adds adorable **mispronunciations**.
+- **Example Behaviors:** 
+  - Return at dusk with “news runs” from beyond the Hollow.
+  - Speak in playful couplets; echo each other for fun.
+  - Juneafur accidentally turns serious talks into giggles with bubble bursts.
+- **Master Assets:**
+  - PNG: `images/characters/master/parrot-family_master.png`
+  - SVG: `images/characters/master/parrot-family_master.svg`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Zoe – Human Helper at the Sanctuary
 - **Species:** Human (minor recurring)  
 - **Hair:** Light brown; shoulder‑length; slightly unkempt  
