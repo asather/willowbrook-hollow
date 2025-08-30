@@ -82,6 +82,18 @@ function App(){
     setView({ kind: "bio", characterId });
   };
 
+  const [about, setAbout] = useState(null);
+  useEffect(() => {
+    fetch("./docs/about.json")
+      .then(r => r.ok ? r.json() : null)
+      .then(setAbout)
+      .catch(() => setAbout(null));
+  }, []);
+  
+  const openAbout = () => setView({ kind: "about" });
+
+
+
   if(!manifest || !bios){
     return <div className="min-h-screen flex items-center justify-center text-stone-500">Loading…</div>;
   }
@@ -90,7 +102,8 @@ function App(){
     <div className="min-h-screen bg-emerald-50 text-stone-900">
       {view.kind === "home" && (
         
-        <HomeScreen manifest={manifest} onOpenBook={openBook} onOpenBio={openBio} />
+        <HomeScreen manifest={manifest} onOpenBook={openBook} onOpenBio={openBio} openAbout={openAbout} />
+
       )}
       {view.kind === "book" && (
         <BookViewer book={view.book} onExit={() => setView({ kind:"home" })} />
@@ -102,12 +115,15 @@ function App(){
           onExit={() => setView({ kind:"home" })}
         />
       )}
+      {view.kind === "about" && about && (
+        <AboutView about={about} onExit={() => setView({ kind: "home" })} />
+      )}
+
     </div>
   );
 }
 
-
-function HomeScreen({ manifest, onOpenBook, onOpenBio }) {
+function HomeScreen({ manifest, onOpenBook, onOpenBio, openAbout }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const booksByCircle = useMemo(() => {
     const map = new Map();
@@ -151,12 +167,24 @@ function HomeScreen({ manifest, onOpenBook, onOpenBio }) {
             </div>
           ))}
           <div>
-            <div className="text-emerald-700 font-semibold mb-2 flex items-center gap-2">
-              <span className="inline-block w-2 h-2 rounded-full bg-emerald-500" />About
+            <div>
+              <div className="text-emerald-700 font-semibold mb-2 flex items-center gap-2">
+                <span className="inline-block w-2 h-2 rounded-full bg-emerald-500" />About
+              </div>
+              <ul className="space-y-2 pl-3">
+                <li>
+                  <button
+                    className="w-full text-left rounded-xl px-3 py-2 hover:bg-emerald-50"
+                    onClick={() => { setMenuOpen(false); onOpenBook ? null : null; /* keep lint happy */ openAbout(); }}
+                  >
+                    <div className="text-sm font-medium">About Willowbrook Hollow</div>
+                    <div className="text-xs text-stone-500">Purpose, premise, and Circles</div>
+                  </button>
+                </li>
+              </ul>
             </div>
-            <ul className="space-y-2 pl-3">
-              <li className="text-sm text-stone-500">Coming soon…</li>
-            </ul>
+            
+            
           </div>
         </nav>
       </div>
@@ -230,6 +258,106 @@ function CharacterBioView({ characterId, bio, onExit }){
 
           <div className="px-6 pb-6 text-xs text-stone-500">
             Based on the official Character Bible and asset rules (e.g., Echo’s forest-green satchel; Brindle’s bandana). 
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
+
+function AboutView({ about, onExit }) {
+  // Level control
+  const order = about?.ui?.levelOrder ?? ["mom-dad","acorn","leaf","branch","oak","elder"];
+  const defaultLevel = about?.ui?.defaultLevel ?? "mom-dad";
+  const [level, setLevel] = useState(defaultLevel);
+
+  // Swipe between levels
+  const idx = order.indexOf(level);
+  const onLeft  = () => setLevel(order[Math.min(order.length - 1, idx + 1)]);
+  const onRight = () => setLevel(order[Math.max(0, idx - 1)]);
+  const swipe = useSwipe(onLeft, onRight);
+
+  // Color tokens → Tailwind classes (tweak to your palette)
+  const tokenToClass = (token) => {
+    switch (token) {
+      case "about-adult": return "bg-amber-600 text-white border-amber-700";
+      case "circle-acorn": return "bg-emerald-600 text-white border-emerald-700";
+      case "circle-leaf": return "bg-green-600 text-white border-green-700";
+      case "circle-branch": return "bg-lime-600 text-white border-lime-700";
+      case "circle-oak": return "bg-teal-700 text-white border-teal-800";
+      case "circle-elder": return "bg-sky-700 text-white border-sky-800";
+      default: return "bg-emerald-600 text-white border-emerald-700";
+    }
+  };
+
+  const palette = about?.ui?.palette ?? {};
+  const currentToken = palette[level] || "about-adult";
+
+  // Optional: circle vocab highlighting (skip for Mom & Dad)
+  const isCircle = level !== "mom-dad";
+  const circleNameForWords = (lvl) => {
+    // map level key to human circle folder names
+    const map = { "acorn":"Acorn","leaf":"Leaf","branch":"Branch","oak":"Oak","elder":"Elder" };
+    return map[lvl] || "Acorn";
+  };
+  const vocab = useCircleWords(isCircle ? circleNameForWords(level) : "Acorn"); // safe default
+  function speakWord(word) {
+    if (!isCircle) return;
+    const entry = vocab.map.get(word.toLowerCase());
+    if (!entry) return;
+    new Audio(entry.audio).play();
+  }
+
+  // Render text: split on blank lines → paragraphs; keep bullets simple
+  const raw = about?.levels?.[level] || "About content not available.";
+  const paragraphs = raw.split(/\n\s*\n/);
+
+  return (
+    <div className="min-h-screen grid grid-rows-[auto,1fr]">
+      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur border-b px-4 py-2 flex items-center gap-2">
+        <button className="rounded-xl px-3 py-1 bg-emerald-100 hover:bg-emerald-200" onClick={onExit}>← Back</button>
+        <div className="flex-1 text-center font-semibold">About Willowbrook Hollow</div>
+      </header>
+
+      <main className="px-4 py-6" {...swipe}>
+        <div className="mx-auto max-w-3xl rounded-3xl border bg-white shadow overflow-hidden">
+          <div className="p-6">
+            {/* Tabs */}
+            <div className="flex gap-2 flex-wrap">
+              {order.map(l => {
+                const label = l === "mom-dad" ? "Mom & Dad" : l[0].toUpperCase() + l.slice(1);
+                const active = l === level;
+                const chipClass = tokenToClass(palette[l] || (l==="mom-dad" ? "about-adult" : "circle-acorn"));
+                return (
+                  <button key={l}
+                    className={cls(
+                      "px-3 py-1 rounded-xl border text-sm transition-colors",
+                      active ? chipClass : "bg-white hover:bg-emerald-50"
+                    )}
+                    onClick={() => setLevel(l)}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Body */}
+            <div className="mt-4 text-stone-800 leading-relaxed space-y-4">
+              {paragraphs.map((p, i) => (
+                <p key={i}>
+                  {isCircle
+                    ? renderInlineWithVocab(p, vocab.map, speakWord) // highlight on Circle levels
+                    : p.split("\n").map((line, j) => <span key={j}>{line}{j < p.split("\n").length-1 ? <br/>:null}</span>)
+                  }
+                </p>
+              ))}
+            </div>
+
+            {/* Hint */}
+            <div className="mt-6 text-xs text-stone-500">
+              Swipe left/right to switch levels · “Mom & Dad” defaults to a distinct color.
+            </div>
           </div>
         </div>
       </main>
