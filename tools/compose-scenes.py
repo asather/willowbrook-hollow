@@ -530,6 +530,31 @@ def el_zzz(img, d, e):
     for i, sz in enumerate((28, 36, 46)):
         d.text((P(e["x"]) + i * P(34), P(e["y"]) - i * P(40)), "z", fill=(255, 255, 255), font=font(P(sz)))
 
+def el_prints(img, d, e):
+    """A trail of paw prints. x, y = start; dx, dy = step; n = how many."""
+    for i in range(int(e.get("n", 6))):
+        x = P(e["x"] + i * e.get("dx", 60)); y = P(e["y"] + i * e.get("dy", 0)) + (P(10) if i % 2 else -P(10))
+        s = P(e.get("s", 12))
+        col = tuple(e.get("color", (96, 66, 44)))
+        d.ellipse([x - s, y - s * 0.7, x + s, y + s * 0.7], fill=col)
+        for k in (-1, -0.35, 0.35, 1):
+            d.ellipse([x + k * s * 0.9 - s * 0.3, y - s * 1.4, x + k * s * 0.9 + s * 0.3, y - s * 0.8], fill=col)
+
+def el_reeds(img, d, e):
+    x, y, h = P(e["x"]), P(e["y"]), P(e.get("h", 260))
+    rnd = random.Random(int(e["x"]))
+    for i in range(int(e.get("n", 16))):
+        bx = x + rnd.uniform(-P(e.get("w", 90)), P(e.get("w", 90)))
+        top = y - h * rnd.uniform(0.6, 1.0)
+        lean = rnd.uniform(-P(30), P(30))
+        d.line([(bx, y), (bx + lean, top)], fill=rnd.choice([(96, 132, 62), (120, 150, 70), (82, 114, 54)]), width=P(6))
+        if i % 3 == 0:
+            d.ellipse([bx + lean - P(7), top - P(10), bx + lean + P(7), top + P(34)], fill=(130, 88, 54))
+
+def el_stick(img, d, e):
+    d.line([(P(e["x1"]), P(e["y1"])), (P(e["x2"]), P(e["y2"]))], fill=(122, 86, 54), width=P(e.get("w", 8)))
+
+
 def el_emblem(img, d, e, circle):
     em = Image.open(ROOT / f"images/web/circles/circle-{circle.lower()}.webp").convert("RGBA")
     s = P(e.get("s", 46))

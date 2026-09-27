@@ -15,6 +15,14 @@
      ]
     },
     {
+     "type": "character",
+     "id": "echo",
+     "x": 1500,
+     "y": 560,
+     "h": 190,
+     "noShadow": true
+    },
+    {
      "type": "tree",
      "x": 1450,
      "y": 540,
@@ -805,8 +813,30 @@
      "peek": true
     },
     {
+     "type": "character",
+     "id": "echo",
+     "x": 110,
+     "y": 860,
+     "h": 250
+    },
+    {
+     "type": "reeds",
+     "x": 110,
+     "y": 900,
+     "h": 300,
+     "w": 110,
+     "n": 22
+    },
+    {
+     "type": "stick",
+     "x1": 170,
+     "y1": 760,
+     "x2": 300,
+     "y2": 800
+    },
+    {
      "type": "raft",
-     "x": 350,
+     "x": 390,
      "y": 800,
      "w": 250,
      "rot": 8
@@ -814,7 +844,7 @@
     {
      "type": "character",
      "id": "pebble",
-     "x": 350,
+     "x": 390,
      "y": 740,
      "h": 120,
      "noShadow": true
@@ -989,6 +1019,15 @@
      "sunspot": true
     },
     {
+     "type": "prints",
+     "x": 640,
+     "y": 800,
+     "dx": 70,
+     "dy": -8,
+     "n": 9,
+     "s": 11
+    },
+    {
      "type": "character",
      "id": "tansy",
      "x": 260,
@@ -1121,6 +1160,15 @@
      "y": 880,
      "w": 420,
      "h": 170
+    },
+    {
+     "type": "prints",
+     "x": 470,
+     "y": 860,
+     "dx": 30,
+     "dy": -30,
+     "n": 5,
+     "s": 10
     },
     {
      "type": "character",
@@ -1465,6 +1513,20 @@
      "n": 10
     },
     {
+     "type": "gate",
+     "x": 60,
+     "y": 760,
+     "w": 240
+    },
+    {
+     "type": "character",
+     "id": "echo",
+     "x": 180,
+     "y": 640,
+     "h": 220,
+     "noShadow": true
+    },
+    {
      "type": "acorns",
      "x": 800,
      "y": 860,
@@ -1498,9 +1560,9 @@
     {
      "type": "character",
      "id": "pip",
-     "x": 150,
-     "y": 860,
-     "h": 200
+     "x": 300,
+     "y": 870,
+     "h": 180
     },
     {
      "type": "emblem",

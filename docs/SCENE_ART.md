@@ -63,6 +63,8 @@ Because characters come from their web copies, they always match the Character B
 | `acorns` | `x`, `y`, `n`, `spread`, `ys`, `r` | A scatter or shower of acorns |
 | `moss_ball` | `x`, `y`, `r`, `peek`, `acorns`, `motion` | Moss rolled up (peeking, covered in acorns, rolling) |
 | `fish`, `splash`, `moth`, `dirt`, `hole` | `x`, `y`, size | Small story details |
+| `prints` | `x`, `y`, `dx`, `dy`, `n`, `s` | A trail of paw prints |
+| `reeds`, `stick` | `x`, `y`, `h` / `x1`, `y1`, `x2`, `y2` | Reeds at the water, a poking stick |
 | `notes`, `glow`, `zzz`, `stars`, `falling_leaves` | see the tool | Music, Leo's wish-ball glow, sleeping, night sky, leaves |
 | `motion` | `x`, `y`, `s`, `kind` (`hop`, `bonk`, `huff`, `spin`) | Cartoon action lines |
 | `character` | `id`, `x`, `y`, `h`, `flip`, `rot`, `dim`, `noShadow` | A character from `images/web/characters/` (`pip` and `pebble` separately) |

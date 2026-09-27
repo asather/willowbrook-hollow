@@ -11,7 +11,8 @@
   "cast": [
     "tansy",
     "moss",
-    "pip-pebble"
+    "pip-pebble",
+    "echo"
   ],
   "toc": [
     {
@@ -260,15 +261,16 @@
           "layout": "art-right",
           "text": [
             "The ball rolled off the raft. It rolled onto a rock. It rolled up the bank on the far side.",
-            "“Moss is across!” said Tansy. “He is the first one over!”",
-            "Moss peeked out of his ball. He was wet. He was a bit dizzy. But he was on the other side.",
-            "Pebble and the raft bumped in next. Tansy just jumped. Of course."
+            "Moss peeked out of his ball. He was wet and dizzy. But he was across!",
+            "Pebble and the raft were still spinning. Then a long stick poked out of the reeds. It gave the raft a push. The raft bumped onto the bank.",
+            "Moss saw a flash of red fur and a white tail tip. Then it was gone.",
+            "Tansy just jumped. Of course."
           ],
           "media": [
             {
               "type": "image",
               "src": "books/acorn-002/images/page-10.webp",
-              "alt": "Moss, rolled up in a ball, lands on the far bank",
+              "alt": "Moss lands on the far bank as a stick from the reeds pushes Pebble's raft to shore",
               "animation": {
                 "kind": "float",
                 "trigger": "tap"
@@ -329,13 +331,14 @@
             "The log was big and old. The hole in it was dark. Very, very dark.",
             "“Step one: we go in!” said Tansy. She did not go in.",
             "“Step two,” said Tansy. “Moss goes in first.”",
-            "Moss did not want to go in first. But he looked at the log for a long time. Then he saw a small thing. There was a spot of sun at the far end."
+            "Moss did not want to go in first. So he looked at small things.",
+            "In the mud by the log, there were fresh paw prints. Fox prints. And at the far end, there was a spot of sun."
           ],
           "media": [
             {
               "type": "image",
               "src": "books/acorn-002/images/page-13.webp",
-              "alt": "The three friends stop in front of a big, dark, hollow log",
+              "alt": "The three friends stop at a big, dark, hollow log, with fox prints in the mud",
               "animation": {
                 "kind": "float",
                 "trigger": "tap"
@@ -378,7 +381,7 @@
             "They came out in the sun. And there, in front of them, was…",
             "Their own Hollow!",
             "There was the stream. There was the stump. There was the gate. There was Tansy’s tree, with a big bump on it.",
-            "The log went over the stream like a bridge. They had walked in a big loop."
+            "The log went over the stream like a bridge. They had walked in a big loop. And someone had pushed that log into place."
           ],
           "media": [
             {
@@ -461,14 +464,15 @@
           "text": [
             "At dusk, the three friends sat under Tansy’s tree. They had a big snack of acorns.",
             "Pip came by. “So,” he said. “Was the map upside down?”",
-            "Pebble looked at Moss. Moss looked at Tansy. Tansy looked at the sky.",
-            "“It was a GREAT adventure,” said Pebble. “That is all I will say.”"
+            "Pebble looked at the sky. “It was a GREAT adventure,” she said. “That is all I will say.”",
+            "Up on the gate, Echo was licking his paw. “Lucky that log was there,” he said. “And lucky that raft got to shore.”",
+            "Moss looked at Echo’s muddy paws. Echo did not look at Moss."
           ],
           "media": [
             {
               "type": "image",
               "src": "books/acorn-002/images/page-19.webp",
-              "alt": "At dusk the three friends share acorns under Tansy's tree as Pip comes by",
+              "alt": "At dusk the friends share acorns under Tansy's tree while Pip comes by and Echo sits on the gate",
               "animation": {
                 "kind": "float",
                 "trigger": "tap"
@@ -589,21 +593,22 @@
       },
       {
         "id": "q5",
-        "type": "think",
-        "prompt": "Where do you think the three friends will go next?",
+        "type": "recall",
+        "prompt": "Who helped the three friends in secret?",
         "choices": [
-          "Up the big hill",
-          "Down the stream on the raft",
-          "Into the barn"
+          "Pip",
+          "A fish",
+          "Echo"
         ],
+        "answerIndex": 2,
         "reactions": {
           "correct": {
-            "character": "images/web/characters/tansy.webp",
-            "line": "Yes! Step one: we go! Step two: we go!"
+            "character": "images/web/characters/echo.webp",
+            "line": "Help? Me? I was napping the whole time."
           },
           "tryAgain": {
-            "character": "images/web/characters/tansy.webp",
-            "line": "Yes! Step one: we go! Step two: we go!"
+            "character": "images/web/characters/moss.webp",
+            "line": "Hmm. Who had a white tail tip and muddy paws? Try again!"
           }
         }
       }
