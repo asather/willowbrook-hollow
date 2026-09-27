@@ -233,12 +233,14 @@ def el_gate(img, d, e):
     d.line([(x, y - P(52)), (x + w, y - P(123))], fill=wood, width=P(14))
 
 def el_bush(img, d, e):
+    """A round bush. flat=true squashes it flat (something big sat on it)."""
     x, y, r = P(e["x"]), P(e["y"]), P(e.get("r", 70))
+    k = 0.3 if e.get("flat") else 1.0
     rnd = random.Random(int(e["x"]))
     for _ in range(6):
-        cx, cy = x + rnd.uniform(-r, r), y - rnd.uniform(r * 0.3, r * 0.9)
+        cx, cy = x + rnd.uniform(-r, r) * (1.4 if e.get("flat") else 1), y - rnd.uniform(r * 0.3, r * 0.9) * k
         rr = r * rnd.uniform(0.5, 0.75)
-        d.ellipse([cx - rr, cy - rr, cx + rr, cy + rr], fill=rnd.choice([(118, 150, 80), (136, 162, 86), (170, 150, 70)]))
+        d.ellipse([cx - rr, cy - rr * k, cx + rr, cy + rr * k], fill=rnd.choice([(118, 150, 80), (136, 162, 86), (170, 150, 70)]))
 
 def el_stream(img, d, e):
     """A stream across the picture. y = centre line, w = width."""
@@ -836,6 +838,197 @@ def el_plan(img, d, e):
     m = m.rotate(e.get("rot", 0), expand=True, resample=Image.BICUBIC)
     img.alpha_composite(m, (int(P(e["x"]) - m.width / 2), int(P(e["y"]) - m.height / 2)))
 
+
+# ---- the swap (acorn-005): the old willow, the swap flash, "who is inside" bubbles and small props
+WILLOW = [(214, 200, 92), (230, 212, 104), (196, 190, 86), (240, 224, 128), (178, 178, 80)]
+
+def _willow_strand(d, x, y0, y1, sway, rnd, width, shade=1.0):
+    """One long hanging willow branch with little leaves along it."""
+    steps = max(6, int((y1 - y0) / (width * 2.2)))
+    pts = [(x + sway * (t / steps) ** 2, y0 + (y1 - y0) * t / steps) for t in range(steps + 1)]
+    d.line(pts, fill=(150, 132, 70), width=max(1, int(width * 0.35)))
+    for px_, py_ in pts[1:]:
+        for k in (-1, 1):
+            c = rnd.choice(WILLOW)
+            leaf(d, px_ + k * width * 0.8, py_ + rnd.uniform(-width * 0.6, width * 0.6), width * 1.5,
+                 math.pi / 2 + k * 0.45, tuple(int(v * shade) for v in c))
+
+def el_willow(img, d, e):
+    """The old willow at the far end of the Hollow: a thick trunk under a big dome of long
+    yellow branches that hang to the grass like a curtain. x = trunk centre, y = ground line,
+    h = height; gap = width of the parted opening in the curtain (0 = closed); glow = a blue
+    wish-ball glow inside; wind = sideways sway of the branches."""
+    x, y, h, w = P(e["x"]), P(e["y"]), P(e.get("h", 720)), P(e.get("w", 150))
+    cw, top = h * 0.66, y - h            # half the dome's width; top of the dome
+    dome = lambda sx: top + h * 0.42 * (1 - math.sqrt(max(0.0, 1 - ((sx - x) / cw) ** 2)))
+    rnd = random.Random(e.get("seed", 31))
+    # the shady inside of the dome, then the trunk
+    d.polygon([(x - cw, y)] + [(x - cw + 2 * cw * i / 40, dome(x - cw + 2 * cw * i / 40)) for i in range(41)] + [(x + cw, y)],
+              fill=(150, 146, 80))
+    d.polygon([(x - w * 0.8, y), (x - w * 0.45, y - h * 0.3), (x - w * 0.55, top + h * 0.2), (x + w * 0.4, top + h * 0.2),
+               (x + w * 0.5, y - h * 0.32), (x + w * 0.85, y)], fill=BARK)
+    for i in range(5):
+        lx = x - w * 0.4 + i * w * 0.2
+        d.line([(lx, top + h * 0.25), (lx + P(10) * (1 if i % 2 else -1), y - P(20))], fill=BARK_DARK, width=P(3))
+    if e.get("glow"):
+        el_glow(img, d, {"x": e["x"], "y": e["y"] - e.get("h", 720) * 0.25, "r": e.get("h", 720) * 0.3})
+        d = ImageDraw.Draw(img)
+    gap = P(e.get("gap", 0))
+    n = int(e.get("strands", 70))
+    for i in range(n):                   # the curtain, back row then front row
+        for row in (0, 1):
+            sx = x - cw + 2 * cw * (i + 0.5 * row + 0.25) / n
+            if abs(sx - x) > cw:
+                continue
+            y0 = dome(sx) - P(6)
+            y1 = y - P(6) + rnd.uniform(-P(16), P(4))
+            if abs(sx - x) < gap / 2:    # parted: short branches hanging over the opening
+                y1 = top + h * rnd.uniform(0.28, 0.4)
+            _willow_strand(d, sx, y0, y1, rnd.uniform(-P(10), P(10)) + P(e.get("wind", 0)), rnd, P(6),
+                           shade=0.82 if row == 0 else 1.0)
+
+def el_willow_inside(img, d, e):
+    """Standing inside the willow's curtain: a dim gold-green room, the trunk on one side,
+    long branches hanging down all around. side = "left" or "right" for the trunk; glow = blue light."""
+    d.rectangle([0, 0, img.width, img.height], fill=(222, 214, 150))
+    light = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(light).ellipse([img.width * 0.2, img.height * 0.05, img.width * 0.8, img.height * 0.8], fill=(252, 242, 190, 200))
+    img.alpha_composite(light.filter(ImageFilter.GaussianBlur(P(80))))
+    d = ImageDraw.Draw(img)
+    d.rectangle([0, img.height * 0.8, img.width, img.height], fill=(150, 170, 90))
+    d.polygon(wavy(0, img.width, img.height * 0.8, P(8), 1.2, 0.3) + [(img.width, img.height), (0, img.height)], fill=(150, 170, 90))
+    tx = P(170) if e.get("side", "left") == "left" else img.width - P(170)
+    tw = P(190)
+    d.polygon([(tx - tw * 0.8, img.height * 0.82), (tx - tw * 0.45, img.height * 0.4), (tx - tw * 0.55, 0),
+               (tx + tw * 0.5, 0), (tx + tw * 0.45, img.height * 0.45), (tx + tw * 0.85, img.height * 0.82)], fill=BARK)
+    for i in range(5):
+        lx = tx - tw * 0.35 + i * tw * 0.18
+        d.line([(lx, P(10)), (lx + P(8), img.height * 0.8)], fill=BARK_DARK, width=P(3))
+    if e.get("glow"):
+        el_glow(img, d, {"x": e["glow"][0], "y": e["glow"][1], "r": e.get("glowR", 220)})
+        d = ImageDraw.Draw(img)
+    rnd = random.Random(e.get("seed", 41))
+    for i in range(int(e.get("strands", 70))):   # branches hanging from the top, thicker at the sides
+        sx = rnd.uniform(0, img.width)
+        if abs(sx - tx) < tw * 0.75:        # keep the trunk clear
+            continue
+        edge = min(sx, img.width - sx) / (img.width / 2)
+        y1 = img.height * (0.25 + 0.6 * (1 - edge) ** 2) + rnd.uniform(-P(20), P(20))
+        if edge > 0.45 and rnd.random() < 0.6:
+            y1 = img.height * rnd.uniform(0.12, 0.3)
+        _willow_strand(d, sx, -P(10), y1, rnd.uniform(-P(14), P(14)) + P(e.get("wind", 0)), rnd, P(7))
+
+def el_flash(img, d, e):
+    """The swap: a big burst of blue light with rays and sparkles. x, y = centre; s = size."""
+    x, y, s = P(e["x"]), P(e["y"]), P(e.get("s", 300))
+    g = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    gd = ImageDraw.Draw(g)
+    gd.ellipse([x - s, y - s, x + s, y + s], fill=(140, 200, 255, 150))
+    img.alpha_composite(g.filter(ImageFilter.GaussianBlur(s * 0.35)))
+    rays = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    rd = ImageDraw.Draw(rays)
+    for i in range(16):
+        t = 2 * math.pi * i / 16
+        r0, r1 = s * 0.35, s * (1.25 if i % 2 else 0.9)
+        rd.polygon([(x + math.cos(t - 0.05) * r0, y + math.sin(t - 0.05) * r0), (x + math.cos(t) * r1, y + math.sin(t) * r1),
+                    (x + math.cos(t + 0.05) * r0, y + math.sin(t + 0.05) * r0)], fill=(230, 244, 255, 190))
+    img.alpha_composite(rays)
+    d = ImageDraw.Draw(img)
+    rnd = random.Random(e.get("seed", 6))
+    for _ in range(int(e.get("n", 14))):
+        sx, sy = x + rnd.uniform(-s * 1.3, s * 1.3), y + rnd.uniform(-s, s)
+        k = P(rnd.uniform(6, 14))
+        d.polygon([(sx, sy - k * 1.6), (sx + k * 0.4, sy - k * 0.4), (sx + k * 1.6, sy), (sx + k * 0.4, sy + k * 0.4),
+                   (sx, sy + k * 1.6), (sx - k * 0.4, sy + k * 0.4), (sx - k * 1.6, sy), (sx - k * 0.4, sy - k * 0.4)], fill=(255, 255, 255))
+
+# Where each character's face sits in its web art (fractions of the cut-out figure), for "inside" bubbles.
+FACES = {
+    "echo": (0.42, 0.0, 1.0, 0.36),
+    "leo":  (0.14, 0.0, 0.7, 0.46),
+}
+
+def el_inside(img, d, e):
+    """A thought bubble above a swapped character, showing whose mind is inside that body.
+    id = who is inside; x, y = bubble centre; r = bubble radius; tail = [x, y] of the head it rises from."""
+    x, y, r = P(e["x"]), P(e["y"]), P(e.get("r", 70))
+    if e.get("tail"):
+        tx, ty = P(e["tail"][0]), P(e["tail"][1])
+        for k, rr in ((0.35, 0.14), (0.62, 0.22)):
+            cx, cy = tx + (x - tx) * k, ty + (y - ty) * k
+            d.ellipse([cx - r * rr, cy - r * rr, cx + r * rr, cy + r * rr], fill=(255, 255, 255), outline=INK, width=P(3))
+    d.ellipse([x - r, y - r, x + r, y + r], fill=(255, 255, 255), outline=INK, width=P(4))
+    im = character(e["id"])
+    fx0, fy0, fx1, fy1 = FACES.get(e["id"], (0, 0, 1, 0.4))
+    face = im.crop((int(im.width * fx0), int(im.height * fy0), int(im.width * fx1), int(im.height * fy1)))
+    sc = r * 1.62 / max(face.width, face.height)
+    face = face.resize((max(1, int(face.width * sc)), max(1, int(face.height * sc))), Image.LANCZOS)
+    if e.get("flip"):
+        face = face.transpose(Image.FLIP_LEFT_RIGHT)
+    mask = Image.new("L", img.size, 0)
+    ImageDraw.Draw(mask).ellipse([x - r + P(5), y - r + P(5), x + r - P(5), y + r - P(5)], fill=255)
+    layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    layer.alpha_composite(face, (int(x - face.width / 2), int(y - face.height / 2)))
+    a = Image.composite(layer.split()[3], Image.new("L", img.size, 0), mask)
+    layer.putalpha(a)
+    img.alpha_composite(layer)
+
+def el_grass(img, d, e):
+    """A heap or clump of long picked grass. x, y = bottom centre; s = size; rot tilts a falling clump."""
+    s = P(e.get("s", 90))
+    g = Image.new("RGBA", (int(s * 3), int(s * 2.4)), (0, 0, 0, 0))
+    gd = ImageDraw.Draw(g)
+    rnd = random.Random(e.get("seed", 8))
+    bx, by = g.width / 2, g.height - P(4)
+    for _ in range(int(e.get("n", 40))):
+        x0 = bx + rnd.uniform(-s * 0.9, s * 0.9)
+        lean = rnd.uniform(-s * 0.7, s * 0.7)
+        top = by - s * rnd.uniform(0.9, 2.0)
+        gd.line([(x0, by), (x0 + lean * 0.5, (by + top) / 2), (x0 + lean, top)],
+                fill=rnd.choice([(108, 150, 64), (130, 170, 72), (90, 130, 56), (150, 184, 88)]), width=max(2, int(s / 18)), joint="curve")
+    if e.get("rot"):
+        g = g.rotate(e["rot"], expand=True, resample=Image.BICUBIC)
+    img.alpha_composite(g, (int(P(e["x"]) - g.width / 2), int(P(e["y"]) - g.height + P(4))))
+
+def el_brush(img, d, e):
+    """Pebble's little grooming brush. x, y = centre; s = length; rot in degrees."""
+    s = P(e.get("s", 70))
+    g = Image.new("RGBA", (int(s * 1.4), int(s * 1.4)), (0, 0, 0, 0))
+    gd = ImageDraw.Draw(g)
+    cx, cy = g.width / 2, g.height / 2
+    gd.rounded_rectangle([cx - s * 0.5, cy - s * 0.12, cx + s * 0.05, cy + s * 0.06], radius=int(s * 0.05), fill=(178, 120, 70), outline=INK, width=P(2))
+    gd.rounded_rectangle([cx + s * 0.02, cy - s * 0.2, cx + s * 0.5, cy + s * 0.08], radius=int(s * 0.06), fill=(150, 96, 56), outline=INK, width=P(2))
+    for i in range(7):
+        bx = cx + s * 0.06 + i * s * 0.065
+        gd.line([(bx, cy + s * 0.08), (bx, cy + s * 0.24)], fill=(236, 224, 196), width=P(3))
+    g = g.rotate(e.get("rot", 0), expand=True, resample=Image.BICUBIC)
+    img.alpha_composite(g, (int(P(e["x"]) - g.width / 2), int(P(e["y"]) - g.height / 2)))
+
+def el_fly(img, d, e):
+    """A little fly (the one that lands on a nose). x, y = centre; s = size."""
+    x, y, s = P(e["x"]), P(e["y"]), P(e.get("s", 14))
+    for k in (-1, 1):
+        d.ellipse([x + k * s * 0.2 - s * 0.55, y - s * 1.1, x + k * s * 0.2 + s * 0.55, y - s * 0.1], fill=(236, 244, 250), outline=INK, width=P(1))
+    d.ellipse([x - s * 0.5, y - s * 0.4, x + s * 0.5, y + s * 0.5], fill=(40, 40, 46))
+    for k in (-1, 1):
+        d.arc([x + k * P(30) - P(12), y - P(40), x + k * P(30) + P(12), y - P(20)], 200, 340, fill=INK, width=P(2))
+
+def el_trinkets(img, d, e):
+    """What is in Echo's satchel: a feather, a shiny button and a bit of string. x, y = centre; s = size."""
+    x, y, s = P(e["x"]), P(e["y"]), P(e.get("s", 60))
+    fx, fy = x - s * 1.4, y                   # feather
+    d.line([(fx - s * 0.6, fy + s * 0.5), (fx + s * 0.6, fy - s * 0.5)], fill=(120, 90, 60), width=P(3))
+    for i in range(9):
+        t = i / 8
+        px_, py_ = fx - s * 0.5 + s * t, fy + s * 0.42 - s * 0.84 * t
+        for k in (-1, 1):
+            d.line([(px_, py_), (px_ + k * s * 0.25 + s * 0.12, py_ + k * s * 0.25 - s * 0.05)], fill=(90, 130, 180), width=P(3))
+    d.ellipse([x - s * 0.3, y - s * 0.3, x + s * 0.3, y + s * 0.3], fill=(228, 186, 70), outline=INK, width=P(2))   # button
+    for bx, by in ((-0.1, -0.1), (0.1, -0.1), (-0.1, 0.1), (0.1, 0.1)):
+        d.ellipse([x + s * bx - P(3), y + s * by - P(3), x + s * bx + P(3), y + s * by + P(3)], fill=INK)
+    d.line([(x - s * 0.15, y - s * 0.2), (x - s * 0.05, y - s * 0.25)], fill=(255, 250, 220), width=P(2))
+    sx = x + s * 1.3                          # string
+    d.line([(sx - s * 0.5 + s * 0.08 * i + s * 0.3 * math.cos(i * 0.9), y + s * 0.3 * math.sin(i * 0.9)) for i in range(14)],
+           fill=(236, 222, 190), width=P(3), joint="curve")
 
 def el_emblem(img, d, e, circle):
     em = Image.open(ROOT / f"images/web/circles/circle-{circle.lower()}.webp").convert("RGBA")

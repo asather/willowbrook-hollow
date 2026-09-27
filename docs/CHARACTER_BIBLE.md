@@ -63,7 +63,7 @@ No unapproved changes to colors, proportions, or permanent accessories.
 - **Accessories:** **Forest‑green satchel (permanent)**  
 - **Personality:** Clever, confident trickster; smirks before jokes; “abandons” plans, then saves the day  
 - **Speech:** Witty, teasing; uses nicknames for others  
-- **Example Behaviors:** Appears when least expected; hides helpful actions behind sarcasm; pretends to nap during work  
+- **Example Behaviors:** Appears when least expected; hides helpful actions behind sarcasm; pretends to nap during work; gives everyone nicknames (he calls Leo “Fuzz”); keeps odds and ends in his satchel (a feather, a shiny button, string, acorns), and once kept Tansy’s lost map there without telling anyone (*The Willow Swap*, acorn-005)  
 - **Master Assets:**  
   - PNG: `images/characters/master/echo_master.png`  
 
@@ -107,6 +107,8 @@ No unapproved changes to colors, proportions, or permanent accessories.
   - Eats grass instead of meat (vegetarian)  
   - Repeats the same silly jokes that never stop being funny  
   - Holds up the wish ball and wonders aloud if it will glow  
+  - His one joke, told again and again: “What did the big rock say to the little rock? Nothing! Rocks can’t talk!” Echo groans at it (until *The Willow Swap*, acorn-005, when he finally laughs)  
+- **The wish ball’s rule:** it only answers a real, kind wish. A grumpy wish can go wrong: under the old willow, Echo and Leo each wished to be the other and swapped bodies until they wished to be themselves again (*The Willow Swap*, acorn-005). In scenes where a body holds someone else, a thought bubble above it shows whose mind is inside (`inside` in [`SCENE_ART.md`](SCENE_ART.md)).  
 - **Master Assets:**  
   - PNG: `images/characters/master/leo_master.png`  
 

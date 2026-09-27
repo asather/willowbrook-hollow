@@ -1,0 +1,650 @@
+{
+  "circle": "Acorn",
+  "circleIcon": "images/web/circles/circle-acorn.webp",
+  "bookId": "acorn-005",
+  "title": "The Willow Swap",
+  "subtitle": "A Willowbrook Hollow story",
+  "cover": {
+    "image": "books/acorn-005/images/cover.webp",
+    "alt": "Echo and Leo under the old willow, both touching the glowing blue wish ball"
+  },
+  "cast": [
+    "echo",
+    "leo",
+    "brindle",
+    "tansy",
+    "pip-pebble",
+    "moss",
+    "puddle",
+    "wren"
+  ],
+  "toc": [
+    {
+      "type": "title",
+      "label": "Title Page"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 1: The Old Willow",
+      "anchor": "ch1"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 2: Shh!",
+      "anchor": "ch2"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 3: Big Paws",
+      "anchor": "ch3"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 4: Too Kind for a Fox",
+      "anchor": "ch4"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 5: Swap Back?",
+      "anchor": "ch5"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 6: A Real Wish",
+      "anchor": "ch6"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "ch1",
+      "title": "Chapter 1: The Old Willow",
+      "pages": [
+        {
+          "number": 1,
+          "layout": "art-left",
+          "text": [
+            "Leo had a job to do. He had to hold very still.",
+            "Brindle was napping on his mane. Brindle napped there most days. A lion’s mane makes a good pillow.",
+            "Echo sat on a log with his sly grin.",
+            "“Look at you, Fuzz,” said Echo. “Lion life is so easy. You just sit there and look cute.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-01.webp",
+              "alt": "Brindle naps on Leo’s fluffy mane while Echo grins at them from a log"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "layout": "art-right",
+          "text": [
+            "“It is not easy,” said Leo softly. He did not want to wake Brindle. “Fox life is easy. You nap all day and tell jokes.”",
+            "“My jokes are good,” said Echo. “You have one joke. You tell it all day.”",
+            "Leo grinned. “What did the big rock say to the little rock?”",
+            "“Don’t,” said Echo.",
+            "“Nothing! Rocks can’t talk!”",
+            "Leo laughed so hard that Brindle woke up."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-02.webp",
+              "alt": "Leo laughs at his own joke, Brindle wakes up with a jump, and Echo covers his eyes"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "layout": "art-left",
+          "text": [
+            "Brindle gave a big yawn. He went off to nap in the sun.",
+            "“Come on,” said Leo. “Let’s go for a walk. I will show you the old willow.”",
+            "They went past the stream. They went past the frog rock. At the far end of the Hollow stood a willow tree.",
+            "It was very old. Its long, thin branches hung down to the grass. They looked like a yellow curtain."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-03.webp",
+              "alt": "Leo and Echo walk toward a huge old willow tree whose long yellow branches hang down to the grass"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "layout": "art-right",
+          "text": [
+            "Leo and Echo went in under the branches. It was still and hushed in there, like a secret room.",
+            "The wind went swish, swish in the leaves.",
+            "Leo held up his wish ball. “Will it glow?” he said. He said that each time. It hardly ever did.",
+            "Echo rolled his eyes. “Okay, wish ball,” he said. “I wish I was a big, cute lion. Then I could nap all day.”",
+            "“And I wish I was a fox,” said Leo. “Then I could be sly and quick.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-04.webp",
+              "alt": "Inside the willow’s curtain of branches, Leo holds up his wish ball as Echo rolls his eyes"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "layout": "art-left",
+          "text": [
+            "They both put a paw on the ball. It began to glow. Blue, then bluer, then BLUE!",
+            "SWISH went the willow. FLASH went the ball.",
+            "Echo felt big. Very, very big. He looked down. He had huge gold paws and a fluffy mane.",
+            "“Uh-oh,” said Echo. The words came out big and deep, just like Leo.",
+            "Next to him sat a fox with a green satchel. The fox looked down at its black legs and white tail tip.",
+            "“Uh-oh,” said the fox. It was Leo."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-05.webp",
+              "alt": "A big blue flash lights up the willow as Echo and Leo swap bodies"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch2",
+      "title": "Chapter 2: Shh!",
+      "pages": [
+        {
+          "number": 6,
+          "layout": "art-right",
+          "text": [
+            "Echo looked at Leo. Leo looked at Echo.",
+            "“You are ME!” they both yelled.",
+            "“Wish it back!” said Leo. “Wish it back, quick!”",
+            "They put their paws on the ball. They wished and wished. They wished so hard, their ears went pink.",
+            "The ball did not glow. Not one bit.",
+            "“Great,” said Echo. “Just great.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-06.webp",
+              "alt": "Echo, now in Leo’s body, and Leo, now in Echo’s body, both press on the wish ball, which will not glow"
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "layout": "art-left",
+          "text": [
+            "Just then, a song came from the top of the willow.",
+            "“Breaking news! Breaking news!” It was Wren. “Did I just hear a FLASH?”",
+            "“You can’t hear a flash,” said Echo, from inside Leo.",
+            "“Hmm,” said Wren. She looked at them. They both did big, fake grins.",
+            "“Boring!” sang Wren. And off she went to find better news."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-07.webp",
+              "alt": "Wren peeks down from the top of the willow while the swapped Echo and Leo do big fake grins"
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "layout": "art-right",
+          "text": [
+            "Echo let out a big breath. “No one can know,” he said. “If Wren finds out, the whole Hollow will know by lunch.”",
+            "“So it is a secret,” said Leo. “Then we have to be each other. Just until we swap back.”",
+            "They shook on it. Leo’s paw was tiny now. Echo’s paw was as big as a pumpkin.",
+            "“To be me, you have to be kind,” said Leo. “Say please and thank you. Help all of them. And tell my rock joke.”",
+            "“Ugh,” said Echo."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-08.webp",
+              "alt": "The swapped friends shake on it: a huge lion paw and a tiny fox paw"
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "layout": "art-left",
+          "text": [
+            "“To be me, you have to be sly,” said Echo. “Give all of them a nickname. Smirk a lot. And when there is work, pretend to nap.”",
+            "“What is a smirk?” said Leo.",
+            "Echo showed him, on Leo’s big lion face. It looked like a sneeze was coming.",
+            "Then Leo had a go, on Echo’s fox face. It looked like a sneeze was coming there too.",
+            "They both burst out in a laugh. Then they went home to be each other."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-09.webp",
+              "alt": "Echo in Leo’s body shows Leo in Echo’s body how to smirk, and it looks like a sneeze"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch3",
+      "title": "Chapter 3: Big Paws",
+      "pages": [
+        {
+          "number": 10,
+          "layout": "art-right",
+          "text": [
+            "Echo went back to the big oak. It was hard work to be so big.",
+            "He bumped his head on a branch. He stepped on his own tail. He sat on a bush, and the bush went flat.",
+            "Tansy ran up to him. “Leo! Leo! I lost my map! Now I will never find my acorns! Will you help me?”",
+            "Echo wanted to say, “Nope.” But Leo would help.",
+            "“Um… please,” said Echo. “And thank you. Yes.”",
+            "Tansy stared at him. “Why did you say thank you?”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-10.webp",
+              "alt": "Echo, in Leo’s big body, has squashed a bush flat as Tansy runs up asking for help"
+            }
+          ]
+        },
+        {
+          "number": 11,
+          "layout": "art-left",
+          "text": [
+            "At noon, Tansy came back with a big heap of grass.",
+            "“Here you go, Leo! Your best lunch! The long, sweet grass from the stream!”",
+            "Foxes do not eat grass. But Leo did. So Echo took a bite. He chewed and chewed. He chewed some more.",
+            "“Mmm,” said Echo, with a very green look on his face. “Yum. So very… green.”",
+            "When Tansy looked away, he hid the rest in his mane."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-11.webp",
+              "alt": "Echo, in Leo’s body, chews a mouthful of grass with a sour face while Tansy smiles proudly"
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "layout": "art-right",
+          "text": [
+            "Next came the mouse twins. Pebble had her brush. She got the burrs out of Leo’s mane each day.",
+            "Brush, brush, brush. It was SO itchy.",
+            "“Hee! Ha! Stop!” yelled Echo. “That is too funny!”",
+            "A big clump of grass fell out of his mane.",
+            "Pebble stared. “Leo does not yell when I brush him.”",
+            "“He does too,” said Pip.",
+            "“He does not!” said Pebble.",
+            "The twins went home, still fussing. Echo let out a breath. That was close."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-12.webp",
+              "alt": "Pebble brushes the mane of Echo, in Leo’s body, as a clump of grass falls out and Pip looks on"
+            }
+          ]
+        },
+        {
+          "number": 13,
+          "layout": "art-left",
+          "text": [
+            "Then Brindle came back for his nap. He flopped down on the mane. In a second, he was snoring.",
+            "Echo had to hold still. Very, very still.",
+            "A fly landed on his nose. He held still.",
+            "His leg went to sleep. He held still.",
+            "“Leo’s job is hard,” Echo said to himself. “He is kind all day, and he never gets to move.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-13.webp",
+              "alt": "Brindle snores on the mane of Echo, in Leo’s body, who holds very still with a fly on his nose"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch4",
+      "title": "Chapter 4: Too Kind for a Fox",
+      "pages": [
+        {
+          "number": 14,
+          "layout": "art-right",
+          "text": [
+            "Leo was having a hard day too.",
+            "Fox legs are very quick. Leo took one step, and ZOOM! He shot off like a rocket.",
+            "He zoomed past Tansy. He zoomed past the stream. He zoomed into a bush.",
+            "In the bush was Moss. Moss did what Moss always does. He rolled into a ball.",
+            "“Oh no! I am so sorry!” said Leo.",
+            "Moss peeked out. “Echo said sorry?” he said, in a small squeak."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-14.webp",
+              "alt": "Leo, in Echo’s quick fox body, zooms into a bush and Moss rolls into a ball"
+            }
+          ]
+        },
+        {
+          "number": 15,
+          "layout": "art-left",
+          "text": [
+            "Leo had to think fast. Echo gave all of them a nickname.",
+            "“Um… hello, Sweet Pea,” Leo said to Moss. Moss rolled back up.",
+            "Then Leo saw Tansy. “Hi there, Sunshine!”",
+            "Then he saw Puddle. “Hello, Honey Bun!”",
+            "Tansy’s mouth fell open. “Echo just said I was his Sunshine,” she said. “Is he sick?”",
+            "Puddle did not hear a thing. He was looking at a moth."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-15.webp",
+              "alt": "Leo, in Echo’s body, waves too sweetly at Tansy, whose mouth falls open, while Puddle watches a moth"
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "layout": "art-right",
+          "text": [
+            "Leo went to sit on a log. He looked in Echo’s green satchel.",
+            "In it was a feather. There was a shiny button, a bit of string and six acorns.",
+            "And at the very bottom, there was a map, scratched on bark.",
+            "It was Tansy’s lost map! Echo had found it, and he did not tell a soul.",
+            "Leo grinned. “Echo is kind too,” he said. “He just hides it.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-16.webp",
+              "alt": "Leo, in Echo’s body, finds Tansy’s bark map at the bottom of Echo’s satchel"
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "layout": "art-left",
+          "text": [
+            "Leo ran to give Tansy her map. He only crashed into two bushes on the way.",
+            "Tansy hugged the map. Then she hugged the fox. “Echo, you are the best!”",
+            "Leo wanted to say, “You are welcome, Sunshine!” But he did not. Echo would smirk and say nothing.",
+            "So Leo did his best smirk. It still looked like a sneeze.",
+            "“Hiding a kind thing is hard,” he said to himself. “It is like a sneeze you have to hold in.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-17.webp",
+              "alt": "Tansy hugs her map and the fox, as Leo, in Echo’s body, does his best sneezy smirk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch5",
+      "title": "Chapter 5: Swap Back?",
+      "pages": [
+        {
+          "number": 18,
+          "layout": "art-right",
+          "text": [
+            "At dusk, the two met back at the willow.",
+            "“I want my mane back,” said Leo.",
+            "“I want my legs back,” said Echo. “And I never want to eat grass again.”",
+            "First, they wished on the ball. It did not glow.",
+            "Then Echo said, “In stories, you bonk heads. Then you swap back.”",
+            "So they bonked heads. BONK!",
+            "“Ow,” said Leo. “Ow,” said Echo. They were still swapped."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-18.webp",
+              "alt": "At dusk by the willow, the swapped friends bonk heads with a BONK"
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "layout": "art-left",
+          "text": [
+            "“Let’s spin three times and say the wish backwards,” said Leo.",
+            "They spun one, two, three times. “Me was I wish I!” they yelled.",
+            "The Hollow went round and round. Echo tipped one way. Leo tipped the other way.",
+            "SPLASH! They both fell in the stream.",
+            "Puddle came paddling by. “Oh, hello,” he said. “Is this a bath? What was I doing?”",
+            "They were wet. And they were still swapped."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-19.webp",
+              "alt": "The dizzy friends splash into the stream as Puddle paddles past"
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "layout": "art-right",
+          "text": [
+            "Then Wren zoomed in. “BREAKING NEWS! BREAKING NEWS!” The whole Hollow came running.",
+            "“Leo ate grass and made a yuck face!” sang Wren. “Echo said please! Echo said SORRY! I think Leo and Echo swapped!”",
+            "The whole Hollow laughed. “Oh, Wren,” said Tansy. “You mix up all your news.”",
+            "“Do I?” said Wren.",
+            "“Yes,” said Pip and Pebble. “You still mix up US.”",
+            "Echo and Leo did not say a word."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-20.webp",
+              "alt": "Wren sings her breaking news, but Tansy and the mouse twins just laugh, while the swapped friends keep still"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch6",
+      "title": "Chapter 6: A Real Wish",
+      "pages": [
+        {
+          "number": 21,
+          "layout": "art-left",
+          "text": [
+            "When the rest went home, Moss stayed. He came up very slowly.",
+            "“I know,” he said softly. “Leo does not smirk. Echo does not say sorry. I will not tell.”",
+            "Then Moss looked at the wish ball. “When you swapped, were you grumpy?”",
+            "“A bit,” said Echo.",
+            "“Then it was a grumpy wish,” said Moss. “Maybe the ball wants a real one.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-21.webp",
+              "alt": "Moss comes up slowly and whispers to the swapped friends under the willow at dusk"
+            }
+          ]
+        },
+        {
+          "number": 22,
+          "layout": "art-right",
+          "text": [
+            "Echo looked at Leo. It was hard to say, but he said it.",
+            "“Your job is hard, Fuzz. You are kind all day. The whole Hollow needs you.”",
+            "Leo looked at Echo. “Your job is hard too. You do kind things, and then you hide them. You found Tansy’s map.”",
+            "Echo went red. But you could not tell under all that fur.",
+            "They put their paws on the ball. “I wish I was me again,” they said.",
+            "And this time, they meant it."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-22.webp",
+              "alt": "The two friends put their paws on the wish ball together under the willow"
+            }
+          ]
+        },
+        {
+          "number": 23,
+          "layout": "art-left",
+          "text": [
+            "The ball began to glow. Blue, then bluer, then BLUE!",
+            "SWISH went the willow. FLASH went the ball.",
+            "Echo looked down. Thin black legs! A white tail tip! His green satchel!",
+            "Leo looked down. Big gold paws! A big, fluffy mane! His wish ball!",
+            "Leo gave Echo a huge hug.",
+            "“Thank you,” said Echo. Then he smirked. “I mean… nice mane, Fuzz.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-23.webp",
+              "alt": "A blue flash under the willow, and Echo and Leo are back in their own bodies, hugging"
+            }
+          ]
+        },
+        {
+          "number": 24,
+          "layout": "art-right",
+          "text": [
+            "They walked home in the dusk.",
+            "“What did the big rock say to the little rock?” said Leo.",
+            "Echo let out a long breath. “Nothing,” he said. “Rocks can’t talk.”",
+            "And then Echo laughed. Not a fake laugh. A real one.",
+            "Moss did not say a thing. He just smiled.",
+            "Back at the far end of the Hollow, the willow went swish. Swish. It had a secret too."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-005/images/page-24.webp",
+              "alt": "Echo and Leo walk home under the first stars, laughing, with Moss smiling behind them"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "quiz": {
+    "instructions": "Tap an answer. Tap the speaker to hear the question. You can try as many times as you like!",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "recall",
+        "prompt": "What did Echo and Leo both put a paw on?",
+        "choices": [
+          "A willow leaf",
+          "The wish ball",
+          "Tansy’s map"
+        ],
+        "answerIndex": 1,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/leo.webp",
+            "line": "Yes! It went blue, then bluer, then BLUE!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/echo.webp",
+            "line": "Nope, Sweet Pea. It was round and it glowed. Try again!"
+          }
+        }
+      },
+      {
+        "id": "q2",
+        "type": "recall",
+        "prompt": "Why did they keep the swap a secret?",
+        "choices": [
+          "Wren would tell the whole Hollow",
+          "Brindle was napping",
+          "Leo was sick"
+        ],
+        "answerIndex": 0,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/wren.webp",
+            "line": "Breaking news! That is it!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/echo.webp",
+            "line": "Think, Sunshine. Who loves to tell news? Try again!"
+          }
+        }
+      },
+      {
+        "id": "q3",
+        "type": "recall",
+        "prompt": "What did Leo find in Echo’s satchel?",
+        "choices": [
+          "A jam sandwich",
+          "A wish ball",
+          "Tansy’s lost map"
+        ],
+        "answerIndex": 2,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/tansy.webp",
+            "line": "My map! My map! Now I can find my acorns!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/tansy.webp",
+            "line": "Hmm. What did I lose? Try again!"
+          }
+        }
+      },
+      {
+        "id": "q4",
+        "type": "recall",
+        "prompt": "What swapped them back at last?",
+        "choices": [
+          "They bonked heads",
+          "They fell in the stream",
+          "They made a real, kind wish"
+        ],
+        "answerIndex": 2,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/moss.webp",
+            "line": "Yes. A real wish. I knew it."
+          },
+          "tryAgain": {
+            "character": "images/web/characters/moss.webp",
+            "line": "Um… they had a go at that. It did not work. Try again."
+          }
+        }
+      },
+      {
+        "id": "q5",
+        "type": "think",
+        "prompt": "If you swapped with a friend, what would you do first?",
+        "choices": [
+          "Eat their lunch",
+          "Tell their best joke",
+          "Keep it a secret"
+        ],
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/leo.webp",
+            "line": "Ha! Good plan! Just do not eat grass."
+          },
+          "tryAgain": {
+            "character": "images/web/characters/leo.webp",
+            "line": "Ha! Good plan! Just do not eat grass."
+          }
+        }
+      }
+    ]
+  }
+}

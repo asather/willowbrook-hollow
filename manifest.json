@@ -38,6 +38,14 @@
       "subtitle": "Every time they go to eat… something funny happens!",
       "path": "./books/acorn-004/book.json",
       "circleIcon": "images/web/circles/circle-acorn.webp"
+    },
+    {
+      "circle": "Acorn",
+      "bookId": "acorn-005",
+      "title": "The Willow Swap",
+      "subtitle": "A fox in a lion. A lion in a fox. Shh!",
+      "path": "./books/acorn-005/book.json",
+      "circleIcon": "images/web/circles/circle-acorn.webp"
     }
   ]
 }

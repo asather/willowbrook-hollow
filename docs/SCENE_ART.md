@@ -51,7 +51,7 @@ Because characters come from their web copies, they always match the Character B
 | `hills` | `y`, `seed` | Two rolling hills with grass tufts |
 | `tree` | `x`, `y` (ground), `h`, `w`, `seed` | A fall tree |
 | `tansy_tree` | `x`, `y`, `h`, `w` | Tansy's big home tree, with its hole and bump |
-| `stump`, `gate`, `bush`, `rock` | `x`, `y`, `w` or `r` | Hollow landmarks |
+| `stump`, `gate`, `bush`, `rock` | `x`, `y`, `w` or `r`, (`flat`) | Hollow landmarks (`flat` squashes a bush that something sat on) |
 | `stream` | `y`, `w`, `tilt`, `rocks` [x…], `ripples` | The stream across the picture |
 | `frog_rock` | `x`, `y`, `w` | The rock that looks like a frog |
 | `log` | `x`, `y`, `w`, `h`, `sunspot` | A hollow log, open end facing us |
@@ -77,6 +77,11 @@ Because characters come from their web copies, they always match the Character B
 | `ants` | `x`, `y`, `dx`, `dy`, `n`, `s`, `carry` | A line of ants (`carry: "sandwich"` puts a sandwich on their backs) |
 | `bucket`, `snacks` | `x`, `y`, `s`, `tip` / `spread`, `n` | Zoe's feed bucket; the nuts, seeds, carrots and berries she shares |
 | `plan` | `x`, `y`, `w`, `rot` | Tansy's numbered plan scratched on bark |
+| `willow` | `x`, `y`, `h`, `w`, `gap`, `glow`, `wind`, `seed` | The old willow at the far end of the Hollow: a dome of long yellow branches hanging to the grass; `gap` parts the curtain to show the trunk; `glow` lights it blue from inside |
+| `willow_inside` | `side` (`left`, `right`), `glow` [x, y], `glowR`, `wind` | Standing inside the willow's curtain: a hushed gold-green room, the trunk on one side |
+| `flash` | `x`, `y`, `s`, `n` | A burst of blue light with rays and sparkles (the wish ball working) |
+| `inside` | `id`, `x`, `y`, `r`, `tail` [x, y], `flip` | A thought bubble showing the face of whoever is *inside* a body, for stories where minds swap; `tail` points to the head it rises from |
+| `grass`, `brush`, `fly`, `trinkets` | `x`, `y`, `s`, (`rot`, `n`) | A heap or clump of picked grass (Leo's lunch); Pebble's grooming brush; a little fly; the odds and ends in Echo's satchel (feather, button, string) |
 | `character` | `id`, `x`, `y`, `h`, `flip`, `rot`, `dim`, `dusty`, `noShadow` | A character from `images/web/characters/` (`pip` and `pebble` separately; Pebble always gets her canon ear notch). `dusty` (0–1) turns fur dusty gray |
 | `emblem` | `x`, `y`, `s`, `opacity` | The book's Circle symbol (required) |
 

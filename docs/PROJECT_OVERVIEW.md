@@ -11,7 +11,7 @@ Three commitments shape every book:
 ---
 
 ## Story Premise
-**Willowbrook Hollow** is a hidden community of animals living in the woods, meadows and streams behind the Willowbrook Animal Sanctuary. They can speak to one another across species, but humans cannot understand them.
+**Willowbrook Hollow** is a hidden community of animals living in the woods, meadows and streams behind the Willowbrook Animal Sanctuary. Landmarks include the big oak, the stream and the frog rock, the parrots' gold tree and, at the far end of the Hollow, the old willow, whose long branches hang down like a curtain around a hushed, secret room. They can speak to one another across species, but humans cannot understand them.
 
 When something new or strange happens at the sanctuary (a new animal arrives, a mysterious sound starts, a human brings something the animals have never seen), the Hollow's residents investigate, help each other, and usually make it funnier on the way.
 
@@ -74,6 +74,7 @@ Full details: [`CHARACTER_BIBLE.md`](CHARACTER_BIBLE.md) and [`CHARACTERS_README
 - Wren's misheard and misquoted "news."
 - Puddle solving things by accident.
 - Echo helping in secret, then denying it.
+- Leo's rock joke, which he never stops telling.
 
 **Style rules at every Circle:**
 - Humor is light-hearted and never mean-spirited. Solutions often create bigger problems before they work out.
