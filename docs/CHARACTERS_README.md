@@ -50,9 +50,10 @@ Reference for consistent character portrayal: personalities, quirks, relationshi
   - PNG: `images/characters/master/puddle_master.png`  
 
 **Pip & Pebble – Mouse Twins**  
-- **Personality:** Argumentative duo; resourceful when cooperating; quick, snappy banter.  
-- **Quirks:** Finish each other’s sentences, often incorrectly.  
-- **Dynamics:** Frequently get drawn into Tansy’s plans; sometimes aided by Puddle’s accidents.  
+- **Personality:** Argumentative duo (Pip is a boy, Pebble a girl); resourceful when cooperating; quick, snappy banter.  
+- **Telling them apart:** **Pip** has warm brown fur and short whiskers (left in the master art). **Pebble** has gray‑brown fur and a notch in her ear (right in the master art). The Hollow learned this in *Which One Is Which?* (acorn-003).  
+- **Quirks:** Finish each other’s sentences, often incorrectly. Argue over who is older (Pip, by one minute).  
+- **Dynamics:** Frequently get drawn into Tansy’s plans; sometimes aided by Puddle’s accidents. Pip helps Brindle; Pebble helps Leo. Wren still mixes them up.  
 - **Master Assets:**  
   - PNG: `images/characters/master/pip_pebble_master.png`  
 
@@ -60,7 +61,7 @@ Reference for consistent character portrayal: personalities, quirks, relationshi
 - **Personality:** Cheerful and comforting; playful jokester; vegetarian lion who surprises everyone.  
 - **Quirks:** Carries a glowing wish ball; repeats favorite jokes.  
 - **Dynamics:** 
-  - Old buddies with Brindle, sharing kindness and friendship.  
+  - Old buddies with Brindle, sharing kindness, friendship and the nap spot under the big oak tree.  
   - Play-teases Moss and Tansy in a friendly way.  
   - Welcomed by all Hollow friends, especially in adventurous moments.  
 - **Master Assets:**  

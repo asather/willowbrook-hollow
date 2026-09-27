@@ -1,0 +1,1724 @@
+{
+ "size": [
+  1600,
+  900
+ ],
+ "scenes": {
+  "cover": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "dusk",
+     "sun": [
+      1300,
+      420
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 620,
+     "seed": 7
+    },
+    {
+     "type": "tree",
+     "x": 800,
+     "y": 640,
+     "h": 600,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "bush",
+     "x": 180,
+     "y": 700,
+     "w": 200
+    },
+    {
+     "type": "emblem",
+     "x": 800,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 400,
+     "y": 870,
+     "h": 400
+    },
+    {
+     "type": "character",
+     "id": "leo",
+     "x": 1220,
+     "y": 870,
+     "h": 440,
+     "flip": true
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 735.0,
+     "y": 870,
+     "h": 200,
+     "dusty": 0.9
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 865.0,
+     "y": 870,
+     "h": 200
+    },
+    {
+     "type": "leaf_hat",
+     "x": 878,
+     "y": 677,
+     "r": 18,
+     "rot": -25
+    },
+    {
+     "type": "falling_leaves",
+     "n": 10,
+     "seed": 4
+    }
+   ]
+  },
+  "page-01": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 380,
+     "w": 42
+    },
+    {
+     "type": "hills",
+     "y": 600,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 885,
+     "w": 70,
+     "tilt": -10,
+     "rocks": [
+      300,
+      1350
+     ]
+    },
+    {
+     "type": "log",
+     "x": 1120,
+     "y": 690,
+     "w": 360,
+     "h": 130
+    },
+    {
+     "type": "stump",
+     "x": 420,
+     "y": 690,
+     "w": 120
+    },
+    {
+     "type": "emblem",
+     "x": 420,
+     "y": 670,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 690.0,
+     "y": 800,
+     "h": 220
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 830.0,
+     "y": 800,
+     "h": 220
+    },
+    {
+     "type": "falling_leaves",
+     "n": 6,
+     "seed": 1
+    }
+   ]
+  },
+  "page-02": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 380,
+     "w": 42
+    },
+    {
+     "type": "hills",
+     "y": 600,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 885,
+     "w": 70,
+     "tilt": -10,
+     "rocks": [
+      300,
+      1350
+     ]
+    },
+    {
+     "type": "log",
+     "x": 1120,
+     "y": 690,
+     "w": 360,
+     "h": 130
+    },
+    {
+     "type": "stump",
+     "x": 420,
+     "y": 690,
+     "w": 120
+    },
+    {
+     "type": "emblem",
+     "x": 420,
+     "y": 670,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 570.0,
+     "y": 800,
+     "h": 210
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 710.0,
+     "y": 800,
+     "h": 210
+    },
+    {
+     "type": "character",
+     "id": "wren",
+     "x": 1180,
+     "y": 380,
+     "h": 180,
+     "rot": -12,
+     "noShadow": true
+    },
+    {
+     "type": "motion",
+     "x": 1260,
+     "y": 300,
+     "s": 40,
+     "kind": "huff"
+    }
+   ]
+  },
+  "page-03": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 380,
+     "w": 42
+    },
+    {
+     "type": "hills",
+     "y": 600,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 885,
+     "w": 70,
+     "tilt": -10,
+     "rocks": [
+      300,
+      1350
+     ]
+    },
+    {
+     "type": "log",
+     "x": 1120,
+     "y": 690,
+     "w": 360,
+     "h": 130
+    },
+    {
+     "type": "stump",
+     "x": 420,
+     "y": 690,
+     "w": 120
+    },
+    {
+     "type": "emblem",
+     "x": 420,
+     "y": 670,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 1080.0,
+     "y": 700,
+     "h": 110
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 1160.0,
+     "y": 700,
+     "h": 110
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 420,
+     "y": 820,
+     "h": 320
+    },
+    {
+     "type": "moss_ball",
+     "x": 760,
+     "y": 780,
+     "r": 70,
+     "peek": true
+    }
+   ]
+  },
+  "page-04": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "dusk",
+     "sun": [
+      1300,
+      420
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 380,
+     "w": 42
+    },
+    {
+     "type": "hills",
+     "y": 600,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 885,
+     "w": 70,
+     "tilt": -10,
+     "rocks": [
+      300,
+      1350
+     ]
+    },
+    {
+     "type": "log",
+     "x": 1120,
+     "y": 690,
+     "w": 360,
+     "h": 130
+    },
+    {
+     "type": "stump",
+     "x": 420,
+     "y": 690,
+     "w": 120
+    },
+    {
+     "type": "emblem",
+     "x": 420,
+     "y": 670,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "stars",
+     "n": 10
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 695.0,
+     "y": 800,
+     "h": 220
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 825.0,
+     "y": 800,
+     "h": 220
+    },
+    {
+     "type": "motion",
+     "x": 700,
+     "y": 540,
+     "s": 40,
+     "kind": "huff"
+    },
+    {
+     "type": "motion",
+     "x": 820,
+     "y": 540,
+     "s": 40,
+     "kind": "huff"
+    }
+   ]
+  },
+  "page-05": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 620,
+     "seed": 7
+    },
+    {
+     "type": "tree",
+     "x": 800,
+     "y": 640,
+     "h": 600,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "bush",
+     "x": 180,
+     "y": 700,
+     "w": 200
+    },
+    {
+     "type": "emblem",
+     "x": 800,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 600,
+     "y": 860,
+     "h": 330
+    },
+    {
+     "type": "character",
+     "id": "leo",
+     "x": 1010,
+     "y": 860,
+     "h": 380,
+     "flip": true
+    },
+    {
+     "type": "zzz",
+     "x": 610,
+     "y": 470
+    },
+    {
+     "type": "zzz",
+     "x": 1040,
+     "y": 440
+    }
+   ]
+  },
+  "page-06": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 620,
+     "seed": 7
+    },
+    {
+     "type": "tree",
+     "x": 800,
+     "y": 640,
+     "h": 600,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "bush",
+     "x": 180,
+     "y": 700,
+     "w": 200
+    },
+    {
+     "type": "emblem",
+     "x": 800,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 700,
+     "y": 860,
+     "h": 330
+    },
+    {
+     "type": "character",
+     "id": "leo",
+     "x": 930,
+     "y": 820,
+     "h": 380,
+     "rot": 38,
+     "noShadow": true
+    },
+    {
+     "type": "motion",
+     "x": 720,
+     "y": 520,
+     "s": 60,
+     "kind": "bonk"
+    }
+   ]
+  },
+  "page-07": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 560,
+     "seed": 11
+    },
+    {
+     "type": "stream",
+     "y": 830,
+     "w": 120,
+     "tilt": 0,
+     "rocks": [
+      200
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 1450,
+     "y": 540,
+     "h": 380,
+     "w": 40,
+     "seed": 4
+    },
+    {
+     "type": "rock",
+     "x": 700,
+     "y": 760,
+     "r": 55
+    },
+    {
+     "type": "emblem",
+     "x": 700,
+     "y": 745,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 330,
+     "y": 860,
+     "h": 300
+    },
+    {
+     "type": "splash",
+     "x": 470,
+     "y": 830
+    },
+    {
+     "type": "character",
+     "id": "leo",
+     "x": 1180,
+     "y": 620,
+     "h": 300
+    },
+    {
+     "type": "emblem",
+     "x": 1180,
+     "y": 380,
+     "s": 46,
+     "opacity": 0.45
+    }
+   ]
+  },
+  "page-08": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 560,
+     "seed": 11
+    },
+    {
+     "type": "stream",
+     "y": 830,
+     "w": 120,
+     "tilt": 0,
+     "rocks": [
+      200
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 1450,
+     "y": 540,
+     "h": 380,
+     "w": 40,
+     "seed": 4
+    },
+    {
+     "type": "rock",
+     "x": 700,
+     "y": 760,
+     "r": 55
+    },
+    {
+     "type": "emblem",
+     "x": 700,
+     "y": 745,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 330,
+     "y": 860,
+     "h": 300
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 520,
+     "y": 860,
+     "h": 130,
+     "flip": true
+    },
+    {
+     "type": "character",
+     "id": "leo",
+     "x": 1150,
+     "y": 640,
+     "h": 320
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 1370,
+     "y": 640,
+     "h": 120
+    }
+   ]
+  },
+  "page-09": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 380,
+     "w": 42
+    },
+    {
+     "type": "hills",
+     "y": 600,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 885,
+     "w": 70,
+     "tilt": -10,
+     "rocks": [
+      300,
+      1350
+     ]
+    },
+    {
+     "type": "log",
+     "x": 1120,
+     "y": 690,
+     "w": 360,
+     "h": 130
+    },
+    {
+     "type": "stump",
+     "x": 420,
+     "y": 690,
+     "w": 120
+    },
+    {
+     "type": "emblem",
+     "x": 420,
+     "y": 670,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 1060,
+     "y": 620,
+     "h": 150
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 1180,
+     "y": 620,
+     "h": 150
+    },
+    {
+     "type": "motion",
+     "x": 1200,
+     "y": 440,
+     "s": 36,
+     "kind": "bonk"
+    }
+   ]
+  },
+  "page-10": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 380,
+     "w": 42
+    },
+    {
+     "type": "hills",
+     "y": 600,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 885,
+     "w": 70,
+     "tilt": -10,
+     "rocks": [
+      300,
+      1350
+     ]
+    },
+    {
+     "type": "log",
+     "x": 1120,
+     "y": 690,
+     "w": 360,
+     "h": 130
+    },
+    {
+     "type": "stump",
+     "x": 420,
+     "y": 690,
+     "w": 120
+    },
+    {
+     "type": "emblem",
+     "x": 420,
+     "y": 670,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 735.0,
+     "y": 800,
+     "h": 210
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 865.0,
+     "y": 800,
+     "h": 210
+    },
+    {
+     "type": "prints",
+     "x": 640,
+     "y": 820,
+     "dx": -80,
+     "dy": 0,
+     "n": 5,
+     "s": 10
+    },
+    {
+     "type": "prints",
+     "x": 960,
+     "y": 820,
+     "dx": 80,
+     "dy": 0,
+     "n": 5,
+     "s": 10
+    }
+   ]
+  },
+  "page-11": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 380,
+     "w": 42
+    },
+    {
+     "type": "hills",
+     "y": 600,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 885,
+     "w": 70,
+     "tilt": -10,
+     "rocks": [
+      300,
+      1350
+     ]
+    },
+    {
+     "type": "log",
+     "x": 1120,
+     "y": 690,
+     "w": 360,
+     "h": 130
+    },
+    {
+     "type": "stump",
+     "x": 420,
+     "y": 690,
+     "w": 120
+    },
+    {
+     "type": "emblem",
+     "x": 420,
+     "y": 670,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "dirt",
+     "x": 640,
+     "y": 815,
+     "s": 140,
+     "n": 22
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 680.0,
+     "y": 800,
+     "h": 210,
+     "dusty": 0.9
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 840.0,
+     "y": 800,
+     "h": 210
+    },
+    {
+     "type": "leaf_hat",
+     "x": 854,
+     "y": 598,
+     "r": 19,
+     "rot": -25
+    }
+   ]
+  },
+  "page-12": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 380,
+     "w": 42
+    },
+    {
+     "type": "hills",
+     "y": 600,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 885,
+     "w": 70,
+     "tilt": -10,
+     "rocks": [
+      300,
+      1350
+     ]
+    },
+    {
+     "type": "log",
+     "x": 1120,
+     "y": 690,
+     "w": 360,
+     "h": 130
+    },
+    {
+     "type": "stump",
+     "x": 420,
+     "y": 690,
+     "w": 120
+    },
+    {
+     "type": "emblem",
+     "x": 420,
+     "y": 670,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 580,
+     "y": 820,
+     "h": 330
+    },
+    {
+     "type": "acorns",
+     "x": 700,
+     "y": 590,
+     "n": 1,
+     "r": 18
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 835.0,
+     "y": 800,
+     "h": 190,
+     "dusty": 0.9
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 965.0,
+     "y": 800,
+     "h": 190
+    },
+    {
+     "type": "leaf_hat",
+     "x": 977,
+     "y": 617,
+     "r": 17,
+     "rot": -25
+    }
+   ]
+  },
+  "page-13": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 560,
+     "seed": 11
+    },
+    {
+     "type": "tree",
+     "x": 220,
+     "y": 540,
+     "h": 380,
+     "w": 40,
+     "seed": 4
+    },
+    {
+     "type": "bush",
+     "x": 1400,
+     "y": 720,
+     "w": 220
+    },
+    {
+     "type": "emblem",
+     "x": 1400,
+     "y": 690,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "leo",
+     "x": 820,
+     "y": 860,
+     "h": 460
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 700,
+     "y": 560,
+     "h": 110,
+     "dusty": 0.9,
+     "rot": 25,
+     "noShadow": true
+    }
+   ]
+  },
+  "page-14": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 560,
+     "seed": 11
+    },
+    {
+     "type": "tree",
+     "x": 220,
+     "y": 540,
+     "h": 380,
+     "w": 40,
+     "seed": 4
+    },
+    {
+     "type": "bush",
+     "x": 1400,
+     "y": 720,
+     "w": 220
+    },
+    {
+     "type": "emblem",
+     "x": 1400,
+     "y": 690,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "leo",
+     "x": 820,
+     "y": 860,
+     "h": 460
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 980,
+     "y": 520,
+     "h": 120,
+     "dusty": 0.9,
+     "flip": true,
+     "noShadow": true
+    },
+    {
+     "type": "acorns",
+     "x": 945,
+     "y": 440,
+     "n": 1,
+     "r": 8
+    }
+   ]
+  },
+  "page-15": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 620,
+     "seed": 2
+    },
+    {
+     "type": "barn",
+     "x": 1150,
+     "y": 700,
+     "w": 520,
+     "door": "shut"
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 600,
+     "h": 380,
+     "w": 40
+    },
+    {
+     "type": "emblem",
+     "x": 1150,
+     "y": 640,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "sock",
+     "x": 900,
+     "y": 820,
+     "s": 80,
+     "rot": 20
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 760,
+     "y": 870,
+     "h": 170,
+     "flip": true
+    },
+    {
+     "type": "leaf_hat",
+     "x": 749,
+     "y": 706,
+     "r": 15,
+     "rot": 25
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 380,
+     "y": 870,
+     "h": 340
+    }
+   ]
+  },
+  "page-16": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 1420,
+     "y": 560,
+     "h": 380,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 600,
+     "seed": 5
+    },
+    {
+     "type": "stream",
+     "y": 820,
+     "w": 140,
+     "tilt": 10,
+     "rocks": [
+      260,
+      1200
+     ]
+    },
+    {
+     "type": "reeds",
+     "x": 120,
+     "y": 800,
+     "h": 220
+    },
+    {
+     "type": "rock",
+     "x": 1150,
+     "y": 720,
+     "r": 60
+    },
+    {
+     "type": "emblem",
+     "x": 1150,
+     "y": 700,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 700,
+     "y": 860,
+     "h": 380
+    },
+    {
+     "type": "sock",
+     "x": 700,
+     "y": 640,
+     "s": 70,
+     "rot": -80
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 900,
+     "y": 860,
+     "h": 170
+    },
+    {
+     "type": "leaf_hat",
+     "x": 911,
+     "y": 696,
+     "r": 15,
+     "rot": -25
+    }
+   ]
+  },
+  "page-17": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "dusk",
+     "sun": [
+      1300,
+      420
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 620,
+     "seed": 7
+    },
+    {
+     "type": "tree",
+     "x": 800,
+     "y": 640,
+     "h": 600,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "bush",
+     "x": 180,
+     "y": 700,
+     "w": 200
+    },
+    {
+     "type": "emblem",
+     "x": 800,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 480,
+     "y": 860,
+     "h": 340,
+     "flip": true
+    },
+    {
+     "type": "character",
+     "id": "leo",
+     "x": 1120,
+     "y": 860,
+     "h": 380,
+     "flip": true
+    },
+    {
+     "type": "moss_ball",
+     "x": 800,
+     "y": 850,
+     "r": 60,
+     "peek": true
+    },
+    {
+     "type": "reeds",
+     "x": 800,
+     "y": 880,
+     "h": 120,
+     "w": 120
+    }
+   ]
+  },
+  "page-18": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "dusk",
+     "sun": [
+      1300,
+      420
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 620,
+     "seed": 7
+    },
+    {
+     "type": "tree",
+     "x": 800,
+     "y": 640,
+     "h": 600,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "bush",
+     "x": 180,
+     "y": 700,
+     "w": 200
+    },
+    {
+     "type": "emblem",
+     "x": 800,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 715.0,
+     "y": 860,
+     "h": 230
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 885.0,
+     "y": 860,
+     "h": 230
+    },
+    {
+     "type": "gust",
+     "x": 560,
+     "y": 520,
+     "s": 420,
+     "n": 4
+    },
+    {
+     "type": "leaf_hat",
+     "x": 1150,
+     "y": 420,
+     "r": 26,
+     "rot": 70
+    },
+    {
+     "type": "motion",
+     "x": 640,
+     "y": 700,
+     "s": 50,
+     "kind": "huff"
+    },
+    {
+     "type": "motion",
+     "x": 1000,
+     "y": 560,
+     "s": 40,
+     "kind": "huff"
+    }
+   ]
+  },
+  "page-19": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "dusk",
+     "sun": [
+      1300,
+      420
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 620,
+     "seed": 7
+    },
+    {
+     "type": "tree",
+     "x": 800,
+     "y": 640,
+     "h": 600,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "bush",
+     "x": 180,
+     "y": 700,
+     "w": 200
+    },
+    {
+     "type": "emblem",
+     "x": 800,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 380,
+     "y": 860,
+     "h": 360
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 610,
+     "y": 860,
+     "h": 170,
+     "flip": true
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 1000,
+     "y": 860,
+     "h": 170
+    },
+    {
+     "type": "character",
+     "id": "leo",
+     "x": 1230,
+     "y": 860,
+     "h": 400,
+     "flip": true
+    }
+   ]
+  },
+  "page-20": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "dusk",
+     "sun": [
+      1300,
+      420
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 620,
+     "seed": 7
+    },
+    {
+     "type": "tree",
+     "x": 800,
+     "y": 640,
+     "h": 600,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "bush",
+     "x": 180,
+     "y": 700,
+     "w": 200
+    },
+    {
+     "type": "emblem",
+     "x": 800,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 480,
+     "y": 860,
+     "h": 360
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 745.0,
+     "y": 870,
+     "h": 150
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 855.0,
+     "y": 870,
+     "h": 150
+    },
+    {
+     "type": "character",
+     "id": "leo",
+     "x": 1120,
+     "y": 860,
+     "h": 420,
+     "flip": true
+    },
+    {
+     "type": "glow",
+     "x": 1232,
+     "y": 640,
+     "r": 70
+    }
+   ]
+  },
+  "page-21": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 620,
+     "seed": 7
+    },
+    {
+     "type": "tree",
+     "x": 800,
+     "y": 640,
+     "h": 600,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "bush",
+     "x": 180,
+     "y": 700,
+     "w": 200
+    },
+    {
+     "type": "emblem",
+     "x": 800,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "leo",
+     "x": 980,
+     "y": 830,
+     "h": 380,
+     "flip": true
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 760,
+     "y": 840,
+     "h": 300,
+     "rot": -12
+    },
+    {
+     "type": "zzz",
+     "x": 700,
+     "y": 520
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 500.0,
+     "y": 880,
+     "h": 150
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 620.0,
+     "y": 880,
+     "h": 150
+    }
+   ]
+  },
+  "page-22": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "morning",
+     "sun": [
+      1380,
+      150
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 380,
+     "w": 42
+    },
+    {
+     "type": "hills",
+     "y": 600,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 885,
+     "w": 70,
+     "tilt": -10,
+     "rocks": [
+      300,
+      1350
+     ]
+    },
+    {
+     "type": "log",
+     "x": 1120,
+     "y": 690,
+     "w": 360,
+     "h": 130
+    },
+    {
+     "type": "stump",
+     "x": 420,
+     "y": 690,
+     "w": 120
+    },
+    {
+     "type": "emblem",
+     "x": 420,
+     "y": 670,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 910.0,
+     "y": 800,
+     "h": 210
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 1050.0,
+     "y": 800,
+     "h": 210
+    },
+    {
+     "type": "character",
+     "id": "wren",
+     "x": 1130,
+     "y": 590,
+     "h": 170,
+     "flip": true
+    }
+   ]
+  }
+ }
+}

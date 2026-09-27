@@ -1,0 +1,579 @@
+{
+  "circle": "Acorn",
+  "circleIcon": "images/web/circles/circle-acorn.webp",
+  "bookId": "acorn-003",
+  "title": "Which One Is Which?",
+  "subtitle": "A Willowbrook Hollow story",
+  "cover": {
+    "image": "books/acorn-003/images/cover.webp",
+    "alt": "Brindle and Leo under the big oak tree, with the mouse twins between them, one gray with dust and one with a leaf on her ear"
+  },
+  "cast": [
+    "pip-pebble",
+    "brindle",
+    "leo",
+    "wren",
+    "tansy",
+    "moss",
+    "zoe"
+  ],
+  "toc": [
+    {
+      "type": "title",
+      "label": "Title Page"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 1: Pip or Pebble?",
+      "anchor": "ch1"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 2: The Nap Spot",
+      "anchor": "ch2"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 3: The Twin Trick",
+      "anchor": "ch3"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 4: Mixed Up",
+      "anchor": "ch4"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 5: Which One Is Which?",
+      "anchor": "ch5"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "ch1",
+      "title": "Chapter 1: Pip or Pebble?",
+      "pages": [
+        {
+          "number": 1,
+          "layout": "art-left",
+          "text": [
+            "Pip and Pebble were mouse twins. They lived in a hollow log by the stream.",
+            "They had the same round ears. They had the same pink tails. They had the same quick little paws.",
+            "And they did not agree on one thing. Not one.",
+            "Pip said the sky was blue. Pebble said it was more of a gray. They argued until lunch."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-01.webp",
+              "alt": "Pip and Pebble, the mouse twins, stand nose to nose by their hollow log at the stream"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "layout": "art-right",
+          "text": [
+            "The twins had one big problem. No one could tell them apart.",
+            "“Good morning, Pip!” sang Wren.",
+            "“I am Pebble,” said Pebble.",
+            "“Good morning, Pebble!” sang Wren to the other twin.",
+            "“I am Pip,” said Pip.",
+            "Wren flew off in a huff. Twins were too hard. News was more fun."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-02.webp",
+              "alt": "Wren flies off in a huff while the twins stand side by side"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "layout": "art-left",
+          "text": [
+            "Tansy did not know which was which. So she just called them both “Pip-Pebble.”",
+            "Moss did not know which was which. He just waved at the log.",
+            "“Hi, twins,” said Moss. “Hi to both of you. Or just one of you. Hi.”",
+            "Then he rolled into a ball, just to be safe."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-03.webp",
+              "alt": "Tansy scratches her head at the twins while Moss peeks out of his ball"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "layout": "art-right",
+          "text": [
+            "“It is not fair,” said Pip. “I am the older twin!”",
+            "“By one minute,” said Pebble. “And I am the smarter twin.”",
+            "“By zero minutes,” said Pip.",
+            "They argued about that until the moon came up. But no one in the Hollow was there to hear it."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-04.webp",
+              "alt": "The twins argue by their log under the first stars of the evening"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch2",
+      "title": "Chapter 2: The Nap Spot",
+      "pages": [
+        {
+          "number": 5,
+          "layout": "art-left",
+          "text": [
+            "The best nap spot was under the big oak tree. It was soft. It was warm. The sun hit it all day.",
+            "Brindle the old dog had napped there for ten summers.",
+            "Leo the lion had napped there for two.",
+            "They liked to share it. Brindle slept on one side. Leo slept on the other side. They were old pals."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-05.webp",
+              "alt": "Brindle and Leo nap side by side in the sunny spot under the big oak tree"
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "layout": "art-right",
+          "text": [
+            "Then one day, Leo rolled over in his sleep. His big, fluffy mane went FLOMP, onto Brindle.",
+            "Brindle woke up with a mouth full of fur.",
+            "“PTOO!” said Brindle.",
+            "“Sorry,” said Leo. “My mane has a mind of its own.”",
+            "“Then your mane can nap on the hill,” said Brindle. “An old dog needs his sleep.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-06.webp",
+              "alt": "Leo rolls over in his sleep and his big mane lands on Brindle with a FLOMP"
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "layout": "art-left",
+          "text": [
+            "So Brindle took his naps by the stream. Leo took his naps up on the hill.",
+            "They did not share. They did not talk. They did not even wave.",
+            "Brindle could not sleep. The stream was too wet.",
+            "Leo could not sleep. The hill was too windy.",
+            "Leo’s wish ball sat in the grass. It was dim and gray."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-07.webp",
+              "alt": "Brindle naps alone by the wet stream while Leo sulks up on the windy hill"
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "layout": "art-right",
+          "text": [
+            "Pip was Brindle’s helper. At nap time, he kept Brindle’s green bandana safe in his log.",
+            "Pebble was Leo’s helper. Each day, she brushed the burrs out of his mane.",
+            "“Brindle misses Leo,” said Pip.",
+            "“Leo misses Brindle,” said Pebble.",
+            "For once, the twins agreed."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-08.webp",
+              "alt": "Pip helps Brindle by the stream while Pebble helps Leo on the hill"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch3",
+      "title": "Chapter 3: The Twin Trick",
+      "pages": [
+        {
+          "number": 9,
+          "layout": "art-left",
+          "text": [
+            "“They just need to talk,” said Pip.",
+            "“But Brindle will not go up the hill,” said Pebble.",
+            "“And Leo will not go down to the stream,” said Pip.",
+            "The twins sat on their log. They had to think. They sat and sat.",
+            "Then Pebble’s ears went up. “No one can tell us apart,” she said. “So let’s swap!”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-09.webp",
+              "alt": "The twins sit on their log and think hard"
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "layout": "art-right",
+          "text": [
+            "Here was the plan. Pip would go to Leo and act like Pebble. Pebble would go to Brindle and act like Pip.",
+            "Each twin had one job. “Come to the oak tree at dusk,” they would say. “There is a surprise.”",
+            "“And the surprise is each other!” said Pip.",
+            "It was the best plan they ever had. They did not even argue about it. Much."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-10.webp",
+              "alt": "The twins make their plan by the log, with paw prints going two ways"
+            }
+          ]
+        },
+        {
+          "number": 11,
+          "layout": "art-left",
+          "text": [
+            "There was just one snag. The twins did not look quite the same.",
+            "So Pip rolled in the dust by the path. He rolled and rolled. When he got up, he was as gray as a stone.",
+            "Pebble had a tiny notch in the top of one ear. So she put a leaf on her ear, like a hat. She held it on with string from her bag of scraps.",
+            "Now they looked the same. Well, almost."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-11.webp",
+              "alt": "Pip rolls in a pile of dust and turns gray, and Pebble ties a leaf over her ear"
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "layout": "art-right",
+          "text": [
+            "Tansy ran by with a nut. She stopped.",
+            "“Hi, Pip-Pebble,” said Tansy. “Hi, other Pip-Pebble. Why is there a leaf on your ear?”",
+            "“It is a hat,” said Pebble.",
+            "“It is a nice hat,” said Tansy. Then she ran off to hide her nut.",
+            "Then she forgot where she hid it. Tansy was good at hiding nuts. Finding them, not so much."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-12.webp",
+              "alt": "Tansy stops with a nut and stares at the leaf on Pebble’s ear"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch4",
+      "title": "Chapter 4: Mixed Up",
+      "pages": [
+        {
+          "number": 13,
+          "layout": "art-left",
+          "text": [
+            "Pip went up the hill to Leo.",
+            "“Hello, Pebble,” said Leo. “Time to brush my mane!”",
+            "Pip had never brushed a mane. He did not know where to start. He went in on the left.",
+            "Leo’s mane was like a big gold bush. It was very dark in there. Pip got lost in the fluff."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-13.webp",
+              "alt": "Dusty gray Pip gets lost in Leo’s big fluffy mane"
+            }
+          ]
+        },
+        {
+          "number": 14,
+          "layout": "art-right",
+          "text": [
+            "“Pebble?” said Leo. “Are you in there?”",
+            "“Yes!” came a small squeak. Then, “Which way is out?”",
+            "At last, Pip popped out by Leo’s ear. He had grass on his back and a burr on his nose.",
+            "Leo gave him a long look. “You brush like a new mouse,” he said.",
+            "“Come to the oak at dusk,” said Pip fast. “There is a surprise!” And he ran."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-14.webp",
+              "alt": "Pip pops out by Leo’s ear with a burr on his nose, and Leo gives him a long look"
+            }
+          ]
+        },
+        {
+          "number": 15,
+          "layout": "art-left",
+          "text": [
+            "Pebble went down to the stream to see Brindle.",
+            "“Hello, Pip,” said Brindle. “Did you bring my bandana?”",
+            "Pebble did not know where Pip kept the bandana. She looked in a log. It was full of nuts. Not that log! She looked by the stream.",
+            "At last she found a striped sock by the barn. It was the giant’s sock. It would have to do!"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-15.webp",
+              "alt": "Pebble finds the giant’s striped sock by the barn while Brindle waits"
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "layout": "art-right",
+          "text": [
+            "Pebble set the sock on Brindle’s neck.",
+            "Brindle sniffed the sock. Then he sniffed Pebble. His old nose was still very, very good.",
+            "“Hmm,” he said slowly. “Pip, you smell like a leaf.”",
+            "“I… ate one,” said Pebble.",
+            "“Hmm,” said Brindle again. But he said he would come to the oak at dusk."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-16.webp",
+              "alt": "Brindle sniffs Pebble, with the striped sock around his neck"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch5",
+      "title": "Chapter 5: Which One Is Which?",
+      "pages": [
+        {
+          "number": 17,
+          "layout": "art-left",
+          "text": [
+            "At dusk, Brindle came to the oak tree. Leo came too.",
+            "They saw each other. They both stopped.",
+            "“Oh,” said Brindle.",
+            "“Oh,” said Leo.",
+            "The whole Hollow hid in the grass to watch. Moss hid the best. He was a ball."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-17.webp",
+              "alt": "At dusk, Brindle and Leo face each other under the oak while Moss hides as a ball"
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "layout": "art-right",
+          "text": [
+            "Just then, a big gust of wind came down the hill. WHOOSH!",
+            "It blew the leaf off Pebble’s ear. There was the tiny notch.",
+            "It blew the dust off Pip’s back. Under the dust, his fur was warm and brown.",
+            "The twins did not look the same at all. Not one bit."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-18.webp",
+              "alt": "A gust of wind blows the leaf off Pebble’s ear and the dust off Pip"
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "layout": "art-left",
+          "text": [
+            "Brindle looked at the twin by his paw. “You have a notch in your ear,” he said. “Pip has no notch. You are Pebble!”",
+            "Leo looked at the twin by his tail. “And you are brown,” he said. “With short whiskers. You must be Pip!”",
+            "The twins looked at each other. “Oops,” they said.",
+            "The trick was up."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-19.webp",
+              "alt": "Brindle looks down at Pebble’s notched ear, and Leo looks at brown Pip"
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "layout": "art-right",
+          "text": [
+            "“We just wanted you to be friends again,” said Pebble.",
+            "“You both miss each other,” said Pip. “You are just too stubborn to say it.”",
+            "Brindle and Leo were still for a long time. Then Leo began to laugh.",
+            "“I DO miss you,” said Leo. “The hill is too windy.”",
+            "“The stream is too wet,” said Brindle. “And I miss your bad jokes.”",
+            "Leo’s wish ball began to glow blue."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-20.webp",
+              "alt": "Leo laughs and his wish ball glows blue while the twins look on"
+            }
+          ]
+        },
+        {
+          "number": 21,
+          "layout": "art-left",
+          "text": [
+            "From then on, the two old pals shared the nap spot again. Leo’s mane was not a problem now. It was a pillow.",
+            "And the Hollow learned the trick at last.",
+            "Pip is the brown twin, with short whiskers.",
+            "Pebble is the gray twin, with a notch in her ear."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-21.webp",
+              "alt": "Brindle naps on Leo’s mane like a pillow, with Pip and Pebble in front"
+            }
+          ]
+        },
+        {
+          "number": 22,
+          "layout": "art-right",
+          "text": [
+            "The next morning, Wren flew down with big news.",
+            "“News! News!” she sang. “Pip is brown! Pebble has a notch!”",
+            "Then she landed on the log. She looked at the twins.",
+            "“Good morning, Pebble!” she said to Pip.",
+            "Pip and Pebble looked at each other. And for once, they both laughed."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-003/images/page-22.webp",
+              "alt": "Wren lands on the log and says good morning to the wrong twin"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "quiz": {
+    "instructions": "Tap an answer. Tap the speaker to hear the question. You can try as many times as you like!",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "recall",
+        "prompt": "Why did Brindle and Leo stop sharing the nap spot?",
+        "choices": [
+          "Leo’s mane went onto Brindle",
+          "Brindle was too loud",
+          "The sun went away"
+        ],
+        "answerIndex": 0,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/leo.webp",
+            "line": "Yes. My mane has a mind of its own!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/brindle.webp",
+            "line": "Hmm. What woke me up with a mouth full of fur? Try again!"
+          }
+        }
+      },
+      {
+        "id": "q2",
+        "type": "recall",
+        "prompt": "How can you tell it is Pip?",
+        "choices": [
+          "A notch in the ear",
+          "Brown fur and short whiskers",
+          "A leaf hat"
+        ],
+        "answerIndex": 1,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/pip_pebble.webp",
+            "line": "Yes! I am the brown one. At last!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/pip_pebble.webp",
+            "line": "That one is Pebble! Look at the fur. Try again!"
+          }
+        }
+      },
+      {
+        "id": "q3",
+        "type": "recall",
+        "prompt": "How can you tell it is Pebble?",
+        "choices": [
+          "Gray fur and a notch in her ear",
+          "A green bandana",
+          "Short whiskers"
+        ],
+        "answerIndex": 0,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/pip_pebble.webp",
+            "line": "Yes! Gray fur and a notch. That is me!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/wren.webp",
+            "line": "Oops, I get this one mixed up too. Try again!"
+          }
+        }
+      },
+      {
+        "id": "q4",
+        "type": "recall",
+        "prompt": "What gave the trick away?",
+        "choices": [
+          "Tansy told on them",
+          "The wind blew off the leaf and the dust",
+          "Moss rolled into them"
+        ],
+        "answerIndex": 1,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/brindle.webp",
+            "line": "Yes. The wind told us the truth."
+          },
+          "tryAgain": {
+            "character": "images/web/characters/leo.webp",
+            "line": "Hmm. What came down the hill? WHOOSH! Try again!"
+          }
+        }
+      },
+      {
+        "id": "q5",
+        "type": "think",
+        "prompt": "Was the twin trick a good idea?",
+        "choices": [
+          "Yes, it got two friends back",
+          "No, a trick is not fair",
+          "A bit of both"
+        ],
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/leo.webp",
+            "line": "Good thinking! It sure made me laugh."
+          },
+          "tryAgain": {
+            "character": "images/web/characters/leo.webp",
+            "line": "Good thinking! It sure made me laugh."
+          }
+        }
+      }
+    ]
+  }
+}

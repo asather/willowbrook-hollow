@@ -92,7 +92,23 @@ def character(cid):
             im = _cutout_from_sheet(path, (0, 0) + im.size)
         else:
             im = im.crop(im.split()[3].getbbox())
+    if cid == "pebble":
+        im = _ear_notch(im)
     _char_cache[cid] = im
+    return im
+
+def _ear_notch(im):
+    """Pebble's canon ear notch (Character Bible), which her master art doesn't show:
+    a small V cut into the top of her big ear."""
+    im = im.copy()
+    tri = [(197, 8), (223, 12), (209, 40)]
+    mask = Image.new("L", im.size, 0)
+    ImageDraw.Draw(mask).polygon(tri, fill=255)
+    a = im.split()[3]
+    a.paste(0, mask=mask)
+    im.putalpha(a)
+    d = ImageDraw.Draw(im)
+    d.line([(199, 18), tri[2], (221, 20)], fill=INK + (255,), width=3, joint="curve")
     return im
 
 # ---------------------------------------------------------------- helpers
@@ -412,6 +428,10 @@ def el_character(img, d, e):
     im = im.resize((w, int(h)), Image.LANCZOS)
     if e.get("flip"):
         im = im.transpose(Image.FLIP_LEFT_RIGHT)
+    if e.get("dusty"):   # rolled in dust: fur turns dusty gray
+        gray = ImageEnhance.Color(im.convert("RGB")).enhance(1 - e["dusty"])
+        gray = Image.blend(gray, Image.new("RGB", im.size, (150, 144, 136)), 0.25 * e["dusty"]).convert("RGBA")
+        gray.putalpha(im.split()[3]); im = gray
     if e.get("dim"):
         rgb = ImageEnhance.Brightness(im.convert("RGB")).enhance(e["dim"]).convert("RGBA")
         rgb.putalpha(im.split()[3]); im = rgb
@@ -425,6 +445,35 @@ def el_character(img, d, e):
         img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(P(4))))
     img.alpha_composite(im, (int(P(e["x"]) - im.width / 2), int(P(e["y"]) - im.height)))
 
+
+def el_leaf_hat(img, d, e):
+    """A green leaf worn like a hat (Pebble's disguise over her ear notch)."""
+    leaf(d, P(e["x"]), P(e["y"]), P(e.get("r", 26)), math.radians(e.get("rot", -30)), tuple(e.get("color", (96, 150, 64))))
+
+def el_sock(img, d, e):
+    """Zoe's striped sock."""
+    x, y, s = P(e["x"]), P(e["y"]), P(e.get("s", 90))
+    g = Image.new("RGBA", (int(s * 1.6), int(s * 1.6)), (0, 0, 0, 0)); gd = ImageDraw.Draw(g)
+    leg = [(s * 0.35, 0), (s * 0.75, 0), (s * 0.75, s * 0.9), (s * 0.35, s * 0.9)]
+    gd.polygon(leg, fill=(240, 230, 210))
+    gd.rounded_rectangle([s * 0.35, s * 0.7, s * 1.3, s * 1.1], radius=int(s * 0.2), fill=(240, 230, 210))
+    for i, col in enumerate([(214, 80, 70), (80, 150, 200), (240, 190, 60), (120, 170, 90)]):
+        yy = s * (0.08 + i * 0.2)
+        gd.rectangle([s * 0.35, yy, s * 0.75, yy + s * 0.09], fill=col)
+    gd.rounded_rectangle([s * 1.05, s * 0.7, s * 1.3, s * 1.1], radius=int(s * 0.12), fill=(214, 80, 70))
+    gd.rectangle([s * 0.35, 0, s * 0.75, s * 0.06], fill=(214, 80, 70))
+    g = g.rotate(e.get("rot", 0), expand=True, resample=Image.BICUBIC)
+    img.alpha_composite(g, (int(x - g.width / 2), int(y - g.height / 2)))
+
+def el_gust(img, d, e):
+    """A gust of wind: curly white streaks blowing across the picture."""
+    x, y, s = P(e["x"]), P(e["y"]), P(e.get("s", 300))
+    rnd = random.Random(e.get("seed", 3))
+    for i in range(int(e.get("n", 4))):
+        yy = y + (i - 1.5) * s * 0.22 + rnd.uniform(-P(10), P(10))
+        x0 = x - s + rnd.uniform(-P(30), P(30))
+        d.line(wavy(x0, x0 + s * 1.5, yy, s * 0.04, 1.2, phase=i), fill=(255, 255, 255), width=P(5), joint="curve")
+        d.arc([x0 + s * 1.4, yy - s * 0.12, x0 + s * 1.64, yy + s * 0.12], 180, 90, fill=(255, 255, 255), width=P(5))
 
 def el_barn(img, d, e):
     """A red barn. door: "shut" (with latch), "open" or "ajar"."""

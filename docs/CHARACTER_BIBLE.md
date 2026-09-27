@@ -38,7 +38,7 @@ No unapproved changes to colors, proportions, or permanent accessories.
 - **Accessories:** Worn green bandana (**permanent**)  
 - **Personality:** Calm, wise mentor; may doze mid‑story  
 - **Speech:** Slow, deliberate; uses simple metaphors  
-- **Example Behaviors:** Nods thoughtfully before speaking; listens more than talks; positions self protectively in tense scenes  
+- **Example Behaviors:** Nods thoughtfully before speaking; listens more than talks; positions self protectively in tense scenes; naps in the sunny spot under the big oak tree, which he shares with Leo (Leo’s mane makes a good pillow)  
 - **Master Assets:**  
   - PNG: `images/characters/master/brindle_master.png`  
 
@@ -80,9 +80,11 @@ No unapproved changes to colors, proportions, or permanent accessories.
   - PNG: `images/characters/master/puddle_master.png`  
 
 ## Pip & Pebble – Argumentative Mouse Twins
-- **Species:** Field mice  
-- **Fur (Pip):** Warm brown; slightly shorter whiskers  
-- **Fur (Pebble):** Cooler gray‑brown; tiny ear notch  
+- **Species:** Field mice; twins (Pip is a boy, Pebble is a girl)  
+- **Pip:** Warm brown fur; slightly shorter whiskers. Always the mouse on the **left** in the master art. Older by one minute (Pebble disputes it). Brindle’s helper: keeps Brindle’s green bandana safe in the twins’ log at nap time.  
+- **Pebble:** Cooler gray‑brown fur; a tiny notch in the top of her big ear. Always the mouse on the **right** in the master art. Calls herself the smarter twin. Leo’s helper: brushes the burrs out of his mane.  
+- **Telling them apart (canon):** Pip = brown fur + short whiskers. Pebble = gray fur + ear notch. Until *Which One Is Which?* (acorn-003) the rest of the Hollow couldn’t tell them apart (Tansy called them both “Pip‑Pebble”). Every later story and picture keeps these markers; never swap them and never give Pip a notch. The master art doesn’t show the notch, so `tools/compose-scenes.py` adds it to Pebble in every scene.  
+- **Running gag:** Wren announced which twin is which, and still mixes them up.  
 - **Build:** Small, quick  
 - **Accessories:** None permanent  
 - **Personality:** Bicker yet loyal; resourceful in tight spots  

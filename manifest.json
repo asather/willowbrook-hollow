@@ -22,6 +22,14 @@
       "subtitle": "Tansy’s acorn map leads somewhere…",
       "path": "./books/acorn-002/book.json",
       "circleIcon": "images/web/circles/circle-acorn.webp"
+    },
+    {
+      "circle": "Acorn",
+      "bookId": "acorn-003",
+      "title": "Which One Is Which?",
+      "subtitle": "Two twins. One trick. Zero clues.",
+      "path": "./books/acorn-003/book.json",
+      "circleIcon": "images/web/circles/circle-acorn.webp"
     }
   ]
 }

@@ -67,7 +67,9 @@ Because characters come from their web copies, they always match the Character B
 | `reeds`, `stick` | `x`, `y`, `h` / `x1`, `y1`, `x2`, `y2` | Reeds at the water, a poking stick |
 | `notes`, `glow`, `zzz`, `stars`, `falling_leaves` | see the tool | Music, Leo's wish-ball glow, sleeping, night sky, leaves |
 | `motion` | `x`, `y`, `s`, `kind` (`hop`, `bonk`, `huff`, `spin`) | Cartoon action lines |
-| `character` | `id`, `x`, `y`, `h`, `flip`, `rot`, `dim`, `noShadow` | A character from `images/web/characters/` (`pip` and `pebble` separately) |
+| `leaf_hat`, `sock` | `x`, `y`, `r` / `s`, `rot` | Pebble’s leaf disguise; Zoe’s striped sock |
+| `gust` | `x`, `y`, `s`, `n` | A gust of wind blowing across the picture |
+| `character` | `id`, `x`, `y`, `h`, `flip`, `rot`, `dim`, `dusty`, `noShadow` | A character from `images/web/characters/` (`pip` and `pebble` separately; Pebble always gets her canon ear notch). `dusty` (0–1) turns fur dusty gray |
 | `emblem` | `x`, `y`, `s`, `opacity` | The book's Circle symbol (required) |
 
 A story that needs a new place or prop gets a new element: add an `el_{type}` function to `tools/compose-scenes.py` and a row to this table.
