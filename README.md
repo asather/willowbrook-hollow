@@ -9,6 +9,13 @@ Books are read in a web app built for fluency practice. It has Read to Me with w
 
 ---
 
+## For AI assistants
+Read [`CLAUDE.md`](CLAUDE.md) first. In short: finish every request end to end without being asked.
+- Rebuild web images when art changes; run the checker until it passes; test in a browser.
+- Keep every doc consistent with the change.
+- Commit to `master`, push, and confirm it works on the live site, https://asather.github.io/willowbrook-hollow/.
+- Never put the reader's personal or school information in this public repo.
+
 ## Documentation
 All planning and reference files live in [`/docs`](docs):
 

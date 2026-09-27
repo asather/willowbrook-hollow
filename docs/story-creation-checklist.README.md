@@ -61,7 +61,9 @@ Open `circles/{circle}/words.json` and keep its `rules` in view.
 ---
 
 ## Assistant interview (new story)
-Ask one topic at a time, starting with the Circle.
+Before interviewing, read [`CLAUDE.md`](../CLAUDE.md). If you can reach the reader's private reading profile (in Andrew's Willow Hollow project, never in this repo), use it to choose the Circle and story words.
+
+Ask one topic at a time, starting with the Circle. If Andrew hands over the choices ("you decide", or he only names a topic), make sensible choices yourself and say what you chose. Don't stall the work on questions.
 
 1. **Circle & scope:** Which Circle? Is it the Circle's final book?
 2. **Story:** Title? What new or strange thing happens? What goes wrong? How does it end?
@@ -95,5 +97,8 @@ Ask one topic at a time, starting with the Circle.
 - `book.json` written; the checker passes with no problems.
 - Story words, heart words and names added to their files.
 - `manifest.json` updated.
-- Cover and art on every page; characters canon-true.
-- Read aloud end to end and play-tested in the app.
+- Cover (WebP) and art on every page; characters canon-true; `images/web/` rebuilt if any master art changed.
+- Read aloud end to end and play-tested in the app, with no broken images or console errors.
+- Any doc the change touches is updated so it reads as if this was always the plan.
+- **Committed to `master` and pushed.** The live site (https://asather.github.io/willowbrook-hollow/) shows the new book with every image loading, checked by the assistant after the deploy.
+- Andrew gets a short report: what's new, the live link, anything he needs to do.

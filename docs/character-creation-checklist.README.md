@@ -121,10 +121,11 @@
 
 ---
 
-## 8) Versioning & Changelog
-- [ ] Commit all changed/added files with a single PR titled `feat(characters): add {Display Name} ({id})`.
-- [ ] In the PR description, list: Character Bible section added, master asset paths, `character-bios.json` key added, UI hooks touched.
-- [ ] Add a CHANGELOG entry under **Added**: “New character: {Display Name} ({id}).”
+## 8) Publish
+- [ ] Run `python3 tools/make-web-images.py` and `node tools/check-book.mjs --all`; both must succeed.
+- [ ] Commit everything to `master` in one commit titled `Add character: {Display Name} ({id})`, listing the files touched in the message.
+- [ ] Push, then confirm on the live site (https://asather.github.io/willowbrook-hollow/) that the character appears in "Meet the Hollow" with their picture and bios.
+- [ ] If the push is refused because the new master PNG can't upload to Git LFS, stop and tell Andrew; the web copy alone is not enough to publish.
 
 ---
 
@@ -171,14 +172,16 @@
 
 ---
 
-## 11) Final Pre‑Merge Gate
-Before merge, confirm all boxes in sections 1–7 are checked and that the app loads the new character’s bio at each level without console errors. Keep this checklist in PR description for reviewer sign‑off.
+## 11) Final Gate
+Before pushing, confirm all boxes in sections 1–7 are checked and that the app loads the new character’s bio at each level with no broken images or console errors.
 
 # Assistant Interview & Production Playbook (New Character)
 
 > **Purpose**: These are internal instructions for the assistant (me) to **interview the user**, collect every required detail, then **create all digital assets and documentation** for a brand‑new Willowbrook Hollow character—end to end.
 >
 > **Use when**: A new character is proposed or an existing one needs a major refresh (visual canon or leveled bios).
+>
+> **Standing expectation**: read [`CLAUDE.md`](../CLAUDE.md). The assistant finishes the whole job: files, web images, checker, browser test, docs, commit to `master`, push, and a check of the live site. Then it reports back with the link.
 
 ---
 
@@ -197,7 +200,7 @@ Before merge, confirm all boxes in sections 1–7 are checked and that the app l
 ---
 
 ## B. Pre‑Interview Checks (assistant)
-- Confirm target repo/branch and that I have sufficient info to write to `/docs` and `/images` paths.
+- Confirm I can push to the repo (work lands on `master`, which is the live site) and that the master art files are pulled from Git LFS (`git lfs pull`).
 - Confirm whether this is a **new** character, a **variant**, or a **major refresh**.
 - Open the latest: `docs/CHARACTER_BIBLE.md`, `docs/CHARACTERS_README.md`, `docs/character-bios.json` to avoid collisions and keep tone consistent.
 
@@ -320,7 +323,7 @@ Before merge, confirm all boxes in sections 1–7 are checked and that the app l
 }
 ```
 
-> Save this as `docs/_intake/character-{id}.json` (optional), or embed answers in the PR description.
+> Keep the answers in the conversation; they don't need to be committed. Everything they decide ends up in the Character Bible, bios and art.
 
 ---
 
@@ -336,14 +339,14 @@ Before merge, confirm all boxes in sections 1–7 are checked and that the app l
    - Generate **{file-id}_master.png** (2048–4096 px longest side) with transparent background; ensure **permanent accessories** present.
    - Place in `images/characters/master/`, then run `python3 tools/make-web-images.py` to build `images/web/characters/{file-id}.webp`. Create `images/characters/variants/{id}/` if variants were requested.
 5) **Alt Text**
-   - Add concise alt text for icon and master image (store in the intake JSON and/or PR).
+   - Add concise alt text for icon and master image (put it in the Character Bible entry and in each page's `media` alt text).
 6) **App Integration**
    - The home screen's cast grid is built from `docs/character-bios.json`, so the new character appears automatically once their bio and master image exist. Confirm long **Elder** bios render correctly.
 7) **QA**
    - Visual compare scale/palette next to Moss/Tansy in UI. Confirm voice consistency in bios. Check JSON loads in all five levels.
-8) **Versioning**
-   - Open a PR titled: `feat(characters): add {name} ({id})` with a checklist of changed files and screenshots of master art and the five bios.
-   - Add a CHANGELOG entry under **Added**: “New character: {name} ({id}).”
+8) **Publish** (section 8 above)
+   - Rebuild web images, run the checker, commit to `master`, push, and verify the character on the live site.
+   - Report to Andrew: what was added, the live link, and anything he should review (e.g. generated art).
 
 ---
 
@@ -373,7 +376,7 @@ Absolutely preserve canon colors, proportions, and accessories.
 - `images/characters/master/{file-id}_master.png` exported, visually checked.  
 - Splash icon (if requested) added and biography view wired without console errors.  
 - Alt text provided for icon and master art.  
-- CI/preview passes; PR has screenshots and intake JSON (or equivalent details).
+- `node tools/check-book.mjs --all` passes; the change is pushed to `master` and verified on the live site.
 
 ---
 
