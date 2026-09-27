@@ -1,0 +1,262 @@
+{
+  "circle": "Acorn",
+  "rules": {
+    "maxSyllables": 2,
+    "maxSentenceWords": 12,
+    "avgSentenceWords": [
+      5,
+      9
+    ],
+    "bookWords": [
+      1000,
+      2000
+    ],
+    "chapterWords": [
+      150,
+      400
+    ],
+    "pageWords": [
+      30,
+      90
+    ],
+    "maxStoryWordsPerBook": 8,
+    "outOfScope": [
+      {
+        "pattern": "igh",
+        "label": "igh (Leaf)"
+      },
+      {
+        "pattern": "^kn|^wr|^gn|mb$",
+        "label": "silent letters kn / wr / gn / mb (Leaf)"
+      },
+      {
+        "pattern": "ph",
+        "label": "ph (Leaf)"
+      },
+      {
+        "pattern": "tion|sion|ture",
+        "label": "-tion / -sion / -ture (Leaf)"
+      },
+      {
+        "pattern": "ough|augh|eigh",
+        "label": "ough / augh / eigh (Branch)"
+      },
+      {
+        "pattern": "ei|ie(?!s$)",
+        "label": "ei / ie (Leaf)"
+      },
+      {
+        "pattern": "c[eiy]",
+        "label": "soft c (Leaf)"
+      },
+      {
+        "pattern": "(?<![dgn])g[eiy](?!t|ft|rl|ve|ar)",
+        "label": "soft g (Leaf)"
+      },
+      {
+        "pattern": "[^aeiou]le$",
+        "label": "consonant-le syllable (Leaf)"
+      }
+    ]
+  },
+  "heartWords": [
+    "a",
+    "the",
+    "of",
+    "to",
+    "do",
+    "does",
+    "done",
+    "you",
+    "your",
+    "was",
+    "were",
+    "what",
+    "who",
+    "where",
+    "there",
+    "their",
+    "here",
+    "they",
+    "said",
+    "says",
+    "is",
+    "his",
+    "has",
+    "as",
+    "are",
+    "from",
+    "one",
+    "once",
+    "some",
+    "come",
+    "comes",
+    "came",
+    "have",
+    "give",
+    "gives",
+    "live",
+    "lives",
+    "love",
+    "loves",
+    "put",
+    "push",
+    "pull",
+    "want",
+    "wants",
+    "water",
+    "walk",
+    "walks",
+    "talk",
+    "talks",
+    "again",
+    "any",
+    "many",
+    "very",
+    "could",
+    "would",
+    "should",
+    "friend",
+    "friends",
+    "oh",
+    "two",
+    "four",
+    "eye",
+    "eyes",
+    "only",
+    "old",
+    "cold",
+    "told",
+    "hold",
+    "kind",
+    "find",
+    "mind",
+    "both",
+    "most",
+    "wild",
+    "child",
+    "been",
+    "none",
+    "gone",
+    "whole",
+    "sure",
+    "great",
+    "move",
+    "moves",
+    "moved",
+    "into",
+    "onto",
+    "today",
+    "bear",
+    "pear",
+    "wear",
+    "door",
+    "floor",
+    "poor",
+    "caught",
+    "because",
+    "laugh",
+    "laughs",
+    "laughed",
+    "nice",
+    "ice",
+    "since",
+    "face",
+    "place",
+    "race",
+    "dance",
+    "huge",
+    "large",
+    "page",
+    "gentle",
+    "little",
+    "people",
+    "something",
+    "someone",
+    "sometimes",
+    "anyone",
+    "everyone",
+    "know",
+    "knew",
+    "knows"
+  ],
+  "words": [
+    {
+      "word": "giant",
+      "syllables": [
+        "gi",
+        "ant"
+      ],
+      "definition": "Very, very big. The animals call Zoe \"the giant.\""
+    },
+    {
+      "word": "viola",
+      "syllables": [
+        "vi",
+        "o",
+        "la"
+      ],
+      "definition": "A wooden string instrument. It looks like a violin, but it is a bit bigger and sounds deeper.",
+      "pronounce": "vee-OH-luh"
+    },
+    {
+      "word": "practice",
+      "syllables": [
+        "prac",
+        "tice"
+      ],
+      "definition": "To do something again and again so you get better at it."
+    },
+    {
+      "word": "bow",
+      "syllables": [
+        "bow"
+      ],
+      "definition": "The long stick you pull across the strings to make music. It rhymes with \"go.\"",
+      "pronounce": "boh"
+    },
+    {
+      "word": "strings",
+      "syllables": [
+        "strings"
+      ],
+      "definition": "The thin cords on an instrument that shake and make sound."
+    },
+    {
+      "word": "sanctuary",
+      "syllables": [
+        "sanc",
+        "tu",
+        "ar",
+        "y"
+      ],
+      "definition": "A safe place where animals are cared for."
+    },
+    {
+      "word": "eleven",
+      "syllables": [
+        "e",
+        "lev",
+        "en"
+      ],
+      "definition": "The number 11."
+    },
+    {
+      "word": "bandana",
+      "syllables": [
+        "ban",
+        "dan",
+        "a"
+      ],
+      "definition": "A square of cloth tied around the neck or head. Brindle always wears a green one."
+    },
+    {
+      "word": "bubble",
+      "syllables": [
+        "bub",
+        "ble"
+      ],
+      "definition": "A round ball of soap and air that floats and pops."
+    }
+  ]
+}

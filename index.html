@@ -2,18 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Willowbrook Hollow – Prototype</title>
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>Willowbrook Hollow</title>
+  <meta name="description" content="Funny, warm stories a growing reader can read on their own, with Read to Me, tap-a-word syllables and Practice Reads."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Lexend:wght@400;600&family=Literata:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/opendyslexic@5/400.css" rel="stylesheet">
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./js/syllables.js"></script>
   <style>
     html, body, #root { height: 100%; }
+    body { margin: 0; background: #fbf6ec; }
   </style>
 </head>
-<body class="bg-emerald-50">
+<body>
   <div id="root"></div>
-  <script type="text/babel" src="./js/app.jsx"></script>
+  <script type="text/babel" data-presets="react" src="./js/app.jsx"></script>
 </body>
 </html>

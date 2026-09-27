@@ -1,608 +1,1085 @@
-const {useState, useEffect, useMemo, useRef} = React;
-
+/*
+ * Willowbrook Hollow — reader app
+ * What each feature does and why: docs/READER_APP.md
+ */
+const { useState, useEffect, useMemo, useRef, useCallback, useContext, createContext } = React;
+const Syl = window.WillowSyllables;
 const cls = (...parts) => parts.filter(Boolean).join(" ");
 
-
-// put near the other top-level consts in app.jsx
-const CHARACTER_IMAGE = {
-  moss: "./images/characters/master/moss_master.png",
-  tansy: "./images/characters/master/tansy_master.png",
-  brindle: "./images/characters/master/brindle_master.png",
-  wren: "./images/characters/master/wren_master.png",
-  echo: "./images/characters/master/echo_master.png",
-  puddle: "./images/characters/master/puddle_master.png",
-  "pip-pebble": "./images/characters/master/pip_pebble_master.png",
-  "parrot-family" : "./images/characters/master/parrot_family_master.png",
-  leo:"./images/characters/master/leo_master.png",
-  zoe: "./images/characters/master/zoe_master.png",
-};
-
-
-
-function useSwipe(onLeft, onRight) {
-  const touchStartX = useRef(null);
-  const touchEndX = useRef(null);
-  const threshold = 40;
-  function onTouchStart(e){ touchStartX.current = e.changedTouches[0].screenX; }
-  function onTouchEnd(e){
-    touchEndX.current = e.changedTouches[0].screenX;
-    const dx = (touchEndX.current ?? 0) - (touchStartX.current ?? 0);
-    if (Math.abs(dx) > threshold) { if (dx < 0) onLeft?.(); else onRight?.(); }
-  }
-  return { onTouchStart, onTouchEnd };
+/* ============================================================
+   Progress store (browser storage) — docs/READER_APP.md §8
+   ============================================================ */
+const STORE_KEY = "willowbrook-progress-v1";
+const DEFAULT_SETTINGS = { font: "atkinson", size: "L", spacing: "roomy", ruler: false, theme: "paper", reduceMotion: null, voiceRate: "normal" };
+const freshProgress = () => ({
+  version: 1, settings: { ...DEFAULT_SETTINGS }, unlocked: ["Acorn"], visited: {}, quiz: {}, finished: {},
+  practice: {}, readToMe: {}, badges: [], ceremonies: [], last: null,
+});
+function loadProgress() {
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (!raw) return freshProgress();
+    const p = JSON.parse(raw);
+    return { ...freshProgress(), ...p, settings: { ...DEFAULT_SETTINGS, ...(p.settings || {}) } };
+  } catch { return freshProgress(); }
 }
+function saveProgress(p) { try { localStorage.setItem(STORE_KEY, JSON.stringify(p)); } catch { /* private mode: keep in memory */ } }
+
+const ProgressCtx = createContext(null);
+const DataCtx = createContext(null);
+const useProgress = () => useContext(ProgressCtx);
+const useData = () => useContext(DataCtx);
+
+function awardBadge(p, id, label, icon) {
+  if (p.badges.some(b => b.id === id)) return p;
+  return { ...p, badges: [...p.badges, { id, label, icon, date: new Date().toISOString().slice(0, 10) }], _newBadge: { id, label, icon } };
+}
+
+/* ============================================================
+   Speech — Read to Me, tap-a-word, quiz read-aloud
+   ============================================================ */
+const RATES = { slow: 0.7, normal: 0.9, quick: 1.05 };
+let cachedVoice = null;
+function pickVoice() {
+  if (!("speechSynthesis" in window)) return null;
+  if (cachedVoice) return cachedVoice;
+  const voices = speechSynthesis.getVoices();
+  const en = voices.filter(v => /^en(-|_|$)/i.test(v.lang));
+  cachedVoice = en.find(v => /samantha|google us english|aria|jenny|natural/i.test(v.name)) || en.find(v => /en-US/i.test(v.lang)) || en[0] || voices[0] || null;
+  return cachedVoice;
+}
+if ("speechSynthesis" in window) speechSynthesis.onvoiceschanged = () => { cachedVoice = null; pickVoice(); };
+
+function speak(text, { rate = "normal", onBoundary, onEnd } = {}) {
+  if (!("speechSynthesis" in window)) { onEnd?.(); return () => {}; }
+  // A device with no voices installed never fires onend: finish after the estimated reading time.
+  if (speechSynthesis.getVoices().length === 0) {
+    const ms = Math.max(600, text.split(/\s+/).length * 1000 / ({ slow: 1.7, normal: 2.3, quick: 2.8 }[rate] || 2.3));
+    const t = setTimeout(() => onEnd?.(), ms);
+    return () => clearTimeout(t);
+  }
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  const v = pickVoice(); if (v) u.voice = v;
+  u.rate = RATES[rate] || 0.9; u.pitch = 1.05;
+  if (onBoundary) u.onboundary = (e) => { if (e.name === "word" || e.name === undefined) onBoundary(e.charIndex); };
+  let done = false;
+  u.onend = () => { if (!done) { done = true; onEnd?.(); } };
+  u.onerror = () => { if (!done) { done = true; onEnd?.(); } };
+  speechSynthesis.speak(u);
+  return () => { done = true; speechSynthesis.cancel(); };
+}
+function speakSequence(parts, { rate, gapMs = 350, onPart, onEnd } = {}) {
+  let i = 0, cancelled = false, stop = () => {};
+  const next = () => {
+    if (cancelled) return;
+    if (i >= parts.length) { onPart?.(-1); onEnd?.(); return; }
+    onPart?.(i);
+    stop = speak(parts[i], { rate, onEnd: () => { i++; setTimeout(next, gapMs); } });
+  };
+  next();
+  return () => { cancelled = true; stop(); onPart?.(-1); };
+}
+
+/* ============================================================
+   Words — tokenising text, story words, names, syllables
+   ============================================================ */
+const WORD_RE = /([A-Za-z]+(?:[’'\-][A-Za-z]+)*)/g;
+function tokenize(text) {
+  const out = []; let last = 0, m;
+  WORD_RE.lastIndex = 0;
+  while ((m = WORD_RE.exec(text))) {
+    if (m.index > last) out.push({ t: text.slice(last, m.index), word: false });
+    out.push({ t: m[0], word: true });
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) out.push({ t: text.slice(last), word: false });
+  return out;
+}
+const baseOf = (w) => w.toLowerCase().replace(/[’']s$/, "").replace(/[^a-z\-]/g, "");
 
 function useCircleWords(circle) {
-  const [state, setState] = useState({ map: new Map(), loaded: false });
-  useEffect(() => {
-    const path = `./circles/${circle.toLowerCase()}/words.json`;
-    fetch(path).then(r => r.ok ? r.json() : { words: [] }).then(data => {
-      const m = new Map();
-      (data.words || []).forEach(w => m.set(String(w.word).toLowerCase(), { audio: w.audio }));
-      setState({ map: m, loaded: true });
-    }).catch(() => setState({ map: new Map(), loaded: true }));
-  }, [circle]);
-  return state;
+  const { circleWordsFor } = useData();
+  return circleWordsFor(circle);
 }
-
-function renderInlineWithVocab(text, vocabMap, onSpeak) {
-  const tokens = text.split(/(\b)/);
-  return tokens.map((tok, i) => {
-    const word = tok.replace(/[^A-Za-z']/g, "");
-    const has = vocabMap.has(word.toLowerCase());
-    if (has && /[A-Za-z]/.test(word)) {
-      return (
-        <button
-          key={i}
-          onClick={() => onSpeak(word)}
-          className="px-1 rounded-md bg-amber-100 hover:bg-amber-200 border border-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-400"
-          title="Tap to hear this word"
-        >{tok}</button>
-      );
-    }
-    return <span key={i}>{tok}</span>;
-  });
+function storyEntry(word, story) {
+  const w = baseOf(word).replace(/-/g, "");
+  if (story.has(w)) return story.get(w);
+  for (const end of ["s", "es", "ed", "d", "ing"]) if (w.endsWith(end) && story.has(w.slice(0, -end.length))) return story.get(w.slice(0, -end.length));
+  return null;
 }
+function syllablesFor(word, story, names) {
+  if (/-/.test(word)) return word.split("-").filter(Boolean);            // VI-O-LA
+  const clean = word.replace(/[’']s$/, "").replace(/[^A-Za-z]/g, "");
+  const n = names.get(clean.toLowerCase()); if (n) return n.syllables;
+  const s = story.get(clean.toLowerCase()); if (s) return s.syllables;
+  const parts = Syl.split(clean);
+  // keep the reader's capitalisation
+  let i = 0; return parts.map(p => { const seg = clean.slice(i, i + p.length); i += p.length; return seg; });
+}
+const spokenFor = (word, story) => storyEntry(word, story)?.pronounce || word.replace(/-/g, " ");
 
-function App(){
-  const [view, setView] = useState({kind:"home"});
-  const [manifest, setManifest] = useState(null);
-  const [bios, setBios] = useState(null);
+/* ============================================================
+   App shell
+   ============================================================ */
+function App() {
+  const [progress, setProgress] = useState(loadProgress);
+  const [data, setData] = useState(null);
+  const [view, setView] = useState({ kind: "home" });
+  const [overlay, setOverlay] = useState(null); // settings | parents | library | about
+  const [toast, setToast] = useState(null);
+  const wordsCache = useRef({});
 
-  useEffect(() => { fetch("./manifest.json").then(r=>r.json()).then(setManifest); }, []);
-  useEffect(() => { fetch("./docs/character-bios.json").then(r=>r.json()).then(setBios); }, []);
-
-  const openBook = (bookMeta) => {
-    fetch(bookMeta.path).then(r=>r.json()).then(book => {
-      setView({ kind: "book", book });
+  const update = useCallback((fn) => {
+    setProgress(prev => {
+      let next = fn(prev);
+      if (next._newBadge) { const b = next._newBadge; delete next._newBadge; setTimeout(() => setToast(b), 50); }
+      saveProgress(next);
+      return next;
     });
-  };
-
-  const openBio = (characterId) => {
-    setView({ kind: "bio", characterId });
-  };
-
-  const [about, setAbout] = useState(null);
-  useEffect(() => {
-    fetch("./docs/about.json")
-      .then(r => r.ok ? r.json() : null)
-      .then(setAbout)
-      .catch(() => setAbout(null));
   }, []);
-  
-  const openAbout = () => setView({ kind: "about" });
 
+  useEffect(() => {
+    Promise.all(["./manifest.json", "./docs/character-bios.json", "./circles/names.json", "./docs/about.json"].map(u => fetch(u).then(r => r.json())))
+      .then(async ([manifest, bios, names, about]) => {
+        const words = {};
+        await Promise.all(manifest.circles.map(c => fetch(`./circles/${c.toLowerCase()}/words.json`).then(r => r.json()).then(d => { words[c] = d; })));
+        setData({ manifest, bios, names: new Map(names.names.map(n => [n.name.toLowerCase(), n])), about, words });
+      }).catch(() => setData({ error: true }));
+  }, []);
 
+  const circleWordsFor = useCallback((circle) => {
+    if (!data?.words) return new Map();
+    if (wordsCache.current[circle]) return wordsCache.current[circle];
+    const idx = data.manifest.circles.indexOf(circle);
+    const story = new Map();
+    data.manifest.circles.slice(0, idx + 1).forEach(c => (data.words[c]?.words || []).forEach(w => story.set(w.word.toLowerCase(), w)));
+    wordsCache.current[circle] = story;
+    return story;
+  }, [data]);
 
-  if(!manifest || !bios){
-    return <div className="min-h-screen flex items-center justify-center text-stone-500">Loading…</div>;
-  }
+  const s = progress.settings;
+  const reduceMotion = s.reduceMotion ?? window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  const theme = THEMES[s.theme] || THEMES.paper;
+  const rootStyle = {
+    "--read-font": FONTS[s.font]?.css || FONTS.atkinson.css,
+    "--read-size": SIZES[s.size] || SIZES.L,
+    "--read-leading": SPACINGS[s.spacing] || SPACINGS.roomy,
+    "--bg": theme.bg, "--ink": theme.ink, "--card": theme.card, "--line": theme.line, "--accent": theme.accent, "--accent-ink": theme.accentInk, "--story": theme.story, "--muted": theme.muted,
+    background: "var(--bg)", color: "var(--ink)", fontFamily: FONTS.atkinson.css,
+  };
+
+  if (!data) return <div className="min-h-screen flex items-center justify-center text-stone-500">Loading the Hollow…</div>;
+  if (data.error) return <div className="min-h-screen flex items-center justify-center p-6 text-center">The Hollow could not load. If you opened this file directly, run a small web server instead (see docs/READER_APP.md).</div>;
+
+  const openBook = (meta, page) => fetch(meta.path).then(r => r.json()).then(book => {
+    setView({ kind: "book", book, meta, startPage: page ?? (progress.last?.bookId === meta.bookId ? progress.last.page : 0) });
+  });
 
   return (
-    <div className="min-h-screen bg-emerald-50 text-stone-900">
-      {view.kind === "home" && (
-        
-        <HomeScreen manifest={manifest} onOpenBook={openBook} onOpenBio={openBio} openAbout={openAbout} />
+    <DataCtx.Provider value={{ ...data, circleWordsFor, reduceMotion, openBook }}>
+      <ProgressCtx.Provider value={{ progress, update }}>
+        <div className={cls("min-h-screen", reduceMotion && "wh-reduce-motion")} style={rootStyle}>
+          {view.kind === "home" && <HomeScreen go={setView} openOverlay={setOverlay} />}
+          {view.kind === "book" && (
+            <BookViewer key={view.book.bookId} book={view.book} meta={view.meta} startPage={view.startPage}
+              onExit={() => setView({ kind: "home" })} openOverlay={setOverlay}
+              onCeremony={(circle) => setView({ kind: "ceremony", circle })} />
+          )}
+          {view.kind === "bio" && <CharacterBioView id={view.id} onExit={() => setView({ kind: "home" })} />}
+          {view.kind === "ceremony" && <CeremonyView circle={view.circle} onDone={() => setView({ kind: "home" })} />}
 
-      )}
-      {view.kind === "book" && (
-        <BookViewer book={view.book} onExit={() => setView({ kind:"home" })} />
-      )}
-      {view.kind === "bio" && (
-        <CharacterBioView
-          characterId={view.characterId}
-          bio={bios[view.characterId]}
-          onExit={() => setView({ kind:"home" })}
-        />
-      )}
-      {view.kind === "about" && about && (
-        <AboutView about={about} onExit={() => setView({ kind: "home" })} />
-      )}
-
-    </div>
+          {overlay === "library" && <LibraryDrawer onClose={() => setOverlay(null)} />}
+          {overlay === "settings" && <SettingsPanel onClose={() => setOverlay(null)} />}
+          {overlay === "parents" && <ParentCorner onClose={() => setOverlay(null)} />}
+          {overlay === "about" && <AboutView onClose={() => setOverlay(null)} />}
+          {toast && <BadgeToast badge={toast} onDone={() => setToast(null)} />}
+        </div>
+      </ProgressCtx.Provider>
+    </DataCtx.Provider>
   );
 }
 
-function HomeScreen({ manifest, onOpenBook, onOpenBio, openAbout }) {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const booksByCircle = useMemo(() => {
-    const map = new Map();
-    manifest.circles.forEach(c => map.set(c, []));
-    manifest.books.forEach(b => {
-      if (!map.has(b.circle)) map.set(b.circle, []);
-      map.get(b.circle).push(b);
-    });
-    return map;
-  }, [manifest]);
+/* ---------- reading comfort settings (docs/READER_APP.md §7) ---------- */
+const FONTS = {
+  atkinson: { label: "Atkinson Hyperlegible", css: "'Atkinson Hyperlegible', system-ui, sans-serif" },
+  lexend: { label: "Lexend", css: "'Lexend', system-ui, sans-serif" },
+  dyslexic: { label: "OpenDyslexic", css: "'OpenDyslexic', 'Atkinson Hyperlegible', sans-serif" },
+  classic: { label: "Classic serif", css: "'Literata', Georgia, serif" },
+};
+const SIZES = { S: "18px", M: "21px", L: "24px", XL: "28px" };
+const SPACINGS = { normal: "1.5", roomy: "1.8", extra: "2.15" };
+const THEMES = {
+  paper: { bg: "#fbf6ec", card: "#fffdf8", ink: "#2d2a24", muted: "#6b6558", line: "#e7dcc6", accent: "#2f7d5b", accentInk: "#ffffff", story: "#fde6a8" },
+  contrast: { bg: "#ffffff", card: "#ffffff", ink: "#000000", muted: "#222222", line: "#000000", accent: "#0b3d91", accentInk: "#ffffff", story: "#ffe14d" },
+};
 
+/* ============================================================
+   Shared UI bits
+   ============================================================ */
+const masterFor = (id) => `images/characters/master/${id.replace(/-/g, "_")}_master.png`;
+
+function Btn({ children, onClick, kind = "soft", className, ...rest }) {
+  const base = "min-h-[44px] px-4 rounded-2xl font-semibold transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300 disabled:opacity-40";
+  const styles = {
+    solid: { background: "var(--accent)", color: "var(--accent-ink)" },
+    soft: { background: "var(--card)", color: "var(--ink)", border: "2px solid var(--line)" },
+    ghost: { background: "transparent", color: "var(--ink)" },
+  };
+  return <button type="button" onClick={onClick} className={cls(base, className)} style={styles[kind]} {...rest}>{children}</button>;
+}
+
+function Sheet({ title, onClose, children, wide }) {
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", onKey); return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
   return (
-    <div className="relative">
-      <button aria-label="Open menu"
-        className="fixed top-4 left-4 z-50 rounded-2xl bg-white/90 shadow px-3 py-2 text-sm font-semibold hover:bg-white"
-        onClick={() => setMenuOpen(s => !s)}>☰ Menu</button>
-
-      <div className={cls("fixed top-0 left-0 h-full w-80 bg-white shadow-2xl z-40 transition-transform duration-300",
-        menuOpen ? "translate-x-0" : "-translate-x-full")}>
-        <div className="px-5 py-4 border-b flex items-center justify-between">
-          <h2 className="text-lg font-bold">Library</h2>
-          <button className="rounded-xl px-2 py-1 bg-emerald-100" onClick={() => setMenuOpen(false)}>Close</button>
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center" role="dialog" aria-modal="true" aria-label={title}>
+      <div className="absolute inset-0 bg-black/40" onClick={onClose} />
+      <div className={cls("relative w-full max-h-[92vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl p-5 shadow-2xl", wide ? "sm:max-w-3xl" : "sm:max-w-xl")}
+        style={{ background: "var(--card)", color: "var(--ink)" }}>
+        <div className="flex items-center justify-between gap-3 mb-3">
+          <h2 className="text-xl font-bold">{title}</h2>
+          <Btn onClick={onClose} aria-label="Close">✕</Btn>
         </div>
-        <nav className="p-4 space-y-5 overflow-y-auto h-[calc(100%-56px)]">
-          {manifest.circles.map(circle => (
-            <div key={circle}>
-              <div className="text-emerald-700 font-semibold mb-2 flex items-center gap-2">
-                <span className="inline-block w-2 h-2 rounded-full bg-emerald-500" />{circle}
-              </div>
-              <ul className="space-y-2 pl-3">
-                {booksByCircle.get(circle)?.map(b => (
-                  <li key={b.bookId}>
-                    <button className="w-full text-left rounded-xl px-3 py-2 hover:bg-emerald-50"
-                      onClick={() => { setMenuOpen(false); onOpenBook(b); }}>
-                      <div className="text-sm font-medium">{b.title}</div>
-                      {b.subtitle && <div className="text-xs text-stone-500">{b.subtitle}</div>}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          <div>
-            <div>
-              <div className="text-emerald-700 font-semibold mb-2 flex items-center gap-2">
-                <span className="inline-block w-2 h-2 rounded-full bg-emerald-500" />About
-              </div>
-              <ul className="space-y-2 pl-3">
-                <li>
-                  <button
-                    className="w-full text-left rounded-xl px-3 py-2 hover:bg-emerald-50"
-                    onClick={() => { setMenuOpen(false); onOpenBook ? null : null; /* keep lint happy */ openAbout(); }}
-                  >
-                    <div className="text-sm font-medium">About Willowbrook Hollow</div>
-                    <div className="text-xs text-stone-500">Purpose, premise, and Circles</div>
-                  </button>
-                </li>
-              </ul>
-            </div>
-            
-            
-          </div>
-        </nav>
-      </div>
-
-      <div className="flex flex-col items-center justify-center min-h-screen px-6 text-center">
-        <h1 className="mt-8 text-3xl font-extrabold tracking-tight">Willowbrook Hollow</h1>
-        <p className="mt-2 max-w-2xl text-stone-600">From Zoe’s buckets to the Hollow’s secrets—every friend finds a place.”</p>
-        <div className="relative w-full max-w-4xl aspect-[16/9] rounded-3xl shadow-xl bg-gradient-to-br from-emerald-200 via-emerald-100 to-amber-100 overflow-hidden">
-          <div className="absolute inset-0 grid grid-cols-3 p-6 gap-4 select-none">
-            <SplashCard id="moss"        name="Moss" onClick={onOpenBio} />
-            <SplashCard id="tansy"       name="Tansy" onClick={onOpenBio}/>
-            <SplashCard id="brindle"     name="Brindle" onClick={onOpenBio}/>
-            <SplashCard id="wren"        name="Wren" onClick={onOpenBio}/>
-            <SplashCard id="echo"        name="Echo" onClick={onOpenBio}/>
-            <SplashCard id="puddle"      name="Puddle" onClick={onOpenBio}/>
-            <SplashCard id="pip-pebble"  name="Pip & Pebble" onClick={onOpenBio}/>
-            <SplashCard id="leo"         name="Leo" onClick={onOpenBio}/>
-            <SplashCard id="parrot-family"         name="Junebird Family" onClick={onOpenBio}/>
-            <SplashCard id="zoe"         name="Zoe" onClick={onOpenBio}/>
-            <div className="rounded-2xl bg-white/60 border border-emerald-200 flex items-center justify-center text-sm">More friends…</div>
-
-          </div>
-        </div>
-        <button className="mt-6 px-5 py-3 rounded-2xl bg-emerald-600 text-white font-semibold shadow hover:bg-emerald-700"
-          onClick={() => onOpenBook(manifest.books[0])}>Try the Demo Book</button>
+        {children}
       </div>
     </div>
   );
 }
 
-function CharacterBioView({ characterId, bio, onExit }){
-  const [tab, setTab] = useState("acorn");
-  const levels = ["acorn","leaf","branch","oak","elder"];
-  const src = CHARACTER_IMAGE[characterId];
-  const name = bio?.name ?? characterId;
-
+function BadgeToast({ badge, onDone }) {
+  useEffect(() => { const t = setTimeout(onDone, 3200); return () => clearTimeout(t); }, [onDone]);
   return (
-    <div className="min-h-screen grid grid-rows-[auto,1fr]">
-      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur border-b px-4 py-2 flex items-center gap-2">
-        <button className="rounded-xl px-3 py-1 bg-emerald-100 hover:bg-emerald-200" onClick={onExit}>← Back</button>
-        <div className="flex-1 text-center font-semibold">{name} · Biography</div>
-      </header>
-
-      <main className="px-4 py-6">
-        <div className="mx-auto max-w-3xl rounded-3xl border bg-white shadow overflow-hidden">
-          <div className="p-6 grid gap-6 md:grid-cols-[160px,1fr] items-start">
-            <div className="w-40 h-40 rounded-2xl bg-emerald-50 border overflow-hidden mx-auto md:mx-0 flex items-center justify-center">
-              {src ? <img src={src} alt={name} className="w-full h-full object-contain" /> : <span className="text-xs text-emerald-700">{name}</span>}
-            </div>
-
-            <div>
-              <div className="flex gap-2 flex-wrap">
-                {levels.map(l => (
-                  <button key={l}
-                    className={cls(
-                      "px-3 py-1 rounded-xl border text-sm",
-                      tab===l ? "bg-emerald-600 text-white border-emerald-700" : "bg-white hover:bg-emerald-50"
-                    )}
-                    onClick={() => setTab(l)}
-                  >
-                    {l[0].toUpperCase()+l.slice(1)}
-                  </button>
-                ))}
-              </div>
-
-              <div className="mt-4 text-stone-800 leading-relaxed">
-                {bio?.levels?.[tab] ?? "No biography available for this level yet."}
-              </div>
-            </div>
-          </div>
-
-          <div className="px-6 pb-6 text-xs text-stone-500">
-            Based on the official Character Bible and asset rules (e.g., Echo’s forest-green satchel; Brindle’s bandana). 
-          </div>
-        </div>
-      </main>
+    <div className="fixed z-[60] left-1/2 -translate-x-1/2 bottom-24 px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 wh-pop" style={{ background: "var(--accent)", color: "var(--accent-ink)" }} role="status">
+      <span className="text-2xl" aria-hidden="true">{badge.icon}</span>
+      <span className="font-bold">New badge: {badge.label}!</span>
     </div>
   );
 }
 
-function AboutView({ about, onExit }) {
-  // Level control
-  const order = about?.ui?.levelOrder ?? ["mom-dad","acorn","leaf","branch","oak","elder"];
-  const defaultLevel = about?.ui?.defaultLevel ?? "mom-dad";
-  const [level, setLevel] = useState(defaultLevel);
+/* ============================================================
+   Home, Library, Bios, About
+   ============================================================ */
+function currentCircle(manifest, progress) {
+  return [...manifest.circles].reverse().find(c => progress.unlocked.includes(c)) || manifest.circles[0];
+}
 
-  // Swipe between levels
-  const idx = order.indexOf(level);
-  const onLeft  = () => setLevel(order[Math.min(order.length - 1, idx + 1)]);
-  const onRight = () => setLevel(order[Math.max(0, idx - 1)]);
-  const swipe = useSwipe(onLeft, onRight);
-
-  // Color tokens → Tailwind classes (tweak to your palette)
-  const tokenToClass = (token) => {
-    switch (token) {
-      case "about-adult": return "bg-amber-600 text-white border-amber-700";
-      case "circle-acorn": return "bg-emerald-600 text-white border-emerald-700";
-      case "circle-leaf": return "bg-green-600 text-white border-green-700";
-      case "circle-branch": return "bg-lime-600 text-white border-lime-700";
-      case "circle-oak": return "bg-teal-700 text-white border-teal-800";
-      case "circle-elder": return "bg-sky-700 text-white border-sky-800";
-      default: return "bg-emerald-600 text-white border-emerald-700";
-    }
-  };
-
-  const palette = about?.ui?.palette ?? {};
-  const currentToken = palette[level] || "about-adult";
-
-  // Optional: circle vocab highlighting (skip for Mom & Dad)
-  const isCircle = level !== "mom-dad";
-  const circleNameForWords = (lvl) => {
-    // map level key to human circle folder names
-    const map = { "acorn":"Acorn","leaf":"Leaf","branch":"Branch","oak":"Oak","elder":"Elder" };
-    return map[lvl] || "Acorn";
-  };
-  const vocab = useCircleWords(isCircle ? circleNameForWords(level) : "Acorn"); // safe default
-  function speakWord(word) {
-    if (!isCircle) return;
-    const entry = vocab.map.get(word.toLowerCase());
-    if (!entry) return;
-    new Audio(entry.audio).play();
-  }
-
-  // Render text: split on blank lines → paragraphs; keep bullets simple
-  const raw = about?.levels?.[level] || "About content not available.";
-  const paragraphs = raw.split(/\n\s*\n/);
+function HomeScreen({ go, openOverlay }) {
+  const { manifest, bios, openBook } = useData();
+  const { progress } = useProgress();
+  const circle = currentCircle(manifest, progress);
+  const lastMeta = progress.last && manifest.books.find(b => b.bookId === progress.last.bookId);
+  const nextMeta = lastMeta && !progress.finished[lastMeta.bookId] ? lastMeta
+    : manifest.books.find(b => progress.unlocked.includes(b.circle) && !progress.finished[b.bookId]) || manifest.books[0];
 
   return (
-    <div className="min-h-screen grid grid-rows-[auto,1fr]">
-      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur border-b px-4 py-2 flex items-center gap-2">
-        <button className="rounded-xl px-3 py-1 bg-emerald-100 hover:bg-emerald-200" onClick={onExit}>← Back</button>
-        <div className="flex-1 text-center font-semibold">About Willowbrook Hollow</div>
+    <div className="min-h-screen">
+      <header className="flex items-center justify-between gap-2 px-4 py-3">
+        <Btn onClick={() => openOverlay("library")}>☰ Library</Btn>
+        <div className="flex gap-2">
+          <Btn onClick={() => openOverlay("about")}>About</Btn>
+          <Btn onClick={() => openOverlay("settings")} aria-label="Settings">⚙</Btn>
+        </div>
       </header>
 
-      <main className="px-4 py-6" {...swipe}>
-        <div className="mx-auto max-w-3xl rounded-3xl border bg-white shadow overflow-hidden">
-          <div className="p-6">
-            {/* Tabs */}
-            <div className="flex gap-2 flex-wrap">
-              {order.map(l => {
-                const label = l === "mom-dad" ? "Mom & Dad" : l[0].toUpperCase() + l.slice(1);
-                const active = l === level;
-                const chipClass = tokenToClass(palette[l] || (l==="mom-dad" ? "about-adult" : "circle-acorn"));
-                return (
-                  <button key={l}
-                    className={cls(
-                      "px-3 py-1 rounded-xl border text-sm transition-colors",
-                      active ? chipClass : "bg-white hover:bg-emerald-50"
-                    )}
-                    onClick={() => setLevel(l)}
-                  >
-                    {label}
-                  </button>
-                );
-              })}
-            </div>
+      <main className="max-w-5xl mx-auto px-4 pb-16 text-center">
+        <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight" style={{ fontFamily: "var(--read-font)" }}>Willowbrook Hollow</h1>
+        <p className="mt-2 text-lg" style={{ color: "var(--muted)" }}>Behind the animal sanctuary, the critters are talking. Want to listen in?</p>
 
-            {/* Body */}
-            <div className="mt-4 text-stone-800 leading-relaxed space-y-4">
-              {paragraphs.map((p, i) => (
-                <p key={i}>
-                  {isCircle
-                    ? renderInlineWithVocab(p, vocab.map, speakWord) // highlight on Circle levels
-                    : p.split("\n").map((line, j) => <span key={j}>{line}{j < p.split("\n").length-1 ? <br/>:null}</span>)
-                  }
-                </p>
+        <div className="mt-5 inline-flex items-center gap-3 px-4 py-2 rounded-2xl" style={{ background: "var(--card)", border: "2px solid var(--line)" }}>
+          <img src={`images/ui/circles/circle-${circle.toLowerCase()}.png`} alt="" className="h-10" />
+          <span className="font-semibold">You are in the {circle} Circle</span>
+        </div>
+
+        {nextMeta && (
+          <div className="mt-5">
+            <Btn kind="solid" className="text-xl px-7 py-3" onClick={() => openBook(nextMeta, progress.finished[nextMeta.bookId] ? 0 : undefined)}>
+              {progress.finished[nextMeta.bookId] ? "Read again" : progress.last?.bookId === nextMeta.bookId ? "Keep reading" : "Start reading"}: {nextMeta.title} →
+            </Btn>
+          </div>
+        )}
+
+        {progress.badges.length > 0 && (
+          <div className="mt-6">
+            <div className="text-sm font-semibold mb-2" style={{ color: "var(--muted)" }}>Your badges</div>
+            <div className="flex flex-wrap justify-center gap-2">
+              {progress.badges.map(b => (
+                <span key={b.id} className="px-3 py-1 rounded-full text-sm" style={{ background: "var(--card)", border: "2px solid var(--line)" }} title={b.date}>{b.icon} {b.label}</span>
               ))}
             </div>
-
-            {/* Hint */}
-            <div className="mt-6 text-xs text-stone-500">
-              Swipe left/right to switch levels · “Mom & Dad” defaults to a distinct color.
-            </div>
           </div>
+        )}
+
+        <h2 className="mt-10 mb-3 text-lg font-bold">Meet the Hollow</h2>
+        <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
+          {Object.entries(bios).map(([id, b]) => (
+            <button key={id} onClick={() => go({ kind: "bio", id })}
+              className="rounded-2xl p-3 flex flex-col items-center gap-2 hover:shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300"
+              style={{ background: "var(--card)", border: "2px solid var(--line)" }}>
+              <img src={masterFor(id)} alt={b.name} className="h-24 w-24 object-contain" />
+              <span className="text-sm font-semibold">{b.name}</span>
+            </button>
+          ))}
         </div>
+
+        <div className="mt-12"><ParentsDoor onOpen={() => openOverlay("parents")} /></div>
       </main>
     </div>
   );
 }
 
-function SplashCard({ id, name, onClick }){
-  const src = CHARACTER_IMAGE[id];
+// Grown-up check: press and hold for 2 seconds.
+function ParentsDoor({ onOpen }) {
+  const [holding, setHolding] = useState(false);
+  const timer = useRef(null);
+  const start = () => { setHolding(true); timer.current = setTimeout(() => { setHolding(false); onOpen(); }, 2000); };
+  const stop = () => { setHolding(false); clearTimeout(timer.current); };
   return (
-    <button
-      onClick={() => onClick?.(id)}
-      className="rounded-2xl bg-white/70 border border-emerald-200 p-3 flex flex-col items-center justify-center hover:shadow focus:outline-none focus:ring-2 focus:ring-emerald-400"
-    >
-      <div className="w-20 h-20 rounded-full bg-emerald-100 border overflow-hidden flex items-center justify-center">
-        {src ? (
-          <img src={src} alt={name} className="w-full h-full object-contain" loading="lazy" />
-        ) : (
-          <span className="text-xs text-emerald-700">{name}</span>
-        )}
-      </div>
-      <div className="mt-2 text-xs text-stone-600">{name}</div>
+    <button onPointerDown={start} onPointerUp={stop} onPointerLeave={stop} onContextMenu={e => e.preventDefault()}
+      onKeyDown={e => { if (e.key === "Enter" && !e.repeat) start(); }} onKeyUp={stop}
+      className="relative overflow-hidden min-h-[44px] px-4 rounded-2xl text-sm select-none" style={{ border: "2px dashed var(--line)", color: "var(--muted)" }}>
+      <span className="absolute inset-y-0 left-0 transition-[width] ease-linear" style={{ width: holding ? "100%" : "0%", transitionDuration: holding ? "2s" : "0s", background: "var(--line)" }} />
+      <span className="relative">For grown-ups: press and hold</span>
     </button>
   );
 }
 
-
-function BookViewer({ book, onExit }){
-  const [pageIndex, setPageIndex] = useState(0);
-  const [flatPages, setFlatPages] = useState([]);
-  const [tocOpen, setTocOpen] = useState(false);
-  const [inQuiz, setInQuiz] = useState(false);
-
-  useEffect(() => {
-    const pages = [];
-    pages.push({ kind: "title", number: 0 });
-    book.chapters.forEach(ch => {
-      ch.pages.forEach(p => pages.push({ kind: "page", chapterId: ch.id, chapterTitle: ch.title, ...p }));
-    });
-    setFlatPages(pages);
-  }, [book]);
-
-  const current = flatPages[pageIndex] || { kind: "title" };
-  const { onTouchStart, onTouchEnd } = useSwipe(() => goNext(), () => goPrev());
-
-  function goPrev(){ setPageIndex(i => Math.max(0, i - 1)); }
-  function goNext(){ setPageIndex(i => Math.min(flatPages.length - 1, i + 1)); }
-  function gotoAnchor(anchor){
-    const idx = flatPages.findIndex(p => p.chapterId === anchor);
-    if (idx >= 0) setPageIndex(idx);
-    setTocOpen(false);
-  }
-
+function LibraryDrawer({ onClose }) {
+  const { manifest, openBook } = useData();
+  const { progress } = useProgress();
   return (
-    <div className="min-h-screen grid grid-rows-[auto,1fr,auto]">
-      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur border-b px-4 py-2 flex items-center gap-2">
-        <button className="rounded-xl px-3 py-1 bg-emerald-100 hover:bg-emerald-200" onClick={onExit}>← Library</button>
-        <div className="flex-1 text-center font-semibold">{book.title}</div>
-        <div className="flex items-center gap-2">
-          <button className="rounded-xl px-3 py-1 bg-emerald-100 hover:bg-emerald-200" onClick={() => setTocOpen(true)}>Chapters</button>
-          <button className="rounded-xl px-3 py-1 bg-emerald-600 text-white hover:bg-emerald-700" onClick={() => setInQuiz(true)}>Quiz</button>
-        </div>
-      </header>
+    <div className="fixed inset-0 z-50" role="dialog" aria-modal="true" aria-label="Library">
+      <div className="absolute inset-0 bg-black/40" onClick={onClose} />
+      <nav className="absolute left-0 top-0 h-full w-[22rem] max-w-[90vw] overflow-y-auto p-5 shadow-2xl" style={{ background: "var(--card)" }}>
+        <div className="flex items-center justify-between mb-4"><h2 className="text-xl font-bold">Library</h2><Btn onClick={onClose}>✕</Btn></div>
+        {manifest.circles.map(circle => {
+          const open = progress.unlocked.includes(circle);
+          const books = manifest.books.filter(b => b.circle === circle);
+          return (
+            <section key={circle} className="mb-5">
+              <div className="flex items-center gap-2 font-bold mb-2">
+                <img src={`images/ui/circles/circle-${circle.toLowerCase()}.png`} alt="" className={cls("h-8", !open && "grayscale opacity-50")} />
+                {circle} {!open && <span aria-label="locked">🔒</span>}
+              </div>
+              {books.length === 0 && <div className="text-sm pl-10" style={{ color: "var(--muted)" }}>Stories coming soon.</div>}
+              <ul className="space-y-2">
+                {books.map(b => (
+                  <li key={b.bookId}>
+                    <button disabled={!open} onClick={() => { onClose(); openBook(b); }}
+                      className="w-full text-left rounded-xl px-3 py-2 min-h-[44px] disabled:opacity-40 hover:shadow" style={{ border: "2px solid var(--line)" }}>
+                      <div className="font-semibold">{progress.finished[b.bookId] && "✓ "}{b.title}</div>
+                      {b.subtitle && <div className="text-sm" style={{ color: "var(--muted)" }}>{b.subtitle}</div>}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          );
+        })}
+      </nav>
+    </div>
+  );
+}
 
-      <main className="relative overflow-hidden" {...{onTouchStart, onTouchEnd}}>
-        <div className="mx-auto max-w-4xl p-4">
-          {current.kind === "title" ? (
-            <TitlePage book={book} onStart={() => setPageIndex(1)} />
-          ) : (
-            <PageView page={current} circle={book.circle} />
-          )}
-        </div>
-
-        {tocOpen && (
-          <Modal onClose={() => setTocOpen(false)} title="Table of Contents">
-            <div className="space-y-4">
-              {book.toc.map((item, idx) => (
-                <div key={idx}>
-                  {item.type === "title" ? (
-                    <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-emerald-50" onClick={() => { setPageIndex(0); setTocOpen(false); }}>Title Page</button>
-                  ) : (
-                    <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-emerald-50" onClick={() => gotoAnchor(item.anchor)}>{item.label}</button>
-                  )}
-                </div>
+function CharacterBioView({ id, onExit }) {
+  const { bios, manifest, names } = useData();
+  const { progress } = useProgress();
+  const bio = bios[id];
+  const [level, setLevel] = useState(currentCircle(manifest, progress).toLowerCase());
+  const circleName = manifest.circles.find(c => c.toLowerCase() === level);
+  return (
+    <div className="min-h-screen">
+      <header className="px-4 py-3 flex items-center gap-2"><Btn onClick={onExit}>← Back</Btn></header>
+      <main className="max-w-3xl mx-auto px-4 pb-16">
+        <div className="rounded-3xl p-6 grid gap-6 sm:grid-cols-[180px,1fr] items-start" style={{ background: "var(--card)", border: "2px solid var(--line)" }}>
+          <img src={masterFor(id)} alt={bio.name} className="w-44 h-44 object-contain mx-auto" />
+          <div>
+            <h1 className="text-3xl font-extrabold">{bio.name}</h1>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {manifest.circles.map(c => (
+                <Btn key={c} kind={level === c.toLowerCase() ? "solid" : "soft"} onClick={() => setLevel(c.toLowerCase())}>{c}</Btn>
               ))}
             </div>
-          </Modal>
-        )}
+            <div className="mt-4">
+              <ReadingText paragraphs={bio.levels[level].split(/\n\s*\n/)} circle={circleName} />
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
 
-        {inQuiz && (
-          <Modal onClose={() => setInQuiz(false)} title="Quiz">
-            <Quiz quiz={book.quiz} />
-          </Modal>
-        )}
+function AboutView({ onClose }) {
+  const { about, manifest } = useData();
+  const order = about.ui?.levelOrder || ["mom-dad", ...manifest.circles.map(c => c.toLowerCase())];
+  const [level, setLevel] = useState(about.ui?.defaultLevel || "mom-dad");
+  const circleName = manifest.circles.find(c => c.toLowerCase() === level);
+  return (
+    <Sheet title="About Willowbrook Hollow" onClose={onClose} wide>
+      <div className="flex flex-wrap gap-2 mb-4">
+        {order.map(l => <Btn key={l} kind={l === level ? "solid" : "soft"} onClick={() => setLevel(l)}>{l === "mom-dad" ? "Grown-ups" : l[0].toUpperCase() + l.slice(1)}</Btn>)}
+      </div>
+      {circleName
+        ? <ReadingText paragraphs={about.levels[level].trim().split(/\n\s*\n/)} circle={circleName} />
+        : <div className="space-y-3 leading-relaxed">{about.levels[level].trim().split(/\n\s*\n/).map((p, i) => <p key={i} className="whitespace-pre-line">{p}</p>)}</div>}
+    </Sheet>
+  );
+}
+
+/* ============================================================
+   Reading text: tappable words, story-word highlight, Read-to-Me highlight, ruler
+   ============================================================ */
+function ReadingText({ paragraphs, circle, activeWord = -1, readThrough = -1, ruler = false, onWordIndex }) {
+  const story = useCircleWords(circle || "Acorn");
+  const { names } = useData();
+  const [card, setCard] = useState(null);
+  const [rulerPara, setRulerPara] = useState(0);
+  let wi = -1;
+  return (
+    <div style={{ fontFamily: "var(--read-font)", fontSize: "var(--read-size)", lineHeight: "var(--read-leading)", letterSpacing: "0.01em" }}>
+      {paragraphs.map((para, pi) => (
+        <p key={pi} className="mb-[0.7em] transition-opacity" onClick={() => setRulerPara(pi)}
+          style={{ opacity: ruler && pi !== rulerPara ? 0.3 : 1 }}>
+          {tokenize(para).map((tok, ti) => {
+            if (!tok.word) return <span key={ti}>{tok.t}</span>;
+            wi++;
+            const idx = wi;
+            const isStory = !!storyEntry(tok.t, story);
+            const active = idx === activeWord;
+            const wasRead = !active && idx <= readThrough;
+            return (
+              <span key={ti} role="button" tabIndex={0} data-word-index={idx}
+                onClick={(e) => { e.stopPropagation(); onWordIndex ? onWordIndex(idx, tok.t) : setCard(tok.t); }}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onWordIndex ? onWordIndex(idx, tok.t) : setCard(tok.t); } }}
+                className={cls("rounded-md cursor-pointer outline-none focus-visible:ring-4 focus-visible:ring-amber-300 transition-colors", isStory && "wh-story")}
+                style={{
+                  background: active ? "var(--accent)" : wasRead ? "rgba(47,125,91,.16)" : isStory ? "var(--story)" : undefined,
+                  color: active ? "var(--accent-ink)" : undefined,
+                  padding: isStory || active ? "0 0.12em" : undefined,
+                  boxShadow: isStory && !active ? "inset 0 -3px 0 rgba(180,120,0,.55)" : undefined,
+                }}>{tok.t}</span>
+            );
+          })}
+        </p>
+      ))}
+      {card && <WordCard word={card} story={story} names={names} onClose={() => setCard(null)} />}
+    </div>
+  );
+}
+
+function WordCard({ word, story, names, onClose }) {
+  const { progress } = useProgress();
+  const rate = progress.settings.voiceRate;
+  const entry = storyEntry(word, story);
+  const nameEntry = names.get(word.replace(/[’']s$/, "").toLowerCase());
+  const sylls = syllablesFor(word, story, names);
+  const [lit, setLit] = useState(-1);
+  const stopRef = useRef(() => {});
+  const sayWord = () => { stopRef.current(); stopRef.current = speak(spokenFor(word, story), { rate }); };
+  const saySlow = () => { stopRef.current(); stopRef.current = speakSequence(sylls.map(s => s.toLowerCase()), { rate: "slow", onPart: setLit, onEnd: () => setTimeout(sayWord, 300) }); };
+  useEffect(() => { sayWord(); return () => stopRef.current(); }, []);
+  return (
+    <Sheet title={nameEntry ? "A name" : entry ? "Story word" : "Tap to hear"} onClose={onClose}>
+      <div className="text-center">
+        <div className="flex justify-center flex-wrap gap-2 my-2" style={{ fontFamily: "var(--read-font)" }} aria-label={`Syllables: ${sylls.join(", ")}`}>
+          {sylls.map((s, i) => (
+            <span key={i} className="px-3 py-1 rounded-xl text-4xl font-bold transition-colors"
+              style={{ background: lit === i ? "var(--accent)" : ["#dff1e6", "#fdebd0", "#e3ecfb", "#f6e1ef", "#eee7fb"][i % 5], color: lit === i ? "var(--accent-ink)" : "#1f1f1f" }}>{s}</span>
+          ))}
+        </div>
+        <div className="text-sm mb-4" style={{ color: "var(--muted)" }}>{sylls.length} {sylls.length === 1 ? "syllable" : "syllables"}</div>
+        <div className="flex justify-center gap-3 flex-wrap">
+          <Btn kind="solid" onClick={sayWord}>🔊 Say it</Btn>
+          {sylls.length > 1 && <Btn onClick={saySlow}>🐢 Say it slowly</Btn>}
+        </div>
+        {entry && <p className="mt-5 text-lg leading-relaxed" style={{ fontFamily: "var(--read-font)" }}>{entry.definition}</p>}
+      </div>
+    </Sheet>
+  );
+}
+
+/* ============================================================
+   Book viewer
+   ============================================================ */
+function BookViewer({ book, meta, startPage, onExit, openOverlay, onCeremony }) {
+  const { progress, update } = useProgress();
+  const pages = useMemo(() => [{ kind: "title" }, ...book.chapters.flatMap(ch => ch.pages.map(p => ({ kind: "page", chapterId: ch.id, chapterTitle: ch.title, ...p })))], [book]);
+  const [index, setIndex] = useState(Math.min(startPage || 0, pages.length - 1));
+  const [panel, setPanel] = useState(null); // toc | quiz | practice
+  const current = pages[index];
+  const lastIndex = pages.length - 1;
+
+  useEffect(() => {
+    update(p => {
+      let next = { ...p, last: { bookId: book.bookId, page: index } };
+      if (current.kind === "page") {
+        const seen = new Set(p.visited[book.bookId] || []); seen.add(current.number);
+        next.visited = { ...p.visited, [book.bookId]: [...seen].sort((a, b) => a - b) };
+      }
+      return next;
+    });
+    window.scrollTo({ top: 0 });
+  }, [index]);
+
+  const go = (d) => { if ("speechSynthesis" in window) speechSynthesis.cancel(); setIndex(i => Math.max(0, Math.min(lastIndex, i + d))); };
+  useEffect(() => {
+    const onKey = (e) => { if (panel) return; if (e.key === "ArrowRight") go(1); if (e.key === "ArrowLeft") go(-1); };
+    window.addEventListener("keydown", onKey); return () => window.removeEventListener("keydown", onKey);
+  }, [panel, lastIndex]);
+  const swipe = useRef(null);
+
+  const onQuizDone = () => {
+    let ceremonyCircle = null;
+    update(p => {
+      let next = { ...p, quiz: { ...p.quiz, [book.bookId]: true } };
+      const allSeen = pages.filter(x => x.kind === "page").every(x => (next.visited[book.bookId] || []).includes(x.number));
+      if (allSeen && !p.finished[book.bookId]) {
+        next.finished = { ...p.finished, [book.bookId]: new Date().toISOString().slice(0, 10) };
+        next = awardBadge(next, "first-book", "First Book", "📘");
+        next = awardBadge(next, `finished-${book.bookId}`, `Finished “${book.title}”`, "✅");
+        if (meta?.ceremony && !p.ceremonies.includes(book.circle)) ceremonyCircle = book.circle;
+      }
+      return next;
+    });
+    setPanel(null);
+    if (ceremonyCircle) setTimeout(() => onCeremony(ceremonyCircle), 400);
+  };
+
+  return (
+    <div className="min-h-screen grid grid-rows-[auto,1fr,auto]"
+      onTouchStart={e => { swipe.current = e.changedTouches[0].screenX; }}
+      onTouchEnd={e => { const dx = e.changedTouches[0].screenX - (swipe.current ?? 0); if (!panel && Math.abs(dx) > 60) go(dx < 0 ? 1 : -1); }}>
+      <header className="sticky top-0 z-30 px-3 py-2 flex items-center gap-2 flex-wrap" style={{ background: "var(--bg)", borderBottom: "2px solid var(--line)" }}>
+        <Btn onClick={onExit}>← Library</Btn>
+        <div className="flex-1 text-center font-bold truncate min-w-[8rem]">{book.title}</div>
+        <Btn onClick={() => setPanel("toc")}>Chapters</Btn>
+        <Btn onClick={() => setPanel("practice")}>⏱ Practice Read</Btn>
+        <Btn onClick={() => openOverlay("settings")} aria-label="Settings">⚙</Btn>
+      </header>
+
+      <main className="w-full max-w-5xl mx-auto p-3 sm:p-5">
+        {current.kind === "title"
+          ? <TitlePage book={book} onStart={() => go(1)} />
+          : <PageView key={current.number} page={current} book={book} />}
       </main>
 
-      <footer className="sticky bottom-0 z-20 bg-white/95 backdrop-blur border-t px-4 py-2">
-        <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <button className="rounded-xl px-4 py-2 bg-emerald-100 hover:bg-emerald-200" onClick={goPrev}>← Prev</button>
-          <div className="text-sm text-stone-600">Page {current.number ?? 0} / {flatPages.at(-1)?.number ?? 0}</div>
-          <button className="rounded-xl px-4 py-2 bg-emerald-600 text-white hover:bg-emerald-700" onClick={goNext}>Next →</button>
+      <footer className="sticky bottom-0 z-20 px-3 py-2" style={{ background: "var(--bg)", borderTop: "2px solid var(--line)" }}>
+        <div className="max-w-5xl mx-auto flex items-center justify-between gap-2">
+          <Btn onClick={() => go(-1)} disabled={index === 0}>← Back</Btn>
+          <div className="text-sm" style={{ color: "var(--muted)" }}>{current.kind === "title" ? "Title page" : `Page ${current.number} of ${pages.length - 1}`}</div>
+          {index < lastIndex
+            ? <Btn kind="solid" onClick={() => go(1)}>Next →</Btn>
+            : <Btn kind="solid" onClick={() => setPanel("quiz")}>{progress.quiz[book.bookId] ? "Quiz again" : "Quiz time!"} ⭐</Btn>}
         </div>
       </footer>
+
+      {panel === "toc" && (
+        <Sheet title="Chapters" onClose={() => setPanel(null)}>
+          <div className="grid gap-2">
+            <Btn onClick={() => { setIndex(0); setPanel(null); }} className="text-left">Title page</Btn>
+            {book.toc.filter(t => t.type === "chapter").map(t => (
+              <Btn key={t.anchor} className="text-left" onClick={() => { setIndex(pages.findIndex(p => p.chapterId === t.anchor)); setPanel(null); }}>{t.label}</Btn>
+            ))}
+            <Btn kind="solid" onClick={() => setPanel("quiz")}>Quiz ⭐</Btn>
+          </div>
+        </Sheet>
+      )}
+      {panel === "quiz" && <Quiz book={book} onClose={() => setPanel(null)} onDone={onQuizDone} />}
+      {panel === "practice" && <PracticeRead book={book} startChapter={current.chapterId} onClose={() => setPanel(null)} />}
     </div>
   );
 }
 
-function TitlePage({ book, onStart }){
+function TitlePage({ book, onStart }) {
+  const { bios } = useData();
+  const { progress } = useProgress();
   return (
-    <div className="rounded-3xl border shadow bg-white overflow-hidden">
-      <div className="relative aspect-[16/9] bg-emerald-100 flex items-center justify-center">
-        <div className="absolute top-4 left-4 w-16 h-16 rounded-xl bg-white/80 border flex items-center justify-center">
-          <span className="text-xs">{book.circle}</span>
-        </div>
-        <div className="text-stone-500">(Cover art placeholder)</div>
+    <div className="rounded-3xl overflow-hidden shadow" style={{ background: "var(--card)", border: "2px solid var(--line)" }}>
+      <div className="relative">
+        <img src={book.cover.image} alt={book.cover.alt} className="w-full aspect-[16/9] object-cover" />
+        <img src={book.circleIcon} alt={`${book.circle} Circle`} className="absolute top-3 left-3 h-16 drop-shadow" />
       </div>
       <div className="p-6 text-center">
-        <h2 className="text-2xl font-extrabold">{book.title}</h2>
-        {book.subtitle && <p className="mt-1 text-stone-600">{book.subtitle}</p>}
-        <button className="mt-6 px-5 py-3 rounded-2xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700" onClick={onStart}>Start Reading</button>
+        <h1 className="text-3xl sm:text-4xl font-extrabold" style={{ fontFamily: "var(--read-font)" }}>{book.title}</h1>
+        {book.subtitle && <p className="mt-1 text-lg" style={{ color: "var(--muted)" }}>{book.subtitle}</p>}
+        <div className="mt-5 text-sm font-semibold" style={{ color: "var(--muted)" }}>In this story (tap to hear a name)</div>
+        <div className="mt-2 flex flex-wrap justify-center gap-3">
+          {book.cast.map(id => (
+            <button key={id} onClick={() => speak(bios[id]?.name || id, { rate: progress.settings.voiceRate })}
+              className="flex flex-col items-center w-20 focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300 rounded-xl">
+              <img src={masterFor(id)} alt="" className="h-16 w-16 object-contain" />
+              <span className="text-sm font-semibold" style={{ fontFamily: "var(--read-font)" }}>{bios[id]?.name || id}</span>
+            </button>
+          ))}
+        </div>
+        <Btn kind="solid" className="mt-6 text-xl px-8" onClick={onStart}>Start reading →</Btn>
       </div>
     </div>
   );
 }
 
-function PageView({ page, circle }){
-  const [animating, setAnimating] = useState({});
-  const [audio, setAudio] = useState(null);
-  const vocab = useCircleWords(circle);
+function PageView({ page, book }) {
+  const { progress, update } = useProgress();
+  const { reduceMotion } = useData();
+  const story = useCircleWords(book.circle);
+  const [active, setActive] = useState(-1);
+  const [mode, setMode] = useState("idle"); // idle | reading | yourTurn
+  const [moving, setMoving] = useState({});
+  const stopRef = useRef(() => {});
+  useEffect(() => () => stopRef.current(), []);
 
-  useEffect(() => () => { if (audio) audio.pause(); }, [audio]);
+  // Build the spoken text and a map from character offset → word index.
+  const plan = useMemo(() => {
+    let spoken = "", starts = [], wi = 0;
+    page.text.forEach((para, pi) => {
+      tokenize(para).forEach(tok => {
+        if (tok.word) { starts.push([spoken.length, wi++]); spoken += spokenFor(tok.t, story); }
+        else spoken += tok.t.replace(/[“”‘’]/g, "").replace(/…/g, "... ");
+      });
+      spoken += pi < page.text.length - 1 ? "\n" : "";
+    });
+    return { spoken, starts, count: wi };
+  }, [page, story]);
 
-  function toggleAnimation(i){ setAnimating(prev => ({...prev, [i]: !prev[i]})); }
-  function speakWord(word){
-    const entry = vocab.map.get(word.toLowerCase());
-    if(!entry) return;
-    const a = new Audio(entry.audio);
-    setAudio(a);
-    a.play();
-  }
+  const readToMe = () => {
+    if (mode === "reading") { stopRef.current(); setMode("idle"); setActive(-1); return; }
+    setMode("reading"); setActive(0);
+    let gotBoundary = false;
+    const wordsPerSec = { slow: 1.7, normal: 2.3, quick: 2.8 }[progress.settings.voiceRate] || 2.3;
+    const fallback = setInterval(() => { if (!gotBoundary) setActive(a => Math.min(plan.count - 1, a + 1)); }, 1000 / wordsPerSec);
+    const stop = speak(plan.spoken, {
+      rate: progress.settings.voiceRate,
+      onBoundary: (ci) => { gotBoundary = true; let w = 0; for (const [s, i] of plan.starts) { if (s <= ci) w = i; else break; } setActive(w); },
+      onEnd: () => { clearInterval(fallback); setActive(-1); setMode("yourTurn"); },
+    });
+    stopRef.current = () => { clearInterval(fallback); stop(); };
+    update(p => ({ ...p, readToMe: { ...p.readToMe, [book.bookId]: { ...(p.readToMe[book.bookId] || {}), [page.chapterId]: true } } }));
+  };
 
-  return (
-    <div className="rounded-3xl border shadow bg-white overflow-hidden">
-      <div className={cls("grid gap-6 p-6", page.layout === "art-full" ? "grid-cols-1" : "md:grid-cols-2")} style={{minHeight:360}}>
-        <div className={cls(page.layout === "art-right" ? "md:order-2" : "md:order-1", "relative rounded-2xl bg-emerald-50 border flex items-center justify-center overflow-hidden")}>
-          {page.media?.filter(m => m.type === "image").map((m, idx) => (
-            <AnimatedImage key={idx} media={m} active={!!animating[idx]} />
-          ))}
-          {page.interactivity?.filter(i => i.kind === "hotspot").map((h, idx) => (
-            <button key={idx} className="absolute w-10 h-10 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-emerald-600/70 bg-white/50 hover:bg-white"
-              style={{left:`${h.x}%`, top:`${h.y}%`}} aria-label="Interactive hotspot"
-              onClick={() => { if(h.onTap?.action === "toggleAnimation"){ toggleAnimation(h.onTap.targetMediaIndex ?? 0); } }} />
-          ))}
-        </div>
-
-        <div className={cls(page.layout === "art-right" ? "md:order-1" : "md:order-2", "leading-relaxed text-lg")}>
-          <h3 className="text-sm font-semibold text-emerald-700 mb-2">{page.chapterTitle}</h3>
-          <div className="space-y-4">
-            {page.text?.map((t, idx) => <p key={idx}>{renderInlineWithVocab(t, vocab.map, speakWord)}</p>)}
-          </div>
-        </div>
-      </div>
+  const art = (
+    <div className={cls("rounded-2xl p-3 flex items-end justify-center gap-2 flex-wrap", page.layout === "art-full" ? "min-h-[220px]" : "min-h-[260px] md:min-h-[380px]")}
+      style={{ background: "linear-gradient(180deg,#fdf1dc 0%,#f3ead7 70%,#dfe9c9 100%)" }}>
+      {page.media.map((m, i) => (
+        <button key={i} onClick={() => setMoving(s => ({ ...s, [i]: (s[i] || 0) + 1 }))} aria-label={`${m.alt} (tap to wiggle)`}
+          className="focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300 rounded-xl">
+          <img key={moving[i] || 0} src={m.src} alt={m.alt}
+            className={cls("object-contain", page.media.length > 2 ? "h-36 md:h-48" : page.media.length === 2 ? "h-44 md:h-64" : "h-56 md:h-80",
+              moving[i] && !reduceMotion && `wh-anim-${m.animation?.kind || "wiggle"}`, moving[i] && reduceMotion && "wh-glow")} />
+        </button>
+      ))}
     </div>
   );
-}
 
-function AnimatedImage({ media, active }){
-  return (
-    <div className={cls(
-      "w-56 h-56 md:w-72 md:h-72 bg-white/80 border rounded-2xl shadow flex items-center justify-center transition-transform",
-      active && media.animation?.kind === "pulse" && "animate-pulse",
-      active && media.animation?.kind === "float" && "motion-safe:animate-[float_3s_ease-in-out_infinite]",
-      active && media.animation?.kind === "spin" && "motion-safe:animate-spin"
-    )}
-      style={{ backgroundImage: media.src ? `url(${media.src})` : undefined, backgroundSize:"cover", backgroundPosition:"center" }}
-      aria-label={media.alt || "Artwork"}>
-      {!media.src && <span className="text-xs text-stone-500">(art placeholder)</span>}
-    </div>
-  );
-}
-
-function Quiz({ quiz }){
-  const [index, setIndex] = React.useState(0);
-  const [selected, setSelected] = React.useState(null);
-  const [feedback, setFeedback] = React.useState(null);
-  const q = quiz.questions[index];
-
-  function answer(i){
-    setSelected(i);
-    const correct = i === q.answerIndex;
-    setFeedback(correct ? q.reactions.correct : q.reactions.incorrect);
-  }
-  function next(){ setSelected(null); setFeedback(null); if (index < quiz.questions.length - 1) setIndex(index + 1); }
-  const finished = index === quiz.questions.length - 1 && feedback && selected !== null;
-
-  return (
+  const text = (
     <div>
-      <p className="text-sm text-stone-600 mb-4">{quiz.instructions}</p>
-      <div className="rounded-xl border p-4 bg-emerald-50">
-        <div className="font-semibold mb-3">Q{index + 1}. {q.prompt}</div>
-        <div className="grid gap-2">
-          {q.choices.map((c, i) => (
-            <button key={i} disabled={selected !== null} onClick={() => answer(i)}
-              className="text-left px-3 py-2 rounded-lg border bg-white hover:bg-emerald-100 disabled:opacity-60">{c}</button>
-          ))}
-        </div>
+      <div className="flex items-center justify-between gap-2 mb-3 flex-wrap">
+        <h3 className="text-sm font-bold uppercase tracking-wide" style={{ color: "var(--accent)" }}>{page.chapterTitle}</h3>
+        <Btn kind={mode === "reading" ? "soft" : "solid"} onClick={readToMe}>{mode === "reading" ? "⏹ Stop" : "🔊 Read to me"}</Btn>
       </div>
-      {feedback && (
-        <div className="mt-4 flex items-center gap-3 p-3 border rounded-xl bg-white">
-          <div className="w-12 h-12 rounded-full bg-emerald-100 border flex items-center justify-center overflow-hidden">
-            <span className="text-[10px] text-emerald-700">Character</span>
-          </div>
-          <div className="text-sm">{feedback.line}</div>
+      <ReadingText paragraphs={page.text} circle={book.circle} activeWord={active} ruler={progress.settings.ruler} />
+      {mode === "yourTurn" && (
+        <div className="mt-3 rounded-2xl px-4 py-3 font-semibold flex items-center gap-3 wh-pop" style={{ background: "var(--story)", color: "#1f1f1f" }}>
+          <img src={masterFor("brindle")} alt="" className="h-10 w-10 object-contain" />
+          Your turn! Read it out loud.
         </div>
       )}
-      <div className="mt-4 flex items-center justify-between">
-        <div className="text-xs text-stone-500">{index + 1} / {quiz.questions.length}</div>
-        {!finished ? (
-          <button className="rounded-xl px-4 py-2 bg-emerald-600 text-white hover:bg-emerald-700" onClick={next} disabled={selected === null}>Next</button>
-        ) : (
-          <div className="text-emerald-700 font-semibold">All done! 🎉</div>
-        )}
-      </div>
     </div>
   );
-}
 
-function Modal({ title, children, onClose }){
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
-      <div className="absolute inset-0 bg-black/30" onClick={onClose} />
-      <div className="relative w-full max-w-2xl bg-white rounded-2xl border shadow-lg p-4">
-        <div className="flex items-center justify-between border-b pb-2">
-          <h3 className="text-lg font-bold">{title}</h3>
-          <button className="rounded-lg px-3 py-1 bg-emerald-100 hover:bg-emerald-200" onClick={onClose}>Close</button>
+    <article className="rounded-3xl p-4 sm:p-6 shadow" style={{ background: "var(--card)", border: "2px solid var(--line)" }}>
+      {page.layout === "art-full"
+        ? <div className="grid gap-5">{art}{text}</div>
+        : <div className="grid gap-6 md:grid-cols-2 items-start">
+            <div className={page.layout === "art-right" ? "md:order-2" : ""}>{art}</div>
+            <div className={page.layout === "art-right" ? "md:order-1" : ""}>{text}</div>
+          </div>}
+    </article>
+  );
+}
+
+/* ============================================================
+   Practice Read — docs/READER_APP.md §5
+   ============================================================ */
+function PracticeRead({ book, startChapter, onClose }) {
+  const { progress, update } = useProgress();
+  const [chapterId, setChapterId] = useState(startChapter || book.chapters[0].id);
+  const [stage, setStage] = useState("pick"); // pick | ready | reading | mark | result
+  const [left, setLeft] = useState(60);
+  const [elapsed, setElapsed] = useState(0);
+  const [lastWord, setLastWord] = useState(-1);
+  const [missed, setMissed] = useState(0);
+  const [result, setResult] = useState(null);
+  const startedAt = useRef(0), tick = useRef(null);
+  const chapter = book.chapters.find(c => c.id === chapterId);
+  const paragraphs = chapter.pages.flatMap(p => p.text);
+  const history = progress.practice[book.bookId]?.[chapterId] || [];
+  const best = history.reduce((m, r) => Math.max(m, r.wcpm), 0);
+
+  useEffect(() => () => clearInterval(tick.current), []);
+  const start = () => {
+    setStage("reading"); setLeft(60); startedAt.current = Date.now();
+    tick.current = setInterval(() => {
+      const s = Math.min(60, Math.round((Date.now() - startedAt.current) / 1000));
+      setLeft(60 - s);
+      if (s >= 60) { clearInterval(tick.current); setElapsed(60); setStage("mark"); }
+    }, 250);
+  };
+  const done = () => { clearInterval(tick.current); setElapsed(Math.max(5, Math.round((Date.now() - startedAt.current) / 1000))); setStage("mark"); };
+  const save = () => {
+    const words = lastWord + 1;
+    const wcpm = Math.max(0, Math.round(((words - missed) * 60) / elapsed));
+    const rec = { date: new Date().toISOString().slice(0, 10), words, missed, seconds: elapsed, wcpm };
+    const isBest = history.length > 0 && wcpm > best;
+    update(p => {
+      const bookP = p.practice[book.bookId] || {};
+      let next = { ...p, practice: { ...p.practice, [book.bookId]: { ...bookP, [chapterId]: [...(bookP[chapterId] || []), rec] } } };
+      if (isBest) next = awardBadge(next, `best-${book.bookId}-${chapterId}-${wcpm}`, "Personal Best", "🏅");
+      if (p.readToMe[book.bookId]?.[chapterId]) next = awardBadge(next, "echo-reader", "Echo Reader", "🦜");
+      return next;
+    });
+    setResult({ ...rec, isBest, first: history.length === 0, earlier: history.map(r => r.wcpm) });
+    setStage("result");
+  };
+  const reset = () => { setStage("ready"); setLastWord(-1); setMissed(0); setResult(null); };
+
+  return (
+    <Sheet title="⏱ Practice Read" onClose={onClose} wide>
+      {stage === "pick" && (
+        <div>
+          <p className="mb-4 leading-relaxed">Read a chapter out loud for one minute. Then tap the last word you read. Read the same chapter on another day and try to beat <b>your own</b> best!</p>
+          <div className="grid gap-2">
+            {book.chapters.map(c => {
+              const h = progress.practice[book.bookId]?.[c.id] || [];
+              const b = h.reduce((m, r) => Math.max(m, r.wcpm), 0);
+              return (
+                <Btn key={c.id} kind={c.id === chapterId ? "solid" : "soft"} className="text-left flex justify-between" onClick={() => { setChapterId(c.id); setStage("ready"); }}>
+                  <span>{c.title}</span>{b > 0 && <span className="text-sm opacity-80">best {b}</span>}
+                </Btn>
+              );
+            })}
+          </div>
         </div>
-        <div className="mt-4">{children}</div>
+      )}
+
+      {stage !== "pick" && (
+        <div>
+          <div className="flex items-center justify-between gap-3 mb-3 flex-wrap">
+            <div className="font-bold">{chapter.title}</div>
+            {(stage === "ready" || stage === "reading") && <TimerRing left={left} />}
+          </div>
+
+          {stage === "ready" && (
+            <div className="flex gap-3 flex-wrap mb-3">
+              <Btn kind="solid" className="text-lg px-6" onClick={start}>Start</Btn>
+              <Btn onClick={() => setStage("pick")}>Pick another chapter</Btn>
+              {best > 0 && <span className="self-center text-sm" style={{ color: "var(--muted)" }}>Your best here: <b>{best}</b> words a minute</span>}
+            </div>
+          )}
+          {stage === "reading" && <div className="mb-3"><Btn kind="solid" onClick={done}>I'm done</Btn></div>}
+          {stage === "mark" && (
+            <div className="mb-3 rounded-2xl px-4 py-3 font-semibold" style={{ background: "var(--story)", color: "#1f1f1f" }}>
+              {lastWord < 0 ? "Tap the last word you read." : `You read ${lastWord + 1} words. Tap a different word to fix it.`}
+            </div>
+          )}
+
+          {stage !== "result" && (
+            <div className={cls("rounded-2xl p-4 max-h-[48vh] overflow-y-auto", stage === "ready" && "blur-[3px] select-none")} style={{ border: "2px solid var(--line)" }} aria-hidden={stage === "ready"}>
+              <ReadingText paragraphs={paragraphs} circle={book.circle} activeWord={stage === "mark" ? lastWord : -1} readThrough={stage === "mark" ? lastWord : -1}
+                onWordIndex={stage === "mark" ? (i) => setLastWord(i) : (stage === "reading" ? () => {} : undefined)} />
+            </div>
+          )}
+
+          {stage === "mark" && lastWord >= 0 && (
+            <div className="mt-4 flex items-center gap-3 flex-wrap">
+              <span className="text-sm" style={{ color: "var(--muted)" }}>Grown-up listening? Missed words:</span>
+              <Btn onClick={() => setMissed(m => Math.max(0, m - 1))} aria-label="One fewer missed word">−</Btn>
+              <span className="text-xl font-bold w-8 text-center">{missed}</span>
+              <Btn onClick={() => setMissed(m => Math.min(lastWord + 1, m + 1))} aria-label="One more missed word">+</Btn>
+              <Btn kind="solid" className="ml-auto" onClick={save}>Save my read</Btn>
+            </div>
+          )}
+
+          {stage === "result" && result && (
+            <div className="text-center py-4">
+              <div className="text-6xl font-extrabold" style={{ color: "var(--accent)" }}>{result.wcpm}</div>
+              <div className="text-lg">words a minute{result.missed > 0 ? " (words correct)" : ""}</div>
+              <div className="mt-4 text-xl font-bold">
+                {result.first ? "Your first Practice Read of this chapter! Try it again another day." : result.isBest ? "🏅 A new personal best!" : "Nice practice! Every read makes it smoother."}
+              </div>
+              {result.earlier.length > 0 && (
+                <div className="mt-4 text-sm" style={{ color: "var(--muted)" }}>
+                  Earlier reads: {result.earlier.slice(-5).join(" → ")} → <b>{result.wcpm}</b>
+                </div>
+              )}
+              <div className="mt-6 flex justify-center gap-3 flex-wrap">
+                <Btn kind="solid" onClick={reset}>Read it again</Btn>
+                <Btn onClick={() => { reset(); setStage("pick"); }}>Another chapter</Btn>
+                <Btn onClick={onClose}>Back to the book</Btn>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+    </Sheet>
+  );
+}
+
+function TimerRing({ left }) {
+  const r = 22, c = 2 * Math.PI * r, frac = left / 60;
+  return (
+    <div className="flex items-center gap-2" aria-label={`${left} seconds left`}>
+      <svg width="56" height="56" viewBox="0 0 56 56">
+        <circle cx="28" cy="28" r={r} fill="none" stroke="var(--line)" strokeWidth="6" />
+        <circle cx="28" cy="28" r={r} fill="none" stroke="var(--accent)" strokeWidth="6" strokeLinecap="round"
+          strokeDasharray={c} strokeDashoffset={c * (1 - frac)} transform="rotate(-90 28 28)" style={{ transition: "stroke-dashoffset .25s linear" }} />
+        <text x="28" y="33" textAnchor="middle" fontSize="15" fontWeight="700" fill="var(--ink)">{left}</text>
+      </svg>
+    </div>
+  );
+}
+
+/* ============================================================
+   Quiz — docs/READER_APP.md §6
+   ============================================================ */
+function Quiz({ book, onClose, onDone }) {
+  const { progress } = useProgress();
+  const rate = progress.settings.voiceRate;
+  const qs = book.quiz.questions;
+  const [i, setI] = useState(0);
+  const [faded, setFaded] = useState([]);
+  const [reaction, setReaction] = useState(null);
+  const [solved, setSolved] = useState(false);
+  const q = qs[i];
+  const stopRef = useRef(() => {});
+  useEffect(() => { stopRef.current(); stopRef.current = speak(q.prompt, { rate }); return () => stopRef.current(); }, [i]);
+
+  const choose = (ci) => {
+    if (solved) return;
+    const right = q.type === "think" || ci === q.answerIndex;
+    const r = right ? q.reactions.correct : q.reactions.tryAgain;
+    setReaction(r);
+    stopRef.current(); stopRef.current = speak(r.line.replace(/[“”‘’]/g, ""), { rate });
+    if (right) setSolved(true); else setFaded(f => [...f, ci]);
+  };
+  const next = () => {
+    if (i < qs.length - 1) { setI(i + 1); setFaded([]); setReaction(null); setSolved(false); }
+    else onDone();
+  };
+
+  return (
+    <Sheet title={`Quiz · ${i + 1} of ${qs.length}`} onClose={onClose}>
+      <p className="text-sm mb-3" style={{ color: "var(--muted)" }}>{book.quiz.instructions}</p>
+      <div className="flex items-start gap-3 mb-4">
+        <Btn onClick={() => { stopRef.current(); stopRef.current = speak(q.prompt, { rate }); }} aria-label="Hear the question">🔊</Btn>
+        <div className="text-2xl font-bold" style={{ fontFamily: "var(--read-font)" }}>{q.prompt}</div>
+      </div>
+      <div className="grid gap-2">
+        {q.choices.map((c, ci) => (
+          <div key={ci} className="flex gap-2">
+            <Btn onClick={() => { stopRef.current(); stopRef.current = speak(c.replace(/[“”‘’]/g, ""), { rate }); }} aria-label={`Hear: ${c}`}>🔊</Btn>
+            <button onClick={() => choose(ci)} disabled={faded.includes(ci) || (solved && q.type === "recall" && ci !== q.answerIndex)}
+              className="flex-1 text-left min-h-[48px] px-4 rounded-2xl text-xl transition-opacity disabled:opacity-30 focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300"
+              style={{ fontFamily: "var(--read-font)", border: "2px solid var(--line)", background: solved && (q.type === "think" || ci === q.answerIndex) ? "var(--story)" : "var(--card)", color: solved && (q.type === "think" || ci === q.answerIndex) ? "#1f1f1f" : "var(--ink)" }}>
+              {c}
+            </button>
+          </div>
+        ))}
+      </div>
+      {reaction && (
+        <div className="mt-4 flex items-center gap-3 p-3 rounded-2xl wh-pop" style={{ border: "2px solid var(--line)" }}>
+          <img src={reaction.character} alt="" className="h-14 w-14 object-contain" />
+          <div className="text-lg" style={{ fontFamily: "var(--read-font)" }}>{reaction.line}</div>
+        </div>
+      )}
+      <div className="mt-5 flex justify-end">
+        <Btn kind="solid" disabled={!solved} onClick={next}>{i < qs.length - 1 ? "Next question →" : "All done! ⭐"}</Btn>
+      </div>
+    </Sheet>
+  );
+}
+
+/* ============================================================
+   Circle Ceremony — docs/CIRCLES_README.md
+   ============================================================ */
+const CEREMONIES = {
+  Acorn: { gift: "a green leaf charm", scene: "The whole Hollow meets under the Great Oak. Tansy drops a pile of extra acorns. Puddle claps off the beat." },
+  Leaf: { gift: "a carved twig token", scene: "Everyone throws leaves in the air for the Leaf Toss, while Wren tells the story all wrong." },
+  Branch: { gift: "a carved acorn pendant", scene: "The Branch Parade marches by. Pip and Pebble argue about who carries the heavy end." },
+  Oak: { gift: "an Oaklight pendant", scene: "Fireflies and candles glow for the Oaklight. Echo gives a very dramatic speech. Puddle sneezes a candle out." },
+  Elder: { gift: "a carved staff", scene: "At dawn, the Elders share quiet stories. Moss rolls into the wrong spot." },
+};
+function CeremonyView({ circle, onDone }) {
+  const { manifest } = useData();
+  const { update } = useProgress();
+  const next = manifest.circles[manifest.circles.indexOf(circle) + 1];
+  const c = CEREMONIES[circle];
+  useEffect(() => {
+    update(p => {
+      let n = { ...p, ceremonies: [...new Set([...p.ceremonies, circle])], unlocked: next ? [...new Set([...p.unlocked, next])] : p.unlocked };
+      return awardBadge(n, `ceremony-${circle}`, `${circle} Ceremony`, "🌳");
+    });
+  }, []);
+  return (
+    <div className="min-h-screen flex items-center justify-center p-6">
+      <div className="max-w-2xl text-center rounded-3xl p-8 shadow-xl" style={{ background: "var(--card)", border: "2px solid var(--line)" }}>
+        <img src={`images/ui/circles/circle-${circle.toLowerCase()}.png`} alt={`${circle} emblem`} className="h-28 mx-auto wh-pop" />
+        <h1 className="mt-4 text-3xl font-extrabold">The {circle} Ceremony</h1>
+        <p className="mt-4 text-xl leading-relaxed" style={{ fontFamily: "var(--read-font)" }}>{c.scene}</p>
+        <p className="mt-4 text-xl font-bold" style={{ fontFamily: "var(--read-font)" }}>You get {c.gift}!{next && ` Welcome to the ${next} Circle.`}</p>
+        <div className="mt-6 flex justify-center gap-2 flex-wrap">
+          {["brindle", "tansy", "moss", "wren", "puddle", "leo"].map(id => <img key={id} src={masterFor(id)} alt="" className="h-16 w-16 object-contain" />)}
+        </div>
+        <Btn kind="solid" className="mt-6 text-lg" onClick={onDone}>Back to the Hollow</Btn>
       </div>
     </div>
   );
 }
 
-// Tailwind keyframes for float
+/* ============================================================
+   Settings — docs/READER_APP.md §7
+   ============================================================ */
+function SettingsPanel({ onClose }) {
+  const { progress, update } = useProgress();
+  const s = progress.settings;
+  const set = (k, v) => update(p => ({ ...p, settings: { ...p.settings, [k]: v } }));
+  const Row = ({ label, k, options }) => (
+    <div className="mb-4">
+      <div className="font-semibold mb-2">{label}</div>
+      <div className="flex flex-wrap gap-2">
+        {options.map(([v, text]) => <Btn key={String(v)} kind={s[k] === v ? "solid" : "soft"} onClick={() => set(k, v)}>{text}</Btn>)}
+      </div>
+    </div>
+  );
+  return (
+    <Sheet title="⚙ Settings" onClose={onClose}>
+      <Row label="Reading font" k="font" options={Object.entries(FONTS).map(([k, f]) => [k, f.label])} />
+      <Row label="Text size" k="size" options={Object.keys(SIZES).map(k => [k, k])} />
+      <Row label="Line spacing" k="spacing" options={[["normal", "Normal"], ["roomy", "Roomy"], ["extra", "Extra roomy"]]} />
+      <Row label="Reading ruler" k="ruler" options={[[false, "Off"], [true, "On"]]} />
+      <Row label="Colors" k="theme" options={[["paper", "Warm paper"], ["contrast", "High contrast"]]} />
+      <Row label="Reduce motion" k="reduceMotion" options={[[null, "Match device"], [true, "On"], [false, "Off"]]} />
+      <Row label="Voice speed" k="voiceRate" options={[["slow", "Slow"], ["normal", "Just right"], ["quick", "Quick"]]} />
+      <div className="mt-2 rounded-2xl p-4" style={{ border: "2px solid var(--line)" }}>
+        <div className="text-sm mb-1" style={{ color: "var(--muted)" }}>Preview</div>
+        <ReadingText paragraphs={["Moss rolled into a ball. Tap any word to hear it."]} circle="Acorn" ruler={false} />
+      </div>
+    </Sheet>
+  );
+}
+
+/* ============================================================
+   Parent Corner — docs/READER_APP.md §8
+   ============================================================ */
+function ParentCorner({ onClose }) {
+  const { manifest } = useData();
+  const { progress, update } = useProgress();
+  const [books, setBooks] = useState({});
+  const [code, setCode] = useState("");
+  const [msg, setMsg] = useState("");
+  const [confirmReset, setConfirmReset] = useState(false);
+  useEffect(() => { manifest.books.forEach(m => fetch(m.path).then(r => r.json()).then(b => setBooks(x => ({ ...x, [m.bookId]: b })))); }, []);
+
+  const exportCode = () => {
+    const c = "WH1:" + btoa(unescape(encodeURIComponent(JSON.stringify(progress))));
+    setCode(c);
+    navigator.clipboard?.writeText(c).then(() => setMsg("Progress code copied. Paste it into the Parent Corner on the other device."), () => setMsg("Select the code below and copy it."));
+  };
+  const importCode = () => {
+    try {
+      const raw = code.trim();
+      if (!raw.startsWith("WH1:")) throw new Error();
+      const p = JSON.parse(decodeURIComponent(escape(atob(raw.slice(4)))));
+      if (p.version !== 1) throw new Error();
+      update(() => ({ ...freshProgress(), ...p, settings: { ...DEFAULT_SETTINGS, ...(p.settings || {}) } }));
+      setMsg("Progress loaded on this device.");
+    } catch { setMsg("That code didn't work. Copy the whole code, starting with WH1:."); }
+  };
+
+  return (
+    <Sheet title="For grown-ups" onClose={onClose} wide>
+      <section className="mb-6">
+        <h3 className="font-bold text-lg mb-2">Reading so far</h3>
+        {manifest.books.map(m => {
+          const b = books[m.bookId];
+          const total = b ? b.chapters.reduce((n, c) => n + c.pages.length, 0) : "…";
+          const seen = (progress.visited[m.bookId] || []).length;
+          return (
+            <div key={m.bookId} className="rounded-2xl p-3 mb-3" style={{ border: "2px solid var(--line)" }}>
+              <div className="font-semibold">{m.title} <span className="text-sm font-normal" style={{ color: "var(--muted)" }}>({m.circle})</span></div>
+              <div className="text-sm" style={{ color: "var(--muted)" }}>
+                Pages visited {seen}/{total} · Quiz {progress.quiz[m.bookId] ? "done" : "not yet"} · {progress.finished[m.bookId] ? `Finished ${progress.finished[m.bookId]}` : "Not finished"}
+              </div>
+              {b && b.chapters.some(c => progress.practice[m.bookId]?.[c.id]?.length) && (
+                <table className="mt-2 w-full text-sm">
+                  <thead><tr className="text-left"><th className="py-1">Practice Reads</th><th>Date</th><th className="text-right">Words</th><th className="text-right">Missed</th><th className="text-right">Per minute</th></tr></thead>
+                  <tbody>
+                    {b.chapters.flatMap(c => (progress.practice[m.bookId]?.[c.id] || []).map((r, k) => (
+                      <tr key={c.id + k} style={{ borderTop: "1px solid var(--line)" }}>
+                        <td className="py-1">{c.title.replace(/^Chapter (\d+):.*/, "Ch. $1")}</td><td>{r.date}</td>
+                        <td className="text-right">{r.words}</td><td className="text-right">{r.missed}</td><td className="text-right font-bold">{r.wcpm}</td>
+                      </tr>
+                    )))}
+                  </tbody>
+                </table>
+              )}
+            </div>
+          );
+        })}
+      </section>
+
+      <section className="mb-6">
+        <h3 className="font-bold text-lg mb-2">Starting Circle</h3>
+        <p className="text-sm mb-2" style={{ color: "var(--muted)" }}>Books are for independent reading. Choose a Circle where your reader decodes about 98% of words without help. Unlocking a Circle also unlocks the ones before it.</p>
+        <div className="flex flex-wrap gap-2">
+          {manifest.circles.map((c, i) => (
+            <Btn key={c} kind={progress.unlocked.includes(c) ? "solid" : "soft"}
+              onClick={() => update(p => ({ ...p, unlocked: manifest.circles.slice(0, i + 1) }))}>{progress.unlocked.includes(c) ? "✓ " : ""}{c}</Btn>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-6">
+        <h3 className="font-bold text-lg mb-2">Move progress to another device</h3>
+        <p className="text-sm mb-2" style={{ color: "var(--muted)" }}>Progress is saved in this browser. To read on another tablet, phone or Chromebook, copy the code here and paste it there.</p>
+        <div className="flex flex-wrap gap-2 mb-2">
+          <Btn kind="solid" onClick={exportCode}>Copy progress code</Btn>
+          <Btn onClick={importCode} disabled={!code.trim()}>Paste progress code</Btn>
+        </div>
+        <textarea value={code} onChange={e => setCode(e.target.value)} rows={3} placeholder="Paste a progress code here (starts with WH1:)"
+          className="w-full rounded-xl p-2 text-xs font-mono" style={{ border: "2px solid var(--line)", background: "var(--bg)", color: "var(--ink)" }} />
+        {msg && <div className="text-sm mt-1" role="status">{msg}</div>}
+      </section>
+
+      <section>
+        <h3 className="font-bold text-lg mb-2">Reset</h3>
+        <Btn onClick={() => { if (confirmReset) { update(() => freshProgress()); setConfirmReset(false); setMsg("Progress reset."); } else setConfirmReset(true); }}>
+          {confirmReset ? "Tap again to erase all progress" : "Reset progress"}
+        </Btn>
+      </section>
+    </Sheet>
+  );
+}
+
+/* ---------- motion ---------- */
 const style = document.createElement("style");
-style.innerHTML = "@keyframes float { 0%{ transform: translateY(0) } 50%{ transform: translateY(-6px) } 100%{ transform: translateY(0) } }";
+style.innerHTML = `
+@keyframes wh-wiggle { 0%,100%{transform:rotate(0)} 20%{transform:rotate(-7deg)} 40%{transform:rotate(6deg)} 60%{transform:rotate(-4deg)} 80%{transform:rotate(2deg)} }
+@keyframes wh-roll { 0%{transform:translateX(0) rotate(0)} 50%{transform:translateX(18px) rotate(200deg)} 100%{transform:translateX(0) rotate(360deg)} }
+@keyframes wh-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+@keyframes wh-pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+@keyframes wh-pop { 0%{transform:scale(.85);opacity:0} 100%{transform:scale(1);opacity:1} }
+.wh-anim-wiggle{animation:wh-wiggle .7s ease-in-out}
+.wh-anim-roll{animation:wh-roll .9s ease-in-out}
+.wh-anim-float{animation:wh-float 1.2s ease-in-out}
+.wh-anim-pulse{animation:wh-pulse .8s ease-in-out}
+.wh-pop{animation:wh-pop .25s ease-out}
+.wh-glow{filter:drop-shadow(0 0 10px rgba(47,125,91,.8))}
+.wh-reduce-motion *{animation:none!important;transition:none!important}
+`;
 document.head.appendChild(style);
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);

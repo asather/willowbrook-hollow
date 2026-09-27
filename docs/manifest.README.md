@@ -1,74 +1,41 @@
-# `manifest.json` — Global Library Manifest
-**Audience:** Developers and content editors new to Willowbrook Hollow  
-**Purpose:** The single source of truth for what Circles exist and which books are available.  
-**Used by:** Home screen menu (hamburger) and book loader.
+# `manifest.json` — The Library
+**Audience:** developers and editors
+**Purpose:** the single list of Circles and books. The Library menu, Circle unlocking and the "Keep reading" button all read it.
+**Schema:** [`manifest.schema.json`](manifest.schema.json)
 
 ---
 
-## 1) Location & Cardinality
-- **Path:** Project root: `/manifest.json`
-- **Count:** Exactly **one** per deployment.
+## 1) Location
+Repo root: `manifest.json` (exactly one).
 
-## 2) What It Controls
-- The **ordered list** of Circles shown in the menu.
-- The **list of books** for each Circle and where to fetch their `book.json` files.
-- Display metadata (title, subtitle) and the Circle emblem path for UI chips.
-
-## 3) Canonical Example (fully-populated)
+## 2) Example
 ```json
 {
   "circles": ["Acorn", "Leaf", "Branch", "Oak", "Elder"],
   "books": [
     {
-      "circle": "Leaf",
-      "bookId": "leaf-001",
-      "title": "Lorem Leaf Adventures",
-      "subtitle": "A totally fake book for testing",
-      "path": "./books/leaf-001/book.json",
-      "circleIcon": "images/ui/circles/circle-leaf.png"
+      "circle": "Acorn",
+      "bookId": "acorn-001",
+      "title": "The Monster in the Barn",
+      "subtitle": "Something is squeaking in the barn…",
+      "path": "./books/acorn-001/book.json",
+      "circleIcon": "images/ui/circles/circle-acorn.png"
     }
   ]
 }
 ```
 
-## 4) Field-by-Field Reference
-### Top-level
-- **`circles`** *(array\<string\>, required)*  
-  Ordered names of Circles as they should appear. The app builds the menu using this order.
+## 3) Field reference
+- **`circles`** *(required)*: Circle names in reading order. Each needs a `circles/{name-lower}/words.json`.
+- **`books[]`** *(required)*: in reading order within each Circle.
+  - `circle`: must match an entry in `circles`.
+  - `bookId`: `{circle-lower}-{NNN}`; permanent, because saved progress is keyed by it.
+  - `title`, `subtitle`: shown in the Library.
+  - `path`: the book's `book.json`.
+  - `circleIcon`: the official emblem for the Circle.
+  - `ceremony` *(optional)*: `true` on the Circle's last book. Finishing it (all pages plus the quiz) plays the Circle Ceremony and unlocks the next Circle.
 
-- **`books`** *(array\<object\>, required)*  
-  Each entry tells the app how to display and load a book.
-
-### Each `books[]` object
-- **`circle`** *(string, required)*  
-  The Circle this book belongs to. **Must match** one of the strings in `circles`.
-
-- **`bookId`** *(string, required)*  
-  Unique identifier for this book (recommended pattern: `{circle-lower}-{###}`, e.g., `leaf-001`).
-
-- **`title`** *(string, required)*  
-  Display title used in menus and the book header.
-
-- **`subtitle`** *(string, optional)*  
-  Short descriptive line shown beneath the title in the menu.
-
-- **`path`** *(string, required)*  
-  Relative URL to the book’s `book.json`. Must be resolvable from the site root at runtime.
-
-- **`circleIcon`** *(string, required)*  
-  Path to the Circle emblem asset used in UI. Use official assets under `/images/ui/circles/`.
-
-## 5) Validation & Rules
-- Every `books[].circle` **must** match a `circles` item exactly (case-sensitive).
-- Keep `circles` ordered by intended reading progression.
-- Use **forward slashes** in paths (web-safe), even on Windows.
-- Prefer stable, lowercase `bookId`s; treat them as permanent.
-
-## 6) Common Pitfalls
-- Opening the app with `file://` (local file) breaks `fetch()` for JSON. Serve via `http://localhost`.
-- Typos in `path` will fail silently until the network request occurs. Test each link.
-
-## 7) Extension Notes (Optional / Future)
-- Additional fields like `author`, `illustrator`, or `order` can be added later but will require UI updates.
-```
-
+## 4) Rules
+- Every `books[].circle` matches a `circles` entry exactly.
+- Every `path` exists (the checker verifies this).
+- At most one `ceremony` book per Circle, and it is that Circle's last book.

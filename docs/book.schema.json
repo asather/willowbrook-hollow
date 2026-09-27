@@ -8,6 +8,7 @@
     "bookId",
     "title",
     "cover",
+    "cast",
     "toc",
     "chapters",
     "quiz"
@@ -21,7 +22,8 @@
       "type": "string"
     },
     "bookId": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^[a-z]+-[0-9]{3}$"
     },
     "title": {
       "type": "string"
@@ -45,6 +47,14 @@
         }
       }
     },
+    "cast": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "Character ids (keys of docs/character-bios.json) who appear, in order of appearance."
+    },
     "toc": {
       "type": "array",
       "minItems": 1,
@@ -67,8 +77,7 @@
             "type": "string"
           },
           "anchor": {
-            "type": "string",
-            "description": "Required if type=chapter"
+            "type": "string"
           }
         }
       }
@@ -99,13 +108,14 @@
               "required": [
                 "number",
                 "layout",
-                "text"
+                "text",
+                "media"
               ],
               "additionalProperties": false,
               "properties": {
                 "number": {
                   "type": "integer",
-                  "minimum": 0
+                  "minimum": 1
                 },
                 "layout": {
                   "type": "string",
@@ -124,19 +134,20 @@
                 },
                 "media": {
                   "type": "array",
+                  "minItems": 1,
                   "items": {
                     "type": "object",
                     "required": [
                       "type",
-                      "src"
+                      "src",
+                      "alt"
                     ],
                     "additionalProperties": false,
                     "properties": {
                       "type": {
                         "type": "string",
                         "enum": [
-                          "image",
-                          "audio"
+                          "image"
                         ]
                       },
                       "src": {
@@ -144,14 +155,6 @@
                       },
                       "alt": {
                         "type": "string"
-                      },
-                      "placement": {
-                        "type": "string",
-                        "enum": [
-                          "art-left",
-                          "art-right",
-                          "art-full"
-                        ]
                       },
                       "animation": {
                         "type": "object",
@@ -166,7 +169,8 @@
                             "enum": [
                               "pulse",
                               "float",
-                              "spin"
+                              "wiggle",
+                              "roll"
                             ]
                           },
                           "trigger": {
@@ -175,57 +179,6 @@
                               "tap",
                               "auto"
                             ]
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
-                "interactivity": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "required": [
-                      "kind",
-                      "x",
-                      "y",
-                      "onTap"
-                    ],
-                    "additionalProperties": false,
-                    "properties": {
-                      "kind": {
-                        "type": "string",
-                        "enum": [
-                          "hotspot"
-                        ]
-                      },
-                      "x": {
-                        "type": "number",
-                        "minimum": 0,
-                        "maximum": 100
-                      },
-                      "y": {
-                        "type": "number",
-                        "minimum": 0,
-                        "maximum": 100
-                      },
-                      "onTap": {
-                        "type": "object",
-                        "required": [
-                          "action",
-                          "targetMediaIndex"
-                        ],
-                        "additionalProperties": false,
-                        "properties": {
-                          "action": {
-                            "type": "string",
-                            "enum": [
-                              "toggleAnimation"
-                            ]
-                          },
-                          "targetMediaIndex": {
-                            "type": "integer",
-                            "minimum": 0
                           }
                         }
                       }
@@ -251,7 +204,7 @@
         },
         "questions": {
           "type": "array",
-          "minItems": 1,
+          "minItems": 3,
           "items": {
             "type": "object",
             "required": [
@@ -259,7 +212,6 @@
               "type",
               "prompt",
               "choices",
-              "answerIndex",
               "reactions"
             ],
             "additionalProperties": false,
@@ -269,7 +221,10 @@
               },
               "type": {
                 "type": "string",
-                "const": "mcq"
+                "enum": [
+                  "recall",
+                  "think"
+                ]
               },
               "prompt": {
                 "type": "string"
@@ -277,21 +232,23 @@
               "choices": {
                 "type": "array",
                 "minItems": 2,
+                "maxItems": 4,
                 "items": {
                   "type": "string"
                 }
               },
               "answerIndex": {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0,
+                "description": "Required for recall questions; think questions accept every choice."
               },
               "reactions": {
                 "type": "object",
+                "additionalProperties": false,
                 "required": [
                   "correct",
-                  "incorrect"
+                  "tryAgain"
                 ],
-                "additionalProperties": false,
                 "properties": {
                   "correct": {
                     "type": "object",
@@ -309,7 +266,7 @@
                       }
                     }
                   },
-                  "incorrect": {
+                  "tryAgain": {
                     "type": "object",
                     "required": [
                       "character",

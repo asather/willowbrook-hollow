@@ -1,0 +1,27 @@
+{
+  "circle": "Branch",
+  "rules": {
+    "maxSyllables": 4,
+    "maxSentenceWords": 20,
+    "avgSentenceWords": [
+      9,
+      13
+    ],
+    "bookWords": [
+      4000,
+      7000
+    ],
+    "chapterWords": [
+      500,
+      900
+    ],
+    "pageWords": [
+      80,
+      180
+    ],
+    "maxStoryWordsPerBook": 12,
+    "outOfScope": []
+  },
+  "heartWords": [],
+  "words": []
+}

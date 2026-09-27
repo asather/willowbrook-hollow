@@ -14,11 +14,10 @@
       "items": {
         "type": "string"
       },
-      "description": "Ordered list of Circle names shown in the library menu."
+      "description": "Circles in reading order."
     },
     "books": {
       "type": "array",
-      "minItems": 0,
       "items": {
         "type": "object",
         "required": [
@@ -31,12 +30,11 @@
         "additionalProperties": false,
         "properties": {
           "circle": {
-            "type": "string",
-            "description": "Must match a value in `circles`."
+            "type": "string"
           },
           "bookId": {
             "type": "string",
-            "description": "Unique identifier for the book."
+            "pattern": "^[a-z]+-[0-9]{3}$"
           },
           "title": {
             "type": "string"
@@ -45,12 +43,14 @@
             "type": "string"
           },
           "path": {
-            "type": "string",
-            "description": "Relative URL to the book.json file."
+            "type": "string"
           },
           "circleIcon": {
-            "type": "string",
-            "description": "Path to emblem used in UI."
+            "type": "string"
+          },
+          "ceremony": {
+            "type": "boolean",
+            "description": "true on the last book of a Circle: finishing it (and its quiz) holds the Circle Ceremony."
           }
         }
       }

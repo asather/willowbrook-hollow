@@ -1,7 +1,7 @@
 # Willowbrook Hollow – Character Bible (with Master Asset Paths)
 
 **Purpose:** Enforce strict visual + personality consistency across books and illustrations.  
-**Usage:** When generating any art, reference the **master PNG** (for color/proportions) and/or **master SVG** (for vector shapes).  
+**Usage:** When generating any art, reference the character's **master PNG** for color, proportions and permanent accessories.  
 No unapproved changes to colors, proportions, or permanent accessories.
 
 ---
@@ -106,7 +106,6 @@ No unapproved changes to colors, proportions, or permanent accessories.
   - Holds up the wish ball and wonders aloud if it will glow  
 - **Master Assets:**  
   - PNG: `images/characters/master/leo_master.png`  
-  - SVG: `images/characters/master/leo_master.svg`
 
 
 ## Parrot Family — News-Bringing Parrots (June, Johnafur, Juneafur)
@@ -130,21 +129,7 @@ No unapproved changes to colors, proportions, or permanent accessories.
   - Speak in playful couplets; echo each other for fun.
   - Juneafur accidentally turns serious talks into giggles with bubble bursts.
 - **Master Assets:**
-  - PNG: `images/characters/master/parrot-family_master.png`
-  - SVG: `images/characters/master/parrot-family_master.svg`
-
-
-
-
-
-
-
-
-
-
-
-
-
+  - PNG: `images/characters/master/parrot_family_master.png`
 
 ## Zoe – Human Helper at the Sanctuary
 - **Species:** Human (minor recurring)  
@@ -153,7 +138,7 @@ No unapproved changes to colors, proportions, or permanent accessories.
 - **Accessories:** None fixed  
 - **Personality:** Caring; huge heart for animals; observed more than interacted with by animals  
 - **Speech:** Not understood by animals (heard only by readers)  
-- **Example Behaviors:** Carries feed buckets; hums while working; wears colorful socks under boots  
+- **Example Behaviors:** Carries feed buckets; hums while working; wears colorful socks under boots; is learning the **viola** and practices in the barn at dusk (squeaky at first, smoother every day)  
 - **Master Assets:**  
   - PNG: `images/characters/master/zoe_master.png`  
 

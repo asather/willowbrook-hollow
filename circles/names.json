@@ -1,0 +1,155 @@
+{
+  "description": "Proper names that may appear in any Circle. Names are taught through the cast pages, so they are exempt from a Circle's syllable and spelling rules. Each entry's syllables are used for tap-to-hear.",
+  "names": [
+    {
+      "name": "Willowbrook",
+      "syllables": [
+        "Wil",
+        "low",
+        "brook"
+      ]
+    },
+    {
+      "name": "Hollow",
+      "syllables": [
+        "Hol",
+        "low"
+      ]
+    },
+    {
+      "name": "Moss",
+      "syllables": [
+        "Moss"
+      ]
+    },
+    {
+      "name": "Tansy",
+      "syllables": [
+        "Tan",
+        "sy"
+      ]
+    },
+    {
+      "name": "Brindle",
+      "syllables": [
+        "Brin",
+        "dle"
+      ]
+    },
+    {
+      "name": "Wren",
+      "syllables": [
+        "Wren"
+      ]
+    },
+    {
+      "name": "Echo",
+      "syllables": [
+        "Ech",
+        "o"
+      ]
+    },
+    {
+      "name": "Puddle",
+      "syllables": [
+        "Pud",
+        "dle"
+      ]
+    },
+    {
+      "name": "Pip",
+      "syllables": [
+        "Pip"
+      ]
+    },
+    {
+      "name": "Pebble",
+      "syllables": [
+        "Peb",
+        "ble"
+      ]
+    },
+    {
+      "name": "Leo",
+      "syllables": [
+        "Le",
+        "o"
+      ]
+    },
+    {
+      "name": "June",
+      "syllables": [
+        "June"
+      ]
+    },
+    {
+      "name": "Johnafur",
+      "syllables": [
+        "John",
+        "a",
+        "fur"
+      ]
+    },
+    {
+      "name": "Juneafur",
+      "syllables": [
+        "June",
+        "a",
+        "fur"
+      ]
+    },
+    {
+      "name": "Zoe",
+      "syllables": [
+        "Zo",
+        "e"
+      ]
+    },
+    {
+      "name": "Circle",
+      "syllables": [
+        "Cir",
+        "cle"
+      ]
+    },
+    {
+      "name": "Circles",
+      "syllables": [
+        "Cir",
+        "cles"
+      ]
+    },
+    {
+      "name": "Acorn",
+      "syllables": [
+        "A",
+        "corn"
+      ]
+    },
+    {
+      "name": "Leaf",
+      "syllables": [
+        "Leaf"
+      ]
+    },
+    {
+      "name": "Branch",
+      "syllables": [
+        "Branch"
+      ]
+    },
+    {
+      "name": "Oak",
+      "syllables": [
+        "Oak"
+      ]
+    },
+    {
+      "name": "Elder",
+      "syllables": [
+        "El",
+        "der"
+      ]
+    }
+  ]
+}

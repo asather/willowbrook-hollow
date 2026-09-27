@@ -55,12 +55,12 @@ The app loads this file once and shows the selected level in the Biography view.
 
 - Keep character traits/accessories consistent with the Character Bible.  
   (e.g., Brindle’s green bandana; Echo’s forest-green satchel.)
-- Voice should fit the Circle:
-  - **Acorn**: shortest, simplest sentences.
-  - **Leaf / Branch**: add detail, cause/effect, light descriptive words.
-  - **Oak**: richer descriptions; mild figurative language.
-  - **Elder**: most complete; may be multi-paragraph.
-- Keep humor gentle and encouraging; avoid contradictions with master art/assets.
+- Each level's text follows that **Circle's word rules** (`circles/{circle}/words.json`): syllable limit, spelling patterns, and maximum sentence length. Names, heart words and story words are always allowed.
+  - **Acorn**: shortest and simplest (words up to 2 syllables, sentences of 12 words or fewer).
+  - **Leaf / Branch**: add detail, cause and effect, and feeling words.
+  - **Oak**: richer description; gentle figurative language.
+  - **Elder**: comprehensive; may be multi-paragraph (blank line between paragraphs).
+- `node tools/check-book.mjs --all` checks every bio at every level.
 
 **Grouped Characters:** Families/duos still use a single `{id}` and a single `name` + `levels` block. Keep extra metadata (e.g., member names, accessories) in the Character Bible / Characters README, not in this JSON.
 

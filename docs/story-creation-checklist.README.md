@@ -1,153 +1,99 @@
 # Willowbrook Hollow — New Story Creation Checklist
 
-**Goal:** End-to-end process for introducing a new Willowbrook Hollow book.  
-**Audience:** Authors, illustrators, and developers.  
-**Where to save this file:** `/docs/story-creation-checklist.README.md`
+**Goal:** the end-to-end process for writing and releasing a Willowbrook Hollow book.
+**Audience:** authors (human or assistant), illustrators and developers.
+**Rule of thumb:** the story is written for an 8–10-year-old; the words are written for the Circle. Read [`CIRCLES_README.md`](CIRCLES_README.md) before drafting.
 
 ---
 
-## 0) Prep
-- [ ] Decide **Circle** (Acorn → Elder).
-- [ ] Draft **premise, conflict, resolution, humor beats**.
-- [ ] List cast of characters.
+## 0) Plan
+- [ ] Choose the **Circle**. The first question in every story interview is: **"Which Circle will this story fall into?"**
+- [ ] Decide whether this is the Circle's **final book** (it will carry `"ceremony": true` and end with a Ceremony).
+- [ ] Draft the **premise, problem, turning point and resolution**. Something new or strange happens; the Hollow misunderstands it; a running gag makes it worse; a character's quiet strength or an accident fixes it.
+- [ ] Choose the **cast** (3–9 characters) and give at least two of them their running gag.
+- [ ] Pick **one heart idea** (courage, practice, friendship, patience…). Show it through what the characters do; never state a moral in a lecture.
+
+## 1) Draft to the Circle's word rules
+Open `circles/{circle}/words.json` and keep its `rules` in view.
+- [ ] Keep every word within the Circle's **syllable limit** and **spelling patterns**, except names, heart words and story words.
+- [ ] Choose **story words** on purpose, up to the Circle's per-book limit (Acorn: 8). Good story words are ones the plot truly needs (*viola*), a character's signature (*bandana*), or a delightful word worth learning. Use each one more than once.
+- [ ] When a word breaks the rules, **reword before adding exceptions**: *night* → *dusk*, *climb* → *go up*, *everyone* → *the whole Hollow*. Add a heart word only when it is genuinely high-frequency.
+- [ ] Keep sentences under the Circle's maximum. Vary length for rhythm: a three-word punchline after a longer setup.
+- [ ] Make pages good to **read aloud and re-read**: lots of dialogue, sound words, repetition with a twist ("Tansy went first. Moss went last. Very, very last.").
+- [ ] Fit the Circle's **page, chapter and book lengths**. Each page is one beat of the story.
+
+## 2) Build the files
+
+### a) `books/{circle-lower}-{NNN}/book.json`
+- [ ] Metadata: `circle`, `circleIcon`, `bookId`, `title`, `subtitle`, `cover`, `cast`.
+- [ ] `toc` (title plus one entry per chapter) and `chapters` with `pages`. Every page needs `text` and at least one `media` image with alt text.
+- [ ] `quiz`: 3–5 questions. Use at least two **recall** questions (who/what/why, one right answer) and at least one **think** question (prediction or opinion, every answer accepted). Give every question a `correct` and a `tryAgain` reaction from a fitting character. Quiz text follows the Circle's word rules too.
+- [ ] Field reference: [`book.README.md`](book.README.md).
+
+### b) `circles/{circle}/words.json`
+- [ ] Add each new story word with `word`, `syllables`, `definition` (one or two short sentences a child can read), and `pronounce` if the device voice would say it wrong.
+- [ ] Add any new heart words (rarely).
+- [ ] New character or place names go in `circles/names.json` with their syllables.
+- [ ] Field reference: [`words.README.md`](words.README.md).
+
+### c) `manifest.json`
+- [ ] Add the book to `books[]` in reading order, with `"ceremony": true` if it closes its Circle.
+
+### d) Characters
+- [ ] A **new character** follows [`character-creation-checklist.README.md`](character-creation-checklist.README.md): master art, bios at all five levels, and entries in the Character Bible and Characters README.
+- [ ] Anything new about an existing character (a habit, a possession) is added to the Character Bible.
+
+### e) Art
+- [ ] **Cover** at `books/{bookId}/images/cover.webp` (16:9, WebP), built from master art or a scene illustration.
+- [ ] **Page art:** scene illustrations go in `books/{bookId}/images/`. Until a scene is illustrated, the page uses the master art of the characters on it, which is the default for new books.
+- [ ] Characters match their masters (proportions, colors, permanent accessories). The Circle's symbol appears somewhere in the scene art, never called out in the text.
+
+## 3) Check
+- [ ] `node tools/check-book.mjs books/{bookId}/book.json` passes: schemas valid, every word within the rules, sentence and length targets met, story-word limit respected.
+- [ ] Read the whole book **aloud**. Does every page have a laugh, a feeling or a turn? Does each running gag land? Would a 9-year-old roll their eyes at anything babyish?
+- [ ] In the app (`python3 -m http.server`):
+  - [ ] Read to Me reads every page and the highlighting keeps up.
+  - [ ] Story words are highlighted, and tapping them shows the right syllables and definition.
+  - [ ] Practice Read works on every chapter.
+  - [ ] The quiz reads aloud; wrong answers get a try-again line; finishing marks the book finished.
+  - [ ] If this is a Ceremony book, the Ceremony plays and the next Circle unlocks.
 
 ---
 
-## 1) Files to Create / Update
+## Assistant interview (new story)
+Ask one topic at a time, starting with the Circle.
 
-### a) `manifest.json`
-- [ ] Add new `books[]` entry with:
-  - `circle` → must match chosen Circle.
-  - `bookId` → unique ID (e.g., `leaf-002`).
-  - `title` / `subtitle`.
-  - `path` → `/books/{circle-lower}-{NNN}/book.json`.
-  - `circleIcon` → official Circle emblem under `/images/ui/circles/`.
+1. **Circle & scope:** Which Circle? Is it the Circle's final book?
+2. **Story:** Title? What new or strange thing happens? What goes wrong? How does it end?
+3. **Cast:** Who appears? Any new characters (then run the character checklist)?
+4. **Heart idea:** What should the reader feel or notice by the end?
+5. **Story words:** Any words the author wants taught? Otherwise the assistant proposes them within the Circle's limit.
+6. **Quiz:** Any question the author wants included?
+7. **Art:** Scene illustrations available, or master art for now?
 
-### b) `books/{circle-lower}-{NNN}/book.json`
-- [ ] Fill in metadata, TOC, chapters, pages, and quiz.
-- [ ] Write story text appropriate to Circle level.
-- [ ] Insert illustrations per page (`media` array).
-- [ ] Confirm schema validation.
-
-### c) Vocabulary (`circles/{circle}/words.json`)
-- [ ] **Assistant task:** After draft text is complete, **scan story text** and **identify candidate vocabulary words** appropriate for this Circle.
-  - Criteria: advanced/new words for readers at this level.
-  - These words are **highlighted in running text**; when tapped, audio plays and a definition can display.
-- [ ] Add new words with `word`, `audio`, `definition`.
-- [ ] **If audio doesn’t exist yet:** generate pronunciation audio and save to `circles/{circle}/audio/`.
-
-### d) `character-bios.json`
-- [ ] If a **new character** debuts, add five leveled bios.
-- [ ] Confirm existing bios are canon-consistent.
-
-### e) `CHARACTER_BIBLE.md` / `CHARACTERS_README.md`
-- [ ] Update if a **new character** appears.
-
-### f) Art Assets
-- [ ] **Assistant task:** Generate **art for every page** based on page text + layout.
-- [ ] Request **user to re-upload master PNG/SVG files** for each character featured.
-- [ ] Export cover image.
-- [ ] Place art under `/books/{bookId}/images/`.
-
----
-
-## 2) QA
-- [ ] Validate all JSON against schemas (`manifest.schema.json`, `book.schema.json`, `words.schema.json`, `character-bios.schema.json`).
-- [ ] Confirm all characters match master assets (proportions, colors, accessories).
-- [ ] Confirm vocabulary highlights trigger **audio playback + optional definitions**.
-- [ ] Confirm **every page has art** (no missing `media`).
-- [ ] Test Circle advancement ceremony if story is final book in Circle.
-
----
-
-# Assistant Interview Instructions (New Story)
-
-When interviewing for a new story, the **first question must be**:  
-**“Which Circle will this story fall into?”**
-
----
-
-## A. Interview Script
-
-### 1) Circle & Scope
-- Which Circle is this story for (Acorn, Leaf, Branch, Oak, Elder)?
-- Will this be the **final book** of the Circle (triggering a Ceremony)?
-
-### 2) Story Content
-- Title / subtitle.
-- Premise, conflict, resolution.
-- Humor beats / gags.
-
-### 3) Characters
-- Which characters appear?
-- Please **re-upload master PNG/SVG files** for each character (to guarantee latest canon assets).
-- Any new characters? → follow full character-creation checklist.
-
-### 4) Vocabulary
-- Do you want to **pre-select** any words for highlighting?
-- Otherwise, I will **scan the story** and suggest candidate vocabulary.
-- Any special instructions for definitions or pronunciations?
-
-### 5) Art & Media
-- What cover art should appear?
-- Any specific illustration scenes to include?
-- Should interactivity (hotspots, animations) be included?
-- Confirm: every page will need at least one art piece.
-
-### 6) Quiz
-- What skill should the quiz test (plot, teamwork, vocab)?
-- Draft questions, choices, and character reactions.
-
-### 7) Audio
-- Do existing **audio pronunciations** cover the highlighted words?
-- For missing ones, I will **generate new audio files** (short MP3s).
-
-### 8) Integration
-- Add to `manifest.json` now?
-- Any Circle Ceremony needed?
-
----
-
-## B. Intake JSON (assistant fills during interview)
-
+### Intake record (assistant fills during the interview)
 ```json
 {
   "circle": "",
   "bookId": "",
+  "ceremony": false,
   "title": "",
   "subtitle": "",
   "premise": "",
-  "conflict": "",
+  "problem": "",
   "resolution": "",
-  "characters": [],
+  "heartIdea": "",
+  "cast": [],
   "newCharacters": [],
-  "vocabulary": [],
-  "art": {
-    "cover": "",
-    "illustrations": [],
-    "circleSymbolUsage": ""
-  },
-  "quiz": {
-    "skill": "",
-    "questions": []
-  },
-  "audio": {
-    "generateMissing": true
-  },
-  "integration": {
-    "manifest": true,
-    "finalCircleBook": false
-  }
+  "storyWords": [],
+  "quizIdeas": [],
+  "art": { "cover": "", "sceneIllustrations": [] }
 }
 ```
 
----
-
-## C. Definition of Done
-- `manifest.json` updated with new book entry.
-- `book.json` written and schema-valid.
-- Vocabulary words identified, added, and audio generated if missing.
-- New characters documented (bios + Character Bible/README).
-- Art created for every page and cover.
-- Circle advancement ceremony confirmed if final book.
-- QA passes in local server with no missing assets.
+## Definition of Done
+- `book.json` written; the checker passes with no problems.
+- Story words, heart words and names added to their files.
+- `manifest.json` updated.
+- Cover and art on every page; characters canon-true.
+- Read aloud end to end and play-tested in the app.

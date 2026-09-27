@@ -14,8 +14,7 @@
 
 **File/Path decisions**
 - Master art files will live under:  
-  - `images/characters/master/{id}_master.png`  
-  - `images/characters/master/{id}_master.svg` *(optional but recommended)*
+  - `images/characters/master/{file-id}_master.png`, where `{file-id}` is the ID with dashes turned into underscores (`pip-pebble` → `pip_pebble_master.png`)
 - Variants (seasonal outfits, props) will live under:  
   - `images/characters/variants/{id}/...`
 
@@ -34,10 +33,9 @@
 
 ---
 
-## 2) Create Master Image Assets (PNG / SVG)
+## 2) Create the Master Image (PNG)
 - [ ] Produce a **clean master PNG** at export size appropriate for UI and printable media (suggest 2048–4096 px longest side).
-- [ ] (Optional) Produce a **vector SVG** master for scale‑safe usage.
-- [ ] Name files exactly: `{id}_master.png` and `{id}_master.svg`.
+- [ ] Name the file exactly `{file-id}_master.png`.
 - [ ] Verify **color palette** and **proportion** match the Character Bible.
 - [ ] Ensure the **permanent accessory** is present and correct.
 - [ ] Export with transparent background when appropriate.
@@ -52,7 +50,7 @@
 ---
 
 ## 3) Characters & Relationships Doc
-- [ ] Add the character to **Characters & Relationship Mapping** with: short personality blurb, quirks, key dynamics with core cast, and both master asset paths (PNG/SVG).
+- [ ] Add the character to **Characters & Relationship Mapping** with: short personality blurb, quirks, key dynamics with core cast, and the master image path.
 - [ ] Note any **pair dynamics** (e.g., mischief buddy, mentor/mentee) used by storylines.
 - [ ] Keep tone consistent with the Character Bible.
 
@@ -68,12 +66,14 @@
 **Grouped characters:** Use a single `{id}` (e.g., `parrot-family`) and a single bio entry; do **not** add extra JSON fields like `members` or `grouped` here.
 
 - [ ] **Escalate complexity and length** by level:  
-  - *Acorn:* very short, simple sentences.  
-  - *Leaf/Branch:* more detail, cause/effect, some descriptive words.  
+  - Each level follows its **Circle's word rules** (`circles/{circle}/words.json`); see [`CIRCLES_README.md`](CIRCLES_README.md).  
+  - *Acorn:* words up to 2 syllables, sentences of 12 words or fewer.  
+  - *Leaf/Branch:* more detail, cause/effect, feeling words.  
   - *Oak:* richer description; gentle figurative language.  
-  - *Elder:* comprehensive; may be multi‑paragraph.
+  - *Elder:* comprehensive; may be multi‑paragraph.  
+- [ ] Add the character's name (with syllables) to `circles/names.json`.
 - [ ] Keep descriptions **canon‑true** to the Character Bible (traits, accessories).
-- [ ] Validate the JSON against `/docs/character-bios.schema.json` (if present).
+- [ ] Run `node tools/check-book.mjs --all`; it checks every bio against its level's word rules.
 
 **Minimal example** (replace `oakley-owl` and text):
 ```json
@@ -132,7 +132,8 @@
 - [ ] `docs/CHARACTER_BIBLE.md` (updated with new section)
 - [ ] `docs/CHARACTERS_README.md` (updated relationships + asset paths)
 - [ ] `docs/character-bios.json` (new leveled bios)
-- [ ] `images/characters/master/{id}_master.png` (+ optional `{id}_master.svg`)
+- [ ] `images/characters/master/{file-id}_master.png`
+- [ ] `circles/names.json` (name + syllables)
 - [ ] `images/characters/variants/{id}/...` *(optional)*
 - [ ] (If applicable) `books/**/book.json` updates where the character appears
 
@@ -153,8 +154,7 @@
 - **Speech:** {style cues; pacing; typical phrases}
 - **Example Behaviors:** {3 bullet examples that recur for humor/teaching}
 - **Master Assets:**
-  - PNG: `images/characters/master/{id}_master.png`
-  - SVG: `images/characters/master/{id}_master.svg`
+  - PNG: `images/characters/master/{file-id}_master.png`
 ```
 
 **Characters & Relationships (entry skeleton):**
@@ -164,8 +164,7 @@
 - **Quirks:** {recurring gag or tell}
 - **Dynamics:** {key pairings; mentorships}
 - **Master Assets:**
-  - PNG: `images/characters/master/{id}_master.png`
-  - SVG: `images/characters/master/{id}_master.svg`
+  - PNG: `images/characters/master/{file-id}_master.png`
 ```
 
 ---
@@ -187,7 +186,7 @@ Before merge, confirm all boxes in sections 1–7 are checked and that the app l
 3) **Voice**: speech style, phrases, tone boundaries.  
 4) **Relationships**: dynamics with Moss, Tansy, Brindle, Wren, Echo, Puddle, Pip & Pebble, Zoe (and others).  
 5) **Leveled Bios**: Acorn→Elder content, increasing length/complexity, on‑voice.  
-6) **Assets**: master PNG/SVG, splash icon needs, variant art, alt text, file locations.  
+6) **Assets**: master PNG, splash icon needs, variant art, alt text, file locations.  
 7) **App Integration**: where it appears, hooks to biography view, book appearances.  
 8) **Accessibility & Localization**: alt text, dyslexia-friendly constraints, future translation notes.  
 9) **Legal & Licensing**: originality, third‑party references, stock or commissioned art.  
@@ -233,11 +232,11 @@ Before merge, confirm all boxes in sections 1–7 are checked and that the app l
 ### 5) Leveled Biographies (Acorn → Elder)
 - Would you like to **provide** the five bios, or should I **draft** them for approval?  
 - List **keywords/scenes** to include (especially for Elder).  
-- Any **reading constraints** (max sentence length, words to include/avoid)?
+- Any words to include or avoid? (Each level's text must pass its Circle's word rules.)
 
 ### 6) Assets & Variants
 - Do you want a **splash icon** for the home grid now?  
-- Required **deliverables**: master PNG; optional master SVG; any **variant art** (seasonal props/outfits)?  
+- Required **deliverables**: master PNG; any **variant art** (seasonal props/outfits)?  
 - **Background**: transparent or flat color?  
 - **Alt text**: how should a screen reader describe the icon and master art?  
 - Any **stock/commissioned** art references or **do‑not‑use** sources?
@@ -328,16 +327,16 @@ Before merge, confirm all boxes in sections 1–7 are checked and that the app l
 1) **Character Bible**
    - Add a new section to `docs/CHARACTER_BIBLE.md` with species, palette, silhouette, eyes, **permanent accessories**, personality, speech style, example behaviors, and **master asset paths**.
 2) **Characters & Relationships**
-   - Update `docs/CHARACTERS_README.md` with a concise role blurb, quirks, dynamics, and the master PNG/SVG paths.
+   - Update `docs/CHARACTERS_README.md` with a concise role blurb, quirks, dynamics, and the master PNG path.
 3) **Leveled Bios**
-   - Create/Update `docs/character-bios.json` with `{id}` → `name` + five `levels` (`acorn`, `leaf`, `branch`, `oak`, `elder`). Ensure length/complexity increases by level. Validate JSON.
+   - Create/Update `docs/character-bios.json` with `{id}` → `name` + five `levels` (`acorn`, `leaf`, `branch`, `oak`, `elder`). Each level must pass its Circle's word rules; run `node tools/check-book.mjs --all`. Add the name to `circles/names.json`.
 4) **Master Images**
-   - Generate **{id}_master.png** (2048–4096 px longest side) with transparent background; ensure **permanent accessories** present; optionally generate `{id}_master.svg`.
+   - Generate **{file-id}_master.png** (2048–4096 px longest side) with transparent background; ensure **permanent accessories** present.
    - Place in `images/characters/master/`. Create `images/characters/variants/{id}/` if variants were requested.
 5) **Alt Text**
    - Add concise alt text for icon and master image (store in the intake JSON and/or PR).
 6) **App Integration**
-   - Add splash icon to the home grid if requested, and wire click → biography view for `{id}`. Confirm long **Elder** bios render correctly.
+   - The home screen's cast grid is built from `docs/character-bios.json`, so the new character appears automatically once their bio and master image exist. Confirm long **Elder** bios render correctly.
 7) **QA**
    - Visual compare scale/palette next to Moss/Tansy in UI. Confirm voice consistency in bios. Check JSON loads in all five levels.
 8) **Versioning**
@@ -369,7 +368,7 @@ Absolutely preserve canon colors, proportions, and accessories.
 ## G. Definition of Done (DoD)
 - `CHARACTER_BIBLE.md` and `CHARACTERS_README.md` updated and consistent.  
 - `character-bios.json` updated with five quality bios (on‑voice, rising complexity).  
-- `images/characters/master/{id}_master.png` (and optional SVG) exported, visually checked.  
+- `images/characters/master/{file-id}_master.png` exported, visually checked.  
 - Splash icon (if requested) added and biography view wired without console errors.  
 - Alt text provided for icon and master art.  
 - CI/preview passes; PR has screenshots and intake JSON (or equivalent details).

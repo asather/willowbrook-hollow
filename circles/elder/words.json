@@ -1,0 +1,27 @@
+{
+  "circle": "Elder",
+  "rules": {
+    "maxSyllables": null,
+    "maxSentenceWords": 28,
+    "avgSentenceWords": [
+      11,
+      17
+    ],
+    "bookWords": [
+      12000,
+      20000
+    ],
+    "chapterWords": [
+      1000,
+      2000
+    ],
+    "pageWords": [
+      150,
+      300
+    ],
+    "maxStoryWordsPerBook": 20,
+    "outOfScope": []
+  },
+  "heartWords": [],
+  "words": []
+}

@@ -13,7 +13,6 @@ Reference for consistent character portrayal: personalities, quirks, relationshi
 - **Dynamics:** Pairs with Tansy’s chaos; mentored by Brindle.  
 - **Master Assets:**  
   - PNG: `images/characters/master/moss_master.png`  
-  - SVG: `images/characters/master/moss_master.svg`
 
 **Tansy – Overexcited Squirrel**  
 - **Personality:** Energetic, talkative, “idea expert”; plans with too many steps; distractible.  
@@ -21,7 +20,6 @@ Reference for consistent character portrayal: personalities, quirks, relationshi
 - **Dynamics:** Pulls Pip & Pebble into schemes; best friends with Moss.  
 - **Master Assets:**  
   - PNG: `images/characters/master/tansy_master.png`  
-  - SVG: `images/characters/master/tansy_master.svg`
 
 **Brindle – Kindly Old Dog**  
 - **Personality:** Calm mentor; patient, wise; sometimes dozes mid‑story.  
@@ -29,7 +27,6 @@ Reference for consistent character portrayal: personalities, quirks, relationshi
 - **Dynamics:** Respected by all; guides Moss and Tansy.  
 - **Master Assets:**  
   - PNG: `images/characters/master/brindle_master.png`  
-  - SVG: `images/characters/master/brindle_master.svg`
 
 **Wren – Gossiping Songbird**  
 - **Personality:** Cheerful news‑carrier; repeats overheard human phrases out of context; overdramatizes.  
@@ -37,7 +34,6 @@ Reference for consistent character portrayal: personalities, quirks, relationshi
 - **Dynamics:** Mischief buddy with Echo.  
 - **Master Assets:**  
   - PNG: `images/characters/master/wren_master.png`  
-  - SVG: `images/characters/master/wren_master.svg`
 
 **Echo – Mischievous Fox**  
 - **Personality:** Clever trickster; confident, witty; secretly helps.  
@@ -45,7 +41,6 @@ Reference for consistent character portrayal: personalities, quirks, relationshi
 - **Dynamics:** Partners with Wren in mischief; protective of Moss & Tansy.  
 - **Master Assets:**  
   - PNG: `images/characters/master/echo_master.png`  
-  - SVG: `images/characters/master/echo_master.svg`
 
 **Puddle – Distracted Duck**  
 - **Personality:** Friendly, absent‑minded; accidentally solves problems while bumbling along.  
@@ -53,7 +48,6 @@ Reference for consistent character portrayal: personalities, quirks, relationshi
 - **Dynamics:** Interacts with everyone; often unintentionally central to solutions.  
 - **Master Assets:**  
   - PNG: `images/characters/master/puddle_master.png`  
-  - SVG: `images/characters/master/puddle_master.svg`
 
 **Pip & Pebble – Mouse Twins**  
 - **Personality:** Argumentative duo; resourceful when cooperating; quick, snappy banter.  
@@ -61,7 +55,6 @@ Reference for consistent character portrayal: personalities, quirks, relationshi
 - **Dynamics:** Frequently get drawn into Tansy’s plans; sometimes aided by Puddle’s accidents.  
 - **Master Assets:**  
   - PNG: `images/characters/master/pip_pebble_master.png`  
-  - SVG: `images/characters/master/pip_pebble_master.svg`
 
 **Leo – Playful Wish Lion**  
 - **Personality:** Cheerful and comforting; playful jokester; vegetarian lion who surprises everyone.  
@@ -72,7 +65,6 @@ Reference for consistent character portrayal: personalities, quirks, relationshi
   - Welcomed by all Hollow friends, especially in adventurous moments.  
 - **Master Assets:**  
   - PNG: `images/characters/master/leo_master.png`  
-  - SVG: `images/characters/master/leo_master.svg`
 
 
 **Parrot Family — News-Bringing Parrots (June, Johnafur, Juneafur)**  
@@ -80,17 +72,15 @@ Reference for consistent character portrayal: personalities, quirks, relationshi
 - **Quirks:** Speak in rhyme; repeat each other’s sentences; Juneafur’s cute mispronunciations; baby carries a bubble-blower.  
 - **Dynamics:** Share travel news with Wren and Echo; friendly with all. Live in a gold tree with a shrinking door.  
 - **Master Assets:**  
-  - PNG: `images/characters/master/parrot-family_master.png`  
-  - SVG: `images/characters/master/parrot-family_master.svg`
+  - PNG: `images/characters/master/parrot_family_master.png`  
 
 
 **Zoe – Human Helper (minor recurring)**  
 - **Personality:** Caring; “giant helper” from animals’ view; accidentally stylish, slightly mismatched outfits; always pants under dresses; hair slightly unkempt.  
-- **Quirks:** Not understood by animals; appears mostly in background.  
+- **Quirks:** Not understood by animals; appears mostly in background; learning the viola (the Hollow first mistook it for a monster).  
 - **Dynamics:** Observed by all animals; unknowingly influences events.  
 - **Master Assets:**  
   - PNG: `images/characters/master/zoe_master.png`  
-  - SVG: `images/characters/master/zoe_master.svg`
 
 ---
 

@@ -1,139 +1,105 @@
 # Willowbrook Hollow – Project Overview
 
 ## Project Goal
-To write **skill-appropriate, engaging books** that grow with the reader and foster a love for reading.  
-The series uses an **achievement system called “Circles”**—both an in-story tradition for the animals and a real-world reading milestone system.  
-Each Circle is:
-- An **in-story rank** for characters in Willowbrook Hollow.
-- A **reading level** that gradually increases in complexity without sudden jumps.
-- A **reward system** with badges, “Circle Ceremonies,” and unlockable stories.
+Willowbrook Hollow is a series of **funny, warm stories that a growing reader can actually read on their own**. It is written for readers whose ideas and humor are ahead of their decoding: an 8–10-year-old who laughs at a 4th-grade joke but is still building reading fluency.
 
-Our aim: to make reading progress feel **fun, motivating, and meaningful** so the reader wants to keep going.
+Three commitments shape every book:
+1. **Written for the reader's age, decodable at the reader's level.** Plots, jokes and stakes are pitched at 8–10-year-olds; the words follow the Circle's decoding rules.
+2. **Fluency through repeated, supported reading.** The reader app reads pages aloud with word highlighting, splits any word into syllables on tap, and makes re-reading a chapter a game against the reader's own best.
+3. **Progress that feels like belonging.** The Circles are both the Hollow's ranks and the reader's levels. Finishing books earns badges and Circle Ceremonies, and every reward is for effort and finishing, never for speed or scores.
 
 ---
 
 ## Story Premise
-**Willowbrook Hollow** is a hidden community of animals living in the woods, meadows, and streams behind the Willowbrook Animal Sanctuary.  
-They can speak to one another across species—but humans cannot understand them.
+**Willowbrook Hollow** is a hidden community of animals living in the woods, meadows and streams behind the Willowbrook Animal Sanctuary. They can speak to one another across species, but humans cannot understand them.
 
-When a new animal arrives at the sanctuary, the Hollow’s residents secretly help it adapt, heal, and find where it belongs—whether that’s back in the wild, in a forever home, or within the Hollow itself.  
+When something new or strange happens at the sanctuary (a new animal arrives, a mysterious sound starts, a human brings something the animals have never seen), the Hollow's residents investigate, help each other, and usually make it funnier on the way.
 
 The series blends:
-- **Humor** – running gags, physical comedy, and misunderstandings.
-- **Heart** – gentle lessons on empathy, friendship, and teamwork.
-- **Adventure** – from tiny mishaps to larger challenges that require the whole Hollow.
+- **Humor**: running gags, physical comedy and misunderstandings (especially of human things).
+- **Heart**: empathy, friendship, courage and the value of practice.
+- **Adventure**: from tiny mishaps to challenges that need the whole Hollow.
 
-The human world, represented by **Zoe** the young helper, is ever-present but seen only through the animals’ eyes.
+The human world, represented by **Zoe** the young helper, is ever-present but seen only through the animals' eyes. To them she is "the giant."
 
 ---
 
 ## Reading Circles
+Each Circle is an in-story rank and a reading level. Full rules are in [`CIRCLES_README.md`](CIRCLES_README.md).
 
-Each Circle matches an in-story role with a subtle increase in reading challenge.
+| Circle | In-story role | Words the reader decodes | Book length | Ceremony gift |
+|---|---|---|---|---|
+| **Acorn** | Newcomers to the Hollow | Up to 2 syllables; closed, open, magic-e, vowel team and r-controlled syllables | 1,000–2,000 words | Green leaf charm |
+| **Leaf** | Helpers | Up to 3 syllables; adds consonant-le, soft c/g, igh, silent letters, -tion | 2,000–4,000 | Carved twig token |
+| **Branch** | Junior Rescuers | Up to 4 syllables; adds ough/augh, Latin suffixes | 4,000–7,000 | Carved acorn pendant |
+| **Oak** | Hollow Mentors | Up to 5 syllables; roots, mild figurative language | 7,000–12,000 | Oaklight ceremony with carved pendant |
+| **Elder** | Rare / Respected | No limit; multi-book arcs | 12,000–20,000 | Carved staff or cane |
 
-| Circle | In-Story Role | Reading Complexity | Ceremony Gift |
-|--------|---------------|--------------------|---------------|
-| **Acorn** | Newcomers to the Hollow | Short sentences (5–8 words), basic vocabulary, high illustrations | Green leaf charm |
-| **Leaf** | Helpers | Slightly longer sentences, richer vocab, main plot + small gag subplot | Carved twig token |
-| **Branch** | Junior Rescuers | Adds feeling words, main + subplot that connect, short paragraphs | Carved acorn pendant |
-| **Oak** | Hollow Mentors | Mild figurative language, richer descriptions, parallel threads | Oaklight ceremony with carved pendant |
-| **Elder** | Rare/Respected | Gradual, ongoing increases; multi-book arcs, deeper themes | Carved staff or cane |
-
-**Symbols** – Each Circle has an official emblem (acorn, leaf, branch, oak, elder tree) that appears playfully in illustrations for that Circle’s books.
+**Symbols**: each Circle has an official emblem (acorn, leaf, branch, oak, elder tree) that appears playfully in the illustrations for that Circle's books.
 
 ---
 
 ## Core Characters
 
-- **Moss** – Bashful Hedgehog  
+- **Moss** – Bashful Hedgehog
   Shy but brave; rolls into a ball when startled (often at the wrong moment).
-
-- **Tansy** – Overexcited Squirrel  
-  Chaotic “idea expert” with overly complicated plans; distractible.
-
-- **Brindle** – Kindly Old Dog  
-  Calm, wise mentor; patient and respected.
-
-- **Wren** – Gossiping Songbird  
-  Chatty, repeats overheard human phrases out of context.
-
-- **Echo** – Mischievous Fox  
+- **Tansy** – Overexcited Squirrel
+  Chaotic "idea expert" with overly complicated plans; distractible.
+- **Brindle** – Kindly Old Dog
+  Calm, wise mentor; patient and respected; may doze mid-story.
+- **Wren** – Gossiping Songbird
+  Chatty; repeats overheard human phrases out of context.
+- **Echo** – Mischievous Fox
   Clever trickster; secretly helpful; carries a **forest-green satchel**.
-
-- **Puddle** – Distracted Duck  
+- **Puddle** – Distracted Duck
   Accidentally solves problems while wandering.
-
-- **Pip & Pebble** – Argumentative Mouse Twins  
+- **Pip & Pebble** – Argumentative Mouse Twins
   Bicker constantly; resourceful when they cooperate.
+- **Leo** – Playful, Kind-Hearted Vegetarian Lion
+  Gold fur, fluffy mane; eats grass. Carries a wish ball that glows blue when wishes are about to come true.
+- **Parrot Family** – News-bringers who live in a secret gold tree with a shrinking door
+  Kind and adventurous; they speak in rhymes and repeat each other's sentences. June (mom) is gently overprotective of baby Juneafur, who carries a bubble-blower and sometimes says funny mixed-up words. Johnafur (dad) travels and gathers stories from beyond the Hollow.
+- **Zoe** – Human Helper (minor recurring)
+  Caring; slightly mismatched but stylish outfits; **always wears pants under dresses**; learning to play the viola. Observed more than interacted with.
 
-- **Leo** – Playful, kind-hearted Vegitarian Lion  
-  Leo is a lion. He has gold fur and a fluffy mane. He is kind and likes to eat grass. Leo carries a shiny ball that glows blue when wishes are coming true.
-
-
-- **Parrot Family** — News-bringers who live in a secret gold tree with a shrinking door. 
-  Kind and adventurous; they speak in rhymes and repeat each other’s sentences. 
-  June (mom) is gently overprotective of baby Juneafur, who carries a bubble-blower and sometimes says funny mixed-up words. Johnafur (dad) travels steadily and helps gather stories from beyond the Hollow.
-
-
-- **Zoe** – Human Helper (minor recurring)  
-  Caring, slightly mismatched but stylish outfits; **always wears pants under dresses**; observed more than interacted with.
+Full details: [`CHARACTER_BIBLE.md`](CHARACTER_BIBLE.md) and [`CHARACTERS_README.md`](CHARACTERS_README.md).
 
 ---
 
 ## Humor & Style
 
 **Running gags:**
-- Moss rolling away at inconvenient times.
-- Tansy’s over-complicated plans.
-- Wren’s misquotes.
-- Puddle’s oblivious comments.
+- Moss rolling into a ball, and sometimes rolling away, at inconvenient times.
+- Tansy's over-complicated plans (she forgets the middle steps).
+- Wren's misheard and misquoted "news."
+- Puddle solving things by accident.
+- Echo helping in secret, then denying it.
 
-**Style progression:**
-- **Acorn/Leaf:** High illustration ratio (50–70% page space), short sentences.
-- **Branch:** Moderate illustration ratio (30–40%), parallel subplots.
-- **Oak/Elder:** Lower illustration ratio (20–30%), richer descriptive passages.
-
-Humor is always light-hearted and never mean-spirited.  
-Solutions often create bigger problems before they work out.
+**Style rules at every Circle:**
+- Humor is light-hearted and never mean-spirited. Solutions often create bigger problems before they work out.
+- Short, punchy lines carry the jokes. Sound words (SKREEE! SNAP!) and ALL-CAPS emphasis are welcome; they are fun to read aloud.
+- Dialogue does most of the storytelling, which makes pages good for reading aloud and re-reading.
+- Every page has art. Acorn and Leaf give art about half the page; Branch about a third; Oak and Elder about a quarter.
 
 ---
 
 ## Technical Approach
-
-**Format:** Static HTML for each book, paired with a built-in quiz.  
-**Architecture:**
-```
-/books/{circle}-{book#}/index.html   # story + quiz
-/css/                                # shared styles
-/js/                                 # quiz engine, progress tracker, effects
-/images/                             # character masters, Circle icons, UI
-```
-
-**Quizzes:**
-- Multiple choice (text/image)
-- Order-the-story
-- Picture hotspot
-- Playful feedback from characters
-- Badge + “Circle Ceremony” page on success
-
-**Progress tracking:**  
-Stored in `localStorage` so the reader’s Circle advancement is remembered.
-
-**Accessibility & UX:**
-- Touch-friendly
-- Dyslexia-friendly font option
-- High-contrast mode
-- Reduced-motion support
+- **One reader app, many books.** `index.html` loads `js/app.jsx`. The library comes from `manifest.json`, and each book is a `books/{bookId}/book.json` file. See [`book.README.md`](book.README.md).
+- **Circle word files.** `circles/{circle}/words.json` holds each Circle's rules, heart words and story words. See [`words.README.md`](words.README.md).
+- **Checker.** `node tools/check-book.mjs --all` validates every JSON file against the schemas in `/docs` and checks every book against its Circle's rules. A book ships only when it passes.
+- **Reader features.** Read to Me with word highlighting, tap-a-word syllables, Practice Read, gentle quizzes, reading comfort settings, badges, Ceremonies and a Parent Corner. See [`READER_APP.md`](READER_APP.md).
 
 ---
 
 ## Asset Rules
 
-**Master Character Images:**  
-- Stored in `/images/characters/master/` as `*_master.png` and `*_master.svg`
-- Must match the **Character Bible** exactly
-- No unapproved changes to proportions, colors, or permanent accessories
+**Master character images:**
+- Stored in `images/characters/master/` as `{id}_master.png` (the `{id}` uses underscores, e.g. `pip_pebble_master.png`).
+- Must match the **Character Bible** exactly. No unapproved changes to proportions, colors or permanent accessories.
+- Variants (seasonal outfits, props) go in `images/characters/variants/` and must be approved before use.
 
-**Circle Symbols:**  
-- Stored in `/images/ui/circles/` as `circle-{name}.png` and `.svg`
-- Always use the official files—never regenerate variants
+**Page art:** scene illustrations go in `books/{bookId}/images/`. When a page has no scene illustration yet, it shows the master art of the characters on that page. Every page must have art either way.
+
+**Circle symbols:**
+- Stored in `images/ui/circles/` as `circle-{name}.png`.
+- Always use the official files; never regenerate variants.

@@ -1,0 +1,707 @@
+{
+  "circle": "Acorn",
+  "circleIcon": "images/ui/circles/circle-acorn.png",
+  "bookId": "acorn-001",
+  "title": "The Monster in the Barn",
+  "subtitle": "A Willowbrook Hollow story",
+  "cover": {
+    "image": "books/acorn-001/images/cover.webp",
+    "alt": "Moss, Wren, Tansy and Leo peek at Zoe, the giant, in front of the barn"
+  },
+  "cast": [
+    "moss",
+    "brindle",
+    "wren",
+    "tansy",
+    "pip-pebble",
+    "zoe",
+    "leo",
+    "echo",
+    "puddle"
+  ],
+  "toc": [
+    {
+      "type": "title",
+      "label": "Title Page"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 1: The Sound",
+      "anchor": "ch1"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 2: Wren Has News",
+      "anchor": "ch2"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 3: Tansy Has a Plan",
+      "anchor": "ch3"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 4: Into the Barn",
+      "anchor": "ch4"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 5: Squeaks and Songs",
+      "anchor": "ch5"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "ch1",
+      "title": "Chapter 1: The Sound",
+      "pages": [
+        {
+          "number": 1,
+          "layout": "art-left",
+          "text": [
+            "The sun was going down on Willowbrook Hollow. The sky was pink and gold.",
+            "Moss the hedgehog sat by the stream. He was having a snack of bugs. It was calm and still.",
+            "Then a sound came from the barn.",
+            "SKREEE-AWK!",
+            "Moss dropped his bug. His spines stood up. He rolled into a ball."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/moss_master.png",
+              "alt": "Moss the hedgehog",
+              "animation": {
+                "kind": "roll",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "layout": "art-right",
+          "text": [
+            "SKREEE-AWK! SKRONK!",
+            "The sound went up. It went down. It went up again.",
+            "Moss peeked out of his ball. The barn was part of the sanctuary. That was where the giant came each day to help the critters.",
+            "“Something is in the barn,” Moss said softly. “Something big. Something bad.”",
+            "Then he rolled up again, just to be safe."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/moss_master.png",
+              "alt": "Moss the hedgehog",
+              "animation": {
+                "kind": "roll",
+                "trigger": "tap"
+              }
+            },
+            {
+              "type": "image",
+              "src": "images/characters/master/brindle_master.png",
+              "alt": "Brindle the old dog",
+              "animation": {
+                "kind": "pulse",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "layout": "art-left",
+          "text": [
+            "Moss ran to find Brindle. The old dog was asleep under the big oak tree. His green bandana was over one eye.",
+            "“Brindle! Wake up!” said Moss. “There is a monster in the barn!”",
+            "Brindle did not open his eyes. “Is it a big monster?” he asked.",
+            "“It is a LOUD monster,” said Moss.",
+            "“Then it will still be loud in the morning,” said Brindle. And he went back to sleep."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/brindle_master.png",
+              "alt": "Brindle the old dog",
+              "animation": {
+                "kind": "pulse",
+                "trigger": "tap"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch2",
+      "title": "Chapter 2: Wren Has News",
+      "pages": [
+        {
+          "number": 4,
+          "layout": "art-left",
+          "text": [
+            "The next morning, Wren flew down from the oak tree. She landed on a stump with a thump.",
+            "“News! News! Big news!” she sang. “I know what is in the barn!”",
+            "The whole Hollow came to hear. Tansy the squirrel ran down a tree. Pip and Pebble ran out of a log.",
+            "Moss came too. He came very, very slowly."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/wren_master.png",
+              "alt": "Wren the songbird",
+              "animation": {
+                "kind": "wiggle",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "layout": "art-right",
+          "text": [
+            "“I was on the barn roof,” said Wren. “The giant was there. She had a big black box.”",
+            "Wren puffed up her chest. “The giant said, ‘I have to practice my viola.’” Then she said it again, louder. “A VI-O-LA!”",
+            "“What is a viola?” asked Moss.",
+            "Wren did not know. But Wren never let that stop her."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/wren_master.png",
+              "alt": "Wren the songbird",
+              "animation": {
+                "kind": "wiggle",
+                "trigger": "tap"
+              }
+            },
+            {
+              "type": "image",
+              "src": "images/characters/master/zoe_master.png",
+              "alt": "Zoe, the giant helper",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "layout": "art-left",
+          "text": [
+            "“A vi-o-LA,” said Wren, slower. “Vi-o-LION. It is a LION! The giant keeps a lion in a box!”",
+            "The Hollow gasped.",
+            "Pip fell off the log. Pebble fell on Pip.",
+            "Just then, Leo strolled up. His mane was full of grass. He held his wish ball in one paw."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/wren_master.png",
+              "alt": "Wren the songbird",
+              "animation": {
+                "kind": "wiggle",
+                "trigger": "tap"
+              }
+            },
+            {
+              "type": "image",
+              "src": "images/characters/master/pip_pebble_master.png",
+              "alt": "Pip and Pebble, the mouse twins",
+              "animation": {
+                "kind": "wiggle",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "layout": "art-right",
+          "text": [
+            "“Did I hear the word lion?” asked Leo.",
+            "“I am the only lion in this Hollow,” he said. “And I eat grass.” He took a big, loud munch to show them.",
+            "“Maybe it is a very small lion,” said Wren. “With a very big roar.”",
+            "Leo looked at his wish ball. It did not glow. “Hmm,” said Leo. “I do not think so.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/leo_master.png",
+              "alt": "Leo the lion holding his wish ball",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch3",
+      "title": "Chapter 3: Tansy Has a Plan",
+      "pages": [
+        {
+          "number": 8,
+          "layout": "art-left",
+          "text": [
+            "Tansy hopped up on a rock. “I have a plan!” she said. “It has eleven steps!”",
+            "“Step one: we sneak up to the barn. Step two: we hide in the hay.”",
+            "“Step three: Pip and Pebble go up on the shelf. Step four: Wren sings a song. Step five: the lion gets sleepy.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/tansy_master.png",
+              "alt": "Tansy the squirrel",
+              "animation": {
+                "kind": "wiggle",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "layout": "art-right",
+          "text": [
+            "“Why do WE go up on the shelf?” asked Pip.",
+            "“Why not YOU?” asked Pebble.",
+            "“Because you are small,” said Tansy. “Step six: we open the box. Step seven: we give the lion a nice snack of grass.”",
+            "“There is no lion,” said Leo. “I am the lion.”",
+            "“And then,” said Tansy. “And then… um…”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/tansy_master.png",
+              "alt": "Tansy the squirrel",
+              "animation": {
+                "kind": "wiggle",
+                "trigger": "tap"
+              }
+            },
+            {
+              "type": "image",
+              "src": "images/characters/master/pip_pebble_master.png",
+              "alt": "Pip and Pebble, the mouse twins",
+              "animation": {
+                "kind": "wiggle",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "layout": "art-left",
+          "text": [
+            "Tansy stopped. She forgot what came next. Then she forgot step one. She forgot all of the steps!",
+            "Brindle the old dog lay in the shade. He had one eye open. He had been asleep for steps two to six.",
+            "“That is a lot of steps,” said Brindle. “Maybe we just go and look.”",
+            "Moss did not want to go and look. Moss wanted to be a ball."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/brindle_master.png",
+              "alt": "Brindle the old dog",
+              "animation": {
+                "kind": "pulse",
+                "trigger": "tap"
+              }
+            },
+            {
+              "type": "image",
+              "src": "images/characters/master/moss_master.png",
+              "alt": "Moss the hedgehog",
+              "animation": {
+                "kind": "roll",
+                "trigger": "tap"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch4",
+      "title": "Chapter 4: Into the Barn",
+      "pages": [
+        {
+          "number": 11,
+          "layout": "art-left",
+          "text": [
+            "At dusk, the Hollow went to sneak up on the barn. Tansy went first, on her tiptoes.",
+            "“Shh,” said Tansy. “We are as still as a moth. We are as still as a rock.”",
+            "Then Moss stepped on a stick. SNAP!",
+            "Moss rolled into a ball. The ball rolled down the hill. It rolled past Pip. It rolled past Pebble. It went BUMP into Leo’s leg.",
+            "“Hello, Moss,” said Leo. He gave the ball a gentle push back up the hill."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/moss_master.png",
+              "alt": "Moss the hedgehog",
+              "animation": {
+                "kind": "roll",
+                "trigger": "tap"
+              }
+            },
+            {
+              "type": "image",
+              "src": "images/characters/master/leo_master.png",
+              "alt": "Leo the lion holding his wish ball",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "layout": "art-right",
+          "text": [
+            "At last, the Hollow got to the barn. Tansy went first. Moss went last. Very, very last.",
+            "The barn door was shut. A big latch held it closed.",
+            "“Step one,” said Tansy. “We… um. How do we get in?”",
+            "No one had a plan for the door."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/tansy_master.png",
+              "alt": "Tansy the squirrel",
+              "animation": {
+                "kind": "wiggle",
+                "trigger": "tap"
+              }
+            },
+            {
+              "type": "image",
+              "src": "images/characters/master/moss_master.png",
+              "alt": "Moss the hedgehog",
+              "animation": {
+                "kind": "roll",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 13,
+          "layout": "art-left",
+          "text": [
+            "Click. The latch swung up. The door creaked open.",
+            "Echo the fox sat on the step. He did not look at the latch. He did not look at them. He just licked his paw.",
+            "“That door was open the whole time,” said Echo.",
+            "It was not. But Echo liked to help in secret."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/echo_master.png",
+              "alt": "Echo the fox with his green satchel",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 14,
+          "layout": "art-full",
+          "text": [
+            "In the barn, it was dim. It smelled like hay and goats.",
+            "Puddle the duck waddled in. He was not looking for a lion. He was looking at a moth.",
+            "The moth landed on the black box. Puddle went after the moth. He bumped the box with his bill.",
+            "The box fell open with a POP!"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/puddle_master.png",
+              "alt": "Puddle the duck",
+              "animation": {
+                "kind": "wiggle",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 15,
+          "layout": "art-right",
+          "text": [
+            "There was no lion in the box. There was a thing made of wood. It had a long neck and four thin strings. Next to it was a long stick.",
+            "“Is THAT the monster?” asked Moss.",
+            "“It is a very thin lion,” said Wren.",
+            "Then they heard boots. Clomp, clomp, clomp. The giant was coming! The Hollow dove into the hay."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/moss_master.png",
+              "alt": "Moss the hedgehog",
+              "animation": {
+                "kind": "roll",
+                "trigger": "tap"
+              }
+            },
+            {
+              "type": "image",
+              "src": "images/characters/master/wren_master.png",
+              "alt": "Wren the songbird",
+              "animation": {
+                "kind": "wiggle",
+                "trigger": "tap"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch5",
+      "title": "Chapter 5: Squeaks and Songs",
+      "pages": [
+        {
+          "number": 16,
+          "layout": "art-left",
+          "text": [
+            "The giant was Zoe. She had on red boots and a green dress. Under the dress she had on striped pants.",
+            "Zoe picked up the viola. She set it under her chin. She pulled the bow across the strings.",
+            "SKREEE-AWK!",
+            "Moss rolled into a ball.",
+            "Zoe did not give up. She played the same notes again, but slower."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/zoe_master.png",
+              "alt": "Zoe, the giant helper",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "layout": "art-right",
+          "text": [
+            "Skree… awk.",
+            "And again. And again. And again.",
+            "Each time, the sound got a bit less squeaky. Each time, it got a bit more smooth.",
+            "Moss peeked out of his ball. The sound was not so bad now. It was… kind of nice."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/zoe_master.png",
+              "alt": "Zoe, the giant helper",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            },
+            {
+              "type": "image",
+              "src": "images/characters/master/moss_master.png",
+              "alt": "Moss the hedgehog",
+              "animation": {
+                "kind": "roll",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "layout": "art-left",
+          "text": [
+            "Each day that week, the Hollow came back to the barn.",
+            "Each day, Zoe did her practice. The squeaks got smaller. The song got bigger.",
+            "On the last day, Zoe played a whole song. It was slow and sweet.",
+            "Wren did not say one word. For once, Wren had no news. She just sat with her eyes shut.",
+            "Leo’s wish ball began to glow blue."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/leo_master.png",
+              "alt": "Leo the lion holding his wish ball",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            },
+            {
+              "type": "image",
+              "src": "images/characters/master/brindle_master.png",
+              "alt": "Brindle the old dog",
+              "animation": {
+                "kind": "pulse",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "layout": "art-full",
+          "text": [
+            "“How did the monster turn into music?” asked Moss.",
+            "Brindle smiled. “Practice,” he said. “Squeaks turn into songs if you keep going.”",
+            "Then Moss did something new. He did not roll into a ball. He sat up tall and hummed along.",
+            "Puddle clapped his wings. He clapped off the beat. No one minded one bit."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "images/characters/master/moss_master.png",
+              "alt": "Moss the hedgehog",
+              "animation": {
+                "kind": "roll",
+                "trigger": "tap"
+              }
+            },
+            {
+              "type": "image",
+              "src": "images/characters/master/brindle_master.png",
+              "alt": "Brindle the old dog",
+              "animation": {
+                "kind": "pulse",
+                "trigger": "tap"
+              }
+            },
+            {
+              "type": "image",
+              "src": "images/characters/master/puddle_master.png",
+              "alt": "Puddle the duck",
+              "animation": {
+                "kind": "wiggle",
+                "trigger": "tap"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "quiz": {
+    "instructions": "Tap an answer. Tap the speaker to hear the question. You can try as many times as you like!",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "recall",
+        "prompt": "What did Wren think was in the box?",
+        "choices": [
+          "A lion",
+          "A bug",
+          "A goat"
+        ],
+        "answerIndex": 0,
+        "reactions": {
+          "correct": {
+            "character": "images/characters/master/wren_master.png",
+            "line": "Yes! A vi-o-LION! I was a little bit off."
+          },
+          "tryAgain": {
+            "character": "images/characters/master/leo_master.png",
+            "line": "Hmm. Think back to Wren’s big news. Try again!"
+          }
+        }
+      },
+      {
+        "id": "q2",
+        "type": "recall",
+        "prompt": "How did the barn door get open?",
+        "choices": [
+          "Tansy’s plan",
+          "Echo helped in secret",
+          "Puddle bumped it"
+        ],
+        "answerIndex": 1,
+        "reactions": {
+          "correct": {
+            "character": "images/characters/master/echo_master.png",
+            "line": "Me? Help? I was just licking my paw."
+          },
+          "tryAgain": {
+            "character": "images/characters/master/tansy_master.png",
+            "line": "Not that one. Who sat on the step? Try again!"
+          }
+        }
+      },
+      {
+        "id": "q3",
+        "type": "recall",
+        "prompt": "What made the sound get better?",
+        "choices": [
+          "A new box",
+          "Zoe did her practice each day",
+          "Leo ate the lion"
+        ],
+        "answerIndex": 1,
+        "reactions": {
+          "correct": {
+            "character": "images/characters/master/brindle_master.png",
+            "line": "Yes. Squeaks turn into songs if you keep going."
+          },
+          "tryAgain": {
+            "character": "images/characters/master/moss_master.png",
+            "line": "Hmm. What did Zoe do again and again? Try again!"
+          }
+        }
+      },
+      {
+        "id": "q4",
+        "type": "think",
+        "prompt": "What do you think Moss will be brave about next?",
+        "choices": [
+          "Swimming in the stream",
+          "Singing a song",
+          "Going into the barn first"
+        ],
+        "reactions": {
+          "correct": {
+            "character": "images/characters/master/moss_master.png",
+            "line": "Maybe! One small step at a time."
+          },
+          "tryAgain": {
+            "character": "images/characters/master/moss_master.png",
+            "line": "Maybe! One small step at a time."
+          }
+        }
+      },
+      {
+        "id": "q5",
+        "type": "think",
+        "prompt": "What do YOU want to get better at?",
+        "choices": [
+          "Reading",
+          "Music",
+          "Sports",
+          "Something else"
+        ],
+        "reactions": {
+          "correct": {
+            "character": "images/characters/master/zoe_master.png",
+            "line": "Then keep going. Squeaks turn into songs!"
+          },
+          "tryAgain": {
+            "character": "images/characters/master/zoe_master.png",
+            "line": "Then keep going. Squeaks turn into songs!"
+          }
+        }
+      }
+    ]
+  }
+}

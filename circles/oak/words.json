@@ -1,0 +1,27 @@
+{
+  "circle": "Oak",
+  "rules": {
+    "maxSyllables": 5,
+    "maxSentenceWords": 24,
+    "avgSentenceWords": [
+      10,
+      15
+    ],
+    "bookWords": [
+      7000,
+      12000
+    ],
+    "chapterWords": [
+      800,
+      1400
+    ],
+    "pageWords": [
+      120,
+      250
+    ],
+    "maxStoryWordsPerBook": 15,
+    "outOfScope": []
+  },
+  "heartWords": [],
+  "words": []
+}

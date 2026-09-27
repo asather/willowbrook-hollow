@@ -1,25 +1,63 @@
 {
   "circle": "Leaf",
-  "words": [
-    {
-      "word": "complicated",
-      "audio": "./audio/leaf/complicated.mp3"
-    },
-    {
-      "word": "observes",
-      "audio": "./audio/leaf/observes.mp3"
-    },
-    {
-      "word": "accurate",
-      "audio": "./audio/leaf/accurate.mp3"
-    },
-    {
-      "word": "ceremony",
-      "audio": "./audio/leaf/ceremony.mp3"
-    },
-    {
-      "word": "lanterns",
-      "audio": "./audio/leaf/lanterns.mp3"
-    }
-  ]
+  "rules": {
+    "maxSyllables": 3,
+    "maxSentenceWords": 16,
+    "avgSentenceWords": [
+      7,
+      11
+    ],
+    "bookWords": [
+      2000,
+      4000
+    ],
+    "chapterWords": [
+      300,
+      600
+    ],
+    "pageWords": [
+      50,
+      130
+    ],
+    "maxStoryWordsPerBook": 10,
+    "outOfScope": [
+      {
+        "pattern": "ough|augh|eigh",
+        "label": "ough / augh / eigh (Branch)"
+      },
+      {
+        "pattern": "ous$|ment$|ible$|able$",
+        "label": "-ous / -ment / -ible / -able (Branch)"
+      }
+    ]
+  },
+  "heartWords": [
+    "busy",
+    "build",
+    "built",
+    "answer",
+    "enough",
+    "though",
+    "through",
+    "thought",
+    "brought",
+    "bought",
+    "caught",
+    "taught",
+    "eight",
+    "weigh",
+    "neighbor",
+    "ocean",
+    "island",
+    "listen",
+    "often",
+    "whose",
+    "sugar",
+    "special",
+    "machine",
+    "piece",
+    "believe",
+    "field"
+  ],
+  "words": []
 }
