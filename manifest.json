@@ -14,6 +14,14 @@
       "subtitle": "Something is squeaking in the barn…",
       "path": "./books/acorn-001/book.json",
       "circleIcon": "images/web/circles/circle-acorn.webp"
+    },
+    {
+      "circle": "Acorn",
+      "bookId": "acorn-002",
+      "title": "The Upside-Down Map",
+      "subtitle": "Tansy’s acorn map leads somewhere…",
+      "path": "./books/acorn-002/book.json",
+      "circleIcon": "images/web/circles/circle-acorn.webp"
     }
   ]
 }

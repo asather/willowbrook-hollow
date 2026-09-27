@@ -23,6 +23,7 @@ All planning and reference files live in [`/docs`](docs):
 - [`CIRCLES_README.md`](docs/CIRCLES_README.md) – The Circle system: leveling principle, word rules per Circle, exceptions, Ceremonies.
 - [`READER_APP.md`](docs/READER_APP.md) – What the reader app does: Read to Me, tap-a-word, Practice Read, quizzes, settings, progress.
 - [`story-creation-checklist.README.md`](docs/story-creation-checklist.README.md) – How to write and release a new book.
+- [`SCENE_ART.md`](docs/SCENE_ART.md) – How each book's cover and page scenes are made.
 - [`book.README.md`](docs/book.README.md), [`words.README.md`](docs/words.README.md), [`manifest.README.md`](docs/manifest.README.md) – Data file references (schemas alongside).
 - [`CHARACTER_BIBLE.md`](docs/CHARACTER_BIBLE.md), [`CHARACTERS_README.md`](docs/CHARACTERS_README.md), [`character-bios.README.md`](docs/character-bios.README.md), [`character-creation-checklist.README.md`](docs/character-creation-checklist.README.md) – Characters.
 
@@ -35,7 +36,9 @@ index.html                  # Reader app entry point
 js/app.jsx                  # Reader app (React 18, compiled in the browser)
 js/syllables.js             # Syllable splitter shared by the app and the checker
 manifest.json               # Circles and the list of books
-books/{bookId}/book.json    # One folder per book (e.g. acorn-001), with its art in images/
+books/{bookId}/book.json    # One folder per book (e.g. acorn-001)
+books/{bookId}/scenes.json  # The book's scene layouts; tools/compose-scenes.py turns them into images/
+books/{bookId}/images/      # The book's cover and page scenes (WebP)
 circles/{circle}/words.json # Each Circle's word rules, heart words and story words
 circles/names.json          # Character and place names (exempt from word rules)
 images/characters/master/   # Official character master art (full-size PNG, Git LFS; canon source)
@@ -45,6 +48,7 @@ images/web/                 # Web-sized WebP copies the app shows (built by tool
 docs/                       # Documentation, JSON schemas, character bios, About text
 tools/check-book.mjs        # Validates JSON, checks books against their Circle's rules, checks every image is servable
 tools/make-web-images.py    # Rebuilds images/web/ from the master art
+tools/compose-scenes.py     # Builds a book's cover and page scenes (docs/SCENE_ART.md)
 ```
 
 ---
@@ -60,4 +64,5 @@ tools/make-web-images.py    # Rebuilds images/web/ from the master art
 - No unapproved changes to proportions, colors or permanent accessories.
 - Variants go in `images/characters/variants/` and must be approved before use.
 - **Masters are the source; the app shows web copies.** Master PNGs are full-size and stored with Git LFS. GitHub Pages can't serve LFS files, and full-size art is too heavy for a tablet, so the app loads the small WebP copies in `images/web/`. After adding or changing master art, run `python3 tools/make-web-images.py` (needs Pillow and `git lfs pull`) and commit `images/web/`.
+- **Every book comes with its pictures.** Whoever writes a book also makes its cover and a scene for every page with `python3 tools/compose-scenes.py books/{bookId}` (see [`docs/SCENE_ART.md`](docs/SCENE_ART.md)).
 - Everything the app loads (web copies, book covers, scene art) is WebP stored as regular Git files. The checker fails any image path that is missing or is an LFS pointer.

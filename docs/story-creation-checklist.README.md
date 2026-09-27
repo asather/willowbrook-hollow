@@ -43,13 +43,16 @@ Open `circles/{circle}/words.json` and keep its `rules` in view.
 - [ ] A **new character** follows [`character-creation-checklist.README.md`](character-creation-checklist.README.md): master art, bios at all five levels, and entries in the Character Bible and Characters README.
 - [ ] Anything new about an existing character (a habit, a possession) is added to the Character Bible.
 
-### e) Art
-- [ ] **Cover** at `books/{bookId}/images/cover.webp` (16:9, WebP), built from master art or a scene illustration.
-- [ ] **Page art:** scene illustrations go in `books/{bookId}/images/`. Until a scene is illustrated, the page uses the web copies of the characters on it (`images/web/characters/{id}.webp`), which is the default for new books. All art the app loads is WebP stored as regular Git files, never LFS.
-- [ ] Characters match their masters (proportions, colors, permanent accessories). The Circle's symbol appears somewhere in the scene art, never called out in the text.
+### e) Art (always part of the job)
+The author makes the art along with the words; a book is not finished without it. Follow [`SCENE_ART.md`](SCENE_ART.md).
+- [ ] Write `books/{bookId}/scenes.json`: a `cover` and one `page-NN` scene per page, each acting out that page's main beat with only the characters on it.
+- [ ] Run `python3 tools/compose-scenes.py books/{bookId}`. It writes `books/{bookId}/images/cover.webp` and `page-NN.webp` (16:9 WebP, regular Git files, never LFS).
+- [ ] Point the book's `cover.image` and each page's `media` at those files, with one-sentence alt text describing the scene.
+- [ ] Look at every scene at full size and fix anything off: characters match their masters (proportions, colors, permanent accessories), nothing covers a face, the Circle's symbol sits quietly in the background and is never called out in the text.
+- [ ] A new place or prop the tool can't draw yet gets a new element in the tool and a row in `SCENE_ART.md`.
 
 ## 3) Check
-- [ ] `node tools/check-book.mjs books/{bookId}/book.json` passes: schemas valid, every word within the rules, sentence and length targets met, story-word limit respected.
+- [ ] `node tools/check-book.mjs books/{bookId}/book.json` passes: schemas valid, every word within the rules, sentence and length targets met, story-word limit respected, cover and every page using the book's own scene art.
 - [ ] Read the whole book **aloud**. Does every page have a laugh, a feeling or a turn? Does each running gag land? Would a 9-year-old roll their eyes at anything babyish?
 - [ ] In the app (`python3 -m http.server`):
   - [ ] Read to Me reads every page and the highlighting keeps up.
@@ -71,7 +74,7 @@ Ask one topic at a time, starting with the Circle. If Andrew hands over the choi
 4. **Heart idea:** What should the reader feel or notice by the end?
 5. **Story words:** Any words the author wants taught? Otherwise the assistant proposes them within the Circle's limit.
 6. **Quiz:** Any question the author wants included?
-7. **Art:** Scene illustrations available, or master art for now?
+7. **Art:** Any painted illustrations to use? Otherwise the assistant composes every scene itself (the default).
 
 ### Intake record (assistant fills during the interview)
 ```json
@@ -89,7 +92,7 @@ Ask one topic at a time, starting with the Circle. If Andrew hands over the choi
   "newCharacters": [],
   "storyWords": [],
   "quizIdeas": [],
-  "art": { "cover": "", "sceneIllustrations": [] }
+  "art": { "cover": "", "paintedScenes": [] }
 }
 ```
 
@@ -97,7 +100,7 @@ Ask one topic at a time, starting with the Circle. If Andrew hands over the choi
 - `book.json` written; the checker passes with no problems.
 - Story words, heart words and names added to their files.
 - `manifest.json` updated.
-- Cover (WebP) and art on every page; characters canon-true; `images/web/` rebuilt if any master art changed.
+- `scenes.json` written and the cover plus a scene for every page built into `books/{bookId}/images/`, each checked by eye; characters canon-true; `images/web/` rebuilt if any master art changed.
 - Read aloud end to end and play-tested in the app, with no broken images or console errors.
 - Any doc the change touches is updated so it reads as if this was always the plan.
 - **Committed to `master` and pushed.** The live site (https://asather.github.io/willowbrook-hollow/) shows the new book with every image loading, checked by the assistant after the deploy.

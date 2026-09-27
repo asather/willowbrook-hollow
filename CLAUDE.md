@@ -6,11 +6,11 @@ This file is loaded automatically by Claude, and any AI assistant working in thi
 When Andrew asks for a change (a new story, a character, an app feature, a fix), the assistant carries it through every step below itself, then reports back with the live link. He should never have to ask for the next step.
 
 1. **Do the work** following the right playbook:
-   - New story → [`docs/story-creation-checklist.README.md`](docs/story-creation-checklist.README.md)
+   - New story → [`docs/story-creation-checklist.README.md`](docs/story-creation-checklist.README.md). A new story always includes its art: a cover and a scene for every page, made by the assistant with [`tools/compose-scenes.py`](tools/compose-scenes.py) as described in [`docs/SCENE_ART.md`](docs/SCENE_ART.md). Never hand back a story without its pictures, and never ask Andrew to supply them.
    - New character → [`docs/character-creation-checklist.README.md`](docs/character-creation-checklist.README.md)
    - Reader app behavior → [`docs/READER_APP.md`](docs/READER_APP.md)
    - Reading levels and word rules → [`docs/CIRCLES_README.md`](docs/CIRCLES_README.md)
-2. **Rebuild web images** whenever any master art or Circle emblem is added or changed: `python3 tools/make-web-images.py` (needs `git lfs pull` first). Commit the updated `images/web/` files.
+2. **Make the images.** Build a book's scene art with `python3 tools/compose-scenes.py books/{bookId}` and look at every scene before moving on. Rebuild web images whenever any master art or Circle emblem is added or changed: `python3 tools/make-web-images.py` (needs `git lfs pull` first). Commit the updated `books/{bookId}/images/` and `images/web/` files.
 3. **Run the checker until it passes:** `node tools/check-book.mjs --all`. Fix the content, never loosen the rules to make it pass (unless Andrew asks for a rule change, and then update the docs too).
 4. **Test in a browser:** serve the repo (`python3 -m http.server 8000`) and walk through what changed. Check that there are no broken images and no console errors.
 5. **Keep the docs true.** If behavior, structure or rules change, update every doc that mentions them so they read as if this was always the plan. Remove anything contradictory or vague. The docs are the instructions the next assistant will follow.
@@ -32,5 +32,5 @@ The reader's actual reading profile (assessment results and what they mean for t
 ## Writing for this series
 - Written for an 8–10-year-old, decodable at the Circle's level. Humor and plots never talk down; the *words* are what get easier.
 - Reword before adding exceptions (*night* → *dusk*), and use story words on purpose.
-- Every page has art. Until scene art exists, use the web copies of the characters on that page.
+- Every page has its own scene that acts out that page, and every book has its own cover ([`docs/SCENE_ART.md`](docs/SCENE_ART.md)).
 - Read the whole book aloud (mentally) before calling it done. Every page should have a laugh, a feeling or a turn.

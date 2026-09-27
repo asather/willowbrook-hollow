@@ -86,7 +86,8 @@ Full details: [`CHARACTER_BIBLE.md`](CHARACTER_BIBLE.md) and [`CHARACTERS_README
 ## Technical Approach
 - **One reader app, many books.** `index.html` loads `js/app.jsx`. The library comes from `manifest.json`, and each book is a `books/{bookId}/book.json` file. See [`book.README.md`](book.README.md).
 - **Circle word files.** `circles/{circle}/words.json` holds each Circle's rules, heart words and story words. See [`words.README.md`](words.README.md).
-- **Checker.** `node tools/check-book.mjs --all` validates every JSON file against the schemas in `/docs` and checks every book against its Circle's rules. A book ships only when it passes.
+- **Checker.** `node tools/check-book.mjs --all` validates every JSON file against the schemas in `/docs`, checks every book against its Circle's rules, and checks that every page has the book's own scene art. A book ships only when it passes.
+- **Scene art.** `python3 tools/compose-scenes.py books/{bookId}` builds a book's cover and page scenes from its `scenes.json`. See [`SCENE_ART.md`](SCENE_ART.md).
 - **Reader features.** Read to Me with word highlighting, tap-a-word syllables, Practice Read, gentle quizzes, reading comfort settings, badges, Ceremonies and a Parent Corner. See [`READER_APP.md`](READER_APP.md).
 
 ---
@@ -99,7 +100,7 @@ Full details: [`CHARACTER_BIBLE.md`](CHARACTER_BIBLE.md) and [`CHARACTERS_README
 - Must match the **Character Bible** exactly. No unapproved changes to proportions, colors or permanent accessories.
 - Variants (seasonal outfits, props) go in `images/characters/variants/` and must be approved before use.
 
-**Page art:** scene illustrations go in `books/{bookId}/images/` as WebP. When a page has no scene illustration yet, it shows the web copies of the characters on that page. Every page must have art either way.
+**Page art:** every book has its own cover and a scene for every page in `books/{bookId}/images/` as WebP. Whoever writes the book makes them, composing each scene from painted backdrops, props and the canon character art with `tools/compose-scenes.py` and `books/{bookId}/scenes.json`. See [`SCENE_ART.md`](SCENE_ART.md).
 
 **Circle symbols:**
 - Stored in `images/ui/circles/` as `circle-{name}.png` (source); the app shows `images/web/circles/circle-{name}.webp`.

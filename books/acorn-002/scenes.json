@@ -1,0 +1,1595 @@
+{
+ "size": [
+  1600,
+  900
+ ],
+ "scenes": {
+  "cover": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "morning",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 1450,
+     "y": 540,
+     "h": 400,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 600,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 700,
+     "w": 130,
+     "tilt": -30,
+     "rocks": [
+      300,
+      1250
+     ]
+    },
+    {
+     "type": "frog_rock",
+     "x": 1250,
+     "y": 610,
+     "w": 170
+    },
+    {
+     "type": "log",
+     "x": 880,
+     "y": 610,
+     "w": 300,
+     "h": 110
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 360,
+     "y": 860,
+     "h": 380
+    },
+    {
+     "type": "map",
+     "x": 610,
+     "y": 560,
+     "w": 220,
+     "rot": -8
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 760,
+     "y": 860,
+     "h": 230,
+     "flip": true
+    },
+    {
+     "type": "character",
+     "id": "moss",
+     "x": 1030,
+     "y": 870,
+     "h": 300,
+     "flip": true
+    },
+    {
+     "type": "emblem",
+     "x": 1090,
+     "y": 575,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "falling_leaves",
+     "n": 12,
+     "seed": 4
+    }
+   ]
+  },
+  "page-01": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "morning",
+     "sun": [
+      1380,
+      150
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "tree",
+     "x": 1450,
+     "y": 540,
+     "h": 420,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "tansy_tree",
+     "x": 1240,
+     "y": 700,
+     "h": 820,
+     "w": 220
+    },
+    {
+     "type": "gate",
+     "x": 90,
+     "y": 740,
+     "w": 240
+    },
+    {
+     "type": "stump",
+     "x": 520,
+     "y": 760,
+     "w": 150
+    },
+    {
+     "type": "hole",
+     "x": 380,
+     "y": 830,
+     "w": 110
+    },
+    {
+     "type": "hole",
+     "x": 700,
+     "y": 800,
+     "w": 90
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 820,
+     "y": 840,
+     "h": 320
+    },
+    {
+     "type": "dirt",
+     "x": 930,
+     "y": 830,
+     "s": 110,
+     "n": 18
+    },
+    {
+     "type": "character",
+     "id": "moss",
+     "x": 1060,
+     "y": 870,
+     "h": 270,
+     "flip": true
+    },
+    {
+     "type": "dirt",
+     "x": 1060,
+     "y": 610,
+     "s": 60,
+     "n": 10,
+     "seed": 8
+    },
+    {
+     "type": "emblem",
+     "x": 520,
+     "y": 735,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "falling_leaves",
+     "n": 10,
+     "seed": 4
+    }
+   ]
+  },
+  "page-02": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "morning",
+     "sun": [
+      1380,
+      150
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "tree",
+     "x": 1450,
+     "y": 540,
+     "h": 420,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "tansy_tree",
+     "x": 1240,
+     "y": 700,
+     "h": 820,
+     "w": 220
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 520,
+     "y": 850,
+     "h": 340
+    },
+    {
+     "type": "map",
+     "x": 730,
+     "y": 600,
+     "w": 230,
+     "rot": 6
+    },
+    {
+     "type": "character",
+     "id": "moss",
+     "x": 1000,
+     "y": 870,
+     "h": 280,
+     "flip": true
+    },
+    {
+     "type": "dirt",
+     "x": 1000,
+     "y": 880,
+     "s": 80,
+     "n": 12,
+     "seed": 6
+    },
+    {
+     "type": "emblem",
+     "x": 1240,
+     "y": 830,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "falling_leaves",
+     "n": 8,
+     "seed": 6
+    }
+   ]
+  },
+  "page-03": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "morning",
+     "sun": [
+      1400,
+      130
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 640,
+     "seed": 3
+    },
+    {
+     "type": "tree",
+     "x": 160,
+     "y": 600,
+     "h": 380,
+     "w": 40
+    },
+    {
+     "type": "character",
+     "id": "moss",
+     "x": 330,
+     "y": 870,
+     "h": 380
+    },
+    {
+     "type": "map",
+     "x": 930,
+     "y": 440,
+     "w": 760,
+     "rot": -3
+    },
+    {
+     "type": "emblem",
+     "x": 1490,
+     "y": 820,
+     "s": 56,
+     "opacity": 0.45
+    },
+    {
+     "type": "falling_leaves",
+     "n": 6,
+     "seed": 2
+    }
+   ]
+  },
+  "page-04": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "morning",
+     "sun": [
+      1380,
+      150
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "tree",
+     "x": 1450,
+     "y": 540,
+     "h": 420,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "tansy_tree",
+     "x": 1240,
+     "y": 700,
+     "h": 820,
+     "w": 220
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 420,
+     "y": 850,
+     "h": 220
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 640,
+     "y": 850,
+     "h": 230
+    },
+    {
+     "type": "motion",
+     "kind": "huff",
+     "x": 470,
+     "y": 590
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 880,
+     "y": 850,
+     "h": 300,
+     "flip": true
+    },
+    {
+     "type": "map",
+     "x": 890,
+     "y": 520,
+     "w": 150,
+     "rot": 170
+    },
+    {
+     "type": "character",
+     "id": "moss",
+     "x": 1060,
+     "y": 870,
+     "h": 250,
+     "flip": true
+    },
+    {
+     "type": "emblem",
+     "x": 1240,
+     "y": 830,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "falling_leaves",
+     "n": 8,
+     "seed": 3
+    }
+   ]
+  },
+  "page-05": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "morning",
+     "sun": [
+      1380,
+      150
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "tree",
+     "x": 1450,
+     "y": 540,
+     "h": 420,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "tansy_tree",
+     "x": 1240,
+     "y": 700,
+     "h": 820,
+     "w": 220
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 420,
+     "y": 850,
+     "h": 250
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 820,
+     "y": 790,
+     "h": 330,
+     "rot": 6
+    },
+    {
+     "type": "motion",
+     "kind": "hop",
+     "x": 850,
+     "y": 820,
+     "s": 50
+    },
+    {
+     "type": "character",
+     "id": "moss",
+     "x": 1070,
+     "y": 870,
+     "h": 250,
+     "flip": true
+    },
+    {
+     "type": "emblem",
+     "x": 1240,
+     "y": 830,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "falling_leaves",
+     "n": 8,
+     "seed": 7
+    }
+   ]
+  },
+  "page-06": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "morning",
+     "sun": [
+      1380,
+      150
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 380,
+     "w": 40
+    },
+    {
+     "type": "tree",
+     "x": 1400,
+     "y": 560,
+     "h": 420,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 690,
+     "w": 90,
+     "rocks": [
+      300
+     ]
+    },
+    {
+     "type": "bush",
+     "x": 380,
+     "y": 830,
+     "r": 90
+    },
+    {
+     "type": "character",
+     "id": "moss",
+     "x": 800,
+     "y": 870,
+     "h": 330
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 960,
+     "y": 860,
+     "h": 360,
+     "flip": true,
+     "rot": -6
+    },
+    {
+     "type": "emblem",
+     "x": 1400,
+     "y": 540,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "falling_leaves",
+     "n": 9,
+     "seed": 5
+    }
+   ]
+  },
+  "page-07": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1400,
+      130
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 1450,
+     "y": 470,
+     "h": 360,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 520,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 690,
+     "w": 200,
+     "rocks": [
+      240,
+      820,
+      1300
+     ]
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 420,
+     "y": 900,
+     "h": 300
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 640,
+     "y": 900,
+     "h": 190
+    },
+    {
+     "type": "character",
+     "id": "moss",
+     "x": 850,
+     "y": 910,
+     "h": 250
+    },
+    {
+     "type": "emblem",
+     "x": 1450,
+     "y": 440,
+     "s": 46,
+     "opacity": 0.45
+    }
+   ]
+  },
+  "page-08": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1400,
+      130
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 560,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 660,
+     "w": 160,
+     "rocks": [
+      1300
+     ]
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 420,
+     "y": 890,
+     "h": 260
+    },
+    {
+     "type": "raft",
+     "x": 820,
+     "y": 800,
+     "w": 360,
+     "rot": 0
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 1200,
+     "y": 890,
+     "h": 320,
+     "flip": true
+    },
+    {
+     "type": "emblem",
+     "x": 200,
+     "y": 520,
+     "s": 46,
+     "opacity": 0.45
+    }
+   ]
+  },
+  "page-09": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1420,
+      120
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 420,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 690,
+     "w": 440,
+     "ripples": 26,
+     "rocks": [
+      150,
+      1450
+     ]
+    },
+    {
+     "type": "raft",
+     "x": 700,
+     "y": 760,
+     "w": 460,
+     "rot": -12
+    },
+    {
+     "type": "character",
+     "id": "moss",
+     "x": 690,
+     "y": 760,
+     "h": 230,
+     "noShadow": true,
+     "rot": -10
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 700,
+     "y": 560,
+     "h": 130,
+     "noShadow": true
+    },
+    {
+     "type": "fish",
+     "x": 1130,
+     "y": 560,
+     "s": 70
+    },
+    {
+     "type": "emblem",
+     "x": 1350,
+     "y": 380,
+     "s": 46,
+     "opacity": 0.45
+    }
+   ]
+  },
+  "page-10": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1420,
+      120
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 1250,
+     "y": 500,
+     "h": 380,
+     "w": 40,
+     "seed": 5
+    },
+    {
+     "type": "hills",
+     "y": 540,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 800,
+     "w": 200,
+     "rocks": [
+      300
+     ]
+    },
+    {
+     "type": "rock",
+     "x": 620,
+     "y": 730,
+     "w": 120
+    },
+    {
+     "type": "moss_ball",
+     "x": 1000,
+     "y": 610,
+     "r": 70,
+     "peek": true
+    },
+    {
+     "type": "raft",
+     "x": 350,
+     "y": 800,
+     "w": 250,
+     "rot": 8
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 350,
+     "y": 740,
+     "h": 120,
+     "noShadow": true
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 1300,
+     "y": 690,
+     "h": 280,
+     "flip": true
+    },
+    {
+     "type": "emblem",
+     "x": 1250,
+     "y": 470,
+     "s": 46,
+     "opacity": 0.45
+    }
+   ]
+  },
+  "page-11": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      200,
+      130
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 480,
+     "seed": 12
+    },
+    {
+     "type": "rock",
+     "x": 250,
+     "y": 700,
+     "w": 150
+    },
+    {
+     "type": "rock",
+     "x": 1450,
+     "y": 690,
+     "w": 130
+    },
+    {
+     "type": "frog_rock",
+     "x": 1000,
+     "y": 700,
+     "w": 330
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 350,
+     "y": 800,
+     "h": 290,
+     "rot": 8
+    },
+    {
+     "type": "motion",
+     "kind": "hop",
+     "x": 380,
+     "y": 810,
+     "s": 40
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 620,
+     "y": 860,
+     "h": 180
+    },
+    {
+     "type": "character",
+     "id": "moss",
+     "x": 760,
+     "y": 870,
+     "h": 250
+    },
+    {
+     "type": "emblem",
+     "x": 1450,
+     "y": 640,
+     "s": 46,
+     "opacity": 0.45
+    }
+   ]
+  },
+  "page-12": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      200,
+      130
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 480,
+     "seed": 12
+    },
+    {
+     "type": "frog_rock",
+     "x": 1050,
+     "y": 760,
+     "w": 420
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 660,
+     "y": 860,
+     "h": 320
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 340,
+     "y": 860,
+     "h": 220
+    },
+    {
+     "type": "map",
+     "x": 340,
+     "y": 540,
+     "w": 180,
+     "rot": 80
+    },
+    {
+     "type": "emblem",
+     "x": 1450,
+     "y": 620,
+     "s": 46,
+     "opacity": 0.45
+    }
+   ]
+  },
+  "page-13": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1450,
+      120
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 470,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 470,
+     "seed": 14
+    },
+    {
+     "type": "log",
+     "x": 700,
+     "y": 720,
+     "w": 900,
+     "h": 330,
+     "sunspot": true
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 260,
+     "y": 870,
+     "h": 300
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 430,
+     "y": 870,
+     "h": 190
+    },
+    {
+     "type": "character",
+     "id": "moss",
+     "x": 560,
+     "y": 880,
+     "h": 250,
+     "dim": 0.95
+    },
+    {
+     "type": "emblem",
+     "x": 1400,
+     "y": 440,
+     "s": 46,
+     "opacity": 0.45
+    }
+   ]
+  },
+  "page-14": {
+   "elements": [
+    {
+     "type": "log_inside"
+    },
+    {
+     "type": "character",
+     "id": "moss",
+     "x": 800,
+     "y": 820,
+     "h": 300,
+     "dim": 0.55,
+     "noShadow": true
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 520,
+     "y": 850,
+     "h": 330,
+     "dim": 0.45,
+     "noShadow": true
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 340,
+     "y": 850,
+     "h": 200,
+     "dim": 0.45,
+     "noShadow": true
+    },
+    {
+     "type": "emblem",
+     "x": 1480,
+     "y": 820,
+     "s": 50,
+     "opacity": 0.3
+    }
+   ]
+  },
+  "page-15": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "morning",
+     "sun": [
+      1380,
+      150
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "tree",
+     "x": 1450,
+     "y": 540,
+     "h": 420,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "tansy_tree",
+     "x": 1240,
+     "y": 700,
+     "h": 820,
+     "w": 220
+    },
+    {
+     "type": "gate",
+     "x": 90,
+     "y": 740,
+     "w": 240
+    },
+    {
+     "type": "stump",
+     "x": 520,
+     "y": 760,
+     "w": 150
+    },
+    {
+     "type": "stream",
+     "y": 800,
+     "w": 150,
+     "rocks": []
+    },
+    {
+     "type": "log",
+     "x": 60,
+     "y": 880,
+     "w": 420,
+     "h": 170
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 610,
+     "y": 890,
+     "h": 300
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 790,
+     "y": 890,
+     "h": 190
+    },
+    {
+     "type": "character",
+     "id": "moss",
+     "x": 920,
+     "y": 900,
+     "h": 250
+    },
+    {
+     "type": "emblem",
+     "x": 520,
+     "y": 735,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "falling_leaves",
+     "n": 8,
+     "seed": 8
+    }
+   ]
+  },
+  "page-16": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "morning",
+     "sun": [
+      1380,
+      150
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "tree",
+     "x": 1450,
+     "y": 540,
+     "h": 420,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "tansy_tree",
+     "x": 1240,
+     "y": 700,
+     "h": 820,
+     "w": 220
+    },
+    {
+     "type": "character",
+     "id": "moss",
+     "x": 500,
+     "y": 860,
+     "h": 280
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 760,
+     "y": 860,
+     "h": 240,
+     "flip": true
+    },
+    {
+     "type": "map",
+     "x": 760,
+     "y": 540,
+     "w": 170,
+     "rot": 180
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 1000,
+     "y": 870,
+     "h": 300,
+     "flip": true
+    },
+    {
+     "type": "emblem",
+     "x": 1240,
+     "y": 830,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "falling_leaves",
+     "n": 6,
+     "seed": 2
+    }
+   ]
+  },
+  "page-17": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "morning",
+     "sun": [
+      1380,
+      150
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "tree",
+     "x": 1450,
+     "y": 540,
+     "h": 420,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "tansy_tree",
+     "x": 1240,
+     "y": 700,
+     "h": 820,
+     "w": 220
+    },
+    {
+     "type": "acorns",
+     "x": 1180,
+     "y": 520,
+     "n": 40,
+     "spread": 170,
+     "ys": 1.2,
+     "r": 18
+    },
+    {
+     "type": "acorns",
+     "x": 1130,
+     "y": 850,
+     "n": 30,
+     "spread": 260,
+     "ys": 0.15,
+     "r": 18,
+     "seed": 8
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 1140,
+     "y": 520,
+     "h": 190,
+     "noShadow": true
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 780,
+     "y": 870,
+     "h": 230
+    },
+    {
+     "type": "motion",
+     "kind": "bonk",
+     "x": 780,
+     "y": 600,
+     "s": 50
+    },
+    {
+     "type": "moss_ball",
+     "x": 480,
+     "y": 800,
+     "r": 80,
+     "acorns": 6
+    },
+    {
+     "type": "motion",
+     "kind": "bonk",
+     "x": 480,
+     "y": 700,
+     "s": 50
+    },
+    {
+     "type": "emblem",
+     "x": 1240,
+     "y": 830,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "falling_leaves",
+     "n": 6,
+     "seed": 1
+    }
+   ]
+  },
+  "page-18": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "morning",
+     "sun": [
+      1380,
+      150
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "tree",
+     "x": 1450,
+     "y": 540,
+     "h": 420,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "tansy_tree",
+     "x": 1240,
+     "y": 700,
+     "h": 820,
+     "w": 220
+    },
+    {
+     "type": "acorns",
+     "x": 1130,
+     "y": 850,
+     "n": 30,
+     "spread": 260,
+     "ys": 0.15,
+     "r": 18,
+     "seed": 8
+    },
+    {
+     "type": "moss_ball",
+     "x": 700,
+     "y": 780,
+     "r": 110,
+     "acorns": 26,
+     "peek": true
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 380,
+     "y": 870,
+     "h": 320
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 960,
+     "y": 870,
+     "h": 220,
+     "flip": true
+    },
+    {
+     "type": "emblem",
+     "x": 1240,
+     "y": 830,
+     "s": 46,
+     "opacity": 0.45
+    }
+   ]
+  },
+  "page-19": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "dusk",
+     "sun": [
+      1250,
+      520
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "tree",
+     "x": 1450,
+     "y": 540,
+     "h": 420,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "tansy_tree",
+     "x": 1240,
+     "y": 700,
+     "h": 820,
+     "w": 220
+    },
+    {
+     "type": "stars",
+     "n": 10
+    },
+    {
+     "type": "acorns",
+     "x": 800,
+     "y": 860,
+     "n": 14,
+     "spread": 160,
+     "ys": 0.12,
+     "r": 16
+    },
+    {
+     "type": "character",
+     "id": "moss",
+     "x": 480,
+     "y": 870,
+     "h": 260
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 700,
+     "y": 870,
+     "h": 200
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 960,
+     "y": 880,
+     "h": 300,
+     "flip": true
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 150,
+     "y": 860,
+     "h": 200
+    },
+    {
+     "type": "emblem",
+     "x": 1240,
+     "y": 830,
+     "s": 46,
+     "opacity": 0.35
+    }
+   ]
+  },
+  "page-20": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "morning",
+     "sun": [
+      1380,
+      150
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "tree",
+     "x": 1450,
+     "y": 540,
+     "h": 420,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "tansy_tree",
+     "x": 1240,
+     "y": 700,
+     "h": 820,
+     "w": 220
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 500,
+     "y": 860,
+     "h": 330
+    },
+    {
+     "type": "map",
+     "x": 820,
+     "y": 520,
+     "w": 360,
+     "arrow": true,
+     "rot": -4
+    },
+    {
+     "type": "hole",
+     "x": 1000,
+     "y": 850,
+     "w": 100
+    },
+    {
+     "type": "character",
+     "id": "moss",
+     "x": 1120,
+     "y": 880,
+     "h": 280,
+     "flip": true
+    },
+    {
+     "type": "emblem",
+     "x": 1240,
+     "y": 830,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "falling_leaves",
+     "n": 8,
+     "seed": 9
+    }
+   ]
+  }
+ }
+}

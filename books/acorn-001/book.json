@@ -68,10 +68,10 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/moss.webp",
-              "alt": "Moss the hedgehog",
+              "src": "books/acorn-001/images/page-01.webp",
+              "alt": "Moss rolls into a ball by the stream at sunset as a sound comes from the barn",
               "animation": {
-                "kind": "roll",
+                "kind": "float",
                 "trigger": "tap"
               }
             }
@@ -90,19 +90,10 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/moss.webp",
-              "alt": "Moss the hedgehog",
+              "src": "books/acorn-001/images/page-02.webp",
+              "alt": "Moss peeks out of his ball, with Brindle nearby and the barn behind",
               "animation": {
-                "kind": "roll",
-                "trigger": "tap"
-              }
-            },
-            {
-              "type": "image",
-              "src": "images/web/characters/brindle.webp",
-              "alt": "Brindle the old dog",
-              "animation": {
-                "kind": "pulse",
+                "kind": "float",
                 "trigger": "tap"
               }
             }
@@ -121,10 +112,10 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/brindle.webp",
-              "alt": "Brindle the old dog",
+              "src": "books/acorn-001/images/page-03.webp",
+              "alt": "Brindle dozes under the big oak tree while Moss tries to wake him",
               "animation": {
-                "kind": "pulse",
+                "kind": "float",
                 "trigger": "tap"
               }
             }
@@ -148,10 +139,10 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/wren.webp",
-              "alt": "Wren the songbird",
+              "src": "books/acorn-001/images/page-04.webp",
+              "alt": "Wren lands on a stump with news as Tansy, Pip and Pebble come running and Moss comes slowly",
               "animation": {
-                "kind": "wiggle",
+                "kind": "float",
                 "trigger": "tap"
               }
             }
@@ -169,17 +160,8 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/wren.webp",
-              "alt": "Wren the songbird",
-              "animation": {
-                "kind": "wiggle",
-                "trigger": "tap"
-              }
-            },
-            {
-              "type": "image",
-              "src": "images/web/characters/zoe.webp",
-              "alt": "Zoe, the giant helper",
+              "src": "books/acorn-001/images/page-05.webp",
+              "alt": "Wren sits on the barn roof above Zoe and the big black box",
               "animation": {
                 "kind": "float",
                 "trigger": "tap"
@@ -199,19 +181,10 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/wren.webp",
-              "alt": "Wren the songbird",
+              "src": "books/acorn-001/images/page-06.webp",
+              "alt": "Pip falls off the log and Pebble lands on him while Wren talks and Leo strolls up",
               "animation": {
-                "kind": "wiggle",
-                "trigger": "tap"
-              }
-            },
-            {
-              "type": "image",
-              "src": "images/web/characters/pip_pebble.webp",
-              "alt": "Pip and Pebble, the mouse twins",
-              "animation": {
-                "kind": "wiggle",
+                "kind": "float",
                 "trigger": "tap"
               }
             }
@@ -229,8 +202,8 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/leo.webp",
-              "alt": "Leo the lion holding his wish ball",
+              "src": "books/acorn-001/images/page-07.webp",
+              "alt": "Leo, holding his wish ball, tells Wren and Moss that he is the only lion",
               "animation": {
                 "kind": "float",
                 "trigger": "tap"
@@ -255,10 +228,10 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/tansy.webp",
-              "alt": "Tansy the squirrel",
+              "src": "books/acorn-001/images/page-08.webp",
+              "alt": "Tansy stands on a rock and explains her plan to Pip, Pebble, Wren and Moss",
               "animation": {
-                "kind": "wiggle",
+                "kind": "float",
                 "trigger": "tap"
               }
             }
@@ -277,19 +250,10 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/tansy.webp",
-              "alt": "Tansy the squirrel",
+              "src": "books/acorn-001/images/page-09.webp",
+              "alt": "Tansy on her rock asks Pip and Pebble to go up on the shelf while Leo listens",
               "animation": {
-                "kind": "wiggle",
-                "trigger": "tap"
-              }
-            },
-            {
-              "type": "image",
-              "src": "images/web/characters/pip_pebble.webp",
-              "alt": "Pip and Pebble, the mouse twins",
-              "animation": {
-                "kind": "wiggle",
+                "kind": "float",
                 "trigger": "tap"
               }
             }
@@ -307,19 +271,10 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/brindle.webp",
-              "alt": "Brindle the old dog",
+              "src": "books/acorn-001/images/page-10.webp",
+              "alt": "Brindle rests in the shade of the oak as Tansy forgets her plan and Moss curls up",
               "animation": {
-                "kind": "pulse",
-                "trigger": "tap"
-              }
-            },
-            {
-              "type": "image",
-              "src": "images/web/characters/moss.webp",
-              "alt": "Moss the hedgehog",
-              "animation": {
-                "kind": "roll",
+                "kind": "float",
                 "trigger": "tap"
               }
             }
@@ -344,17 +299,8 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/moss.webp",
-              "alt": "Moss the hedgehog",
-              "animation": {
-                "kind": "roll",
-                "trigger": "tap"
-              }
-            },
-            {
-              "type": "image",
-              "src": "images/web/characters/leo.webp",
-              "alt": "Leo the lion holding his wish ball",
+              "src": "books/acorn-001/images/page-11.webp",
+              "alt": "At dusk, Moss rolls down the hill past Pip and Pebble and bumps into Leo",
               "animation": {
                 "kind": "float",
                 "trigger": "tap"
@@ -374,19 +320,10 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/tansy.webp",
-              "alt": "Tansy the squirrel",
+              "src": "books/acorn-001/images/page-12.webp",
+              "alt": "Tansy stands at the shut barn door while Moss waits far behind",
               "animation": {
-                "kind": "wiggle",
-                "trigger": "tap"
-              }
-            },
-            {
-              "type": "image",
-              "src": "images/web/characters/moss.webp",
-              "alt": "Moss the hedgehog",
-              "animation": {
-                "kind": "roll",
+                "kind": "float",
                 "trigger": "tap"
               }
             }
@@ -404,8 +341,8 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/echo.webp",
-              "alt": "Echo the fox with his green satchel",
+              "src": "books/acorn-001/images/page-13.webp",
+              "alt": "Echo the fox sits on the barn step in front of the open door",
               "animation": {
                 "kind": "float",
                 "trigger": "tap"
@@ -425,10 +362,10 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/puddle.webp",
-              "alt": "Puddle the duck",
+              "src": "books/acorn-001/images/page-14.webp",
+              "alt": "Inside the dim barn, Puddle chases a moth that lands on the black box",
               "animation": {
-                "kind": "wiggle",
+                "kind": "float",
                 "trigger": "tap"
               }
             }
@@ -446,19 +383,10 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/moss.webp",
-              "alt": "Moss the hedgehog",
+              "src": "books/acorn-001/images/page-15.webp",
+              "alt": "The box is open and shows the viola, with Moss and Wren looking on",
               "animation": {
-                "kind": "roll",
-                "trigger": "tap"
-              }
-            },
-            {
-              "type": "image",
-              "src": "images/web/characters/wren.webp",
-              "alt": "Wren the songbird",
-              "animation": {
-                "kind": "wiggle",
+                "kind": "float",
                 "trigger": "tap"
               }
             }
@@ -483,8 +411,8 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/zoe.webp",
-              "alt": "Zoe, the giant helper",
+              "src": "books/acorn-001/images/page-16.webp",
+              "alt": "Zoe plays the viola in the barn while Moss hides in a ball in the hay",
               "animation": {
                 "kind": "float",
                 "trigger": "tap"
@@ -504,19 +432,10 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/zoe.webp",
-              "alt": "Zoe, the giant helper",
+              "src": "books/acorn-001/images/page-17.webp",
+              "alt": "Zoe keeps practicing and Moss peeks out of his ball",
               "animation": {
                 "kind": "float",
-                "trigger": "tap"
-              }
-            },
-            {
-              "type": "image",
-              "src": "images/web/characters/moss.webp",
-              "alt": "Moss the hedgehog",
-              "animation": {
-                "kind": "roll",
                 "trigger": "tap"
               }
             }
@@ -535,19 +454,10 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/leo.webp",
-              "alt": "Leo the lion holding his wish ball",
+              "src": "books/acorn-001/images/page-18.webp",
+              "alt": "Zoe plays a whole song while Leo’s wish ball glows blue and Brindle and Wren listen",
               "animation": {
                 "kind": "float",
-                "trigger": "tap"
-              }
-            },
-            {
-              "type": "image",
-              "src": "images/web/characters/brindle.webp",
-              "alt": "Brindle the old dog",
-              "animation": {
-                "kind": "pulse",
                 "trigger": "tap"
               }
             }
@@ -565,28 +475,10 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/moss.webp",
-              "alt": "Moss the hedgehog",
+              "src": "books/acorn-001/images/page-19.webp",
+              "alt": "Moss sits up tall and hums along beside Brindle while Puddle claps",
               "animation": {
-                "kind": "roll",
-                "trigger": "tap"
-              }
-            },
-            {
-              "type": "image",
-              "src": "images/web/characters/brindle.webp",
-              "alt": "Brindle the old dog",
-              "animation": {
-                "kind": "pulse",
-                "trigger": "tap"
-              }
-            },
-            {
-              "type": "image",
-              "src": "images/web/characters/puddle.webp",
-              "alt": "Puddle the duck",
-              "animation": {
-                "kind": "wiggle",
+                "kind": "float",
                 "trigger": "tap"
               }
             }

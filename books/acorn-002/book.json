@@ -1,0 +1,612 @@
+{
+  "circle": "Acorn",
+  "circleIcon": "images/web/circles/circle-acorn.webp",
+  "bookId": "acorn-002",
+  "title": "The Upside-Down Map",
+  "subtitle": "A Willowbrook Hollow story",
+  "cover": {
+    "image": "books/acorn-002/images/cover.webp",
+    "alt": "Tansy holds up a bark map as Pebble and Moss set off by the stream"
+  },
+  "cast": [
+    "tansy",
+    "moss",
+    "pip-pebble"
+  ],
+  "toc": [
+    {
+      "type": "title",
+      "label": "Title Page"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 1: The Map",
+      "anchor": "ch1"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 2: Pebble Comes Too",
+      "anchor": "ch2"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 3: Over the Stream",
+      "anchor": "ch3"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 4: The Dark Log",
+      "anchor": "ch4"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 5: X Marks the Spot",
+      "anchor": "ch5"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "ch1",
+      "title": "Chapter 1: The Map",
+      "pages": [
+        {
+          "number": 1,
+          "layout": "art-left",
+          "text": [
+            "It was a cool fall morning in Willowbrook Hollow. The leaves were red and gold.",
+            "Tansy the squirrel was digging. She dug by the stream. She dug by the stump. She dug by the gate.",
+            "Dirt went up. Dirt went down. Dirt went on Moss.",
+            "“Tansy,” said Moss kindly. “You are digging on me.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-01.webp",
+              "alt": "Tansy digs holes all over the Hollow and gets dirt on Moss",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "layout": "art-right",
+          "text": [
+            "“Sorry, Moss!” said Tansy. “I lost my acorns! All one hundred of them!”",
+            "Moss shook the dirt off his spines.",
+            "“Last fall, I hid them,” said Tansy. “Then I made a map, so I would not forget. Then I forgot what the map means!”",
+            "She held up a scrap of bark. On it were lines and dots and one big X."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-02.webp",
+              "alt": "Tansy holds up a bark map while Moss shakes off the dirt",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "layout": "art-left",
+          "text": [
+            "Moss looked at the map. He looked for a long time. Moss liked to look at small things.",
+            "There was a wavy line. There was a rock that looked like a frog. There was a log with a hole. And at the top, there was an X.",
+            "“X is where the acorns are,” said Tansy. “It is treasure! Acorn treasure!”",
+            "“It looks like a long walk,” said Moss."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-03.webp",
+              "alt": "Moss looks closely at the map with its wavy line, frog rock, log and X",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch2",
+      "title": "Chapter 2: Pebble Comes Too",
+      "pages": [
+        {
+          "number": 4,
+          "layout": "art-right",
+          "text": [
+            "Just then, Pip and Pebble ran by. They were fussing, as they always do.",
+            "Pip peeked at the map. “That map is upside down,” he said.",
+            "“It is not,” said Pebble. “YOU are upside down.”",
+            "“I am not!” said Pip.",
+            "“Then stand on your head and check,” said Pebble.",
+            "Pip huffed and ran off. Pebble stayed. “I will come on this adventure,” she said. “Just to show Pip who is boss.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-04.webp",
+              "alt": "Pip and Pebble argue about the map while Tansy and Moss watch",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "layout": "art-left",
+          "text": [
+            "Pebble had a bag of scraps. She had string, a bent nail, a cork and a shell.",
+            "“What is all that for?” asked Moss.",
+            "“I do not know yet,” said Pebble. “That is the fun part.”",
+            "Tansy was hopping up and down. “Step one: we go! Step two: we go fast! Step three: we… um… we go!”",
+            "“That is the same step three times,” said Pebble."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-05.webp",
+              "alt": "Pebble shows her bag of scraps while Tansy hops",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "layout": "art-right",
+          "text": [
+            "Moss did not like long walks. He did not like new spots. He liked his stream and his bush and his snack of bugs.",
+            "But Tansy was his best friend. And Tansy was bad at maps.",
+            "Moss took a deep breath. “I will come,” he said softly. “Someone has to look at the small things.”",
+            "Tansy gave him a hug. It was a spiky hug. She did not mind."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-06.webp",
+              "alt": "Tansy gives Moss a spiky hug",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch3",
+      "title": "Chapter 3: Over the Stream",
+      "pages": [
+        {
+          "number": 7,
+          "layout": "art-left",
+          "text": [
+            "The wavy line on the map was the stream. The stream was fast and cold. It went splish and splash on the rocks.",
+            "“We have to get across,” said Tansy. “Step one: we jump!”",
+            "“YOU can jump,” said Pebble. “You are a squirrel. Moss is a hedgehog. Hedgehogs are bad at jumping.”",
+            "Moss nodded. It was true."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-07.webp",
+              "alt": "Tansy, Pebble and Moss stand by the fast stream",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "layout": "art-right",
+          "text": [
+            "Pebble dug in her bag. She made a raft of sticks and string. Then she put a big flat leaf on top.",
+            "“A raft!” said Tansy.",
+            "“A boat,” said Pebble.",
+            "“A raft is a boat,” said Tansy.",
+            "Pebble frowned. “Do not finish what I say,” she said. “That is Pip’s job. And he does it badly.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-08.webp",
+              "alt": "Pebble builds a raft from sticks, string and a leaf",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "layout": "art-full",
+          "text": [
+            "Moss sat on the raft. Pebble sat on Moss. That was a bit spiky. Tansy pushed them off with a stick.",
+            "The raft went bump. It went spin. It went round and round.",
+            "Moss shut his eyes. He did not roll into a ball. Not yet.",
+            "Then a fish jumped out of the water. SPLASH!",
+            "Moss rolled into a ball."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-09.webp",
+              "alt": "Moss and Pebble spin on the raft as a fish jumps out of the water",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "layout": "art-right",
+          "text": [
+            "The ball rolled off the raft. It rolled onto a rock. It rolled up the bank on the far side.",
+            "“Moss is across!” said Tansy. “He is the first one over!”",
+            "Moss peeked out of his ball. He was wet. He was a bit dizzy. But he was on the other side.",
+            "Pebble and the raft bumped in next. Tansy just jumped. Of course."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-10.webp",
+              "alt": "Moss, rolled up in a ball, lands on the far bank",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch4",
+      "title": "Chapter 4: The Dark Log",
+      "pages": [
+        {
+          "number": 11,
+          "layout": "art-left",
+          "text": [
+            "Next on the map was the frog rock. They walked and walked. The grass was tall. The hill was steep.",
+            "“Is it that rock?” asked Tansy. “Or that one? Or THAT one?” She ran to all of them.",
+            "“That one looks like a frog,” said Moss. And it did. It had two bumps for eyes and a long, flat grin."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-11.webp",
+              "alt": "Tansy runs from rock to rock while Moss points at the frog rock",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "layout": "art-right",
+          "text": [
+            "“Ribbit,” said Tansy to the rock. The rock did not say ribbit back.",
+            "“Next is the log with a hole,” said Pebble. She looked at the map. Then she turned it this way and that way.",
+            "“Hmm,” said Pebble. “Maybe Pip was…” She stopped. “No. Never mind.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-12.webp",
+              "alt": "Tansy talks to the frog rock while Pebble turns the map",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 13,
+          "layout": "art-left",
+          "text": [
+            "The log was big and old. The hole in it was dark. Very, very dark.",
+            "“Step one: we go in!” said Tansy. She did not go in.",
+            "“Step two,” said Tansy. “Moss goes in first.”",
+            "Moss did not want to go in first. But he looked at the log for a long time. Then he saw a small thing. There was a spot of sun at the far end."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-13.webp",
+              "alt": "The three friends stop in front of a big, dark, hollow log",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 14,
+          "layout": "art-right",
+          "text": [
+            "“It is not a cave,” said Moss. “It is a tunnel. The sun is on the other side.”",
+            "He went in. One small step. Then one more. Tansy and Pebble held on to his tail.",
+            "Under the log, they could hear the stream. Splish, splash.",
+            "“Do hedgehogs have tails?” asked Pebble.",
+            "“A small one,” said Moss. “Please do not pull it.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-14.webp",
+              "alt": "Moss leads the way into the log with Tansy and Pebble holding on",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch5",
+      "title": "Chapter 5: X Marks the Spot",
+      "pages": [
+        {
+          "number": 15,
+          "layout": "art-full",
+          "text": [
+            "They came out in the sun. And there, in front of them, was…",
+            "Their own Hollow!",
+            "There was the stream. There was the stump. There was the gate. There was Tansy’s tree, with a big bump on it.",
+            "The log went over the stream like a bridge. They had walked in a big loop."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-15.webp",
+              "alt": "The friends come out of the log and see their own Hollow and Tansy's tree",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "layout": "art-right",
+          "text": [
+            "“We are home!” said Tansy. “That is the worst adventure ever!”",
+            "Pebble looked at the map. Then she turned it upside down. Then she groaned.",
+            "“Oh no,” she said. “Pip was… Pip was…” She shut her eyes. “I can’t say it.”",
+            "Moss took the map. He held it the other way up. Now the X was not at the top. It was at the start of the path."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-16.webp",
+              "alt": "Pebble holds the map upside down and groans",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "layout": "art-full",
+          "text": [
+            "“The X is not far away,” said Moss. “The X is here.” He tapped Tansy’s tree.",
+            "Tansy ran up the tree. She dug in a hole. Out came one acorn. Then two. Then ten. Then a whole flood of acorns!",
+            "BONK! One hit Pebble. BONK! One hit Moss.",
+            "Moss rolled into a ball. The acorns got stuck on his spines."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-17.webp",
+              "alt": "Acorns pour out of Tansy's tree and bonk Pebble and Moss",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "layout": "art-right",
+          "text": [
+            "“Moss!” said Tansy. “You look like a treasure chest!”",
+            "Moss peeked out. He was a ball of acorns. Pebble began to laugh. Tansy began to laugh.",
+            "Then Moss did too. He laughed so hard that ten acorns fell off.",
+            "Tansy put them back on. “Treasure should stay safe,” she said."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-18.webp",
+              "alt": "Moss is a ball covered in acorns and everyone laughs",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "layout": "art-left",
+          "text": [
+            "At dusk, the three friends sat under Tansy’s tree. They had a big snack of acorns.",
+            "Pip came by. “So,” he said. “Was the map upside down?”",
+            "Pebble looked at Moss. Moss looked at Tansy. Tansy looked at the sky.",
+            "“It was a GREAT adventure,” said Pebble. “That is all I will say.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-19.webp",
+              "alt": "At dusk the three friends share acorns under Tansy's tree as Pip comes by",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "layout": "art-right",
+          "text": [
+            "The next day, Tansy dug a new hole for her acorns. Then she made a new map.",
+            "This time, she drew a big arrow on it. Next to the arrow, she put the word UP.",
+            "Moss smiled. He had gone over a stream and into the dark. He had been brave, one small step at a time.",
+            "And he had only rolled up… three times."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-002/images/page-20.webp",
+              "alt": "Tansy draws a new map with an arrow while Moss smiles",
+              "animation": {
+                "kind": "float",
+                "trigger": "tap"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "quiz": {
+    "instructions": "Tap an answer. Tap the speaker to hear the question. You can try as many times as you like!",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "recall",
+        "prompt": "Who said the map was upside down?",
+        "choices": [
+          "Pip",
+          "Moss",
+          "Tansy"
+        ],
+        "answerIndex": 0,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/pip_pebble.webp",
+            "line": "Yes, it was Pip. Pebble still can’t say he was correct."
+          },
+          "tryAgain": {
+            "character": "images/web/characters/tansy.webp",
+            "line": "Not that one! Who ran by and peeked at the map? Try again!"
+          }
+        }
+      },
+      {
+        "id": "q2",
+        "type": "recall",
+        "prompt": "What did Pebble make to get over the stream?",
+        "choices": [
+          "A kite",
+          "A raft",
+          "A ladder"
+        ],
+        "answerIndex": 1,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/pip_pebble.webp",
+            "line": "A boat! Well… a raft. Fine, a raft."
+          },
+          "tryAgain": {
+            "character": "images/web/characters/moss.webp",
+            "line": "Hmm. What did Moss sit on? Try again!"
+          }
+        }
+      },
+      {
+        "id": "q3",
+        "type": "recall",
+        "prompt": "Where were the acorns at the end?",
+        "choices": [
+          "Under the frog rock",
+          "In the stream",
+          "In Tansy’s tree"
+        ],
+        "answerIndex": 2,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/tansy.webp",
+            "line": "In my own tree! The whole time! Ha!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/moss.webp",
+            "line": "Look at the X again. Where did the path start? Try again!"
+          }
+        }
+      },
+      {
+        "id": "q4",
+        "type": "think",
+        "prompt": "What would YOU put on a treasure map?",
+        "choices": [
+          "A big X",
+          "A frog rock",
+          "An arrow that says UP",
+          "Something else"
+        ],
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/moss.webp",
+            "line": "Good plan. Look at the small things!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/moss.webp",
+            "line": "Good plan. Look at the small things!"
+          }
+        }
+      },
+      {
+        "id": "q5",
+        "type": "think",
+        "prompt": "Where do you think the three friends will go next?",
+        "choices": [
+          "Up the big hill",
+          "Down the stream on the raft",
+          "Into the barn"
+        ],
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/tansy.webp",
+            "line": "Yes! Step one: we go! Step two: we go!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/tansy.webp",
+            "line": "Yes! Step one: we go! Step two: we go!"
+          }
+        }
+      }
+    ]
+  }
+}

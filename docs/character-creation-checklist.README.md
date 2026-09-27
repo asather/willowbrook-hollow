@@ -107,7 +107,8 @@
 ---
 
 ## 6) Optional: Book & UI Assets
-- [ ] If the new character appears in an existing/new book, update that book’s `book.json` (cast list, scenes/art references as needed).
+- [ ] Make sure the character works in scene art: render a test scene with `tools/compose-scenes.py`. A web copy with a transparent or plain light background works as is; if the master shows several figures together (like Pip & Pebble), add each figure's crop box to `SHEET_FIGURES` in the tool.
+- [ ] If the new character appears in an existing/new book, update that book’s `book.json` cast list and its `scenes.json`, and rebuild its scenes.
 - [ ] Create **variant art** (seasonal outfit, props) under `images/characters/variants/{id}/` and document any constraints (variants must not alter base proportions or colors).
 
 ---

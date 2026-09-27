@@ -257,6 +257,24 @@
         "ble"
       ],
       "definition": "A round ball of soap and air that floats and pops."
+    },
+    {
+      "word": "adventure",
+      "syllables": [
+        "ad",
+        "ven",
+        "ture"
+      ],
+      "definition": "A trip that is exciting and a little bit scary. You do not know what will happen."
+    },
+    {
+      "word": "treasure",
+      "syllables": [
+        "trea",
+        "sure"
+      ],
+      "definition": "Something special that is worth a lot. It is often hidden, like gold or acorns.",
+      "pronounce": "TREH-zher"
     }
   ]
 }

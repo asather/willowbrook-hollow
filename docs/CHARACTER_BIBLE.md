@@ -26,7 +26,7 @@ No unapproved changes to colors, proportions, or permanent accessories.
 - **Accessories:** None permanent  
 - **Personality:** Energetic, impulsive, over‑planned schemes  
 - **Speech:** Rapid, often skipping pauses; runs words together  
-- **Example Behaviors:** Talks over others; stacks objects in odd arrangements; forgets the original plan halfway through  
+- **Example Behaviors:** Talks over others; stacks objects in odd arrangements; forgets the original plan halfway through; buries acorns all over the Hollow and draws bark maps to find them again (then can't read her own maps). Her plans come as numbered steps.  
 - **Master Assets:**  
   - PNG: `images/characters/master/tansy_master.png`  
 
@@ -87,7 +87,8 @@ No unapproved changes to colors, proportions, or permanent accessories.
 - **Accessories:** None permanent  
 - **Personality:** Bicker yet loyal; resourceful in tight spots  
 - **Speech:** Snappy back‑and‑forth; finish each other’s sentences incorrectly  
-- **Example Behaviors:** Argue over trivial details; work in perfect sync under pressure; invent small gadgets from scraps  
+- **Example Behaviors:** Argue over trivial details; work in perfect sync under pressure; invent small gadgets from scraps (Pebble carries a bag of scraps for this)  
+- **Pronouns:** Pip is "he"; Pebble is "she"  
 - **Master Assets:**  
   - PNG: `images/characters/master/pip_pebble_master.png`  
 

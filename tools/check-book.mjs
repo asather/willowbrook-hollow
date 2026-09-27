@@ -7,7 +7,9 @@
  *
  * 1. Validates manifest.json, every book.json and every circles/<circle>/words.json
  *    against the schemas in /docs.
- * 2. Checks a book's reader-facing text (pages and quiz) against its Circle's rules:
+ * 2. Checks that the cover and every page use the book's own scene art (books/{bookId}/images/,
+ *    built from books/{bookId}/scenes.json by tools/compose-scenes.py).
+ * 3. Checks a book's reader-facing text (pages and quiz) against its Circle's rules:
  *    syllable limit, spelling patterns in scope, sentence length, page / chapter / book length,
  *    and the number of story words used.
  *
@@ -128,6 +130,8 @@ function checkBook(bookPath) {
   book.chapters.flatMap(c => c.pages).forEach((pg, i) => { if (pg.number !== i + 1) fail(`page numbers must run 1, 2, 3…; found ${pg.number} at position ${i + 1}`); });
   const bios = readJSON("docs/character-bios.json");
   book.cast.forEach(id => { if (!bios[id]) fail(`cast member "${id}" has no entry in docs/character-bios.json`); });
+  if (!book.cover.image.startsWith(`books/${book.bookId}/images/`)) fail(`cover must be scene art in books/${book.bookId}/images/`);
+  if (!fs.existsSync(path.join(ROOT, `books/${book.bookId}/scenes.json`))) fail(`books/${book.bookId}/scenes.json is missing (the source for the book's scene art)`);
   const { rules, heart, story, ownStory } = circleData(book.circle);
 
   const flagged = new Map();   // word -> reason
@@ -163,6 +167,7 @@ function checkBook(bookPath) {
       chWords += n;
       if (n < rules.pageWords[0] || n > rules.pageWords[1]) fail(`page ${pg.number}: ${n} words (range ${rules.pageWords.join("–")})`);
       if (!pg.media || !pg.media.length) fail(`page ${pg.number}: no art`);
+      else if (!pg.media.some(m => m.src.startsWith(`books/${book.bookId}/images/`))) fail(`page ${pg.number}: needs scene art from books/${book.bookId}/images/ (build it with tools/compose-scenes.py)`);
     });
     checkText(ch.title.replace(/^Chapter \d+:\s*/, ""), `${ch.id} title`);
     bookWords += chWords;

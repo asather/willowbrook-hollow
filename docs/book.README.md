@@ -7,7 +7,7 @@
 
 ## 1) Location
 - **Path pattern:** `books/{circle-lower}-{NNN}/book.json`, e.g. `books/acorn-001/book.json`.
-- The book's own art lives beside it in `books/{bookId}/images/`.
+- The book's own art lives beside it in `books/{bookId}/images/`, built from `books/{bookId}/scenes.json` (see [`SCENE_ART.md`](SCENE_ART.md)).
 - **All asset paths are relative to the site root**, e.g. `books/acorn-001/images/cover.webp` or `images/web/characters/moss.webp`. Always use forward slashes.
 
 ## 2) Example (trimmed from `acorn-001`)
@@ -62,10 +62,10 @@
           "media": [
             {
               "type": "image",
-              "src": "images/web/characters/moss.webp",
-              "alt": "Moss the hedgehog",
+              "src": "books/acorn-001/images/page-01.webp",
+              "alt": "Moss rolls into a ball by the stream at sunset as a sound comes from the barn",
               "animation": {
-                "kind": "roll",
+                "kind": "float",
                 "trigger": "tap"
               }
             }
@@ -144,7 +144,7 @@
 | `number` | yes | 1, 2, 3… across the whole book, no gaps or repeats. |
 | `layout` | yes | `art-left`, `art-right` or `art-full` (art above the text). |
 | `text` | yes | Paragraphs. Use curly quotes (“ ” ‘ ’) and an ellipsis (…). Story words are highlighted automatically. |
-| `media` | yes | At least one image: `type` "image", `src`, `alt`, optional `animation` `{ kind: pulse \| float \| wiggle \| roll, trigger: tap \| auto }`. Several images show side by side (use one per character on the page when there's no scene art). |
+| `media` | yes | At least one image: `type` "image", `src`, `alt`, optional `animation` `{ kind: pulse \| float \| wiggle \| roll, trigger: tap \| auto }`. Normally one image: the page's scene, `books/{bookId}/images/page-NN.webp` (see [`SCENE_ART.md`](SCENE_ART.md)). Several images show side by side. The checker requires at least one to be the book's own scene art. |
 
 ### `quiz.questions[]`
 | Field | Required | Meaning |
