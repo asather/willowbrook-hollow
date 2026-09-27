@@ -51,7 +51,7 @@ Each Circle's rules live in `circles/{circle}/words.json` (`rules`), and `tools/
 3. **Circle symbols appear in the art** (carved, woven, painted), always in the background and never counted or called out in the text.
 
 ## Circle symbols (official assets)
-Stored as `images/ui/circles/circle-{acorn|leaf|branch|oak|elder}.png`. Always use the official files; never regenerate variants.
+Stored as `images/ui/circles/circle-{acorn|leaf|branch|oak|elder}.png` (source). The app shows the web copies in `images/web/circles/`, built by `tools/make-web-images.py`. Always use the official files; never redraw variants.
 
 ## Ceremony notes (tone and gags)
 - **Acorn:** cozy welcome; Tansy drops extra acorns; Puddle claps off the beat.

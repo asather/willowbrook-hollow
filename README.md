@@ -31,11 +31,13 @@ manifest.json               # Circles and the list of books
 books/{bookId}/book.json    # One folder per book (e.g. acorn-001), with its art in images/
 circles/{circle}/words.json # Each Circle's word rules, heart words and story words
 circles/names.json          # Character and place names (exempt from word rules)
-images/characters/master/   # Official character master art
+images/characters/master/   # Official character master art (full-size PNG, Git LFS; canon source)
 images/characters/variants/ # Approved seasonal or scene-specific variations
-images/ui/circles/          # Official Circle emblems
+images/ui/circles/          # Official Circle emblems (PNG, Git LFS; canon source)
+images/web/                 # Web-sized WebP copies the app shows (built by tools/make-web-images.py)
 docs/                       # Documentation, JSON schemas, character bios, About text
-tools/check-book.mjs        # Validates JSON and checks books against their Circle's rules
+tools/check-book.mjs        # Validates JSON, checks books against their Circle's rules, checks every image is servable
+tools/make-web-images.py    # Rebuilds images/web/ from the master art
 ```
 
 ---
@@ -50,4 +52,5 @@ tools/check-book.mjs        # Validates JSON and checks books against their Circ
 - All **character masters** and **Circle symbols** come from the official files in `images/characters/master/` and `images/ui/circles/`.
 - No unapproved changes to proportions, colors or permanent accessories.
 - Variants go in `images/characters/variants/` and must be approved before use.
-- PNG and JPG files are stored with Git LFS; book covers are WebP.
+- **Masters are the source; the app shows web copies.** Master PNGs are full-size and stored with Git LFS. GitHub Pages can't serve LFS files, and full-size art is too heavy for a tablet, so the app loads the small WebP copies in `images/web/`. After adding or changing master art, run `python3 tools/make-web-images.py` (needs Pillow and `git lfs pull`) and commit `images/web/`.
+- Everything the app loads (web copies, book covers, scene art) is WebP stored as regular Git files. The checker fails any image path that is missing or is an LFS pointer.

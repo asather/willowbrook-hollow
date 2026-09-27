@@ -45,7 +45,7 @@ Open `circles/{circle}/words.json` and keep its `rules` in view.
 
 ### e) Art
 - [ ] **Cover** at `books/{bookId}/images/cover.webp` (16:9, WebP), built from master art or a scene illustration.
-- [ ] **Page art:** scene illustrations go in `books/{bookId}/images/`. Until a scene is illustrated, the page uses the master art of the characters on it, which is the default for new books.
+- [ ] **Page art:** scene illustrations go in `books/{bookId}/images/`. Until a scene is illustrated, the page uses the web copies of the characters on it (`images/web/characters/{id}.webp`), which is the default for new books. All art the app loads is WebP stored as regular Git files, never LFS.
 - [ ] Characters match their masters (proportions, colors, permanent accessories). The Circle's symbol appears somewhere in the scene art, never called out in the text.
 
 ## 3) Check

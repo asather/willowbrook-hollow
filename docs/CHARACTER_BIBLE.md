@@ -1,7 +1,7 @@
 # Willowbrook Hollow – Character Bible (with Master Asset Paths)
 
 **Purpose:** Enforce strict visual + personality consistency across books and illustrations.  
-**Usage:** When generating any art, reference the character's **master PNG** for color, proportions and permanent accessories.  
+**Usage:** When generating any art, reference the character's **master PNG** for color, proportions and permanent accessories. (The reader app shows web-sized copies of these masters from `images/web/characters/`.)  
 No unapproved changes to colors, proportions, or permanent accessories.
 
 ---

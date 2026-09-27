@@ -40,6 +40,7 @@
 - [ ] Ensure the **permanent accessory** is present and correct.
 - [ ] Export with transparent background when appropriate.
 - [ ] Save to: `images/characters/master/`
+- [ ] Run `python3 tools/make-web-images.py` to build the web copy `images/web/characters/{file-id}.webp` that the app shows, and commit it.
 
 **Recommended prompt notes (if using AI to draft art first):**
 - Reference this exact phrase: “Use Willowbrook’s Character Bible for **{Display Name}**.”
@@ -133,6 +134,7 @@
 - [ ] `docs/CHARACTERS_README.md` (updated relationships + asset paths)
 - [ ] `docs/character-bios.json` (new leveled bios)
 - [ ] `images/characters/master/{file-id}_master.png`
+- [ ] `images/web/characters/{file-id}.webp` (from `tools/make-web-images.py`)
 - [ ] `circles/names.json` (name + syllables)
 - [ ] `images/characters/variants/{id}/...` *(optional)*
 - [ ] (If applicable) `books/**/book.json` updates where the character appears
@@ -332,7 +334,7 @@ Before merge, confirm all boxes in sections 1–7 are checked and that the app l
    - Create/Update `docs/character-bios.json` with `{id}` → `name` + five `levels` (`acorn`, `leaf`, `branch`, `oak`, `elder`). Each level must pass its Circle's word rules; run `node tools/check-book.mjs --all`. Add the name to `circles/names.json`.
 4) **Master Images**
    - Generate **{file-id}_master.png** (2048–4096 px longest side) with transparent background; ensure **permanent accessories** present.
-   - Place in `images/characters/master/`. Create `images/characters/variants/{id}/` if variants were requested.
+   - Place in `images/characters/master/`, then run `python3 tools/make-web-images.py` to build `images/web/characters/{file-id}.webp`. Create `images/characters/variants/{id}/` if variants were requested.
 5) **Alt Text**
    - Add concise alt text for icon and master image (store in the intake JSON and/or PR).
 6) **App Integration**

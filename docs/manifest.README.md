@@ -19,7 +19,7 @@ Repo root: `manifest.json` (exactly one).
       "title": "The Monster in the Barn",
       "subtitle": "Something is squeaking in the barn…",
       "path": "./books/acorn-001/book.json",
-      "circleIcon": "images/ui/circles/circle-acorn.png"
+      "circleIcon": "images/web/circles/circle-acorn.webp"
     }
   ]
 }

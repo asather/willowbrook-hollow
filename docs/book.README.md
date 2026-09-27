@@ -8,13 +8,13 @@
 ## 1) Location
 - **Path pattern:** `books/{circle-lower}-{NNN}/book.json`, e.g. `books/acorn-001/book.json`.
 - The book's own art lives beside it in `books/{bookId}/images/`.
-- **All asset paths are relative to the site root**, e.g. `books/acorn-001/images/cover.webp` or `images/characters/master/moss_master.png`. Always use forward slashes.
+- **All asset paths are relative to the site root**, e.g. `books/acorn-001/images/cover.webp` or `images/web/characters/moss.webp`. Always use forward slashes.
 
 ## 2) Example (trimmed from `acorn-001`)
 ```json
 {
   "circle": "Acorn",
-  "circleIcon": "images/ui/circles/circle-acorn.png",
+  "circleIcon": "images/web/circles/circle-acorn.webp",
   "bookId": "acorn-001",
   "title": "The Monster in the Barn",
   "subtitle": "A Willowbrook Hollow story",
@@ -62,7 +62,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/moss_master.png",
+              "src": "images/web/characters/moss.webp",
               "alt": "Moss the hedgehog",
               "animation": {
                 "kind": "roll",
@@ -89,11 +89,11 @@
         "answerIndex": 0,
         "reactions": {
           "correct": {
-            "character": "images/characters/master/wren_master.png",
+            "character": "images/web/characters/wren.webp",
             "line": "Yes! A vi-o-LION! I was a little bit off."
           },
           "tryAgain": {
-            "character": "images/characters/master/leo_master.png",
+            "character": "images/web/characters/leo.webp",
             "line": "Hmm. Think back to Wren’s big news. Try again!"
           }
         }
@@ -109,11 +109,11 @@
         ],
         "reactions": {
           "correct": {
-            "character": "images/characters/master/moss_master.png",
+            "character": "images/web/characters/moss.webp",
             "line": "Maybe! One small step at a time."
           },
           "tryAgain": {
-            "character": "images/characters/master/moss_master.png",
+            "character": "images/web/characters/moss.webp",
             "line": "Maybe! One small step at a time."
           }
         }
@@ -129,7 +129,7 @@
 | Field | Required | Meaning |
 |---|---|---|
 | `circle` | yes | The book's Circle; must be one of `manifest.json` `circles`. Its rules come from `circles/{circle}/words.json`. |
-| `circleIcon` | yes | Official emblem, `images/ui/circles/circle-{circle}.png`. |
+| `circleIcon` | yes | Web copy of the official emblem, `images/web/circles/circle-{circle}.webp`. |
 | `bookId` | yes | `{circle-lower}-{NNN}`, permanent (progress is saved under it). |
 | `title`, `subtitle` | title yes | Shown on the title page and in the Library. |
 | `cover` | yes | `image` (16:9; WebP keeps it small, e.g. `books/{bookId}/images/cover.webp`) and `alt`. |
@@ -153,7 +153,7 @@
 | `type` | yes | `recall` (one right answer) or `think` (prediction or opinion; every answer is accepted). |
 | `prompt`, `choices` | yes | 2–4 choices. Follow the Circle's word rules. |
 | `answerIndex` | recall only | Index of the right choice. |
-| `reactions` | yes | `correct` and `tryAgain`, each `{ character: master image path, line }`. For think questions both are shown for any answer, so they can be the same. |
+| `reactions` | yes | `correct` and `tryAgain`, each `{ character: web image path (images/web/characters/{id}.webp), line }`. For think questions both are shown for any answer, so they can be the same. |
 
 ## 4) Rules the checker enforces
 - The file matches the schema; `toc` anchors match chapter ids.
@@ -166,3 +166,4 @@
 - A word the device voice mispronounces: add `pronounce` to its story-word entry instead of respelling it in the text.
 - Straight quotes (`"`) in text: they work, but curly quotes read better and keep sentence detection accurate.
 - Renaming a `bookId` after release loses readers' saved progress for that book.
+- Pointing `media` at `images/characters/master/…png`: those are full-size LFS files the website can't serve. Use `images/web/characters/{id}.webp`; the checker flags this.

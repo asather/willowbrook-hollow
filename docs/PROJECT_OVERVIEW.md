@@ -94,12 +94,13 @@ Full details: [`CHARACTER_BIBLE.md`](CHARACTER_BIBLE.md) and [`CHARACTERS_README
 ## Asset Rules
 
 **Master character images:**
-- Stored in `images/characters/master/` as `{id}_master.png` (the `{id}` uses underscores, e.g. `pip_pebble_master.png`).
+- Stored in `images/characters/master/` as `{id}_master.png` (the `{id}` uses underscores, e.g. `pip_pebble_master.png`), full size, in Git LFS.
+- The app shows web-sized copies, `images/web/characters/{id}.webp`, built by `python3 tools/make-web-images.py`. Rebuild and commit them whenever a master changes.
 - Must match the **Character Bible** exactly. No unapproved changes to proportions, colors or permanent accessories.
 - Variants (seasonal outfits, props) go in `images/characters/variants/` and must be approved before use.
 
-**Page art:** scene illustrations go in `books/{bookId}/images/`. When a page has no scene illustration yet, it shows the master art of the characters on that page. Every page must have art either way.
+**Page art:** scene illustrations go in `books/{bookId}/images/` as WebP. When a page has no scene illustration yet, it shows the web copies of the characters on that page. Every page must have art either way.
 
 **Circle symbols:**
-- Stored in `images/ui/circles/` as `circle-{name}.png`.
+- Stored in `images/ui/circles/` as `circle-{name}.png` (source); the app shows `images/web/circles/circle-{name}.webp`.
 - Always use the official files; never regenerate variants.

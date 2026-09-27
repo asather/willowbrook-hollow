@@ -217,7 +217,9 @@ const THEMES = {
 /* ============================================================
    Shared UI bits
    ============================================================ */
-const masterFor = (id) => `images/characters/master/${id.replace(/-/g, "_")}_master.png`;
+// Web-sized copies of the master art (built by tools/make-web-images.py); GitHub Pages cannot serve the LFS masters.
+const masterFor = (id) => `images/web/characters/${id.replace(/-/g, "_")}.webp`;
+const emblemFor = (circle) => `images/web/circles/circle-${circle.toLowerCase()}.webp`;
 
 function Btn({ children, onClick, kind = "soft", className, ...rest }) {
   const base = "min-h-[44px] px-4 rounded-2xl font-semibold transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300 disabled:opacity-40";
@@ -289,7 +291,7 @@ function HomeScreen({ go, openOverlay }) {
         <p className="mt-2 text-lg" style={{ color: "var(--muted)" }}>Behind the animal sanctuary, the critters are talking. Want to listen in?</p>
 
         <div className="mt-5 inline-flex items-center gap-3 px-4 py-2 rounded-2xl" style={{ background: "var(--card)", border: "2px solid var(--line)" }}>
-          <img src={`images/ui/circles/circle-${circle.toLowerCase()}.png`} alt="" className="h-10" />
+          <img src={emblemFor(circle)} alt="" className="h-10" />
           <span className="font-semibold">You are in the {circle} Circle</span>
         </div>
 
@@ -360,7 +362,7 @@ function LibraryDrawer({ onClose }) {
           return (
             <section key={circle} className="mb-5">
               <div className="flex items-center gap-2 font-bold mb-2">
-                <img src={`images/ui/circles/circle-${circle.toLowerCase()}.png`} alt="" className={cls("h-8", !open && "grayscale opacity-50")} />
+                <img src={emblemFor(circle)} alt="" className={cls("h-8", !open && "grayscale opacity-50")} />
                 {circle} {!open && <span aria-label="locked">🔒</span>}
               </div>
               {books.length === 0 && <div className="text-sm pl-10" style={{ color: "var(--muted)" }}>Stories coming soon.</div>}
@@ -926,7 +928,7 @@ function CeremonyView({ circle, onDone }) {
   return (
     <div className="min-h-screen flex items-center justify-center p-6">
       <div className="max-w-2xl text-center rounded-3xl p-8 shadow-xl" style={{ background: "var(--card)", border: "2px solid var(--line)" }}>
-        <img src={`images/ui/circles/circle-${circle.toLowerCase()}.png`} alt={`${circle} emblem`} className="h-28 mx-auto wh-pop" />
+        <img src={emblemFor(circle)} alt={`${circle} emblem`} className="h-28 mx-auto wh-pop" />
         <h1 className="mt-4 text-3xl font-extrabold">The {circle} Ceremony</h1>
         <p className="mt-4 text-xl leading-relaxed" style={{ fontFamily: "var(--read-font)" }}>{c.scene}</p>
         <p className="mt-4 text-xl font-bold" style={{ fontFamily: "var(--read-font)" }}>You get {c.gift}!{next && ` Welcome to the ${next} Circle.`}</p>

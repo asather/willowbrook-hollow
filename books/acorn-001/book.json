@@ -1,6 +1,6 @@
 {
   "circle": "Acorn",
-  "circleIcon": "images/ui/circles/circle-acorn.png",
+  "circleIcon": "images/web/circles/circle-acorn.webp",
   "bookId": "acorn-001",
   "title": "The Monster in the Barn",
   "subtitle": "A Willowbrook Hollow story",
@@ -68,7 +68,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/moss_master.png",
+              "src": "images/web/characters/moss.webp",
               "alt": "Moss the hedgehog",
               "animation": {
                 "kind": "roll",
@@ -90,7 +90,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/moss_master.png",
+              "src": "images/web/characters/moss.webp",
               "alt": "Moss the hedgehog",
               "animation": {
                 "kind": "roll",
@@ -99,7 +99,7 @@
             },
             {
               "type": "image",
-              "src": "images/characters/master/brindle_master.png",
+              "src": "images/web/characters/brindle.webp",
               "alt": "Brindle the old dog",
               "animation": {
                 "kind": "pulse",
@@ -121,7 +121,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/brindle_master.png",
+              "src": "images/web/characters/brindle.webp",
               "alt": "Brindle the old dog",
               "animation": {
                 "kind": "pulse",
@@ -148,7 +148,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/wren_master.png",
+              "src": "images/web/characters/wren.webp",
               "alt": "Wren the songbird",
               "animation": {
                 "kind": "wiggle",
@@ -169,7 +169,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/wren_master.png",
+              "src": "images/web/characters/wren.webp",
               "alt": "Wren the songbird",
               "animation": {
                 "kind": "wiggle",
@@ -178,7 +178,7 @@
             },
             {
               "type": "image",
-              "src": "images/characters/master/zoe_master.png",
+              "src": "images/web/characters/zoe.webp",
               "alt": "Zoe, the giant helper",
               "animation": {
                 "kind": "float",
@@ -199,7 +199,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/wren_master.png",
+              "src": "images/web/characters/wren.webp",
               "alt": "Wren the songbird",
               "animation": {
                 "kind": "wiggle",
@@ -208,7 +208,7 @@
             },
             {
               "type": "image",
-              "src": "images/characters/master/pip_pebble_master.png",
+              "src": "images/web/characters/pip_pebble.webp",
               "alt": "Pip and Pebble, the mouse twins",
               "animation": {
                 "kind": "wiggle",
@@ -229,7 +229,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/leo_master.png",
+              "src": "images/web/characters/leo.webp",
               "alt": "Leo the lion holding his wish ball",
               "animation": {
                 "kind": "float",
@@ -255,7 +255,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/tansy_master.png",
+              "src": "images/web/characters/tansy.webp",
               "alt": "Tansy the squirrel",
               "animation": {
                 "kind": "wiggle",
@@ -277,7 +277,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/tansy_master.png",
+              "src": "images/web/characters/tansy.webp",
               "alt": "Tansy the squirrel",
               "animation": {
                 "kind": "wiggle",
@@ -286,7 +286,7 @@
             },
             {
               "type": "image",
-              "src": "images/characters/master/pip_pebble_master.png",
+              "src": "images/web/characters/pip_pebble.webp",
               "alt": "Pip and Pebble, the mouse twins",
               "animation": {
                 "kind": "wiggle",
@@ -307,7 +307,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/brindle_master.png",
+              "src": "images/web/characters/brindle.webp",
               "alt": "Brindle the old dog",
               "animation": {
                 "kind": "pulse",
@@ -316,7 +316,7 @@
             },
             {
               "type": "image",
-              "src": "images/characters/master/moss_master.png",
+              "src": "images/web/characters/moss.webp",
               "alt": "Moss the hedgehog",
               "animation": {
                 "kind": "roll",
@@ -344,7 +344,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/moss_master.png",
+              "src": "images/web/characters/moss.webp",
               "alt": "Moss the hedgehog",
               "animation": {
                 "kind": "roll",
@@ -353,7 +353,7 @@
             },
             {
               "type": "image",
-              "src": "images/characters/master/leo_master.png",
+              "src": "images/web/characters/leo.webp",
               "alt": "Leo the lion holding his wish ball",
               "animation": {
                 "kind": "float",
@@ -374,7 +374,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/tansy_master.png",
+              "src": "images/web/characters/tansy.webp",
               "alt": "Tansy the squirrel",
               "animation": {
                 "kind": "wiggle",
@@ -383,7 +383,7 @@
             },
             {
               "type": "image",
-              "src": "images/characters/master/moss_master.png",
+              "src": "images/web/characters/moss.webp",
               "alt": "Moss the hedgehog",
               "animation": {
                 "kind": "roll",
@@ -404,7 +404,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/echo_master.png",
+              "src": "images/web/characters/echo.webp",
               "alt": "Echo the fox with his green satchel",
               "animation": {
                 "kind": "float",
@@ -425,7 +425,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/puddle_master.png",
+              "src": "images/web/characters/puddle.webp",
               "alt": "Puddle the duck",
               "animation": {
                 "kind": "wiggle",
@@ -446,7 +446,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/moss_master.png",
+              "src": "images/web/characters/moss.webp",
               "alt": "Moss the hedgehog",
               "animation": {
                 "kind": "roll",
@@ -455,7 +455,7 @@
             },
             {
               "type": "image",
-              "src": "images/characters/master/wren_master.png",
+              "src": "images/web/characters/wren.webp",
               "alt": "Wren the songbird",
               "animation": {
                 "kind": "wiggle",
@@ -483,7 +483,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/zoe_master.png",
+              "src": "images/web/characters/zoe.webp",
               "alt": "Zoe, the giant helper",
               "animation": {
                 "kind": "float",
@@ -504,7 +504,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/zoe_master.png",
+              "src": "images/web/characters/zoe.webp",
               "alt": "Zoe, the giant helper",
               "animation": {
                 "kind": "float",
@@ -513,7 +513,7 @@
             },
             {
               "type": "image",
-              "src": "images/characters/master/moss_master.png",
+              "src": "images/web/characters/moss.webp",
               "alt": "Moss the hedgehog",
               "animation": {
                 "kind": "roll",
@@ -535,7 +535,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/leo_master.png",
+              "src": "images/web/characters/leo.webp",
               "alt": "Leo the lion holding his wish ball",
               "animation": {
                 "kind": "float",
@@ -544,7 +544,7 @@
             },
             {
               "type": "image",
-              "src": "images/characters/master/brindle_master.png",
+              "src": "images/web/characters/brindle.webp",
               "alt": "Brindle the old dog",
               "animation": {
                 "kind": "pulse",
@@ -565,7 +565,7 @@
           "media": [
             {
               "type": "image",
-              "src": "images/characters/master/moss_master.png",
+              "src": "images/web/characters/moss.webp",
               "alt": "Moss the hedgehog",
               "animation": {
                 "kind": "roll",
@@ -574,7 +574,7 @@
             },
             {
               "type": "image",
-              "src": "images/characters/master/brindle_master.png",
+              "src": "images/web/characters/brindle.webp",
               "alt": "Brindle the old dog",
               "animation": {
                 "kind": "pulse",
@@ -583,7 +583,7 @@
             },
             {
               "type": "image",
-              "src": "images/characters/master/puddle_master.png",
+              "src": "images/web/characters/puddle.webp",
               "alt": "Puddle the duck",
               "animation": {
                 "kind": "wiggle",
@@ -610,11 +610,11 @@
         "answerIndex": 0,
         "reactions": {
           "correct": {
-            "character": "images/characters/master/wren_master.png",
+            "character": "images/web/characters/wren.webp",
             "line": "Yes! A vi-o-LION! I was a little bit off."
           },
           "tryAgain": {
-            "character": "images/characters/master/leo_master.png",
+            "character": "images/web/characters/leo.webp",
             "line": "Hmm. Think back to Wren’s big news. Try again!"
           }
         }
@@ -631,11 +631,11 @@
         "answerIndex": 1,
         "reactions": {
           "correct": {
-            "character": "images/characters/master/echo_master.png",
+            "character": "images/web/characters/echo.webp",
             "line": "Me? Help? I was just licking my paw."
           },
           "tryAgain": {
-            "character": "images/characters/master/tansy_master.png",
+            "character": "images/web/characters/tansy.webp",
             "line": "Not that one. Who sat on the step? Try again!"
           }
         }
@@ -652,11 +652,11 @@
         "answerIndex": 1,
         "reactions": {
           "correct": {
-            "character": "images/characters/master/brindle_master.png",
+            "character": "images/web/characters/brindle.webp",
             "line": "Yes. Squeaks turn into songs if you keep going."
           },
           "tryAgain": {
-            "character": "images/characters/master/moss_master.png",
+            "character": "images/web/characters/moss.webp",
             "line": "Hmm. What did Zoe do again and again? Try again!"
           }
         }
@@ -672,11 +672,11 @@
         ],
         "reactions": {
           "correct": {
-            "character": "images/characters/master/moss_master.png",
+            "character": "images/web/characters/moss.webp",
             "line": "Maybe! One small step at a time."
           },
           "tryAgain": {
-            "character": "images/characters/master/moss_master.png",
+            "character": "images/web/characters/moss.webp",
             "line": "Maybe! One small step at a time."
           }
         }
@@ -693,11 +693,11 @@
         ],
         "reactions": {
           "correct": {
-            "character": "images/characters/master/zoe_master.png",
+            "character": "images/web/characters/zoe.webp",
             "line": "Then keep going. Squeaks turn into songs!"
           },
           "tryAgain": {
-            "character": "images/characters/master/zoe_master.png",
+            "character": "images/web/characters/zoe.webp",
             "line": "Then keep going. Squeaks turn into songs!"
           }
         }

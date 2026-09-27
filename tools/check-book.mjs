@@ -224,6 +224,31 @@ function checkLevelledText() {
   if (problems === before) ok("all levels within their Circle's word rules");
 }
 
+/* ---------- images the app will load must exist and be real files (not Git LFS pointers) ---------- */
+function servable(p) {
+  const f = path.join(ROOT, p.replace(/^\.\//, ""));
+  if (!fs.existsSync(f)) return "missing";
+  const head = fs.readFileSync(f).subarray(0, 40).toString();
+  if (head.startsWith("version https://git-lfs")) return "a Git LFS pointer (GitHub Pages can't serve it; use images/web/)";
+  return null;
+}
+function checkImages(bookPaths) {
+  console.log("\nImages the app loads");
+  const before = problems;
+  const refs = new Set();
+  Object.keys(readJSON("docs/character-bios.json")).forEach(id => refs.add(`images/web/characters/${id.replace(/-/g, "_")}.webp`));
+  CIRCLES.forEach(c => refs.add(`images/web/circles/circle-${c.toLowerCase()}.webp`));
+  manifest.books.forEach(b => refs.add(b.circleIcon));
+  bookPaths.forEach(bp => {
+    const b = readJSON(bp);
+    [b.circleIcon, b.cover.image].forEach(x => refs.add(x));
+    b.chapters.forEach(c => c.pages.forEach(pg => pg.media.forEach(m => refs.add(m.src))));
+    b.quiz.questions.forEach(q => Object.values(q.reactions).forEach(r => refs.add(r.character)));
+  });
+  [...refs].forEach(r => { const why = servable(r); if (why) fail(`${r} is ${why}`); });
+  if (problems === before) ok(`${refs.size} image paths exist and are servable`);
+}
+
 /* ---------- run ---------- */
 const args = process.argv.slice(2);
 console.log("Schemas");
@@ -259,6 +284,7 @@ CIRCLES.forEach(c => {
 
 bookPaths.forEach(checkBook);
 checkLevelledText();
+checkImages(bookPaths);
 
 console.log(problems ? `\n${problems} problem(s) found.` : "\nAll checks passed.");
 process.exit(problems ? 1 : 0);
