@@ -1,0 +1,566 @@
+{
+  "circle": "Acorn",
+  "circleIcon": "images/web/circles/circle-acorn.webp",
+  "bookId": "acorn-004",
+  "title": "The Almost Picnic",
+  "subtitle": "A Willowbrook Hollow story",
+  "cover": {
+    "image": "books/acorn-004/images/cover.webp",
+    "alt": "Tansy and the Parrot Family on a red picnic blanket by the gold tree, as a big bubble floats toward Tansy’s sandwich"
+  },
+  "cast": [
+    "tansy",
+    "parrot-family",
+    "puddle",
+    "moss",
+    "wren",
+    "zoe"
+  ],
+  "toc": [
+    {
+      "type": "title",
+      "label": "Title Page"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 1: A Loud Invite",
+      "anchor": "ch1"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 2: Bite Number One",
+      "anchor": "ch2"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 3: Bite Number Two (and Three)",
+      "anchor": "ch3"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 4: The Very Last Sandwich",
+      "anchor": "ch4"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 5: The Giant’s Bucket",
+      "anchor": "ch5"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "ch1",
+      "title": "Chapter 1: A Loud Invite",
+      "pages": [
+        {
+          "number": 1,
+          "layout": "art-left",
+          "text": [
+            "Tansy was busy. She had ten acorns to bury before lunch.",
+            "She dug a hole. She dropped in an acorn. She drew a map on bark, so she could find it again.",
+            "Then the sky got loud, very, very loud.",
+            "“SQUAWK! SQUAWK! SQUAWK!”",
+            "Three parrots were coming in to land by her tree."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-01.webp",
+              "alt": "Tansy digs a hole by her tree as the three parrots swoop down from the sky"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "layout": "art-right",
+          "text": [
+            "June the mom landed first. Johnafur the dad landed next. Baby Juneafur landed last, with her bubble blower in her wing.",
+            "“We have a plan for the day!” sang June.",
+            "“A plan for the day, with food on a tray!” sang Johnafur.",
+            "“A nicpic!” sang Juneafur. “A nicpic! Hooray!”",
+            "“She means a picnic,” said June. “Will you come, Tansy?”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-02.webp",
+              "alt": "The Parrot Family stands in front of Tansy by her tree, singing their invite"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "layout": "art-left",
+          "text": [
+            "“Yes! Yes! YES!” said Tansy, all in one breath. “When is it? Where is it? What is there to eat?”",
+            "“On the hill, by our gold tree,” said June.",
+            "“At noon, at noon! Come soon, come soon!” sang Johnafur.",
+            "Tansy was so happy, she hopped up and down. She forgot her acorns. She forgot her map. It blew off in the wind."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-03.webp",
+              "alt": "Tansy hops for joy while her bark map blows away and the parrots cheer"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "layout": "art-right",
+          "text": [
+            "At dusk, Tansy sat down to make a plan. Her plans always came in steps.",
+            "Step one: Go up the hill to the gold tree.",
+            "Step two: Eat a jam sandwich.",
+            "Step three: Eat a cupcake with pink frosting.",
+            "Step four: Eat all the rest.",
+            "It was the best plan she ever had. It was also the shortest.",
+            "She went to bed with a big grin. She did not know what was coming."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-04.webp",
+              "alt": "At dusk, Tansy sits by her tree with her plan scratched on a piece of bark"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch2",
+      "title": "Chapter 2: Bite Number One",
+      "pages": [
+        {
+          "number": 5,
+          "layout": "art-left",
+          "text": [
+            "At noon, Tansy ran up the hill. There was the gold tree. Its leaves shone like coins.",
+            "In the trunk was a tiny door. It was as small as a nut.",
+            "Then the door began to grow. It grew and grew. Now it was as big as three parrots.",
+            "Out came June, Johnafur and Juneafur, with a big basket."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-05.webp",
+              "alt": "The Parrot Family steps out of the door in their gold tree with a picnic basket as Tansy runs up"
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "layout": "art-right",
+          "text": [
+            "Johnafur spread out a red blanket. June set out the food.",
+            "There was a tall stack of bread and jam. There was a bunch of green grapes. There was a big block of cheese. And there were six cupcakes with pink frosting.",
+            "“Not too close to the edge, Juneafur!” said June. “Sit by me.”",
+            "“Sit by me, sit by me!” sang Juneafur. Then she sat by Tansy."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-06.webp",
+              "alt": "A red picnic blanket full of sandwiches, grapes, cheese and pink cupcakes, with Tansy and the parrots around it"
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "layout": "art-left",
+          "text": [
+            "Tansy picked up a sandwich. “Step two,” she said. She opened wide.",
+            "Just then, Juneafur’s bubble blower went PFFT.",
+            "Out came a bubble, big and shiny. It floated up, up, up… and landed on Tansy’s nose.",
+            "POP!"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-07.webp",
+              "alt": "A big shiny bubble pops on Tansy’s nose just as she lifts a sandwich"
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "layout": "art-right",
+          "text": [
+            "“A-A-A-CHOO!” Tansy let out a huge sneeze.",
+            "The sandwich flew out of her paw. It went up in the air. It came down on Johnafur’s head.",
+            "Now he had a sandwich hat. Jam ran down his beak.",
+            "“A hat, a hat, a jam sandwich hat!” sang June.",
+            "“A hat, a hat! I like that!” sang Johnafur.",
+            "“Okay,” said Tansy. “That bite did not count.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-08.webp",
+              "alt": "Tansy sneezes and her sandwich lands on Johnafur’s head like a hat"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch3",
+      "title": "Chapter 3: Bite Number Two (and Three)",
+      "pages": [
+        {
+          "number": 9,
+          "layout": "art-left",
+          "text": [
+            "Tansy picked up the cheese. “Step two,” she said again. She opened wide.",
+            "Just then, Puddle the duck came up the hill.",
+            "Puddle was not looking at the picnic. He was looking at a moth.",
+            "The moth flew over the blanket. So Puddle walked over the blanket too."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-09.webp",
+              "alt": "Puddle the duck walks onto the picnic blanket, staring up at a moth"
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "layout": "art-right",
+          "text": [
+            "SQUISH went the grapes. SPLAT went a cupcake. PLOP! Puddle sat down on the cheese.",
+            "“Oh, hello,” said Puddle. “Is this a picnic? What was I doing?”",
+            "Then he got up and walked off. The cheese was stuck to his tail feathers.",
+            "“Bye, cheese,” said Tansy sadly.",
+            "“Bye, bye, cheese!” sang Juneafur, with a wave of her wing."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-10.webp",
+              "alt": "Puddle walks away with the block of cheese stuck to his tail while Tansy watches"
+            }
+          ]
+        },
+        {
+          "number": 11,
+          "layout": "art-left",
+          "text": [
+            "Moss the hedgehog was hiding in a bush. He was too shy to come out.",
+            "“Come and sit, come and sit!” sang June. “There is still lots to eat!”",
+            "Moss came out very slowly. He sat on the very edge of the blanket.",
+            "Tansy picked up a cupcake. “Step THREE,” she said. “I will skip step two.” She opened wide."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-11.webp",
+              "alt": "Shy Moss sits at the edge of the blanket while Tansy holds up a pink cupcake"
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "layout": "art-right",
+          "text": [
+            "Just then, PFFT! went the bubble blower. A bubble floated over to Moss. POP! It went off by his ear.",
+            "Moss did what Moss always does. He rolled into a ball.",
+            "And the hill was very, very steep.",
+            "Moss rolled down. He rolled over the grapes. He rolled over the cupcakes. He rolled over Tansy’s tail."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-12.webp",
+              "alt": "Moss, rolled into a ball, tumbles down the hill across the picnic"
+            }
+          ]
+        },
+        {
+          "number": 13,
+          "layout": "art-left",
+          "text": [
+            "At the bottom of the hill, Moss stopped. Green grapes were stuck to each of his spikes.",
+            "On top sat Tansy’s cupcake, like a pink hat.",
+            "“Sorry,” came a small squeak from inside. “I think I am a grape now.”",
+            "Tansy looked down at her paw. It was empty.",
+            "“More hats!” sang Juneafur. “Hats, hats, hats!”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-13.webp",
+              "alt": "At the bottom of the hill, Moss is a ball covered in green grapes with a pink cupcake on top"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch4",
+      "title": "Chapter 4: The Very Last Sandwich",
+      "pages": [
+        {
+          "number": 14,
+          "layout": "art-right",
+          "text": [
+            "Tansy was very, very hungry now. Her tummy went GRRR.",
+            "So she made a new plan.",
+            "Step one: No bubbles at all.",
+            "Step two: No ducks on the blanket.",
+            "Step three: No more rolling hedgehogs.",
+            "Step four: EAT.",
+            "Juneafur hid her bubble blower under her wing. June held Juneafur. Johnafur held his breath."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-14.webp",
+              "alt": "Tansy holds her new bark plan while the parrots sit very, very still"
+            }
+          ]
+        },
+        {
+          "number": 15,
+          "layout": "art-left",
+          "text": [
+            "There was just one sandwich left. Tansy held it up. No one made a peep.",
+            "She opened wide…",
+            "“BREAKING NEWS! BREAKING NEWS!”",
+            "Wren zoomed in from the sky. She landed on the sandwich, feet first, in the jam.",
+            "“A giant is coming up the hill!” sang Wren. “A big, big giant, with a big, big bucket!”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-15.webp",
+              "alt": "Wren zooms down and lands feet first on Tansy’s last sandwich"
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "layout": "art-right",
+          "text": [
+            "Tansy did not hear the news. She had seen something in the grass.",
+            "It was an acorn, a fat and shiny acorn.",
+            "Tansy dropped the sandwich. She dug a hole. She hid the acorn. She drew a map on a bit of bark.",
+            "“There,” she said. “Now, where was I?”",
+            "She looked for her sandwich. Ten little ants were taking it down the hill."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-16.webp",
+              "alt": "Tansy buries an acorn while a line of ants carries her last sandwich down the hill"
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "layout": "art-left",
+          "text": [
+            "“Bye, sandwich,” said Tansy softly.",
+            "She sat down on the messy blanket. There was no bread, no cheese and no grapes. The grapes were all on Moss.",
+            "“This is the worst picnic,” she said.",
+            "Then she looked at Johnafur. He still had jam on his head. Moss was still a grape.",
+            "Tansy’s lip went wobbly. Then out came a snort, then a laugh, then a BIG laugh.",
+            "The parrots laughed too. Moss laughed so hard, three grapes fell off."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-17.webp",
+              "alt": "Tansy, the parrots and grape-covered Moss laugh together on the messy blanket"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch5",
+      "title": "Chapter 5: The Giant’s Bucket",
+      "pages": [
+        {
+          "number": 18,
+          "layout": "art-right",
+          "text": [
+            "THUMP, THUMP, THUMP. Big boots were coming up the hill.",
+            "It was the giant! She had a bucket in her hand. She was humming a song.",
+            "The whole picnic held still. Moss held the most still of all. He had lots of practice."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-18.webp",
+              "alt": "Zoe walks up the hill with her bucket while the animals freeze on the blanket"
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "layout": "art-left",
+          "text": [
+            "The giant looked at the messy blanket. She looked at the grape hedgehog. She looked at the parrot with jam on his head.",
+            "“Looks like someone had a picnic!” she said, with a laugh.",
+            "Then she tipped her bucket. Out came nuts and seeds and carrots. Out came a big pile of berries.",
+            "“Here you go, little friends,” said the giant. “Lunch is on me.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-19.webp",
+              "alt": "Zoe tips her bucket of nuts, seeds, carrots and berries onto the picnic blanket"
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "layout": "art-right",
+          "text": [
+            "“What did the giant say?” said June.",
+            "“She said, ‘Looks like someone had a PIG-nic!’” said Wren. That was not what she said. But it was close.",
+            "Tansy picked up a nut. She looked up and she looked down. There were no bubbles, no ducks, no news and no acorns.",
+            "She took a big bite. CRUNCH!",
+            "“Step two,” said Tansy, with her mouth full. “At last!”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-20.webp",
+              "alt": "Tansy finally bites a nut while Wren tells the parrots what the giant said"
+            }
+          ]
+        },
+        {
+          "number": 21,
+          "layout": "art-left",
+          "text": [
+            "They all ate and ate. The giant stood in the grass and hummed.",
+            "Then Juneafur blew one tiny bubble. It floated up, up, up… and landed on the giant’s cheek.",
+            "POP!",
+            "The giant laughed, and so did the whole picnic.",
+            "“Best nicpic ever!” said Juneafur.",
+            "And this time, no one fixed the word. It was just the best."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-004/images/page-21.webp",
+              "alt": "Zoe laughs as a tiny bubble from Juneafur lands on her cheek, with all the animals eating around her"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "quiz": {
+    "instructions": "Tap an answer. Tap the speaker to hear the question. You can try as many times as you like!",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "recall",
+        "prompt": "What popped on Tansy’s nose?",
+        "choices": [
+          "A grape",
+          "A bubble",
+          "A cupcake"
+        ],
+        "answerIndex": 1,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/parrot_family.webp",
+            "line": "PFFT! POP! That was my bubble!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/tansy.webp",
+            "line": "Hmm. It was round and shiny. Try again!"
+          }
+        }
+      },
+      {
+        "id": "q2",
+        "type": "recall",
+        "prompt": "Why did Moss roll down the hill?",
+        "choices": [
+          "He wanted a grape",
+          "Puddle sat on him",
+          "A bubble went POP by his ear"
+        ],
+        "answerIndex": 2,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/moss.webp",
+            "line": "Yes. A POP makes me roll."
+          },
+          "tryAgain": {
+            "character": "images/web/characters/moss.webp",
+            "line": "Um… what went POP? Try again."
+          }
+        }
+      },
+      {
+        "id": "q3",
+        "type": "recall",
+        "prompt": "Why did Tansy drop the last sandwich?",
+        "choices": [
+          "She had to hide an acorn",
+          "Wren took it",
+          "It was too big"
+        ],
+        "answerIndex": 0,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/tansy.webp",
+            "line": "Yes! I just HAD to hide that acorn!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/wren.webp",
+            "line": "Breaking news: that is not it! Try again!"
+          }
+        }
+      },
+      {
+        "id": "q4",
+        "type": "recall",
+        "prompt": "Who came up the hill with a bucket?",
+        "choices": [
+          "Leo",
+          "The giant",
+          "Echo"
+        ],
+        "answerIndex": 1,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/zoe.webp",
+            "line": "Yes, it was me! Lunch is on me."
+          },
+          "tryAgain": {
+            "character": "images/web/characters/wren.webp",
+            "line": "Look for the yellow boots! Try again!"
+          }
+        }
+      },
+      {
+        "id": "q5",
+        "type": "think",
+        "prompt": "What part of the picnic was the most fun?",
+        "choices": [
+          "The jam sandwich hat",
+          "Moss as a grape",
+          "Puddle with cheese on his tail"
+        ],
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/parrot_family.webp",
+            "line": "Ha! A fun part, a fun part! We laughed at that too!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/parrot_family.webp",
+            "line": "Ha! A fun part, a fun part! We laughed at that too!"
+          }
+        }
+      }
+    ]
+  }
+}

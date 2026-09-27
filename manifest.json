@@ -30,6 +30,14 @@
       "subtitle": "Two twins. One trick. Zero clues.",
       "path": "./books/acorn-003/book.json",
       "circleIcon": "images/web/circles/circle-acorn.webp"
+    },
+    {
+      "circle": "Acorn",
+      "bookId": "acorn-004",
+      "title": "The Almost Picnic",
+      "subtitle": "Every time they go to eat… something funny happens!",
+      "path": "./books/acorn-004/book.json",
+      "circleIcon": "images/web/circles/circle-acorn.webp"
     }
   ]
 }

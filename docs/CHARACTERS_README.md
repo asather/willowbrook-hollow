@@ -70,7 +70,7 @@ Reference for consistent character portrayal: personalities, quirks, relationshi
 
 **Parrot Family — News-Bringing Parrots (June, Johnafur, Juneafur)**  
 - **Personality:** Kind, adventurous, loud, and chatty; June is gently overprotective of Juneafur.  
-- **Quirks:** Speak in rhyme; repeat each other’s sentences; Juneafur’s cute mispronunciations; baby carries a bubble-blower.  
+- **Quirks:** Speak in rhyme; repeat each other’s sentences; Juneafur’s cute mispronunciations (a picnic is a “nicpic”); baby carries a bubble-blower.  
 - **Dynamics:** Share travel news with Wren and Echo; friendly with all. Live in a gold tree with a shrinking door.  
 - **Master Assets:**  
   - PNG: `images/characters/master/parrot_family_master.png`  

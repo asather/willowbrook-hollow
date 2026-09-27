@@ -11,7 +11,7 @@ A scene is drawn in layers, back to front:
 
 1. **Backdrop**, painted by the tool: sky (morning, day or dusk), rolling hills, trees in fall colors, the stream, rocks, the barn, the inside of the barn, logs and so on.
 2. **Props** the page talks about, also painted by the tool: Tansy's map, the raft, acorns, the viola and its case, music notes, a fish, a moth.
-3. **Characters**, always the canon art from `images/web/characters/`, scaled, placed, flipped or tilted to act out the page. Art with a plain background is cut out automatically. Figures that share one picture (Pip and Pebble) are cut apart, as listed in `SHEET_FIGURES` in the tool.
+3. **Characters**, always the canon art from `images/web/characters/`, scaled, placed, flipped or tilted to act out the page. Art with a plain background is cut out automatically; art on a colored paper background (the parrot family's tan) gets its own cut-out settings in `CUTOUT_TUNING`. Figures that share one picture (Pip and Pebble) are cut apart, as listed in `SHEET_FIGURES` in the tool. The parrot family is always placed as one group (`parrot-family`).
 4. **The Circle emblem**, small and faint in the background (carved on a stump, on a trunk, on the barn). The tool refuses to render a scene without one. It is never called out in the text.
 
 Because characters come from their web copies, they always match the Character Bible (colors, proportions, permanent accessories). Never redraw a character in a scene.
@@ -61,7 +61,7 @@ Because characters come from their web copies, they always match the Character B
 | `map` | `x`, `y`, `w`, `rot`, `upside`, `arrow` | Tansy's bark map |
 | `raft`, `case`, `viola` | `x`, `y`, `w` or `s`, `rot`, (`open`) | Props |
 | `acorns` | `x`, `y`, `n`, `spread`, `ys`, `r` | A scatter or shower of acorns |
-| `moss_ball` | `x`, `y`, `r`, `peek`, `acorns`, `motion` | Moss rolled up (peeking, covered in acorns, rolling) |
+| `moss_ball` | `x`, `y`, `r`, `peek`, `acorns`, `grapes`, `cupcake`, `motion` | Moss rolled up (peeking, covered in acorns or grapes, wearing a cupcake, rolling) |
 | `fish`, `splash`, `moth`, `dirt`, `hole` | `x`, `y`, size | Small story details |
 | `prints` | `x`, `y`, `dx`, `dy`, `n`, `s` | A trail of paw prints |
 | `reeds`, `stick` | `x`, `y`, `h` / `x1`, `y1`, `x2`, `y2` | Reeds at the water, a poking stick |
@@ -69,6 +69,14 @@ Because characters come from their web copies, they always match the Character B
 | `motion` | `x`, `y`, `s`, `kind` (`hop`, `bonk`, `huff`, `spin`) | Cartoon action lines |
 | `leaf_hat`, `sock` | `x`, `y`, `r` / `s`, `rot` | Pebble’s leaf disguise; Zoe’s striped sock |
 | `gust` | `x`, `y`, `s`, `n` | A gust of wind blowing across the picture |
+| `gold_tree` | `x`, `y`, `h`, `w`, `door` (`shut`, `open`) | The Parrot Family's gold tree; its magic door is nut-sized when shut and parrot-sized when open |
+| `blanket`, `basket` | `x`, `y`, `w`, (`messy`) | A red-checked picnic blanket; a picnic basket |
+| `sandwich`, `cupcake`, `grapes`, `cheese` | `x`, `y`, `s`, `rot`, (`drip`) | Picnic food (`drip` adds jam drips, for a sandwich worn as a hat) |
+| `splat` | `x`, `y`, `s`, `color` | Squashed food |
+| `bubble`, `pop` | `x`, `y`, `r` (`n`, `spread`) / `s` | Juneafur's soap bubbles; a bubble popping |
+| `ants` | `x`, `y`, `dx`, `dy`, `n`, `s`, `carry` | A line of ants (`carry: "sandwich"` puts a sandwich on their backs) |
+| `bucket`, `snacks` | `x`, `y`, `s`, `tip` / `spread`, `n` | Zoe's feed bucket; the nuts, seeds, carrots and berries she shares |
+| `plan` | `x`, `y`, `w`, `rot` | Tansy's numbered plan scratched on bark |
 | `character` | `id`, `x`, `y`, `h`, `flip`, `rot`, `dim`, `dusty`, `noShadow` | A character from `images/web/characters/` (`pip` and `pebble` separately; Pebble always gets her canon ear notch). `dusty` (0–1) turns fur dusty gray |
 | `emblem` | `x`, `y`, `s`, `opacity` | The book's Circle symbol (required) |
 

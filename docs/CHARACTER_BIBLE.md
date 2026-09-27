@@ -131,6 +131,8 @@ No unapproved changes to colors, proportions, or permanent accessories.
   - Return at dusk with “news runs” from beyond the Hollow.
   - Speak in playful couplets; echo each other for fun.
   - Juneafur accidentally turns serious talks into giggles with bubble bursts.
+  - Juneafur calls a picnic a “nicpic,” and nobody fixes it any more (*The Almost Picnic*, acorn-004).
+- **In scenes:** the three always appear together, from their one master picture (Johnafur on the left, June on the right, Juneafur in front with her bubble-blower). `tools/compose-scenes.py` cuts them out of its tan paper background as a group; flip the picture to change which way they face.
 - **Master Assets:**
   - PNG: `images/characters/master/parrot_family_master.png`
 
