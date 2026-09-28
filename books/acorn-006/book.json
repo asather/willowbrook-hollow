@@ -1,0 +1,653 @@
+{
+  "circle": "Acorn",
+  "circleIcon": "images/web/circles/circle-acorn.webp",
+  "bookId": "acorn-006",
+  "title": "Where Did the Nuts Go?",
+  "subtitle": "A Willowbrook Hollow story",
+  "cover": {
+    "image": "books/acorn-006/images/cover.webp",
+    "alt": "Tansy and Brindle by a fresh hole under the big oak while nuts fly through the air"
+  },
+  "cast": [
+    "tansy",
+    "brindle",
+    "echo",
+    "puddle",
+    "pip-pebble",
+    "wren"
+  ],
+  "toc": [
+    {
+      "type": "title",
+      "label": "Title Page"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 1: Too Busy",
+      "anchor": "ch1"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 2: Dig, Drop, Plop",
+      "anchor": "ch2"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 3: Step Three",
+      "anchor": "ch3"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 4: The Old Nose",
+      "anchor": "ch4"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 5: Just One More",
+      "anchor": "ch5"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "ch1",
+      "title": "Chapter 1: Too Busy",
+      "pages": [
+        {
+          "number": 1,
+          "layout": "art-left",
+          "text": [
+            "It was the last warm day of fall in Willowbrook Hollow.",
+            "Tansy the squirrel had a pile of nuts. It was a big pile. No, it was a HUGE pile.",
+            "“One hundred nuts!” said Tansy. “And the frost comes soon. I have to bury them all today!”",
+            "She hopped up and down, and the whole pile went clack, clack."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-01.webp",
+              "alt": "Tansy hops beside a huge pile of nuts under a fall tree"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "layout": "art-right",
+          "text": [
+            "Tansy had a plan, because Tansy always had a plan. She had scratched it on a scrap of bark.",
+            "“Step one: dig holes,” she read. “Step two: drop in the nuts. Step three: make a map. Step four: do not lose the map.”",
+            "She looked at the pile. She looked at her two small paws.",
+            "“I need help,” she said. “Lots of help. Fast help!”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-02.webp",
+              "alt": "Tansy holds up her plan on a scrap of bark next to her pile of nuts"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "layout": "art-left",
+          "text": [
+            "Tansy ran to the stream. Pip and Pebble were fixing a raft.",
+            "“Can you help me bury nuts?” asked Tansy.",
+            "“We are busy,” said Pip. “The raft has a leak.”",
+            "“It does not have a leak,” said Pebble. “It has a hole.”",
+            "“A hole IS a leak,” said Pip.",
+            "Tansy left them to fuss."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-03.webp",
+              "alt": "Pip and Pebble argue over a raft by the stream while Tansy asks for help"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "layout": "art-right",
+          "text": [
+            "Puddle was by the water, looking up at a cloud.",
+            "“Puddle, can you help me bury nuts?”",
+            "“Not now,” said Puddle. “That cloud looks like a duck. Or a boot. I have to see which.”",
+            "Up on the gate, Echo had his eyes shut.",
+            "“Echo, can you help me?” asked Tansy.",
+            "“Busy napping, Nutty,” said Echo. He did not open his eyes."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-04.webp",
+              "alt": "Puddle stares up at the sky while Echo naps on the gate and Tansy looks between them"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "layout": "art-left",
+          "text": [
+            "Wren came zipping by. “Breaking news!” she sang. “Tansy needs help! Tansy needs help!”",
+            "“Yes!” said Tansy. “So will you help me?”",
+            "“Oh, I can’t,” said Wren. “I have to tell the news. It is VERY big news.”",
+            "And off she flew.",
+            "Tansy sat down on her nuts. The whole Hollow was busy."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-05.webp",
+              "alt": "Wren zips away singing while Tansy sits glumly on top of her pile of nuts"
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "layout": "art-right",
+          "text": [
+            "Well, not the WHOLE Hollow.",
+            "Under the big oak, in his sunny spot, lay Brindle. The old dog was dozing.",
+            "“Brindle?” said Tansy. “Are you busy?”",
+            "Brindle opened one eye. He did not answer for a long time.",
+            "“I am old,” he said at last. “Old dogs are never busy.”",
+            "“So you CAN help!” said Tansy.",
+            "“Dogs are good at digging,” said Brindle slowly. “It is what we do.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-06.webp",
+              "alt": "Brindle dozes in his sunny spot under the big oak as Tansy tiptoes up to him"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch2",
+      "title": "Chapter 2: Dig, Drop, Plop",
+      "pages": [
+        {
+          "number": 7,
+          "layout": "art-left",
+          "text": [
+            "Brindle got up. It took a while. First his front end, then his back end, then his tail.",
+            "“Step one: dig holes!” said Tansy. “Go, go, go!”",
+            "Brindle dug. Dirt flew out between his back legs. He dug fast for an old dog.",
+            "In no time, there was a deep, deep hole."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-07.webp",
+              "alt": "Brindle digs fast, sending dirt flying, while Tansy cheers"
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "layout": "art-right",
+          "text": [
+            "Tansy dropped in ten nuts, plink, plink, plink.",
+            "“Step two: done!” she said. “Next hole, please!”",
+            "Brindle began to dig the next hole. But he dug it in the SAME spot.",
+            "Dirt flew out. So did the nuts. They went up over his back and over the hill."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-08.webp",
+              "alt": "Brindle digs in the same hole and nuts fly up over his back toward the hill"
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "layout": "art-left",
+          "text": [
+            "Bonk, bonk, bonk!",
+            "“OW!” came a yell from the gate.",
+            "“Sorry, Echo!” said Tansy. “Are those my nuts?”",
+            "“They WERE your nuts,” said Echo. He rubbed his head. Then he went back to napping.",
+            "Brindle looked at the hole. “Hmm,” he said, “dogs are good at digging. We are not so good at stopping.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-09.webp",
+              "alt": "Nuts bonk Echo on the head as he sits on the gate"
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "layout": "art-right",
+          "text": [
+            "They went to a new spot. Tansy dug. Brindle dug. Tansy dropped in nuts.",
+            "Then Tansy looked up. Brindle was not digging. Brindle was asleep, flat on top of the hole.",
+            "“Brindle!” said Tansy. “Wake up! You are on the nuts!”",
+            "Brindle just snored. The leaves fell on him, one by one."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-10.webp",
+              "alt": "Brindle sleeps flat on top of the new hole while Tansy tugs at him and leaves fall"
+            }
+          ]
+        },
+        {
+          "number": 11,
+          "layout": "art-left",
+          "text": [
+            "Tansy did not want to wait. So she found a new spot. It was a soft brown hill of leaves.",
+            "It was a very good hill. It was warm. It went up and down, up and down.",
+            "She pushed nuts into the hill. Ten, twenty, thirty!",
+            "And then the hill gave a big yawn."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-11.webp",
+              "alt": "Tansy pushes nuts into a warm pile of leaves, and a brown ear sticks out of the top"
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "layout": "art-right",
+          "text": [
+            "The hill stood up. The hill gave a big shake.",
+            "Leaves flew and nuts flew, plink, plonk, plunk!",
+            "“Oh,” said Tansy, “that hill was you.”",
+            "Wren came zipping back. “Breaking news!” she sang. “Brindle ate all of Tansy’s nuts!”",
+            "“I did not eat them,” said Brindle.",
+            "“Breaking news!” sang Wren. “Brindle did not eat the nuts! He is a hill!”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-12.webp",
+              "alt": "Brindle stands up and shakes, sending leaves and nuts flying, while Wren swoops overhead"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch3",
+      "title": "Chapter 3: Step Three",
+      "pages": [
+        {
+          "number": 13,
+          "layout": "art-left",
+          "text": [
+            "“We have to do better,” said Tansy. “Step three: make a map!”",
+            "She picked up the last of the nuts. She dug a hole all by herself. In went the nuts.",
+            "Then she scratched a map on her bark. There was a wavy line for the stream. There was an X for the nuts.",
+            "“There,” she said. “Now we can’t lose them.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-13.webp",
+              "alt": "Tansy proudly holds up her new bark map beside a hole full of nuts"
+            }
+          ]
+        },
+        {
+          "number": 14,
+          "layout": "art-right",
+          "text": [
+            "She looked at the hole. It was open. Anyone could see the nuts. A crow could take them!",
+            "So she put the bark on top, like a lid. Then she put dirt on the bark, pat, pat, pat.",
+            "“Step four,” said Tansy. “Do not lose the map.”",
+            "She looked at her paws. She looked at the ground. She looked at Brindle.",
+            "“Brindle,” she said. “Where is my map?”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-14.webp",
+              "alt": "Tansy pats dirt over a hole, and one corner of her bark map pokes out"
+            }
+          ]
+        },
+        {
+          "number": 15,
+          "layout": "art-left",
+          "text": [
+            "Brindle looked at the fresh dirt. He gave it a sniff.",
+            "“Your map,” he said slowly, “is on your nuts. Under the dirt.”",
+            "Tansy flopped down on the grass. “I hid the map!” she said. “I hid the map that tells me where I hid the nuts!”",
+            "Brindle nodded. That was the most Tansy thing he had ever seen."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-15.webp",
+              "alt": "Tansy flops flat on the grass in despair while Brindle sniffs the fresh dirt"
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "layout": "art-right",
+          "text": [
+            "“Let me dig it up,” said Brindle.",
+            "He dug and dug. Out came dirt, and then a stick. Out came… a bone.",
+            "Brindle’s tail began to wag. “My bone!” he said. “I lost this bone last spring!”",
+            "“YOU lose things too?” said Tansy.",
+            "“Everyone loses things,” said Brindle. He gave the bone a lick. “Some of us are just slower about it.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-16.webp",
+              "alt": "Brindle proudly holds up an old muddy bone he dug up while Tansy stares"
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "layout": "art-left",
+          "text": [
+            "By dusk, Tansy had a bone and a stick. She had a lot of dirt on her tail.",
+            "She did not have one nut. Not in a hole. Not on the grass. Not one.",
+            "“I lost them all,” she said. “One hundred nuts. Gone.”",
+            "Her big tail drooped. Even her ears drooped."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-17.webp",
+              "alt": "At dusk, a sad Tansy sits by empty holes with a bone and a stick beside her"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch4",
+      "title": "Chapter 4: The Old Nose",
+      "pages": [
+        {
+          "number": 18,
+          "layout": "art-right",
+          "text": [
+            "Brindle sat down next to her. He sat slowly, the way old dogs do.",
+            "“A lost nut is like a nap,” he said. “You can’t get one if you try too hard.”",
+            "“What does that mean?” asked Tansy.",
+            "“It means it is my turn,” said Brindle. He tapped his nose. “I have an old nose. But it is a good one.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-18.webp",
+              "alt": "Brindle sits close to Tansy at dusk and taps his nose with a paw"
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "layout": "art-left",
+          "text": [
+            "Brindle put his nose down and went sniff, sniff, sniff.",
+            "He went to the leaves where he had napped. Out of the leaves came five nuts.",
+            "He went up the hill and found ten more under a rock.",
+            "He sniffed the fresh dirt and dug up the map. The nuts were under it, of course.",
+            "He went to the gate. His nose went up, up, up, to Echo’s satchel."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-19.webp",
+              "alt": "Brindle sniffs his way up to the gate, where Echo sits with his satchel"
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "layout": "art-right",
+          "text": [
+            "“Echo,” said Brindle. “Your bag smells like nuts.”",
+            "Echo opened one eye. “Does it? How odd.”",
+            "Out of the satchel came nuts. Lots of nuts. Twenty-two nuts!",
+            "“I was keeping them safe,” said Echo. “From the rain. And from Wren.”",
+            "Tansy gave him a big hug. Echo made a face. But he did not stop her."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-20.webp",
+              "alt": "Nuts spill out of Echo's satchel as Tansy hugs him and Brindle looks on"
+            }
+          ]
+        },
+        {
+          "number": 21,
+          "layout": "art-left",
+          "text": [
+            "Then Brindle’s nose led them down to the water.",
+            "Puddle was still looking at the cloud. He was sitting on a lumpy nest.",
+            "“Puddle,” said Tansy. “What are you sitting on?”",
+            "Puddle looked down. “Eggs, I think,” he said. “Brown ones. They are very hard eggs.”",
+            "They were not eggs. They were nuts. Thirty of them!",
+            "“Oh,” said Puddle. “Well. That cloud was a boot, by the way.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-21.webp",
+              "alt": "Puddle sits on a nest of nuts by the water, and Tansy and Brindle find him"
+            }
+          ]
+        },
+        {
+          "number": 22,
+          "layout": "art-right",
+          "text": [
+            "Last of all, they went to the raft. Pip and Pebble had fixed it.",
+            "Their raft was full of nuts, from end to end.",
+            "“Nuts fell on our raft!” said Pip. “They came from the sky!”",
+            "“They came over the hill,” said Pebble. “I saw them.”",
+            "“You did not,” said Pip. “You were busy.”",
+            "“I am ALWAYS busy,” said Pebble. “I still saw them.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-22.webp",
+              "alt": "Pip and Pebble argue next to their raft, which is heaped with nuts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch5",
+      "title": "Chapter 5: Just One More",
+      "pages": [
+        {
+          "number": 23,
+          "layout": "art-left",
+          "text": [
+            "Back under the oak, Tansy made a big pile. She counted. Then she counted again.",
+            "“One short!” she said. “We have all of them but one!”",
+            "Brindle sniffed the air. He sniffed the grass. He sniffed Tansy.",
+            "“I smell it,” he said, with a frown. “But I can’t find it.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-23.webp",
+              "alt": "Under the oak at dusk, Tansy counts a big pile of nuts while Brindle sniffs the air"
+            }
+          ]
+        },
+        {
+          "number": 24,
+          "layout": "art-right",
+          "text": [
+            "Brindle sat down to scratch his ear, scritch, scratch, scritch.",
+            "Something fell out of his green bandana. It hit the grass with a plop.",
+            "It was one small, brown nut.",
+            "“It was on you the whole time!” said Tansy.",
+            "Brindle looked at the nut. He looked at Tansy. “Well,” he said. “That is the best spot for a nut I ever saw.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-24.webp",
+              "alt": "A single nut drops out of Brindle's green bandana as Tansy points and laughs"
+            }
+          ]
+        },
+        {
+          "number": 25,
+          "layout": "art-left",
+          "text": [
+            "This time, they took it slowly. Brindle dug. Tansy dropped in the nuts. No one napped. No one got bonked.",
+            "Tansy did not make a map. She did not need one.",
+            "Wren zipped by one last time. “Breaking news!” she sang. “Tansy did NOT lose her nuts!”",
+            "“Yet,” said Echo, from the gate."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-25.webp",
+              "alt": "Brindle and Tansy bury nuts together while Wren flies by and Echo smirks from the gate"
+            }
+          ]
+        },
+        {
+          "number": 26,
+          "layout": "art-right",
+          "text": [
+            "Then Tansy scratched a new plan on bark.",
+            "“Step one: bury the nuts. Step two: lose the nuts. Step three: ask Brindle.”",
+            "She looked up. Brindle was asleep in his sunny spot again. His old bone was under his chin.",
+            "Tansy grinned. Some friends are fast. Some friends are busy. And some friends are slow and old, with the best nose around."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-006/images/page-26.webp",
+              "alt": "At dusk Brindle sleeps under the oak with his bone, and Tansy grins beside him holding her new plan"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "quiz": {
+    "instructions": "Tap an answer. Tap the speaker to hear the question. You can try as many times as you like!",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "recall",
+        "prompt": "Who helped Tansy bury her nuts?",
+        "choices": [
+          "Pip and Pebble",
+          "Brindle",
+          "Wren"
+        ],
+        "answerIndex": 1,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/brindle.webp",
+            "line": "Yes. Old dogs are never busy."
+          },
+          "tryAgain": {
+            "character": "images/web/characters/tansy.webp",
+            "line": "No, no, they were busy! Try again!"
+          }
+        }
+      },
+      {
+        "id": "q2",
+        "type": "recall",
+        "prompt": "What was the soft brown hill of leaves?",
+        "choices": [
+          "A big rock",
+          "A nest",
+          "Brindle, asleep"
+        ],
+        "answerIndex": 2,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/wren.webp",
+            "line": "Breaking news! The hill was a dog!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/brindle.webp",
+            "line": "Hmm. The hill yawned. Try again."
+          }
+        }
+      },
+      {
+        "id": "q3",
+        "type": "recall",
+        "prompt": "Where did Tansy put her map?",
+        "choices": [
+          "On top of the nuts, under the dirt",
+          "In Echo’s satchel",
+          "In the stream"
+        ],
+        "answerIndex": 0,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/tansy.webp",
+            "line": "Yes! I buried the map. Oops!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/tansy.webp",
+            "line": "Think! Pat, pat, pat. Try again!"
+          }
+        }
+      },
+      {
+        "id": "q4",
+        "type": "recall",
+        "prompt": "Where was the very last nut?",
+        "choices": [
+          "Under Puddle",
+          "In Brindle’s bandana",
+          "On the raft"
+        ],
+        "answerIndex": 1,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/brindle.webp",
+            "line": "Yes. The best spot for a nut I ever saw."
+          },
+          "tryAgain": {
+            "character": "images/web/characters/echo.webp",
+            "line": "Nope, Nutty. Scritch, scratch. Try again!"
+          }
+        }
+      },
+      {
+        "id": "q5",
+        "type": "think",
+        "prompt": "If you had one hundred nuts, where would you hide them?",
+        "choices": [
+          "Under my bed",
+          "In my socks",
+          "In a friend’s bandana"
+        ],
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/tansy.webp",
+            "line": "Good plan! Now do not lose the map!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/tansy.webp",
+            "line": "Good plan! Now do not lose the map!"
+          }
+        }
+      }
+    ]
+  }
+}

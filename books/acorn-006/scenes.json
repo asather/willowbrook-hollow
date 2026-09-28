@@ -1,0 +1,2354 @@
+{
+ "size": [
+  1600,
+  900
+ ],
+ "scenes": {
+  "cover": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "gate",
+     "x": 190,
+     "y": 760,
+     "w": 230
+    },
+    {
+     "type": "tree",
+     "x": 1260,
+     "y": 760,
+     "h": 760,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "emblem",
+     "x": 1250,
+     "y": 520,
+     "s": 46,
+     "opacity": 0.4
+    },
+    {
+     "type": "hole",
+     "x": 820,
+     "y": 860,
+     "w": 200
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 1000,
+     "y": 860,
+     "h": 420,
+     "flip": true
+    },
+    {
+     "type": "acorns",
+     "x": 700,
+     "y": 380,
+     "n": 14,
+     "spread": 260,
+     "ys": 0.6,
+     "r": 20,
+     "seed": 21
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 560,
+     "y": 870,
+     "h": 330
+    },
+    {
+     "type": "motion",
+     "x": 560,
+     "y": 560,
+     "s": 60,
+     "kind": "bonk"
+    },
+    {
+     "type": "falling_leaves",
+     "n": 10,
+     "seed": 4
+    }
+   ]
+  },
+  "page-01": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "tree",
+     "x": 1460,
+     "y": 540,
+     "h": 420,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 620,
+     "seed": 5
+    },
+    {
+     "type": "stump",
+     "x": 300,
+     "y": 760,
+     "w": 150
+    },
+    {
+     "type": "emblem",
+     "x": 300,
+     "y": 700,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "tansy_tree",
+     "x": 1240,
+     "y": 700,
+     "h": 820,
+     "w": 220
+    },
+    {
+     "type": "acorns",
+     "x": 900,
+     "y": 800,
+     "n": 90,
+     "spread": 150,
+     "ys": 0.3,
+     "r": 17,
+     "seed": 3
+    },
+    {
+     "type": "acorns",
+     "x": 900,
+     "y": 760,
+     "n": 40,
+     "spread": 90,
+     "ys": 0.3,
+     "r": 17,
+     "seed": 4
+    },
+    {
+     "type": "acorns",
+     "x": 900,
+     "y": 725,
+     "n": 14,
+     "spread": 50,
+     "ys": 0.3,
+     "r": 17,
+     "seed": 5
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 620,
+     "y": 800,
+     "h": 320
+    },
+    {
+     "type": "motion",
+     "x": 620,
+     "y": 830,
+     "s": 50,
+     "kind": "hop"
+    },
+    {
+     "type": "falling_leaves",
+     "n": 10,
+     "seed": 4
+    }
+   ]
+  },
+  "page-02": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "tree",
+     "x": 1460,
+     "y": 540,
+     "h": 420,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 620,
+     "seed": 5
+    },
+    {
+     "type": "stump",
+     "x": 300,
+     "y": 760,
+     "w": 150
+    },
+    {
+     "type": "emblem",
+     "x": 300,
+     "y": 700,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "tansy_tree",
+     "x": 1240,
+     "y": 700,
+     "h": 820,
+     "w": 220
+    },
+    {
+     "type": "acorns",
+     "x": 980,
+     "y": 810,
+     "n": 80,
+     "spread": 130,
+     "ys": 0.3,
+     "r": 16,
+     "seed": 3
+    },
+    {
+     "type": "acorns",
+     "x": 980,
+     "y": 770,
+     "n": 30,
+     "spread": 70,
+     "ys": 0.3,
+     "r": 16,
+     "seed": 6
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 680,
+     "y": 840,
+     "h": 340
+    },
+    {
+     "type": "plan",
+     "x": 520,
+     "y": 480,
+     "w": 170,
+     "rot": 8
+    },
+    {
+     "type": "falling_leaves",
+     "n": 6,
+     "seed": 2
+    }
+   ]
+  },
+  "page-03": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 600,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 700,
+     "w": 130,
+     "tilt": -12,
+     "rocks": [
+      300,
+      1000
+     ]
+    },
+    {
+     "type": "reeds",
+     "x": 1450,
+     "y": 720,
+     "h": 150
+    },
+    {
+     "type": "rock",
+     "x": 1400,
+     "y": 800,
+     "r": 70
+    },
+    {
+     "type": "emblem",
+     "x": 1400,
+     "y": 790,
+     "s": 40,
+     "opacity": 0.45
+    },
+    {
+     "type": "raft",
+     "x": 820,
+     "y": 820,
+     "w": 300
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 700,
+     "y": 860,
+     "h": 190
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 960,
+     "y": 860,
+     "h": 190,
+     "flip": true
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 360,
+     "y": 880,
+     "h": 300
+    },
+    {
+     "type": "falling_leaves",
+     "n": 6,
+     "seed": 7
+    }
+   ]
+  },
+  "page-04": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "hills",
+     "y": 620,
+     "seed": 5
+    },
+    {
+     "type": "stream",
+     "y": 700,
+     "w": 120,
+     "tilt": 8,
+     "rocks": [
+      1100
+     ]
+    },
+    {
+     "type": "gate",
+     "x": 1300,
+     "y": 740,
+     "w": 280
+    },
+    {
+     "type": "character",
+     "id": "echo",
+     "x": 1300,
+     "y": 640,
+     "h": 230,
+     "flip": true,
+     "noShadow": true
+    },
+    {
+     "type": "zzz",
+     "x": 1330,
+     "y": 420
+    },
+    {
+     "type": "character",
+     "id": "puddle",
+     "x": 380,
+     "y": 830,
+     "h": 260
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 820,
+     "y": 850,
+     "h": 300
+    },
+    {
+     "type": "emblem",
+     "x": 1250,
+     "y": 700,
+     "s": 40,
+     "opacity": 0.4
+    },
+    {
+     "type": "falling_leaves",
+     "n": 5,
+     "seed": 9
+    }
+   ]
+  },
+  "page-05": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "tree",
+     "x": 1460,
+     "y": 540,
+     "h": 420,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 620,
+     "seed": 5
+    },
+    {
+     "type": "stump",
+     "x": 300,
+     "y": 760,
+     "w": 150
+    },
+    {
+     "type": "emblem",
+     "x": 300,
+     "y": 700,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "tansy_tree",
+     "x": 1240,
+     "y": 700,
+     "h": 820,
+     "w": 220
+    },
+    {
+     "type": "acorns",
+     "x": 700,
+     "y": 820,
+     "n": 80,
+     "spread": 140,
+     "ys": 0.3,
+     "r": 16,
+     "seed": 3
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 700,
+     "y": 800,
+     "h": 280,
+     "noShadow": true
+    },
+    {
+     "type": "character",
+     "id": "wren",
+     "x": 1000,
+     "y": 330,
+     "h": 120,
+     "flip": true,
+     "noShadow": true,
+     "rot": -10
+    },
+    {
+     "type": "motion",
+     "x": 1080,
+     "y": 300,
+     "s": 40,
+     "kind": "huff"
+    },
+    {
+     "type": "notes",
+     "x": 1040,
+     "y": 250
+    },
+    {
+     "type": "falling_leaves",
+     "n": 6,
+     "seed": 3
+    }
+   ]
+  },
+  "page-06": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "gate",
+     "x": 190,
+     "y": 760,
+     "w": 230
+    },
+    {
+     "type": "tree",
+     "x": 1260,
+     "y": 760,
+     "h": 760,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "emblem",
+     "x": 1250,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.4
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 1020,
+     "y": 880,
+     "h": 400,
+     "lie": true
+    },
+    {
+     "type": "zzz",
+     "x": 860,
+     "y": 560
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 650,
+     "y": 860,
+     "h": 300
+    },
+    {
+     "type": "falling_leaves",
+     "n": 6,
+     "seed": 5
+    }
+   ]
+  },
+  "page-07": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "gate",
+     "x": 190,
+     "y": 760,
+     "w": 230
+    },
+    {
+     "type": "tree",
+     "x": 1260,
+     "y": 760,
+     "h": 760,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "emblem",
+     "x": 1250,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.4
+    },
+    {
+     "type": "hole",
+     "x": 820,
+     "y": 860,
+     "w": 180
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 820,
+     "y": 850,
+     "h": 380,
+     "rot": -12
+    },
+    {
+     "type": "dirt",
+     "x": 600,
+     "y": 850,
+     "s": 140,
+     "n": 22
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 1080,
+     "y": 870,
+     "h": 290,
+     "flip": true
+    },
+    {
+     "type": "motion",
+     "x": 1060,
+     "y": 900,
+     "s": 50,
+     "kind": "hop"
+    },
+    {
+     "type": "falling_leaves",
+     "n": 5,
+     "seed": 6
+    }
+   ]
+  },
+  "page-08": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "gate",
+     "x": 190,
+     "y": 760,
+     "w": 230
+    },
+    {
+     "type": "tree",
+     "x": 1260,
+     "y": 760,
+     "h": 760,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "emblem",
+     "x": 1250,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.4
+    },
+    {
+     "type": "hole",
+     "x": 760,
+     "y": 860,
+     "w": 180
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 760,
+     "y": 850,
+     "h": 380,
+     "rot": -12
+    },
+    {
+     "type": "dirt",
+     "x": 540,
+     "y": 850,
+     "s": 140,
+     "n": 22
+    },
+    {
+     "type": "acorns",
+     "x": 420,
+     "y": 420,
+     "n": 10,
+     "spread": 160,
+     "ys": 0.5,
+     "r": 18,
+     "seed": 8
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 1040,
+     "y": 870,
+     "h": 290,
+     "flip": true
+    },
+    {
+     "type": "falling_leaves",
+     "n": 5,
+     "seed": 6
+    }
+   ]
+  },
+  "page-09": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "gate",
+     "x": 190,
+     "y": 760,
+     "w": 230
+    },
+    {
+     "type": "tree",
+     "x": 1260,
+     "y": 760,
+     "h": 760,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "emblem",
+     "x": 1300,
+     "y": 600,
+     "s": 46,
+     "opacity": 0.4
+    },
+    {
+     "type": "character",
+     "id": "echo",
+     "x": 190,
+     "y": 650,
+     "h": 230,
+     "noShadow": true
+    },
+    {
+     "type": "motion",
+     "x": 220,
+     "y": 440,
+     "s": 50,
+     "kind": "bonk"
+    },
+    {
+     "type": "acorns",
+     "x": 250,
+     "y": 380,
+     "n": 3,
+     "spread": 60,
+     "ys": 0.6,
+     "r": 18,
+     "seed": 2
+    },
+    {
+     "type": "hole",
+     "x": 760,
+     "y": 860,
+     "w": 180
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 820,
+     "y": 850,
+     "h": 380
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 520,
+     "y": 870,
+     "h": 290
+    },
+    {
+     "type": "falling_leaves",
+     "n": 4,
+     "seed": 6
+    }
+   ]
+  },
+  "page-10": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "tree",
+     "x": 1460,
+     "y": 540,
+     "h": 420,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 620,
+     "seed": 5
+    },
+    {
+     "type": "stump",
+     "x": 300,
+     "y": 760,
+     "w": 150
+    },
+    {
+     "type": "emblem",
+     "x": 300,
+     "y": 700,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 820,
+     "y": 870,
+     "h": 390,
+     "lie": true
+    },
+    {
+     "type": "zzz",
+     "x": 660,
+     "y": 560
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 470,
+     "y": 870,
+     "h": 290
+    },
+    {
+     "type": "falling_leaves",
+     "n": 16,
+     "seed": 11
+    }
+   ]
+  },
+  "page-11": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "tree",
+     "x": 1460,
+     "y": 540,
+     "h": 420,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 620,
+     "seed": 5
+    },
+    {
+     "type": "stump",
+     "x": 300,
+     "y": 760,
+     "w": 150
+    },
+    {
+     "type": "emblem",
+     "x": 300,
+     "y": 700,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 860,
+     "y": 880,
+     "h": 380,
+     "lie": true
+    },
+    {
+     "type": "leaf_pile",
+     "x": 860,
+     "y": 880,
+     "w": 560,
+     "h": 230,
+     "peek": true,
+     "n": 220
+    },
+    {
+     "type": "acorns",
+     "x": 860,
+     "y": 780,
+     "n": 8,
+     "spread": 180,
+     "ys": 0.3,
+     "r": 15,
+     "seed": 4
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 480,
+     "y": 880,
+     "h": 290
+    },
+    {
+     "type": "falling_leaves",
+     "n": 12,
+     "seed": 12
+    }
+   ]
+  },
+  "page-12": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "tree",
+     "x": 1460,
+     "y": 540,
+     "h": 420,
+     "w": 40,
+     "seed": 9
+    },
+    {
+     "type": "hills",
+     "y": 620,
+     "seed": 5
+    },
+    {
+     "type": "stump",
+     "x": 300,
+     "y": 760,
+     "w": 150
+    },
+    {
+     "type": "emblem",
+     "x": 300,
+     "y": 700,
+     "s": 46,
+     "opacity": 0.45
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 860,
+     "y": 880,
+     "h": 400
+    },
+    {
+     "type": "acorns",
+     "x": 860,
+     "y": 560,
+     "n": 22,
+     "spread": 330,
+     "ys": 0.7,
+     "r": 16,
+     "seed": 13
+    },
+    {
+     "type": "falling_leaves",
+     "n": 30,
+     "seed": 14
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 440,
+     "y": 880,
+     "h": 280
+    },
+    {
+     "type": "character",
+     "id": "wren",
+     "x": 1300,
+     "y": 320,
+     "h": 120,
+     "flip": true,
+     "noShadow": true
+    }
+   ]
+  },
+  "page-13": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "gate",
+     "x": 190,
+     "y": 760,
+     "w": 230
+    },
+    {
+     "type": "tree",
+     "x": 1260,
+     "y": 760,
+     "h": 760,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "emblem",
+     "x": 1250,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.4
+    },
+    {
+     "type": "hole",
+     "x": 800,
+     "y": 860,
+     "w": 170
+    },
+    {
+     "type": "acorns",
+     "x": 800,
+     "y": 850,
+     "n": 6,
+     "spread": 40,
+     "ys": 0.2,
+     "r": 14,
+     "seed": 3
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 560,
+     "y": 870,
+     "h": 310
+    },
+    {
+     "type": "map",
+     "x": 520,
+     "y": 480,
+     "w": 200,
+     "rot": -6
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 1080,
+     "y": 860,
+     "h": 380,
+     "flip": true
+    },
+    {
+     "type": "falling_leaves",
+     "n": 5,
+     "seed": 8
+    }
+   ]
+  },
+  "page-14": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "gate",
+     "x": 190,
+     "y": 760,
+     "w": 230
+    },
+    {
+     "type": "tree",
+     "x": 1260,
+     "y": 760,
+     "h": 760,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "emblem",
+     "x": 1250,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.4
+    },
+    {
+     "type": "map",
+     "x": 820,
+     "y": 850,
+     "w": 170,
+     "rot": 4
+    },
+    {
+     "type": "dirt",
+     "x": 800,
+     "y": 870,
+     "s": 150,
+     "n": 4
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 580,
+     "y": 870,
+     "h": 300
+    },
+    {
+     "type": "motion",
+     "x": 700,
+     "y": 820,
+     "s": 40,
+     "kind": "bonk"
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 1080,
+     "y": 860,
+     "h": 380,
+     "flip": true
+    },
+    {
+     "type": "falling_leaves",
+     "n": 5,
+     "seed": 8
+    }
+   ]
+  },
+  "page-15": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "gate",
+     "x": 190,
+     "y": 760,
+     "w": 230
+    },
+    {
+     "type": "tree",
+     "x": 1260,
+     "y": 760,
+     "h": 760,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "emblem",
+     "x": 1250,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.4
+    },
+    {
+     "type": "dirt",
+     "x": 800,
+     "y": 870,
+     "s": 150,
+     "n": 4
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 960,
+     "y": 860,
+     "h": 380,
+     "flip": true,
+     "rot": 8
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 470,
+     "y": 880,
+     "h": 290,
+     "rot": -70
+    },
+    {
+     "type": "falling_leaves",
+     "n": 5,
+     "seed": 8
+    }
+   ]
+  },
+  "page-16": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "day",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "gate",
+     "x": 190,
+     "y": 760,
+     "w": 230
+    },
+    {
+     "type": "tree",
+     "x": 1260,
+     "y": 760,
+     "h": 760,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "emblem",
+     "x": 1250,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.4
+    },
+    {
+     "type": "hole",
+     "x": 800,
+     "y": 870,
+     "w": 180
+    },
+    {
+     "type": "dirt",
+     "x": 620,
+     "y": 870,
+     "s": 120,
+     "n": 16
+    },
+    {
+     "type": "stick",
+     "x1": 640,
+     "y1": 800,
+     "x2": 720,
+     "y2": 760
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 900,
+     "y": 860,
+     "h": 390,
+     "flip": true
+    },
+    {
+     "type": "bone",
+     "x": 870,
+     "y": 610,
+     "s": 110,
+     "rot": -12
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 480,
+     "y": 870,
+     "h": 290
+    },
+    {
+     "type": "falling_leaves",
+     "n": 5,
+     "seed": 8
+    }
+   ]
+  },
+  "page-17": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "dusk",
+     "sun": [
+      1300,
+      420
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "gate",
+     "x": 190,
+     "y": 760,
+     "w": 230
+    },
+    {
+     "type": "tree",
+     "x": 1260,
+     "y": 760,
+     "h": 760,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "emblem",
+     "x": 1250,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.4
+    },
+    {
+     "type": "hole",
+     "x": 420,
+     "y": 860,
+     "w": 150
+    },
+    {
+     "type": "hole",
+     "x": 1000,
+     "y": 880,
+     "w": 140
+    },
+    {
+     "type": "hole",
+     "x": 1400,
+     "y": 860,
+     "w": 120
+    },
+    {
+     "type": "bone",
+     "x": 560,
+     "y": 870,
+     "s": 90,
+     "rot": 8
+    },
+    {
+     "type": "stick",
+     "x1": 830,
+     "y1": 880,
+     "x2": 930,
+     "y2": 870
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 720,
+     "y": 870,
+     "h": 280,
+     "dim": 0.9
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 1140,
+     "y": 860,
+     "h": 380,
+     "flip": true,
+     "dim": 0.9
+    },
+    {
+     "type": "falling_leaves",
+     "n": 4,
+     "seed": 8
+    }
+   ]
+  },
+  "page-18": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "dusk",
+     "sun": [
+      1300,
+      420
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "gate",
+     "x": 190,
+     "y": 760,
+     "w": 230
+    },
+    {
+     "type": "tree",
+     "x": 1260,
+     "y": 760,
+     "h": 760,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "emblem",
+     "x": 1250,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.4
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 700,
+     "y": 870,
+     "h": 290,
+     "dim": 0.92
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 950,
+     "y": 860,
+     "h": 400,
+     "flip": true,
+     "dim": 0.92
+    },
+    {
+     "type": "falling_leaves",
+     "n": 4,
+     "seed": 8
+    }
+   ]
+  },
+  "page-19": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "dusk",
+     "sun": [
+      1300,
+      420
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "gate",
+     "x": 190,
+     "y": 760,
+     "w": 230
+    },
+    {
+     "type": "tree",
+     "x": 1260,
+     "y": 760,
+     "h": 760,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "emblem",
+     "x": 1300,
+     "y": 600,
+     "s": 46,
+     "opacity": 0.4
+    },
+    {
+     "type": "prints",
+     "x": 1200,
+     "y": 880,
+     "dx": -80,
+     "dy": -8,
+     "n": 7,
+     "s": 12
+    },
+    {
+     "type": "character",
+     "id": "echo",
+     "x": 190,
+     "y": 650,
+     "h": 230,
+     "noShadow": true,
+     "dim": 0.92
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 470,
+     "y": 870,
+     "h": 400,
+     "flip": true,
+     "dim": 0.92,
+     "rot": -8
+    },
+    {
+     "type": "acorns",
+     "x": 760,
+     "y": 870,
+     "n": 8,
+     "spread": 70,
+     "ys": 0.2,
+     "r": 15,
+     "seed": 2
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 950,
+     "y": 880,
+     "h": 280,
+     "flip": true,
+     "dim": 0.92
+    },
+    {
+     "type": "falling_leaves",
+     "n": 4,
+     "seed": 8
+    }
+   ]
+  },
+  "page-20": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "dusk",
+     "sun": [
+      1300,
+      420
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "gate",
+     "x": 190,
+     "y": 760,
+     "w": 230
+    },
+    {
+     "type": "tree",
+     "x": 1260,
+     "y": 760,
+     "h": 760,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "emblem",
+     "x": 1300,
+     "y": 600,
+     "s": 46,
+     "opacity": 0.4
+    },
+    {
+     "type": "character",
+     "id": "echo",
+     "x": 520,
+     "y": 870,
+     "h": 260,
+     "dim": 0.92
+    },
+    {
+     "type": "acorns",
+     "x": 620,
+     "y": 880,
+     "n": 22,
+     "spread": 90,
+     "ys": 0.2,
+     "r": 15,
+     "seed": 6
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 350,
+     "y": 880,
+     "h": 280,
+     "dim": 0.92
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 900,
+     "y": 870,
+     "h": 400,
+     "flip": true,
+     "dim": 0.92
+    },
+    {
+     "type": "falling_leaves",
+     "n": 4,
+     "seed": 8
+    }
+   ]
+  },
+  "page-21": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "dusk",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 600,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 700,
+     "w": 130,
+     "tilt": -12,
+     "rocks": [
+      300,
+      1000
+     ]
+    },
+    {
+     "type": "reeds",
+     "x": 1450,
+     "y": 720,
+     "h": 150
+    },
+    {
+     "type": "rock",
+     "x": 1400,
+     "y": 800,
+     "r": 70
+    },
+    {
+     "type": "emblem",
+     "x": 1400,
+     "y": 790,
+     "s": 40,
+     "opacity": 0.45
+    },
+    {
+     "type": "acorns",
+     "x": 700,
+     "y": 860,
+     "n": 24,
+     "spread": 90,
+     "ys": 0.25,
+     "r": 15,
+     "seed": 9
+    },
+    {
+     "type": "character",
+     "id": "puddle",
+     "x": 700,
+     "y": 850,
+     "h": 250,
+     "dim": 0.92,
+     "noShadow": true
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 1000,
+     "y": 880,
+     "h": 280,
+     "flip": true,
+     "dim": 0.92
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 1230,
+     "y": 880,
+     "h": 380,
+     "flip": true,
+     "dim": 0.92
+    }
+   ]
+  },
+  "page-22": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "dusk",
+     "sun": [
+      1380,
+      140
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 180,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 600,
+     "seed": 3
+    },
+    {
+     "type": "stream",
+     "y": 700,
+     "w": 130,
+     "tilt": -12,
+     "rocks": [
+      300,
+      1000
+     ]
+    },
+    {
+     "type": "reeds",
+     "x": 1450,
+     "y": 720,
+     "h": 150
+    },
+    {
+     "type": "rock",
+     "x": 1400,
+     "y": 800,
+     "r": 70
+    },
+    {
+     "type": "emblem",
+     "x": 1400,
+     "y": 790,
+     "s": 40,
+     "opacity": 0.45
+    },
+    {
+     "type": "raft",
+     "x": 760,
+     "y": 840,
+     "w": 320
+    },
+    {
+     "type": "acorns",
+     "x": 820,
+     "y": 800,
+     "n": 26,
+     "spread": 110,
+     "ys": 0.2,
+     "r": 15,
+     "seed": 11
+    },
+    {
+     "type": "character",
+     "id": "pip",
+     "x": 560,
+     "y": 880,
+     "h": 190,
+     "dim": 0.92
+    },
+    {
+     "type": "character",
+     "id": "pebble",
+     "x": 1080,
+     "y": 880,
+     "h": 190,
+     "flip": true,
+     "dim": 0.92
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 300,
+     "y": 890,
+     "h": 280,
+     "dim": 0.92
+    }
+   ]
+  },
+  "page-23": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "dusk",
+     "sun": [
+      1300,
+      420
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "gate",
+     "x": 190,
+     "y": 760,
+     "w": 230
+    },
+    {
+     "type": "tree",
+     "x": 1260,
+     "y": 760,
+     "h": 760,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "emblem",
+     "x": 1250,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.4
+    },
+    {
+     "type": "acorns",
+     "x": 650,
+     "y": 830,
+     "n": 80,
+     "spread": 140,
+     "ys": 0.3,
+     "r": 16,
+     "seed": 3
+    },
+    {
+     "type": "acorns",
+     "x": 650,
+     "y": 790,
+     "n": 30,
+     "spread": 70,
+     "ys": 0.3,
+     "r": 16,
+     "seed": 6
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 380,
+     "y": 870,
+     "h": 300,
+     "dim": 0.92
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 960,
+     "y": 860,
+     "h": 400,
+     "flip": true,
+     "dim": 0.92,
+     "rot": -6
+    },
+    {
+     "type": "falling_leaves",
+     "n": 4,
+     "seed": 8
+    }
+   ]
+  },
+  "page-24": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "dusk",
+     "sun": [
+      1300,
+      420
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "gate",
+     "x": 190,
+     "y": 760,
+     "w": 230
+    },
+    {
+     "type": "tree",
+     "x": 1260,
+     "y": 760,
+     "h": 760,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "emblem",
+     "x": 1250,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.4
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 880,
+     "y": 860,
+     "h": 420,
+     "dim": 0.95
+    },
+    {
+     "type": "acorns",
+     "x": 890,
+     "y": 780,
+     "n": 1,
+     "spread": 1,
+     "r": 30,
+     "seed": 1
+    },
+    {
+     "type": "motion",
+     "x": 890,
+     "y": 700,
+     "s": 40,
+     "kind": "bonk"
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 560,
+     "y": 870,
+     "h": 300,
+     "dim": 0.95
+    },
+    {
+     "type": "falling_leaves",
+     "n": 4,
+     "seed": 8
+    }
+   ]
+  },
+  "page-25": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "dusk",
+     "sun": [
+      1300,
+      420
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "gate",
+     "x": 190,
+     "y": 760,
+     "w": 230
+    },
+    {
+     "type": "tree",
+     "x": 1260,
+     "y": 760,
+     "h": 760,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "emblem",
+     "x": 1300,
+     "y": 600,
+     "s": 46,
+     "opacity": 0.4
+    },
+    {
+     "type": "character",
+     "id": "echo",
+     "x": 190,
+     "y": 650,
+     "h": 220,
+     "noShadow": true,
+     "dim": 0.92
+    },
+    {
+     "type": "hole",
+     "x": 700,
+     "y": 870,
+     "w": 160
+    },
+    {
+     "type": "hole",
+     "x": 1000,
+     "y": 880,
+     "w": 140
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 820,
+     "y": 860,
+     "h": 380,
+     "dim": 0.92,
+     "rot": -10
+    },
+    {
+     "type": "acorns",
+     "x": 520,
+     "y": 870,
+     "n": 20,
+     "spread": 60,
+     "ys": 0.2,
+     "r": 15,
+     "seed": 5
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 450,
+     "y": 880,
+     "h": 280,
+     "dim": 0.92
+    },
+    {
+     "type": "character",
+     "id": "wren",
+     "x": 1250,
+     "y": 300,
+     "h": 120,
+     "flip": true,
+     "noShadow": true
+    }
+   ]
+  },
+  "page-26": {
+   "elements": [
+    {
+     "type": "sky",
+     "time": "dusk",
+     "sun": [
+      1300,
+      420
+     ]
+    },
+    {
+     "type": "tree",
+     "x": 200,
+     "y": 560,
+     "h": 360,
+     "w": 40
+    },
+    {
+     "type": "hills",
+     "y": 610,
+     "seed": 3
+    },
+    {
+     "type": "gate",
+     "x": 190,
+     "y": 760,
+     "w": 230
+    },
+    {
+     "type": "tree",
+     "x": 1260,
+     "y": 760,
+     "h": 760,
+     "w": 80,
+     "seed": 2
+    },
+    {
+     "type": "emblem",
+     "x": 1250,
+     "y": 560,
+     "s": 46,
+     "opacity": 0.4
+    },
+    {
+     "type": "stars",
+     "n": 6
+    },
+    {
+     "type": "character",
+     "id": "brindle",
+     "x": 1000,
+     "y": 880,
+     "h": 400,
+     "lie": true,
+     "dim": 0.9
+    },
+    {
+     "type": "bone",
+     "x": 900,
+     "y": 870,
+     "s": 90,
+     "rot": 6
+    },
+    {
+     "type": "zzz",
+     "x": 840,
+     "y": 560
+    },
+    {
+     "type": "character",
+     "id": "tansy",
+     "x": 620,
+     "y": 880,
+     "h": 300,
+     "dim": 0.9
+    },
+    {
+     "type": "plan",
+     "x": 470,
+     "y": 520,
+     "w": 150,
+     "rot": -8
+    },
+    {
+     "type": "falling_leaves",
+     "n": 3,
+     "seed": 8
+    }
+   ]
+  }
+ }
+}

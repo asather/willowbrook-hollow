@@ -26,7 +26,7 @@ No unapproved changes to colors, proportions, or permanent accessories.
 - **Accessories:** None permanent  
 - **Personality:** Energetic, impulsive, over‑planned schemes  
 - **Speech:** Rapid, often skipping pauses; runs words together  
-- **Example Behaviors:** Talks over others; stacks objects in odd arrangements; forgets the original plan halfway through; buries acorns all over the Hollow and draws bark maps to find them again (then can't read her own maps). Her plans come as numbered steps.  
+- **Example Behaviors:** Talks over others; stacks objects in odd arrangements; forgets the original plan halfway through; buries acorns all over the Hollow and draws bark maps to find them again (then can't read her own maps, or buries the map with the nuts, as in *Where Did the Nuts Go?*, acorn-006). Her plans come as numbered steps.  
 - **Master Assets:**  
   - PNG: `images/characters/master/tansy_master.png`  
 
@@ -38,7 +38,8 @@ No unapproved changes to colors, proportions, or permanent accessories.
 - **Accessories:** Worn green bandana (**permanent**)  
 - **Personality:** Calm, wise mentor; may doze mid‑story  
 - **Speech:** Slow, deliberate; uses simple metaphors  
-- **Example Behaviors:** Nods thoughtfully before speaking; listens more than talks; positions self protectively in tense scenes; naps in the sunny spot under the big oak tree, which he shares with Leo (Leo’s mane makes a good pillow)  
+- **Example Behaviors:** Nods thoughtfully before speaking; listens more than talks; positions self protectively in tense scenes; naps in the sunny spot under the big oak tree, which he shares with Leo (Leo’s mane makes a good pillow); says old dogs are never busy, so he is the one who helps when the rest of the Hollow is; digs fast but is bad at stopping; buries his bone and loses it for a whole season; his old nose can sniff out anything lost (in *Where Did the Nuts Go?*, acorn-006, it finds all of Tansy’s nuts, the last one in his own bandana)  
+- **Bandana in the art:** his master art shows a plain collar, so `tools/compose-scenes.py` ties the green bandana over it in every scene. It comes off only when the story takes it off (Pip keeps it at nap time in *Which One Is Which?*, acorn-003): `"bandana": false` on that scene’s Brindle.  
 - **Master Assets:**  
   - PNG: `images/characters/master/brindle_master.png`  
 

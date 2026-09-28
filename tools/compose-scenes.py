@@ -103,15 +103,64 @@ def character(cid):
         sheet, box = SHEET_FIGURES[cid]
         im = _cutout_from_sheet(ROOT / sheet, box)
     else:
-        path = ROOT / f"images/web/characters/{cid.replace('-', '_')}.webp"
+        base = "brindle" if cid == "brindle-bare" else cid
+        path = ROOT / f"images/web/characters/{base.replace('-', '_')}.webp"
         im = Image.open(path)
         if im.mode != "RGBA":            # art with a plain background: cut the figure out
             im = _cutout_from_sheet(path, (0, 0) + im.size, *CUTOUT_TUNING.get(cid, (42, 200, None)))
         else:
+            if cid == "brindle":
+                im = _bandana(im)
             im = im.crop(im.split()[3].getbbox())
     if cid == "pebble":
         im = _ear_notch(im)
     _char_cache[cid] = im
+    return im
+
+def _bandana(im):
+    """Brindle's canon worn green bandana (Character Bible), which his master art doesn't
+    show: tied over his collar, with its point hanging down his chest over the tag.
+    Drawn on the uncropped 427x640 web copy."""
+    im = im.copy()
+    d = ImageDraw.Draw(im)
+    GREEN, DARK, LIGHT = (92, 128, 74, 255), (58, 84, 48, 255), (112, 146, 90, 255)
+    band = [(142, 208), (176, 226), (212, 232), (248, 226), (280, 206),
+            (284, 226), (250, 250), (212, 256), (174, 250), (140, 228)]
+    point = [(150, 234), (272, 234), (212, 318)]
+    d.polygon(point, fill=GREEN, outline=DARK)
+    d.polygon(band, fill=GREEN, outline=DARK)
+    d.line([(158, 238), (212, 246), (266, 238)], fill=DARK, width=2)
+    d.line([(190, 262), (214, 296)], fill=DARK, width=2)          # a fold
+    for x, y in [(180, 238), (236, 240), (206, 270), (226, 284), (196, 256), (246, 222), (170, 226)]:
+        d.ellipse([x - 4, y - 2, x + 4, y + 2], fill=LIGHT)       # worn, faded patches
+    # the knot, behind his ear on our left
+    d.ellipse([132, 204, 152, 226], fill=GREEN, outline=DARK, width=2)
+    return im
+
+def _strip_ground(im):
+    """Remove the pale painted ground patch under a figure's feet, so the figure can lie
+    down or be tipped over without a slab of ground stuck to it. Flood-fills from the
+    empty background in the bottom quarter of the art through light, patch-coloured
+    pixels; the ink outlines of paws and tail stop the fill."""
+    im = im.copy()
+    px = im.load()
+    w, h = im.size
+    top = int(h * 0.72)
+    seen = set()
+    stack = [(x, y) for y in range(top, h) for x in range(w) if px[x, y][3] < 40]
+    while stack:
+        x, y = stack.pop()
+        if (x, y) in seen or y < top:
+            continue
+        seen.add((x, y))
+        r, g, b, a = px[x, y]
+        if a >= 40:
+            if r + g + b < 470:          # ink line or fur: stop here
+                continue
+            px[x, y] = (r, g, b, 0)
+        for nx, ny in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+            if 0 <= nx < w and 0 <= ny < h and (nx, ny) not in seen:
+                stack.append((nx, ny))
     return im
 
 def _ear_notch(im):
@@ -451,7 +500,8 @@ def el_motion(img, d, e):
         d.arc([x - s, y - s * 0.5, x + s, y + s * 0.5], 200, 520, fill=(255, 255, 255), width=P(5))
 
 def el_character(img, d, e):
-    im = character(e["id"])
+    # Brindle always wears his bandana, except when it's off (nap time, or it's lost): "bandana": false
+    im = character("brindle-bare" if e["id"] == "brindle" and e.get("bandana") is False else e["id"])
     h = P(e.get("h", 320))
     w = int(im.width * h / im.height)
     im = im.resize((w, int(h)), Image.LANCZOS)
@@ -464,7 +514,12 @@ def el_character(img, d, e):
     if e.get("dim"):
         rgb = ImageEnhance.Brightness(im.convert("RGB")).enhance(e["dim"]).convert("RGBA")
         rgb.putalpha(im.split()[3]); im = rgb
-    if e.get("rot"):
+    if e.get("lie"):     # lying down: drop the painted ground patch, then tip over (head on our left)
+        im = _strip_ground(im)
+        im = im.rotate(e.get("rot", 80), expand=True, resample=Image.BICUBIC)
+        im = im.crop(im.split()[3].getbbox())
+        w = im.width
+    elif e.get("rot"):
         im = im.rotate(e["rot"], expand=True, resample=Image.BICUBIC)
     # soft ground shadow
     if not e.get("noShadow"):
@@ -1029,6 +1084,41 @@ def el_trinkets(img, d, e):
     sx = x + s * 1.3                          # string
     d.line([(sx - s * 0.5 + s * 0.08 * i + s * 0.3 * math.cos(i * 0.9), y + s * 0.3 * math.sin(i * 0.9)) for i in range(14)],
            fill=(236, 222, 190), width=P(3), joint="curve")
+
+def el_leaf_pile(img, d, e):
+    """A heap of fall leaves. Drawn after a character, it buries them (a napping dog makes
+    a fine 'soft brown hill'); `peek` leaves a gap at the top-left so an ear or a nose shows."""
+    rnd = random.Random(e.get("seed", 3))
+    x, y, w, h = P(e["x"]), P(e["y"]), P(e.get("w", 360)), P(e.get("h", 160))
+    base = (170, 104, 56)
+    d.chord([x - w / 2, y - h, x + w / 2, y + h], 180, 360, fill=base)
+    for _ in range(int(e.get("n", 140))):
+        t = rnd.uniform(math.pi, 2 * math.pi)
+        rr = rnd.uniform(0, 1) ** 0.6
+        lx, ly = x + math.cos(t) * rr * w / 2, y + math.sin(t) * rr * h
+        if e.get("peek") and lx < x - w * 0.1 and ly < y - h * 0.55:
+            continue
+        leaf(d, lx, ly, P(rnd.uniform(11, 18)), rnd.uniform(0, 3.1), rnd.choice(LEAVES + [(150, 96, 52)]))
+
+def el_bone(img, d, e):
+    """Brindle's old bone, a bit muddy."""
+    x, y, s, rot = P(e["x"]), P(e["y"]), P(e.get("s", 90)), math.radians(e.get("rot", -10))
+    c, sn = math.cos(rot), math.sin(rot)
+    def pt(px_, py_):
+        return (x + px_ * c - py_ * sn, y + px_ * sn + py_ * c)
+    fill, line = (242, 232, 208), INK
+    a, b = pt(-s * 0.42, 0), pt(s * 0.42, 0)
+    d.line([a, b], fill=line, width=int(s * 0.26))
+    d.line([a, b], fill=fill, width=int(s * 0.18))
+    for ex in (-0.5, 0.5):
+        for ey in (-0.13, 0.13):
+            cx, cy = pt(s * ex, s * ey)
+            r = s * 0.14
+            d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=fill, outline=line, width=P(2))
+    d.line([a, b], fill=fill, width=int(s * 0.18))
+    for k in range(4):                                   # mud
+        mx, my = pt(s * (-0.3 + k * 0.2), s * 0.04 * (k % 2))
+        d.ellipse([mx - P(4), my - P(3), mx + P(4), my + P(3)], fill=(126, 88, 56))
 
 def el_emblem(img, d, e, circle):
     em = Image.open(ROOT / f"images/web/circles/circle-{circle.lower()}.webp").convert("RGBA")

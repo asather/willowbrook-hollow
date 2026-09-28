@@ -11,7 +11,7 @@ A scene is drawn in layers, back to front:
 
 1. **Backdrop**, painted by the tool: sky (morning, day or dusk), rolling hills, trees in fall colors, the stream, rocks, the barn, the inside of the barn, logs and so on.
 2. **Props** the page talks about, also painted by the tool: Tansy's map, the raft, acorns, the viola and its case, music notes, a fish, a moth.
-3. **Characters**, always the canon art from `images/web/characters/`, scaled, placed, flipped or tilted to act out the page. Art with a plain background is cut out automatically; art on a colored paper background (the parrot family's tan) gets its own cut-out settings in `CUTOUT_TUNING`. Figures that share one picture (Pip and Pebble) are cut apart, as listed in `SHEET_FIGURES` in the tool. The parrot family is always placed as one group (`parrot-family`).
+3. **Characters**, always the canon art from `images/web/characters/`, scaled, placed, flipped or tilted to act out the page. Art with a plain background is cut out automatically; art on a colored paper background (the parrot family's tan) gets its own cut-out settings in `CUTOUT_TUNING`. Figures that share one picture (Pip and Pebble) are cut apart, as listed in `SHEET_FIGURES` in the tool. Canon details a master picture leaves out are added by the tool in every scene: Pebble’s ear notch and Brindle’s green bandana. The parrot family is always placed as one group (`parrot-family`).
 4. **The Circle emblem**, small and faint in the background (carved on a stump, on a trunk, on the barn). The tool refuses to render a scene without one. It is never called out in the text.
 
 Because characters come from their web copies, they always match the Character Bible (colors, proportions, permanent accessories). Never redraw a character in a scene.
@@ -82,7 +82,9 @@ Because characters come from their web copies, they always match the Character B
 | `flash` | `x`, `y`, `s`, `n` | A burst of blue light with rays and sparkles (the wish ball working) |
 | `inside` | `id`, `x`, `y`, `r`, `tail` [x, y], `flip` | A thought bubble showing the face of whoever is *inside* a body, for stories where minds swap; `tail` points to the head it rises from |
 | `grass`, `brush`, `fly`, `trinkets` | `x`, `y`, `s`, (`rot`, `n`) | A heap or clump of picked grass (Leo's lunch); Pebble's grooming brush; a little fly; the odds and ends in Echo's satchel (feather, button, string) |
-| `character` | `id`, `x`, `y`, `h`, `flip`, `rot`, `dim`, `dusty`, `noShadow` | A character from `images/web/characters/` (`pip` and `pebble` separately; Pebble always gets her canon ear notch). `dusty` (0–1) turns fur dusty gray |
+| `character` | `id`, `x`, `y`, `h`, `flip`, `rot`, `lie`, `dim`, `dusty`, `noShadow`, `bandana` | A character from `images/web/characters/` (`pip` and `pebble` separately; Pebble always gets her canon ear notch, Brindle his bandana). `lie` lays a figure down on its side, head on our left (napping), without the painted ground patch under its feet. `dusty` (0–1) turns fur dusty gray. `"bandana": false` takes Brindle’s bandana off for scenes where the story has it off |
+| `leaf_pile` | `x`, `y` (ground), `w`, `h`, `n`, `peek`, `seed` | A heap of fall leaves; listed after a character, it buries them (`peek` leaves an ear showing at the top) |
+| `bone` | `x`, `y`, `s`, `rot` | Brindle’s old, muddy bone |
 | `emblem` | `x`, `y`, `s`, `opacity` | The book's Circle symbol (required) |
 
 A story that needs a new place or prop gets a new element: add an `el_{type}` function to `tools/compose-scenes.py` and a row to this table.

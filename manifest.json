@@ -46,6 +46,14 @@
       "subtitle": "A fox in a lion. A lion in a fox. Shh!",
       "path": "./books/acorn-005/book.json",
       "circleIcon": "images/web/circles/circle-acorn.webp"
+    },
+    {
+      "circle": "Acorn",
+      "bookId": "acorn-006",
+      "title": "Where Did the Nuts Go?",
+      "subtitle": "One hundred nuts. One old dog. Zero luck.",
+      "path": "./books/acorn-006/book.json",
+      "circleIcon": "images/web/circles/circle-acorn.webp"
     }
   ]
 }
