@@ -51,7 +51,8 @@ No unapproved changes to colors, proportions, or permanent accessories.
 - **Accessories:** None permanent  
 - **Personality:** Chatty, nosy; repeats overheard human phrases  
 - **Speech:** Quick, singsong; mimics tones she’s heard  
-- **Example Behaviors:** Interrupts with “breaking news”; misquotes Zoe; exaggerates events when retelling them  
+- **Example Behaviors:** Interrupts with “breaking news”; misquotes Zoe; exaggerates events when retelling them (a rock “as big as a barn”)  
+- **Breaking News! (acorn-007):** the Hollow told everyone about Moss’s crystal rock and told Wren last, so her “BREAKING NEWS!” was old news to everyone (Zoe only heard a pretty song). Now her friends try to let her be first, and she was first with the second, pink crystal rock.  
 - **Master Assets:**  
   - PNG: `images/characters/master/wren_master.png`  
 
@@ -64,7 +65,7 @@ No unapproved changes to colors, proportions, or permanent accessories.
 - **Accessories:** **Forest‑green satchel (permanent)**  
 - **Personality:** Clever, confident trickster; smirks before jokes; “abandons” plans, then saves the day  
 - **Speech:** Witty, teasing; uses nicknames for others  
-- **Example Behaviors:** Appears when least expected; hides helpful actions behind sarcasm; pretends to nap during work; gives everyone nicknames (he calls Leo “Fuzz”); keeps odds and ends in his satchel (a feather, a shiny button, string, acorns), and once kept Tansy’s lost map there without telling anyone (*The Willow Swap*, acorn-005)  
+- **Example Behaviors:** Appears when least expected; hides helpful actions behind sarcasm; pretends to nap during work; gives everyone nicknames (he calls Leo “Fuzz,” Tansy “Nutty” and Wren “Beaky”); keeps odds and ends in his satchel (a feather, a shiny button, string, acorns), and once kept Tansy’s lost map there without telling anyone (*The Willow Swap*, acorn-005)  
 - **Master Assets:**  
   - PNG: `images/characters/master/echo_master.png`  
 
@@ -76,7 +77,7 @@ No unapproved changes to colors, proportions, or permanent accessories.
 - **Accessories:** None permanent  
 - **Personality:** Absent‑minded; solves problems by accident  
 - **Speech:** Wanders mid‑thought; forgets questions asked  
-- **Example Behaviors:** Wanders away mid‑conversation; stares at unrelated objects; accidentally bumps into the right solution  
+- **Example Behaviors:** Wanders away mid‑conversation; stares at unrelated objects; accidentally bumps into the right solution (in *Breaking News!*, acorn-007, he backs into the odd rock and cracks it open, then turns out to have been sitting on a second one the whole time)  
 - **Master Assets:**  
   - PNG: `images/characters/master/puddle_master.png`  
 

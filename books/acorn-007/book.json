@@ -1,0 +1,658 @@
+{
+  "circle": "Acorn",
+  "circleIcon": "images/web/circles/circle-acorn.webp",
+  "bookId": "acorn-007",
+  "title": "Breaking News!",
+  "subtitle": "A Willowbrook Hollow story",
+  "cover": {
+    "image": "books/acorn-007/images/cover.webp",
+    "alt": "Wren zooms over Moss, Tansy and Puddle as they hold up a rock full of blue crystals"
+  },
+  "cast": [
+    "moss",
+    "puddle",
+    "tansy",
+    "brindle",
+    "pip-pebble",
+    "echo",
+    "leo",
+    "parrot-family",
+    "wren",
+    "zoe"
+  ],
+  "toc": [
+    {
+      "type": "title",
+      "label": "Title Page"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 1: The Odd Rock",
+      "anchor": "ch1"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 2: Do Not Tell Wren",
+      "anchor": "ch2"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 3: Very, Very Last",
+      "anchor": "ch3"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 4: Breaking News!",
+      "anchor": "ch4"
+    },
+    {
+      "type": "chapter",
+      "label": "Chapter 5: The Real News",
+      "anchor": "ch5"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "ch1",
+      "title": "Chapter 1: The Odd Rock",
+      "pages": [
+        {
+          "number": 1,
+          "layout": "art-left",
+          "text": [
+            "It was a sunny morning in Willowbrook Hollow.",
+            "Moss, Puddle and Tansy were down at the stream. Tansy was skipping stones. Plip, plip, plop!",
+            "Puddle was looking at a bug. Moss was looking at the reeds.",
+            "There was a rock in the reeds. It was round and gray and lumpy.",
+            "“That rock is odd,” said Moss."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-01.webp",
+              "alt": "Moss peeks at a round, lumpy gray rock in the reeds while Tansy skips stones and Puddle watches a bug"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "layout": "art-right",
+          "text": [
+            "“It is a rock,” said Tansy. “Rocks are not odd. Rocks are rocks.”",
+            "Moss gave it a poke. It did not go tunk, and it did not go thud. It went TONK!",
+            "“Rocks do not go tonk,” said Moss. “I think this one is empty inside.”",
+            "Puddle was still looking at the bug."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-02.webp",
+              "alt": "Moss pokes the odd rock with a stick while Tansy shrugs and Puddle stares at a bug"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "layout": "art-left",
+          "text": [
+            "Then the bug flew off, and Puddle went after it.",
+            "He did not look where he was going. He went back, back, back.",
+            "Bump! His tail hit the odd rock, and the rock began to roll.",
+            "It rolled down the bank, faster and faster.",
+            "It hit a big flat rock at the bottom.",
+            "CRACK!"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-03.webp",
+              "alt": "Puddle backs into the odd rock and it rolls down the bank toward a big flat rock"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "layout": "art-right",
+          "text": [
+            "The odd rock split in two. Moss, Tansy and Puddle ran down to look.",
+            "Inside the rock, it was not gray. It was blue!",
+            "It was full of crystals. They were shiny, like tiny stars. They glinted in the sun.",
+            "“Oh,” said Moss. Then he rolled up into a ball.",
+            "That is what Moss does when a thing is too good."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-04.webp",
+              "alt": "The rock lies split open, full of shiny blue crystals, while Tansy and Puddle gasp and Moss rolls into a ball"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "layout": "art-left",
+          "text": [
+            "Tansy hopped up and down. “It is the best thing in the whole Hollow! We have to tell everyone!”",
+            "Then she stopped hopping. “Wait. Not Wren.”",
+            "Moss peeked out of his ball. “Why not Wren?”",
+            "“Wren tells it too big,” said Tansy. “A bug turns into a bear. A drip turns into a flood.”",
+            "She scratched a plan on a bit of bark.",
+            "“Step one: tell everyone. Step two: tell Wren last. Very, very last.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-05.webp",
+              "alt": "Tansy holds up a plan on bark next to the blue crystal rock while Moss peeks out of his ball"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch2",
+      "title": "Chapter 2: Do Not Tell Wren",
+      "pages": [
+        {
+          "number": 6,
+          "layout": "art-right",
+          "text": [
+            "First, they went to the big oak. Brindle was asleep in his sunny spot.",
+            "Tansy held up the rock, and Brindle opened one eye. Then he opened the other eye.",
+            "“Well, well,” he said slowly. “Old dogs have seen many rocks. None of them had stars.”",
+            "“Do not tell Wren,” said Tansy.",
+            "“I will not,” said Brindle. “Old dogs are good at secrets. We nap before we tell.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-06.webp",
+              "alt": "Brindle opens his eyes under the big oak as Tansy holds up the crystal rock, with Moss and Puddle beside her"
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "layout": "art-left",
+          "text": [
+            "Next, they went to the log. Pip and Pebble ran out to see.",
+            "“It is blue,” said Pip.",
+            "“It is not blue,” said Pebble. “It is sky blue.”",
+            "“Sky blue IS blue!” said Pip.",
+            "“Do not tell Wren!” said Tansy.",
+            "“We will not,” said Pip and Pebble.",
+            "“I said it first,” said Pip.",
+            "“No, I did,” said Pebble."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-07.webp",
+              "alt": "Pip and Pebble argue in front of their log while Tansy shows them the crystal rock"
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "layout": "art-right",
+          "text": [
+            "Echo was up on the gate, napping. Or he was acting like it.",
+            "“Echo, look!” said Tansy.",
+            "“A rock is just a rock, Nutty,” said Echo. But he sneaked a peek. Then a long look.",
+            "“Fine,” he said. “It is a very good rock. It would look great in my satchel.”",
+            "“No!” said Tansy. “And do not tell Wren!”",
+            "“Tell who?” said Echo. “I am napping.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-08.webp",
+              "alt": "Echo lies on the gate pretending to nap while peeking at the crystal rock Tansy holds up"
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "layout": "art-left",
+          "text": [
+            "Leo was on the hill, munching grass. He held his wish ball up next to the crystals. Blue and blue. Glow and glow.",
+            "“Hey!” said Leo. “What did the big rock say to the little rock?”",
+            "Moss knew this one. Everyone knew this one.",
+            "“Nothing!” said Leo. “Rocks can’t talk!” He laughed so hard he fell over.",
+            "“Do not tell Wren,” said Tansy.",
+            "“Rocks can’t talk,” said Leo, “and Leo can’t tell!”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-09.webp",
+              "alt": "Leo holds his glowing blue wish ball next to the glowing blue crystals while Moss, Tansy and Puddle watch"
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "layout": "art-right",
+          "text": [
+            "The parrots were at their gold tree. June and Johnafur looked at the rock.",
+            "“A rock with stars, a rock of blue!” said June.",
+            "“We will not tell, we promise you!” said Johnafur.",
+            "Juneafur blew a bubble. “A wock! A wock!” she said. Pop!",
+            "“Not a peep to Wren from us!” sang June and Johnafur.",
+            "“Not a peep, and not a fuss!”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-10.webp",
+              "alt": "The parrot family admires the crystal rock by their gold tree while Juneafur blows bubbles"
+            }
+          ]
+        },
+        {
+          "number": 11,
+          "layout": "art-left",
+          "text": [
+            "By lunch, everyone in the Hollow knew about the rock.",
+            "Brindle knew, and Pip and Pebble knew. Echo knew, Leo knew, and the parrots knew.",
+            "Everyone knew but one small bird.",
+            "“Step one is done,” said Tansy. “Now for step two.”",
+            "Moss looked up at the trees. “Wren will be so happy,” he said.",
+            "Tansy was not so sure."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-11.webp",
+              "alt": "Moss, Tansy and Puddle walk back with the crystal rock, and Moss looks up at the trees"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch3",
+      "title": "Chapter 3: Very, Very Last",
+      "pages": [
+        {
+          "number": 12,
+          "layout": "art-right",
+          "text": [
+            "Wren was up in a tree, singing a song about a cloud.",
+            "“Wren!” said Tansy. “We have news!”",
+            "Wren zipped down so fast she did a flip.",
+            "“News? I LOVE news! News is my best thing!”",
+            "“What is it? Is it big? Is it huge? Tell me, tell me, tell me!”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-12.webp",
+              "alt": "Wren zips down from a tree with a flip toward Moss, Tansy and Puddle"
+            }
+          ]
+        },
+        {
+          "number": 13,
+          "layout": "art-left",
+          "text": [
+            "Moss held up the rock. The crystals glinted in the sun.",
+            "Wren’s eyes went very round. Her beak went very open.",
+            "“Oh my feathers,” she said. “Who else knows?”",
+            "Tansy looked at Moss, and Moss looked at Puddle. Puddle looked at a leaf.",
+            "“Um,” said Tansy. “Well…”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-13.webp",
+              "alt": "Wren stares wide-eyed at the crystal rock Moss holds up while Tansy and Puddle look away"
+            }
+          ]
+        },
+        {
+          "number": 14,
+          "layout": "art-right",
+          "text": [
+            "But Wren did not wait. “Hold on!” she sang. “This is BREAKING NEWS!”",
+            "And off she went. Zip, zoom, up and away.",
+            "“Wait!” said Tansy. “Wren! They all—”",
+            "But Wren was long gone.",
+            "Moss sat down on the bank. “Uh oh,” he said. “I think the plan just got a lot bigger.”",
+            "Puddle was still looking at the leaf."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-14.webp",
+              "alt": "Wren zooms away over the hill while Tansy calls after her and Moss sits down on the bank"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch4",
+      "title": "Chapter 4: Breaking News!",
+      "pages": [
+        {
+          "number": 15,
+          "layout": "art-left",
+          "text": [
+            "Wren landed on the big oak, just over Brindle’s nose.",
+            "“BREAKING NEWS! BREAKING NEWS!”",
+            "Brindle opened one sleepy eye and looked at her.",
+            "“Moss found a rock!” said Wren. “And it is full of stars!”",
+            "“I know,” said Brindle.",
+            "Wren blinked. “You know about the rock?”",
+            "“I know,” said Brindle, and he shut his eye again."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-15.webp",
+              "alt": "Wren shouts her news at Brindle, who opens one sleepy eye under the big oak"
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "layout": "art-right",
+          "text": [
+            "Wren zipped over to the log by the stream.",
+            "“BREAKING NEWS! The rock is as big as a barn!”",
+            "“No, it is not,” said Pip. “It is as big as a duck.”",
+            "“It is as big as a hat,” said Pebble.",
+            "“A duck in a hat,” said Pip, and they both nodded.",
+            "“We know,” said Pip and Pebble. “We saw it.”",
+            "Wren’s feathers drooped, just a bit."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-16.webp",
+              "alt": "Wren spreads her news at the log while Pip and Pebble shrug"
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "layout": "art-left",
+          "text": [
+            "Wren zipped over to the gate, as fast as she could.",
+            "“BREAKING NEWS! A duck made the rock! With his feet!”",
+            "Echo did not open his eyes. “Old news, Beaky.”",
+            "“But I made up the duck part!” said Wren.",
+            "“Still old,” said Echo, and he went on napping."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-17.webp",
+              "alt": "Wren yells at Echo on the gate, and Echo keeps his eyes shut"
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "layout": "art-right",
+          "text": [
+            "Wren zipped up the hill to find Leo.",
+            "“BREAKING NEWS! The rock can TALK!”",
+            "Leo sat up. “Rocks can’t talk!” he said. “That is my joke!”",
+            "“Is it old news too?” asked Wren.",
+            "“Very old,” said Leo. “I tell it each day.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-18.webp",
+              "alt": "Wren tells her news to Leo on the hill, and Leo sits up grinning"
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "layout": "art-left",
+          "text": [
+            "Wren zipped to the gold tree. “BREAKING—”",
+            "“Old news, old news, we know it too!” sang June and Johnafur.",
+            "“The rock is gray, the stars are blue!”",
+            "Juneafur blew a bubble at Wren. Pop!",
+            "“Old news!” said Juneafur.",
+            "Wren sat down on a twig, and she did not sing."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-19.webp",
+              "alt": "The parrot family sings back at Wren by the gold tree while a bubble pops on her beak"
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "layout": "art-right",
+          "text": [
+            "Then Wren saw the giant. It was Zoe, with her feed bucket.",
+            "Wren had one last try. “BREAKING NEWS!” she sang. “Moss found a rock full of stars!”",
+            "Zoe grinned. “What a pretty song, little bird,” she said.",
+            "“At last!” said Wren. “Someone who did not know!”",
+            "Zoe hummed and went on her way. She did not know one bit of it."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-20.webp",
+              "alt": "Wren sings her news to Zoe, who smiles down at her with a feed bucket"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch5",
+      "title": "Chapter 5: The Real News",
+      "pages": [
+        {
+          "number": 21,
+          "layout": "art-left",
+          "text": [
+            "Wren went back to the stream. She sat on a reed and looked at her feet.",
+            "Moss sat next to her. He did not talk at first. Moss never talks at first.",
+            "“We told you last,” he said at last. “Because you tell it so big.”",
+            "“Big is the best part,” said Wren, very small."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-21.webp",
+              "alt": "Wren sits sadly on a reed by the stream as Moss sits down next to her"
+            }
+          ]
+        },
+        {
+          "number": 22,
+          "layout": "art-right",
+          "text": [
+            "“And last is the worst part,” said Wren. “When you are last, there is no one left to tell.”",
+            "Tansy looked at her plan. “Hmm,” she said. “Step two was a bad step.”",
+            "Moss nodded. “Next time, you can be first.”",
+            "Wren sniffed. “There will not be a next time. Rocks with stars do not come in twos.”"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-22.webp",
+              "alt": "Tansy frowns at her plan while Moss and Wren sit by the stream"
+            }
+          ]
+        },
+        {
+          "number": 23,
+          "layout": "art-left",
+          "text": [
+            "Then Puddle stood up. He had been looking at a leaf this whole time.",
+            "And he had been sitting on something. Something round. Something gray. Something lumpy.",
+            "Wren looked at it. Wren looked at Puddle. Her feathers stood up.",
+            "“BREAKING NEWS!” she sang. “Puddle was sitting on a SECOND ONE!”",
+            "“I was?” said Puddle, and he looked down at it."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-23.webp",
+              "alt": "Puddle stands up to show a second lumpy rock under him, and Wren puffs up with excitement"
+            }
+          ]
+        },
+        {
+          "number": 24,
+          "layout": "art-right",
+          "text": [
+            "“We did NOT know that!” said Moss and Tansy.",
+            "Wren puffed up so big, she was round.",
+            "“Then it is REAL news! First news! Best news!”",
+            "Off she zipped to tell the whole Hollow.",
+            "And this time, not one friend said, “We know.”",
+            "They all ran to the stream to see."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-24.webp",
+              "alt": "Wren zooms off over the Hollow, and her friends run toward the stream"
+            }
+          ]
+        },
+        {
+          "number": 25,
+          "layout": "art-left",
+          "text": [
+            "Puddle gave the rock a bump. CRACK!",
+            "Inside, the crystals were pink.",
+            "“Breaking news,” said Wren. “This one is as big as a BARN!”",
+            "It was as big as an acorn. A small one.",
+            "Everyone laughed, and Wren laughed the most of all."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "books/acorn-007/images/page-25.webp",
+              "alt": "The whole Hollow gathers around a tiny rock split open with pink crystals, and everyone laughs"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "quiz": {
+    "instructions": "Tap an answer. Tap the speaker to hear the question. You can try as many times as you like!",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "recall",
+        "prompt": "What was inside the odd rock?",
+        "choices": [
+          "Acorns",
+          "Blue crystals",
+          "A frog"
+        ],
+        "answerIndex": 1,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/moss.webp",
+            "line": "Yes. Tiny blue stars."
+          },
+          "tryAgain": {
+            "character": "images/web/characters/puddle.webp",
+            "line": "Hmm. I was looking at a bug. Try again!"
+          }
+        }
+      },
+      {
+        "id": "q2",
+        "type": "recall",
+        "prompt": "Who did they tell last?",
+        "choices": [
+          "Brindle",
+          "Wren",
+          "Leo"
+        ],
+        "answerIndex": 1,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/wren.webp",
+            "line": "Breaking news! It was me!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/tansy.webp",
+            "line": "No, no! Step two! Try again!"
+          }
+        }
+      },
+      {
+        "id": "q3",
+        "type": "recall",
+        "prompt": "What did the Hollow say when Wren told them the news?",
+        "choices": [
+          "We know!",
+          "Tell me more!",
+          "Is it big?"
+        ],
+        "answerIndex": 0,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/echo.webp",
+            "line": "Old news, Beaky. I mean, yes!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/brindle.webp",
+            "line": "Hmm. I said it with one eye open. Try again."
+          }
+        }
+      },
+      {
+        "id": "q4",
+        "type": "recall",
+        "prompt": "Who did NOT know about the rock?",
+        "choices": [
+          "Leo",
+          "The parrots",
+          "Zoe"
+        ],
+        "answerIndex": 2,
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/zoe.webp",
+            "line": "What a pretty song, little bird!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/leo.webp",
+            "line": "Rocks can’t talk! Try again!"
+          }
+        }
+      },
+      {
+        "id": "q5",
+        "type": "think",
+        "prompt": "If you found a rock of stars, who would you tell first?",
+        "choices": [
+          "My mom or dad",
+          "My best friend",
+          "Wren!"
+        ],
+        "reactions": {
+          "correct": {
+            "character": "images/web/characters/wren.webp",
+            "line": "Pick me! I tell it BIG!"
+          },
+          "tryAgain": {
+            "character": "images/web/characters/wren.webp",
+            "line": "Pick me! I tell it BIG!"
+          }
+        }
+      }
+    ]
+  }
+}

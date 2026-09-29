@@ -54,6 +54,14 @@
       "subtitle": "One hundred nuts. One old dog. Zero luck.",
       "path": "./books/acorn-006/book.json",
       "circleIcon": "images/web/circles/circle-acorn.webp"
+    },
+    {
+      "circle": "Acorn",
+      "bookId": "acorn-007",
+      "title": "Breaking News!",
+      "subtitle": "Tell the whole Hollow. Tell Wren last.",
+      "path": "./books/acorn-007/book.json",
+      "circleIcon": "images/web/circles/circle-acorn.webp"
     }
   ]
 }

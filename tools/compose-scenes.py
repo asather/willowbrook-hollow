@@ -1120,6 +1120,103 @@ def el_bone(img, d, e):
         mx, my = pt(s * (-0.3 + k * 0.2), s * 0.04 * (k % 2))
         d.ellipse([mx - P(4), my - P(3), mx + P(4), my + P(3)], fill=(126, 88, 56))
 
+CRYSTAL = {
+    "blue": [(92, 150, 214), (132, 188, 236), (70, 118, 190), (176, 216, 244), (104, 170, 226)],
+    "pink": [(226, 128, 170), (242, 170, 200), (204, 98, 148), (250, 206, 222), (232, 146, 186)],
+}
+
+def _sparkle(d, x, y, r, color=(255, 255, 255)):
+    """A four-point twinkle."""
+    d.polygon([(x, y - r), (x + r * 0.22, y - r * 0.22), (x + r, y), (x + r * 0.22, y + r * 0.22),
+               (x, y + r), (x - r * 0.22, y + r * 0.22), (x - r, y), (x - r * 0.22, y - r * 0.22)], fill=color)
+
+def el_crystal_rock(img, d, e):
+    """The odd rock (a geode): round, gray and lumpy outside, full of crystals inside.
+    x, y = bottom centre; s = width; open=true shows it split in two halves, the crystal
+    side facing us; color = "blue" or "pink"; sparkle = number of twinkles (open only);
+    shadow=false for a rock someone is holding up."""
+    x, y, s = P(e["x"]), P(e["y"]), P(e.get("s", 120))
+    rnd = random.Random(e.get("seed", 7))
+    if e.get("shadow", True):
+        sh = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        ImageDraw.Draw(sh).ellipse([x - s * 0.6, y - P(8), x + s * 0.6, y + P(8)], fill=(40, 40, 20, 60))
+        img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(P(4))))
+        d = ImageDraw.Draw(img)
+    def lump(cx, cy, rx, ry, seed):
+        r2 = random.Random(seed)
+        pts = []
+        for k in range(28):
+            a = 2 * math.pi * k / 28
+            f = 1 + r2.uniform(-0.07, 0.07)
+            pts.append((cx + math.cos(a) * rx * f, cy + math.sin(a) * ry * f))
+        return pts
+    if not e.get("open"):
+        rx, ry = s / 2, s * 0.42
+        cy = y - ry
+        d.polygon(lump(x, cy, rx, ry, 3), fill=ROCK, outline=ROCK_DARK)
+        d.line(lump(x, cy, rx, ry, 3) + [lump(x, cy, rx, ry, 3)[0]], fill=ROCK_DARK, width=P(3))
+        for _ in range(14):                                  # bumps and speckles
+            bx, by = x + rnd.uniform(-rx * 0.7, rx * 0.7), cy + rnd.uniform(-ry * 0.6, ry * 0.6)
+            br = rnd.uniform(s * 0.02, s * 0.05)
+            d.ellipse([bx - br, by - br, bx + br, by + br], fill=ROCK_DARK if rnd.random() < 0.5 else (176, 174, 166))
+        d.ellipse([x - rx * 0.55, cy - ry * 0.7, x - rx * 0.15, cy - ry * 0.45], fill=(190, 188, 180))
+        return
+    cols = CRYSTAL[e.get("color", "blue")]
+    for side in (-1, 1):                                     # two halves, cut faces toward us
+        hx = x + side * s * 0.29
+        rx, ry = s * 0.3, s * 0.34
+        cy = y - ry
+        outer = lump(hx, cy, rx, ry, 5 + side)
+        d.polygon(outer, fill=ROCK)
+        d.line(outer + [outer[0]], fill=ROCK_DARK, width=P(3))
+        for _ in range(5):                                   # speckles on the rough shell
+            a = rnd.uniform(0, 2 * math.pi)
+            bx, by = hx + math.cos(a) * rx * 0.88, cy + math.sin(a) * ry * 0.88
+            d.ellipse([bx - s * 0.015, by - s * 0.015, bx + s * 0.015, by + s * 0.015], fill=ROCK_DARK)
+        # a pale band of quartz, then the hollow full of crystals
+        band = lump(hx + side * rx * 0.04, cy - ry * 0.02, rx * 0.8, ry * 0.78, 9 + side)
+        d.polygon(band, fill=(240, 238, 232))
+        cav = lump(hx + side * rx * 0.05, cy - ry * 0.03, rx * 0.68, ry * 0.66, 13 + side)
+        d.polygon(cav, fill=cols[2])
+        ccx, ccy = hx + side * rx * 0.05, cy - ry * 0.03
+        shards = []
+        for _ in range(40):                                  # crystal points of all sizes
+            a = rnd.uniform(0, 2 * math.pi)
+            dist = rnd.uniform(0.15, 0.62)
+            bx, by = ccx + math.cos(a) * rx * dist, ccy + math.sin(a) * ry * dist
+            L = s * rnd.uniform(0.05, 0.1)
+            ang = a + math.pi + rnd.uniform(-0.6, 0.6)       # points lean in toward the middle
+            wdt = L * 0.42
+            tip = (bx + math.cos(ang) * L, by + math.sin(ang) * L)
+            nx, ny = -math.sin(ang) * wdt, math.cos(ang) * wdt
+            shards.append((dist, [(bx + nx, by + ny), tip, (bx - nx, by - ny),
+                                  (bx - math.cos(ang) * L * 0.3, by - math.sin(ang) * L * 0.3)]))
+        for _, poly in sorted(shards, key=lambda t: -t[0]):
+            c = rnd.choice([cols[0], cols[1], cols[4], cols[3]])
+            d.polygon(poly, fill=c, outline=cols[2])
+            d.line([poly[1], poly[3]], fill=cols[3], width=P(1))
+    for _ in range(int(e.get("sparkle", 5))):
+        sx = x + rnd.uniform(-s * 0.5, s * 0.5)
+        sy = y - s * 0.34 + rnd.uniform(-s * 0.28, s * 0.26)
+        _sparkle(d, sx, sy, rnd.uniform(s * 0.04, s * 0.08))
+
+def el_shout(img, d, e):
+    """A spiky yellow burst with exclamation marks: someone shouting news (Wren's
+    "BREAKING NEWS!"). x, y = centre; s = size; n = how many marks (1-3). No words."""
+    x, y, s = P(e["x"]), P(e["y"]), P(e.get("s", 90))
+    pts = []
+    for k in range(24):
+        a = 2 * math.pi * k / 24 + 0.1
+        r = s if k % 2 == 0 else s * 0.68
+        pts.append((x + math.cos(a) * r * 1.25, y + math.sin(a) * r * 0.85))
+    d.polygon(pts, fill=(255, 226, 96), outline=(200, 120, 40))
+    d.line(pts + [pts[0]], fill=(200, 120, 40), width=P(3))
+    n = int(e.get("n", 2))
+    for i in range(n):
+        mx = x + (i - (n - 1) / 2) * s * 0.42
+        d.rounded_rectangle([mx - s * 0.09, y - s * 0.5, mx + s * 0.09, y + s * 0.14], radius=s * 0.08, fill=(200, 60, 40))
+        d.ellipse([mx - s * 0.1, y + s * 0.24, mx + s * 0.1, y + s * 0.44], fill=(200, 60, 40))
+
 def el_emblem(img, d, e, circle):
     em = Image.open(ROOT / f"images/web/circles/circle-{circle.lower()}.webp").convert("RGBA")
     s = P(e.get("s", 46))

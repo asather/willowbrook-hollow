@@ -85,6 +85,8 @@ Because characters come from their web copies, they always match the Character B
 | `character` | `id`, `x`, `y`, `h`, `flip`, `rot`, `lie`, `dim`, `dusty`, `noShadow`, `bandana` | A character from `images/web/characters/` (`pip` and `pebble` separately; Pebble always gets her canon ear notch, Brindle his bandana). `lie` lays a figure down on its side, head on our left (napping), without the painted ground patch under its feet. `dusty` (0–1) turns fur dusty gray. `"bandana": false` takes Brindle’s bandana off for scenes where the story has it off |
 | `leaf_pile` | `x`, `y` (ground), `w`, `h`, `n`, `peek`, `seed` | A heap of fall leaves; listed after a character, it buries them (`peek` leaves an ear showing at the top) |
 | `bone` | `x`, `y`, `s`, `rot` | Brindle’s old, muddy bone |
+| `crystal_rock` | `x`, `y` (ground), `s`, `open`, `color` (`blue`, `pink`), `sparkle`, `shadow` | The odd lumpy gray rock from *Breaking News!*; `open` shows it split in two, full of crystals; `"shadow": false` when someone holds it up |
+| `shout` | `x`, `y`, `s`, `n` | A spiky yellow burst with 1–3 exclamation marks (Wren shouting “BREAKING NEWS!”); never any words |
 | `emblem` | `x`, `y`, `s`, `opacity` | The book's Circle symbol (required) |
 
 A story that needs a new place or prop gets a new element: add an `el_{type}` function to `tools/compose-scenes.py` and a row to this table.
